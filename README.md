@@ -25,4 +25,4 @@ Great, thanks! You're more than welcome to do so, please just take a look at [th
 
 ## License
 
-42-toolkit is available under the [GNU General Public License, version 3](COPYING).
+42-toolkit is available under the [GNU General Public License, version 3](LICENSE).
