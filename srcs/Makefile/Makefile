@@ -84,4 +84,4 @@ help	:
 		printf '\033[1;34m%s\t\033[0m⇒ %s\n' "analyze"	"Analyze code but compile nothing"
 		printf '\033[1;34m%s\t\033[0m⇒ %s\n' "every"	"God code"
 
-.PHONY:	clean fclean re debug version analyze every
+.PHONY:	clean fclean re debug analyze every
