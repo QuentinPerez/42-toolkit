@@ -26,9 +26,11 @@ DEBUG	=	-g3 -fno-inline -DD_ERRORS_ON
 OBJDIR	=	.objs
 LISTDIR	=	src
 
+DIRSRC	=	src
+
 EXEC	=	a.out
 
-SRC		=	src/main.c
+SRC		=	$(DIRSRC)/main.c
 
 OBJ		=	$(addprefix $(OBJDIR)/, $(SRC:.c=.o))
 
