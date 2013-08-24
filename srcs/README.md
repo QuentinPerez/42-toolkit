@@ -3,7 +3,8 @@
 
 Tools list:
 
-    - Makefile template
+    - Makefile/	template
+    - vim/		tools for vim
 
 ## License
 
