@@ -3,13 +3,14 @@
 
 Rules:
 
-    - clean
-    - fclean
-    - debug
-    - re
+    - clean		Cleaning all object
+    - fclean	Cleaning all object and executable
+    - debug		Add debug flags
+    - re		Deleting all object and build
 
-    - analyze
-    - every
+    - analyze	Analyze code but compile nothing
+    - every		God code
+    - help		verbose arguments
 
 ## License
 
