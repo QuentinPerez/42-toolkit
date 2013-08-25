@@ -10,7 +10,9 @@ Auto dispatch:
 Vim setting you can source file:
 
     - echo "source /path/to/make_header.vim" >> $HOME/.vimrc
+
 Or you can put file to $HOME/.vim.plugin:
+
     - cp make_header.vim $HOME/.vim/plugin
 
 Export variable env:
