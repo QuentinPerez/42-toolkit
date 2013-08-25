@@ -1,4 +1,4 @@
-42-toolkit	Makefile
+42-toolkit
 ==========
 
 Tools list:
