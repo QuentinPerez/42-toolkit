@@ -9,13 +9,14 @@ Auto dispatch:
 
 Vim setting you can source file:
 
-    - echo "source /path/to/make\_header.vim" >> $HOME/.vimrc
+    - echo "source /path/to/make-header.vim" >> $HOME/.vimrc
 
 Or you can put file to $HOME/.vim.plugin:
 
-    - cp make\_header.vim $HOME/.vim/plugin
+    - cp make-header.vim $HOME/.vim/plugin
 
 Export variable env:
+
     - echo "export MAIL42=YourMail" >> YourProfileFile
     - echo "export USER42=YourUser" >> YourProfileFile
 
