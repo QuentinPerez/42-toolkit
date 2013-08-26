@@ -11,7 +11,7 @@ Vim setting you can source file:
 
     - echo "source /path/to/make-header.vim" >> $HOME/.vimrc
 
-Or you can put file to $HOME/.vim.plugin:
+Or you can put file to $HOME/.vim/plugin:
 
     - cp make-header.vim $HOME/.vim/plugin
 

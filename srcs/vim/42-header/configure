@@ -11,7 +11,7 @@ if [ ! -d $HOME/.vim ]; then
 fi
 
 if [ ! -f $HOME/.vim/plugin/$FILE ]; then
-	printf "Copy $FILE to $HOME/.vim/plugini/n"
+	printf "Copy $FILE to $HOME/.vim/plugin\n"
 	cp $FILE $HOME/.vim/plugin
 fi
 

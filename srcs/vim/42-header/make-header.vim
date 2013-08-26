@@ -85,6 +85,10 @@ endfunction
 
 function!	Update_header()
 	let s:author = system("echo $USER42 | tr -d '\n'")
-	call Insert_header_add_info("Updated", "###   ########.fr       */", 9, 1)
+	let l:pattern = "/*   Updated:"
+	let l:line = getline(9)
+	if match(l:line, l:pattern) != -1
+		call Insert_header_add_info("Updated", "###   ########.fr       */", 9, 1)
+	endif
 	unlet s:author
 endfunction
