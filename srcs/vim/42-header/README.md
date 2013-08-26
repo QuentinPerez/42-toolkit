@@ -3,6 +3,10 @@
 
 This plugin generate header like 42.
 
+<p align="center" >
+	<img src="https://raw.github.com/QuentinPerez/42-toolkit/master/doc/images/header-42.png" alt="header" title="header">
+</p>
+
 Auto dispatch:
 
     - ./configure
@@ -20,9 +24,6 @@ Export variable env:
     - echo "export MAIL42=YourMail" >> YourProfileFile
     - echo "export USER42=YourUser" >> YourProfileFile
 
-<p align="center" >
-	<img src="https://raw.github.com/QuentinPerez/42-toolkit/master/doc/images/header-42.png" alt="header" title="header">
-</p>
 
 ## License
 
