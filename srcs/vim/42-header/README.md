@@ -20,18 +20,9 @@ Export variable env:
     - echo "export MAIL42=YourMail" >> YourProfileFile
     - echo "export USER42=YourUser" >> YourProfileFile
 
-;Example:
-	:/* ************************************************************************** */
-	:/*                                                                            */
-	:/*                                                        :::      ::::::::   */
-	:/*   file.c                                             :+:      :+:    :+:   */
-	:/*                                                    +:+ +:+         +:+     */
-	:/*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
-	:/*                                                +#+#+#+#+#+   +#+           */
-	:/*   Created: 2013/08/26 15:43:21 by qperez            #+#    #+#             */
-	:/*   Updated: 2013/08/26 15:43:21 by qperez           ###   ########.fr       */
-	:/*                                                                            */
-	:/* ************************************************************************** */
+<p align="center" >
+	<img src="https://raw.github.com/QuentinPerez/42-toolkit/master/doc/images/header-42.png" alt="header" title="header">
+</p>
 
 ## License
 
