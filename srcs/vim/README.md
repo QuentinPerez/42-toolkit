@@ -10,6 +10,7 @@ Plugins:
 
     - header		"Make header like 42"
     - generator-h	"Make .h like 42"
+	- speed_open	"Switch between .c and .h"
 
 ## License
 
