@@ -28,7 +28,7 @@ if [ ! -f $HOME/.vim/plugin/$FILE ]; then
 		printf "Couldn't found your profile file\n"
 	fi
 else
-	printf "Do you want update yout $FILE (y/n) ? : "
+	printf "Do you want update your $FILE (y/n) ? : "
 	read ANSWER
 	if [ $ANSWER == "y" ]; then
 		cp $FILE $HOME/.vim/plugin

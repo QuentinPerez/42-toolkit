@@ -18,6 +18,8 @@
  " along with this program.  If not, see <http://www.gnu.org/licenses/>.
  ""
 
+let g:header_42 = 1
+
 autocmd	BufNewFile	*.c	call	Insert_header()
 autocmd	BufWritePre	*.c	call	Update_header()
 
@@ -80,6 +82,7 @@ function!	Insert_header()
 	call Insert_header_add_info("Updated", "###   ########.fr       */", 8, 0)
 	call append(9, "/*                                                                            */")
 	call append(10, "/* ************************************************************************** */")
+	call append(11, "")
 	unlet s:author
 endfunction
 
