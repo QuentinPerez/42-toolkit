@@ -1,6 +1,6 @@
 #! /bin/sh
 
-FILE=generator-h.vim
+FILE=generator_h.vim
 
 if [ ! -d $HOME/.vim ]; then
 	/bin/mkdir $HOME/.vim

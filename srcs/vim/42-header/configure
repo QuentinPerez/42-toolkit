@@ -1,6 +1,6 @@
 #! /bin/sh
 
-FILE=make-header.vim
+FILE=make_header.vim
 PROFILE=""
 
 if [ ! -d $HOME/.vim ]; then
