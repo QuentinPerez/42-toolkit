@@ -13,20 +13,26 @@ fi
 if [ ! -f $HOME/.vim/plugin/$FILE ]; then
 	printf "Copy $FILE to $HOME/.vim/plugin\n"
 	cp $FILE $HOME/.vim/plugin
-fi
-
-if [ $(env | grep "SHELL=/bin/zsh") ]; then
-	PROFILE="$HOME/.zshrc"
-elif [ $(env | grep "SHELL=/bin/bash") ]; then
-	PROFILE="$HOME/.bashrc"
-fi
-
-if [ $PROFILE ]; then
-	printf "Mail : "
-	read MAIL
-	printf "User : "
-	read USER
-	printf "export MAIL42=$MAIL\nexport USER42=$USER\n" >> $PROFILE
+	if [ $(env | grep "SHELL=/bin/zsh") ]; then
+			PROFILE="$HOME/.zshrc"
+	elif [ $(env | grep "SHELL=/bin/bash") ]; then
+			PROFILE="$HOME/.bashrc"
+	fi
+	if [ $PROFILE ]; then
+		printf "Mail : "
+		read MAIL
+		printf "User : "
+		read USER
+		printf "export MAIL42=$MAIL\nexport USER42=$USER\n" >> $PROFILE
+	else
+		printf "Couldn't found your profile file\n"
+	fi
 else
-	printf "Couldn't found your profile file\n"
+	printf "Do you want update yout $FILE (y/n) ? : "
+	read ANSWER
+	if [ $ANSWER == "y" ]; then
+		cp $FILE $HOME/.vim/plugin
+		printf "Updated $FILE\n"
+	fi
 fi
+
