@@ -20,6 +20,21 @@ Export variable env:
     - echo "export MAIL42=YourMail" >> YourProfileFile
     - echo "export USER42=YourUser" >> YourProfileFile
 
+Example:
+<code>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   file.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2013/08/26 15:43:21 by qperez            #+#    #+#             */
+/*   Updated: 2013/08/26 15:43:21 by qperez           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+</code>
+
 ## License
 
 42-toolkit is available under the [GNU General Public License, version 3](LICENSE).
