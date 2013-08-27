@@ -9,7 +9,7 @@ Add to your .vimrc
     - nnoremap <leader>h :call Speed_open("vs")<cr>
     - nnoremap <leader>H :call Speed_open("sp")<cr>
 
-After open file(.c | .h) and if file(.c | .h) exist press in 'NORMAL' mode ',h' or ',H'
+After open file(.c | .h) and if file(.c | .h) exist press in <code>NORMAL</code> mode <code>,h</code> or <code>,H</code>
 
 ## License
 
