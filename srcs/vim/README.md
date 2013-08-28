@@ -1,7 +1,7 @@
 42-toolkit	vim
 ==========
 
-## How to install
+## How to install ?
 
 All plugins are copy to $HOME/.vim/plugin
 

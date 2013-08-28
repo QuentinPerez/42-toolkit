@@ -11,7 +11,7 @@
 
 This plugin generate header like 42.
 
-When you open newfile.c this plugin put header on the top.
+When you open <code>newfile.c</code> this plugin put header on the top.
 
 # Warning
 

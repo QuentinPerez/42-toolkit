@@ -25,6 +25,10 @@ f_str_tools.c:
 	- uf_str_len(const char *str)
 	- Return lenght of string 'str'
 
+## How to use ?
+
+You can see one example [here](https://github.com/QuentinPerez/42-toolkit/tree/master/examples/c/f_string)
+
 ## License
 
 42-toolkit is available under the [GNU General Public License, version 3](LICENSE).

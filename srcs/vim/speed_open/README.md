@@ -11,9 +11,9 @@
 
 This plugin switch between your .h and .c
 
-# How to install
+# How to install ?
 
-Add to your .vimrc
+Add to your <code>.vimrc</code>
 
     - let mapleader = ","
     - nnoremap <leader>h :call Speed_open("vs")<cr>
