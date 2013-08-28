@@ -21,12 +21,13 @@
 function!	Speed_open(split)
 	let l:extension = ""
 	if expand('%:e') ==? "c"
-		let l:extension = "h"
+		let l:extension = ".h"
 	endif
 	if expand('%:e') ==? "h"
-		let l:extension = "c"
+		let l:extension = ".c"
 	endif
-	let	l:file_open = substitute(expand('%:f'), expand('%:e'), l:extension, "g")
+	let l:current_extension = "\\." . expand('%:e')
+	let	l:file_open = substitute(expand('%:f'), l:current_extension, l:extension, "g")
 	let l:cmd = '/usr/bin/basename "' . l:file_open . '" 2> /dev/null | tr -d "\n"'
 	let l:file_open = system(l:cmd)
 	for dir in ["." , ".."]

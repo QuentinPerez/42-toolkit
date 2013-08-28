@@ -9,7 +9,7 @@
 
 # Description
 
-This plugin switch between your .h and .c
+This plugin switch between your <code>.h</code> and <code>.c</code>
 
 # How to install ?
 
