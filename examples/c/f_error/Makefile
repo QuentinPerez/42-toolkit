@@ -1,36 +1,40 @@
-#
-# <Makefile template>
-# Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
-#
-# This file is part of 42-toolkit.
-#
-# 42-toolkit is free software: you can redistribute it and/or modify
-# it under the terms of the GNU General Public License as published by
-# the Free Software Foundation, either version 3 of the License, or
-# (at your option) any later version.
-#
-# This program is distributed in the hope that it will be useful,
-# but WITHOUT ANY WARRANTY; without even the implied warranty of
-# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-# GNU General Public License for more details.
-#
-# You should have received a copy of the GNU General Public License
-# along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
+##
+ # <Makefile template>
+ # Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
+ #
+ # This file is part of 42-toolkit.
+ #
+ # 42-toolkit is free software: you can redistribute it and/or modify
+ # it under the terms of the GNU General Public License as published by
+ # the Free Software Foundation, either version 3 of the License, or
+ # (at your option) any later version.
+ #
+ # This program is distributed in the hope that it will be useful,
+ # but WITHOUT ANY WARRANTY; without even the implied warranty of
+ # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ # GNU General Public License for more details.
+ #
+ # You should have received a copy of the GNU General Public License
+ # along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ ##
 
 CC		=	cc
-CFLAGS	+=	-Wextra -Wall -Werror
+CFLAGS	+=	-Wextra -Wall -Werror -I./include -I./f_string/include -I./f_error/include
 LDFAGS	+=
 DEBUG	=	-g3 -fno-inline -DD_ERRORS_ON
 
 OBJDIR	=	.objs
-LISTDIR	=	src
+LISTDIR	=	f_error f_error/src f_string f_string/src
 
-DIRSRC	=	src
+DIRSRC	=	f_error/src
+DIRSTR	=	f_string/src
 
 EXEC	=	a.out
 
-SRC		=	$(DIRSRC)/main.c
+SRC		=	main.c						\
+			$(DIRSRC)/m_error.c			\
+			$(DIRSTR)/f_print_fd.c		\
+			$(DIRSTR)/f_str_tools.c
 
 OBJ		=	$(addprefix $(OBJDIR)/, $(SRC:.c=.o))
 

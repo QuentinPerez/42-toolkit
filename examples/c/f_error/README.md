@@ -1,11 +1,10 @@
-42-toolkit
+42-toolkit	Example -> C Error Function
 ==========
 
-# Tools list
+# How to use
 
-	- c/		tools in C
-    - Makefile/	template
-    - vim/		tools for vim
+    - make debug
+    - ./a.out
 
 ## License
 

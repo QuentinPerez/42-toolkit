@@ -1,7 +1,7 @@
 42-toolkit	Makefile
 ==========
 
-Rules:
+# Rules
 
     - clean		Cleaning all object
     - fclean	Cleaning all object and executable

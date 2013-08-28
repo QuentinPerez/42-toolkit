@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/28 12:30:46 by qperez            #+#    #+#             */
-/*   Updated: 2013/08/28 16:28:05 by qperez           ###   ########.fr       */
+/*   Updated: 2013/08/28 17:04:33 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	fm_error_v(char nothing, const char *err)
 	(void)err;
 }
 
-void	fm_error_infos(const char *funct, const char *infos)
+void	fm_infos(const char *funct, const char *infos)
 {
 #ifdef	D_ERRORS_ON
 	uf_print_str_fd("\033[1;37m→\t", 1);

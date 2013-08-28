@@ -1,7 +1,11 @@
 42-toolkit	speed_open
 ==========
 
+# Description
+
 This plugin switch between your .h and .c
+
+# How to install
 
 Add to your .vimrc
 
