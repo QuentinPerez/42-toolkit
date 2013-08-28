@@ -1,25 +1,26 @@
 42-toolkit	C Error Function
 ==========
 
-# Preview
+## Preview
 
 <p align="center" >
 	<img src="https://raw.github.com/QuentinPerez/42-toolkit/master/doc/images/m_error.png" alt="m_error" title="m_error">
 </p>
 
-# Function
-    - <code>m_error(const char *str_err, size_t ret_val)</code>
-	- This function print str_err on <code>stderr</code> and return <code>ret_val</code>
+## Function
 
-    - <code>m_error_v(const char *str_err)</code>
-	- This function print str_err on <code>stderr</code>
+	- m_error(const char *str_err, size_t ret_val)
+	- This function print str_err on stderr and return ret_val
+	
+	- m_error_v(const char *str_err)
+	- This function print str_err on stderr
 
-	- <code>m_error_infos(const char *infos)</code>
-	- This function print infos on <code>stdout</code>
+	- m_error_infos(const char *infos)
+	- This function print infos on stdout
 
-# Warning
+## Warning
 
-You should add -DD_ERRORS_ON to CFLAGS or compile in debug with [Makefile]()
+You should add -DD_ERRORS_ON to CFLAGS or compile in debug with [Makefile](https://github.com/QuentinPerez/42-toolkit/tree/master/srcs/Makefile)
 
 ## License
 
