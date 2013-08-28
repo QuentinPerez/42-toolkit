@@ -19,22 +19,20 @@
  ##
 
 CC		=	cc
-CFLAGS	+=	-Wextra -Wall -Werror -I./f_string/include -I./f_error/include
+CFLAGS	+=	-Wextra -Wall -Werror -I./f_string/include
 LDFAGS	+=
 DEBUG	=	-g3 -fno-inline -DD_ERRORS_ON
 
 OBJDIR	=	.objs
-LISTDIR	=	f_error f_error/src f_string f_string/src
+LISTDIR	=	f_string f_string/src
 
-DIRSRC	=	f_error/src
-DIRSTR	=	f_string/src
+DIRSRC	=	f_string/src
 
 EXEC	=	a.out
 
-SRC		=	main.c						\
-			$(DIRSRC)/m_error.c			\
-			$(DIRSTR)/f_print_fd.c		\
-			$(DIRSTR)/f_str_tools.c
+SRC		=	main.c			\
+			$(DIRSRC)/f_print_fd.c		\
+			$(DIRSRC)/f_str_tools.c
 
 OBJ		=	$(addprefix $(OBJDIR)/, $(SRC:.c=.o))
 

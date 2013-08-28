@@ -1,6 +1,12 @@
 42-toolkit	speed_open
 ==========
 
+## Preview
+
+<p align="center" >
+	<img src="https://raw.github.com/QuentinPerez/42-toolkit/master/doc/images/speed_open.png" alt="speed_open" title="speed_open">
+</p>
+
 # Description
 
 This plugin switch between your .h and .c

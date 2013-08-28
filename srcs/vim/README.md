@@ -1,14 +1,14 @@
 42-toolkit	vim
 ==========
 
-# How to install
+## How to install
 
 All plugins are copy to $HOME/.vim/plugin
 
     - cd PluginDirectory
     - ./configure
 
-# Plugins
+## Plugins
 
     - header		"Make header like 42"
     - generator-h	"Make .h like 42"
