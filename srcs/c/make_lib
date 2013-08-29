@@ -34,7 +34,6 @@ function	fix_header
 {
 	while [ ! -z "$1" ];
 	do
-		echo $1
 		FILE_H=$(find $TMP/$INCLUDE -type f -name "*.h" -exec basename "{}" \;)
 		for NAME_INCLUDE in $(/bin/cat $1 | grep "#include" | sed 's/#include <//g' | sed 's/>//g')
 		do
@@ -54,3 +53,9 @@ function	fix_header
 
 fix_header $(find $TMP/$SRC -type f -name "*.c")
 fix_header $LIST_OF_FILE_H
+
+cat ../../doc/misc/Makefile_part1.txt > $TMP/Makefile
+printf "SRC\t\t=\t" >> $TMP/Makefile
+SRC=$(find $TMP/$SRC -type f -name "*.c" | sed 's/'$TMP'\///g')
+echo $SRC >> $TMP/Makefile
+cat ../../doc/misc/Makefile_part2.txt >> $TMP/Makefile
