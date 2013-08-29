@@ -1,13 +1,18 @@
 42-toolkit	C String Function
 ==========
 
-## Preview
-
-<p align="center" >
-	<img src="https://raw.github.com/QuentinPerez/42-toolkit/master/doc/images/f_string.png" alt="f_string" title="f_string">
-</p>
-
 ## Function
+
+f_print.c:
+
+	- uf_print_char(char c)
+	- Print 'c' on screen
+
+	- uf_print_nbr(int nbr)
+	- Print value of 'nbr' on screen
+
+	- uf_print_str(const char *str)
+	- Print the string 'str' on screen
 
 f_print_fd.c:
 
