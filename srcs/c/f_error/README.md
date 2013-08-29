@@ -22,7 +22,7 @@ m_error.c
 
 ## How to use ?
 
-You can see one example [here](https://github.com/QuentinPerez/42-toolkit/tree/master/examples/c/f_error)
+You can see example [here](https://github.com/QuentinPerez/42-toolkit/tree/master/examples/c/f_error).
 
 ## Warning
 

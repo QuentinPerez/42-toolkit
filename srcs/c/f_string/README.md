@@ -32,7 +32,7 @@ f_str_tools.c:
 
 ## How to use ?
 
-You can see one example [here](https://github.com/QuentinPerez/42-toolkit/tree/master/examples/c/f_string)
+You can see example [here](https://github.com/QuentinPerez/42-toolkit/tree/master/examples/c/f_string).
 
 ## License
 
