@@ -1,0 +1,56 @@
+#! /bin/sh
+
+INCLUDE=include
+SRC=src
+TMP=lib42
+
+if [ -e $TMP ]; then
+	/bin/rm -fr $TMP
+fi
+
+LIST_OF_DIRECTORY=$(find . -type d -d 1)
+
+/bin/mkdir $TMP
+/bin/mkdir $TMP/$INCLUDE
+/bin/mkdir $TMP/$SRC
+
+for NAME_DIR in $LIST_OF_DIRECTORY
+do
+	/bin/mkdir $TMP/$INCLUDE/$NAME_DIR
+	for FILE_H in $(find $NAME_DIR -type f -name "*.h")
+	do
+		cp $FILE_H $TMP/$INCLUDE/$NAME_DIR
+	done
+done
+
+for FILE_C in $(find . -type f -name "*.c")
+do
+	cp $FILE_C $TMP/$SRC
+done
+
+LIST_OF_FILE_H=$(find $TMP/$INCLUDE -type f -name "*.h")
+
+function	fix_header
+{
+	while [ ! -z "$1" ];
+	do
+		echo $1
+		FILE_H=$(find $TMP/$INCLUDE -type f -name "*.h" -exec basename "{}" \;)
+		for NAME_INCLUDE in $(/bin/cat $1 | grep "#include" | sed 's/#include <//g' | sed 's/>//g')
+		do
+			for PATTERN in $FILE_H
+			do
+				if [ $PATTERN == $NAME_INCLUDE ]; then
+					DIR=$(echo $LIST_OF_FILE_H | tr ' ' '\n' | grep "$PATTERN" | sed 's/'$TMP'\/'$INCLUDE'\///g' | sed 's/\//\\\//g')
+					CHANGE=$(echo "#include <$PATTERN>")
+					TO=$(echo "#include <$DIR>")
+					sed -i '' "s/$CHANGE/$TO/g" $1
+				fi
+			done
+		done
+		shift
+	done
+}
+
+fix_header $(find $TMP/$SRC -type f -name "*.c")
+fix_header $LIST_OF_FILE_H
