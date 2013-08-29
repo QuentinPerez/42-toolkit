@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   f_print_fd.h                                       :+:      :+:    :+:   */
+/*   f_print.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/08/28 15:11:46 by qperez            #+#    #+#             */
-/*   Updated: 2013/08/28 15:12:36 by qperez           ###   ########.fr       */
+/*   Created: 2013/08/29 17:32:48 by qperez            #+#    #+#             */
+/*   Updated: 2013/08/29 17:33:37 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains all f_print_fd prototype>
+** <This file contains all f_print function>
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -30,13 +30,14 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef F_PRINT_FD_H
-# define F_PRINT_FD_H
+#ifndef F_PRINT_H
+# define F_PRINT_H
 
+#include <f_print_fd.h>
 #include <unistd.h>
 
-ssize_t	uf_print_char_fd(char c, int fd);
-ssize_t	uf_print_str_fd(const char *str, int fd);
-void	uf_print_nbr_fd(ssize_t nb, int fd);
+ssize_t	uf_print_char(char c);
+ssize_t	uf_print_str(const char *str);
+void	uf_print_nbr(ssize_t nb);
 
 #endif
