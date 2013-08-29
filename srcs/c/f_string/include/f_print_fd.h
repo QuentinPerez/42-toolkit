@@ -30,8 +30,8 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef F_PRINT_H
-# define F_PRINT_H
+#ifndef F_PRINT_FD_H
+# define F_PRINT_FD_H
 
 #include <unistd.h>
 
