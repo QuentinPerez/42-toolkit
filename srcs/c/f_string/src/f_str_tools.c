@@ -6,12 +6,12 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/28 15:09:03 by qperez            #+#    #+#             */
-/*   Updated: 2013/08/28 18:32:10 by qperez           ###   ########.fr       */
+/*   Updated: 2013/08/29 14:10:14 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This function contains all f_str_tools function>
+** <This file contains all f_str_tools function>
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.

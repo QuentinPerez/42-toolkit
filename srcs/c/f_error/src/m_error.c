@@ -6,12 +6,12 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/28 12:30:46 by qperez            #+#    #+#             */
-/*   Updated: 2013/08/28 18:33:22 by qperez           ###   ########.fr       */
+/*   Updated: 2013/08/29 14:09:22 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This function contains all m_error function>
+** <This file contains all m_error function>
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.

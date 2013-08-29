@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 /*
-** <This function contains all m_error prototype>
+** <This file contains all m_error prototype>
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
