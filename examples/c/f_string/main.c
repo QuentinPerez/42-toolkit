@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/28 18:08:55 by qperez            #+#    #+#             */
-/*   Updated: 2013/08/28 18:35:26 by qperez           ###   ########.fr       */
+/*   Updated: 2013/08/30 16:15:06 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,26 @@
 
 #define	D_TEST(funct, param)	printf("== "#funct" ==\n"); funct(param, 1)
 
+#include <stdio.h>
+
 int	main(int argc, const char **argv)
 {
+	char	c;
+	char	*ptr;
+
 	(void)argc;
 	(void)argv;
+	ptr = &c;
 	D_TEST(uf_print_str_fd, "Hello World\n");
 	D_TEST(uf_print_nbr_fd, 42);
 	uf_print_char_fd('\n', 1);
 	D_TEST(uf_print_char_fd, '!');
+	uf_print_char_fd('\n', 1);
+	printf("== uf_print_nbr_base_fd ==\n");
+	uf_print_nbr_base_fd(42, 1, 30);
+	uf_print_char_fd('\n', 1);
+	printf("== uf_print_addr_fd ==\n");
+	uf_print_addr_fd(ptr, 1);
 	uf_print_char_fd('\n', 1);
 	return (0);
 }
