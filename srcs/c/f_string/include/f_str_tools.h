@@ -36,5 +36,6 @@
 #include <stddef.h>
 
 size_t	uf_str_len(const char *str);
+void	uf_print_in_base(char nbr, int fd);
 
 #endif

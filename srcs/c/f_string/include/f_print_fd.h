@@ -38,5 +38,7 @@
 ssize_t	uf_print_char_fd(char c, int fd);
 ssize_t	uf_print_str_fd(const char *str, int fd);
 void	uf_print_nbr_fd(ssize_t nb, int fd);
+void	uf_print_nbr_base_fd(ssize_t nbr, int fd, ssize_t base);
+void	uf_print_addr_fd(void *addr, int fd);
 
 #endif

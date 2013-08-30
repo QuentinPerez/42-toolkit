@@ -8,11 +8,17 @@ f_print.c:
 	- uf_print_char(char c)
 	- Print 'c' on screen
 
-	- uf_print_nbr(int nbr)
+	- uf_print_nbr(ssize_ti nbr)
 	- Print value of 'nbr' on screen
 
 	- uf_print_str(const char *str)
 	- Print the string 'str' on screen
+
+	- uf_print_nbr_base(ssize_t nbr, ssize_t base)
+	- Print value of 'nbr' in 'base' on screen
+
+	- uf_print_addr(void *addr)
+	- Print address 'addr' on screen
 
 f_print_fd.c:
 
@@ -25,10 +31,19 @@ f_print_fd.c:
 	- uf_print_str_fd(const char *str, int fd)
 	- Print the string 'str' on out fd
 
+	- uf_print_nbr_base_fd(ssize_t nbr, ssize_t base)
+	- Print value of 'nbr' in 'base' on out fd
+
+	- uf_print_addr_fd(void *addr)
+	- Print address 'addr' on out fd
+
 f_str_tools.c:
 
 	- uf_str_len(const char *str)
 	- Return lenght of string 'str'
+
+	- uf_print_in_base(char nbr, int fd)
+	- Tools for print value in good base
 
 ## How to use ?
 

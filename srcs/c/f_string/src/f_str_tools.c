@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/28 15:09:03 by qperez            #+#    #+#             */
-/*   Updated: 2013/08/29 14:10:14 by qperez           ###   ########.fr       */
+/*   Updated: 2013/08/30 16:13:11 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,8 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <f_string/f_str_tools.h>
+#include <f_str_tools.h>
+#include <f_print_fd.h>
 
 size_t	uf_str_len(const char *str)
 {
@@ -42,4 +43,13 @@ size_t	uf_str_len(const char *str)
 		len = len + 1;
 	}
 	return (len);
+}
+
+void	uf_print_in_base(char nbr, int fd)
+{
+	if (nbr < 10)
+		nbr = nbr + '0';
+	else
+		nbr = nbr + 'a' - 10;
+	uf_print_char_fd(nbr, fd);
 }

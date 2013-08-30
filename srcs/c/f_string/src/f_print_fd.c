@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/28 15:06:45 by qperez            #+#    #+#             */
-/*   Updated: 2013/08/29 17:31:00 by qperez           ###   ########.fr       */
+/*   Updated: 2013/08/30 16:04:05 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,21 +43,43 @@ ssize_t	uf_print_str_fd(const char *str, int fd)
 	return (write(fd, str, uf_str_len(str)));
 }
 
-void	uf_print_nbr_fd(ssize_t nbr, int fd)
+void	uf_print_nbr_base_fd(ssize_t nbr, int fd, ssize_t base)
 {
 	ssize_t	digit;
 
 	digit = 1;
-	while ((nbr / digit) >= 10 || (nbr / digit) <= -10)
-		digit = digit * 10;
+	while ((nbr / digit) >= base || (nbr / digit) <= -base)
+		digit = digit * base;
 	if (nbr < 0)
+	{
 		uf_print_char_fd('-', fd);
+		nbr = -nbr;
+	}
 	while (digit > 0)
 	{
-		if (nbr < 0)
-			uf_print_char_fd(nbr / digit % 10 * - 1 + '0', fd);
-		else
-			uf_print_char_fd(nbr / digit % 10 + '0', fd);
-		digit = digit / 10;
+		uf_print_in_base(nbr / digit % base, fd);
+		digit = digit / base;
+	}
+}
+
+void	uf_print_nbr_fd(ssize_t nbr, int fd)
+{
+	uf_print_nbr_base_fd(nbr, fd, 10);
+}
+
+void	uf_print_addr_fd(void *addr, int fd)
+{
+	size_t	nbr;
+	ssize_t	digit;
+
+	digit = 1;
+	nbr = (size_t)addr;
+	while ((nbr / digit) >= 16)
+		digit = digit * 16;
+	uf_print_str_fd("0x", fd);
+	while (digit > 0)
+	{
+		uf_print_in_base(nbr / digit % 16, fd);
+		digit = digit / 16;
 	}
 }
