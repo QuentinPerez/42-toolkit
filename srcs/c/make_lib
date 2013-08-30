@@ -16,11 +16,19 @@ LIST_OF_DIRECTORY=$(find . -type d -d 1)
 
 for NAME_DIR in $LIST_OF_DIRECTORY
 do
-	/bin/mkdir $TMP/$INCLUDE/$NAME_DIR
-	for FILE_H in $(find $NAME_DIR -type f -name "*.h")
-	do
-		cp $FILE_H $TMP/$INCLUDE/$NAME_DIR
-	done
+	LIST_OF_INCLUDE=$(find $NAME_DIR -type f -name "*.h")
+	if [ $NAME_DIR == "./include" ]; then
+		for FILE_H in $LIST_OF_INCLUDE
+		do
+			cp $FILE_H $TMP/$INCLUDE
+		done
+	else
+		/bin/mkdir $TMP/$INCLUDE/$NAME_DIR
+		for FILE_H in $LIST_OF_INCLUDE
+		do
+			cp $FILE_H $TMP/$INCLUDE/$NAME_DIR
+		done
+	fi
 done
 
 for FILE_C in $(find . -type f -name "*.c")
