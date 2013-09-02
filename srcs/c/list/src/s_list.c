@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/28 20:52:06 by qperez            #+#    #+#             */
-/*   Updated: 2013/08/31 10:06:38 by qperez           ###   ########.fr       */
+/*   Updated: 2013/09/02 18:00:56 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,14 @@
 #include <s_list.h>
 #include <stddef.h>
 #include <f_print.h>
+#include <stdlib.h>
 
-void		f_list_init(t_list *v_this)
+void		f_list_init(t_list *v_this, void (*funct_free)(void *data))
 {
 	v_this->v_begin = NULL;
 	v_this->v_end = NULL;
 	v_this->v_size = 0;
+	v_this->v_funct_free = funct_free;
 }
 
 inline void	f_list_print_addr(t_list *v_this)
@@ -64,4 +66,27 @@ inline void	f_list_print_addr(t_list *v_this)
 		uf_print_str("\n\033[0m");
 		current = current->v_next;
 	}
+}
+
+void	f_list_clear(t_list *v_this)
+{
+	t_cell	*cur;
+	t_cell	*del;
+
+	cur = v_this->v_begin;
+	while (cur != NULL)
+	{
+		del = cur;
+		cur = cur->v_next;
+		if (v_this->v_funct_free != NULL)
+			v_this->v_funct_free(del->v_data);
+		free(del);
+	}
+	D_LIST(init)(v_this, v_this->v_funct_free);
+}
+
+void	f_list_destroy(t_list *v_this)
+{
+	D_LIST(clear)(v_this);
+	v_this->v_funct_free = NULL;
 }

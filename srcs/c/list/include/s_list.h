@@ -41,11 +41,12 @@ typedef struct	s_list
 	t_cell	*v_begin;
 	t_cell	*v_end;
 	uint	v_size;
+	void	(*v_funct_free)(void *data);
 }				t_list;
 
 # define D_LIST(funct)	f_list_##funct
 
-void	f_list_init(t_list *v_this);
+void	f_list_init(t_list *v_this, void (*v_funct_free)(void *data));
 bool	f_list_empty(t_list *v_this);
 uint	f_list_size(t_list *v_this);
 void	f_list_print_addr(t_list *v_this);
@@ -53,5 +54,7 @@ bool	f_list_push_back(t_list *v_this, void *data);
 bool	f_list_push_front(t_list *v_this, void *data);
 bool	f_list_foreach(t_list *v_this, bool (*funct)(void *value));
 void	f_list_reverse(t_list *v_this);
+void	f_list_clear(t_list *v_this);
+void	f_list_destroy(t_list *v_this);
 
 #endif
