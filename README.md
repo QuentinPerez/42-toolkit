@@ -1,7 +1,7 @@
 42-toolkit
 ==========
 
-It's lot of dev tools.
+There are lots of dev Tools.
 
 ## Contributing
 
@@ -9,11 +9,11 @@ It's lot of dev tools.
 
 We're glad you did, and certainly would like to know more! Please use the [issues tracker](https://github.com/QuentinPerez/42-toolkit/issues) to report it.
 
-While you're at it, feel free to share your thoughts, requests, feedback... on that same [tracker](https://github.com/QuentinPerez/42-toolkit/issues)!
+You can share your thoughts, requests, feedback on that same [tracker](https://github.com/QuentinPerez/42-toolkit/issues)!
 
 ### I'm a dev, I can help!
 
-Great, thanks! You're more than welcome to do so, please just take a look at [these guidelines](CONTRIBUTING.md) first.
+Welcome, First just take a look at [these guidelines](CONTRIBUTING.md).
 
 ## Who's behind it?
 

@@ -7,9 +7,9 @@ Contributing
 
 Please refer to existing code and try to keep the same coding style as the one currently used.
 
-If you have any doubt, feel free to ask any question in the [issues tracker](https://github.com/QuentinPerez/42-toolkit/issues)
+For any questions use the [issues tracker](https://github.com/QuentinPerez/42-toolkit/issues)
 
-Also, keep in mind: **a function should do one thing, and it should do it well**.
+Remenber: **a function should do one thing, and it should do it well**.
 
 ## Commits
 
@@ -17,11 +17,11 @@ Also, keep in mind: **a function should do one thing, and it should do it well**
 
 A few things:
 
-* If you're planning to implement a new feature, it is probably a good idea to talk about it on the [tracker](https://github.com/QuentinPerez/42-toolkit/issues) before you start coding
-* In general, if you're not 100% sure that what you're doing should be in the project, [talk about it](https://github.com/QuentinPerez/42-toolkit/issues)!
-* Please never commit code that cannot compile, even if this commit is in the middle of your branch and noone will ever notice it. Please.
-* **A commit should do one thing, and it should do it well**
-* **A branch name should state clearly what that branch does**
+*If you're intent to implement a new feature, it is better to talk about it, to the [tracker](https://github.com/QuentinPerez/42-toolkit/issues) before.
+* Usually you're not 100% sure if what you're doing should be in the project or not, then [just ask](https://github.com/QuentinPerez/42-toolkit/issues)!
+* Please never commit code that cannot compile, even if this commit is in the middle of your branch and no one will ever notice it. Please.
+* **A commit has to do only one thing, and has to do it well**
+* **A branch name has to state clearly what it does**
 
 ### How do I commit?
 
