@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/28 20:52:06 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/02 21:24:44 by qperez           ###   ########.fr       */
+/*   Updated: 2013/09/02 22:35:20 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void		f_list_init(t_list *v_this, void (*funct_destroy)(void *data))
 	v_this->v_funct_destroy = funct_destroy;
 }
 
-inline void	f_list_print_addr(t_list *v_this)
+inline void	f_list_print_addr(const t_list *v_this)
 {
 	t_cell	*current;
 
@@ -68,7 +68,7 @@ inline void	f_list_print_addr(t_list *v_this)
 	}
 }
 
-void	f_list_clear(t_list *v_this)
+void		f_list_clear(t_list *v_this)
 {
 	t_cell	*cur;
 	t_cell	*del;
@@ -85,7 +85,7 @@ void	f_list_clear(t_list *v_this)
 	D_LIST(init)(v_this, v_this->v_funct_destroy);
 }
 
-void	f_list_destroy(t_list *v_this)
+void		f_list_destroy(t_list *v_this)
 {
 	D_LIST(clear)(v_this);
 	v_this->v_funct_destroy = NULL;

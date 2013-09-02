@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/30 17:48:19 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/02 21:39:22 by qperez           ###   ########.fr       */
+/*   Updated: 2013/09/02 22:25:27 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,12 +66,9 @@ bool	f_list_push_front(t_list *v_this, void *data)
 	return (true);
 }
 
-void	*f_list_pop_back(t_list *v_this)
+void	f_list_pop_back(t_list *v_this)
 {
-	t_cell	*end;
-
-	end = v_this->v_end;
-	if (end != NULL)
+	if (v_this->v_end != NULL)
 	{
 		v_this->v_end = v_this->v_end->v_prev;
 		v_this->v_size = v_this->v_size - 1;
@@ -80,15 +77,11 @@ void	*f_list_pop_back(t_list *v_this)
 		else
 			v_this->v_begin = NULL;
 	}
-	return (end);
 }
 
-void	*f_list_pop_front(t_list *v_this)
+void	f_list_pop_front(t_list *v_this)
 {
-	t_cell	*begin;
-
-	begin = v_this->v_begin;
-	if (begin != NULL)
+	if (v_this->v_begin != NULL)
 	{
 		v_this->v_begin = v_this->v_begin->v_next;
 		v_this->v_size = v_this->v_size - 1;
@@ -97,5 +90,4 @@ void	*f_list_pop_front(t_list *v_this)
 		else
 			v_this->v_end = NULL;
 	}
-	return (begin);
 }
