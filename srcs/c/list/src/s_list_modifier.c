@@ -6,13 +6,13 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/30 17:48:19 by qperez            #+#    #+#             */
-/*   Updated: 2013/08/31 16:51:42 by qperez           ###   ########.fr       */
+/*   Updated: 2013/09/02 21:39:22 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 ** <This function contains all s_list_modifier method>
-** < push_back, push_front >
+** < push_back, push_front, pop_back, pop_front >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -64,4 +64,38 @@ bool	f_list_push_front(t_list *v_this, void *data)
 	v_this->v_begin = cell;
 	v_this->v_size = v_this->v_size + 1;
 	return (true);
+}
+
+void	*f_list_pop_back(t_list *v_this)
+{
+	t_cell	*end;
+
+	end = v_this->v_end;
+	if (end != NULL)
+	{
+		v_this->v_end = v_this->v_end->v_prev;
+		v_this->v_size = v_this->v_size - 1;
+		if (v_this->v_end != NULL)
+			v_this->v_end->v_next = NULL;
+		else
+			v_this->v_begin = NULL;
+	}
+	return (end);
+}
+
+void	*f_list_pop_front(t_list *v_this)
+{
+	t_cell	*begin;
+
+	begin = v_this->v_begin;
+	if (begin != NULL)
+	{
+		v_this->v_begin = v_this->v_begin->v_next;
+		v_this->v_size = v_this->v_size - 1;
+		if (v_this->v_begin != NULL)
+			v_this->v_begin->v_prev = NULL;
+		else
+			v_this->v_end = NULL;
+	}
+	return (begin);
 }

@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/28 20:52:06 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/02 18:00:56 by qperez           ###   ########.fr       */
+/*   Updated: 2013/09/02 21:24:44 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,12 @@
 #include <f_print.h>
 #include <stdlib.h>
 
-void		f_list_init(t_list *v_this, void (*funct_free)(void *data))
+void		f_list_init(t_list *v_this, void (*funct_destroy)(void *data))
 {
 	v_this->v_begin = NULL;
 	v_this->v_end = NULL;
 	v_this->v_size = 0;
-	v_this->v_funct_free = funct_free;
+	v_this->v_funct_destroy = funct_destroy;
 }
 
 inline void	f_list_print_addr(t_list *v_this)
@@ -50,7 +50,7 @@ inline void	f_list_print_addr(t_list *v_this)
 
 	uf_print_str("Begin : ");
 	uf_print_addr(v_this->v_begin);
-	uf_print_str("End : ");
+	uf_print_str("\tEnd : ");
 	uf_print_addr(v_this->v_end);
 	uf_print_str("\n");
 	current = v_this->v_begin;
@@ -78,15 +78,15 @@ void	f_list_clear(t_list *v_this)
 	{
 		del = cur;
 		cur = cur->v_next;
-		if (v_this->v_funct_free != NULL)
-			v_this->v_funct_free(del->v_data);
+		if (v_this->v_funct_destroy != NULL)
+			v_this->v_funct_destroy(del->v_data);
 		free(del);
 	}
-	D_LIST(init)(v_this, v_this->v_funct_free);
+	D_LIST(init)(v_this, v_this->v_funct_destroy);
 }
 
 void	f_list_destroy(t_list *v_this)
 {
 	D_LIST(clear)(v_this);
-	v_this->v_funct_free = NULL;
+	v_this->v_funct_destroy = NULL;
 }
