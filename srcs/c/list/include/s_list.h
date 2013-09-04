@@ -49,6 +49,9 @@ typedef struct	s_list
 void	f_list_init(t_list *v_this, void (*v_funct_destroy)(void *data));
 bool	f_list_empty(const t_list *v_this);
 uint	f_list_size(const t_list *v_this);
+t_cell	*f_list_begin(const t_list *v_this);
+t_cell	*f_list_end(const t_list *v_this);
+t_cell	*f_list_erase(t_list *v_this, t_cell *erase);
 void	f_list_print_addr(const t_list *v_this);
 bool	f_list_push_back(t_list *v_this, void *data);
 void	f_list_pop_back(t_list *v_this);

@@ -6,13 +6,13 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/30 22:50:59 by qperez            #+#    #+#             */
-/*   Updated: 2013/08/31 16:44:17 by qperez           ###   ########.fr       */
+/*   Updated: 2013/09/04 18:50:31 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 ** <This function contains all s_list_operator method>
-** < foreach, reverse >
+** < foreach, reverse, erase >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -68,3 +68,21 @@ void	f_list_reverse(t_list *v_this)
 	}
 }
 
+t_cell	*f_list_erase(t_list *v_this, t_cell *erase)
+{
+	t_cell	*ret;
+
+	ret = erase->v_next;
+	if (v_this->v_funct_destroy != NULL)
+		v_this->v_funct_destroy(erase->v_data);
+	if (erase == v_this->v_begin)
+		v_this->v_begin = ret;
+	else if (erase == v_this->v_end)
+		v_this->v_end = erase->v_prev;
+	if (erase->v_prev != NULL)
+		erase->v_prev->v_next = erase->v_next;
+	if (erase->v_next != NULL)
+		erase->v_next->v_prev = erase->v_prev;
+	v_this->v_size = v_this->v_size - 1;
+	return (ret);
+}
