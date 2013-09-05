@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s_list.c                                           :+:      :+:    :+:   */
+/*   s_list_operator.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/08/28 20:52:06 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/02 22:35:20 by qperez           ###   ########.fr       */
+/*   Created: 2013/08/30 22:50:59 by qperez            #+#    #+#             */
+/*   Updated: 2013/09/05 14:31:24 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This function contains all s_list method>
-** < init, print_addr >
+** <This function contains all s_list_operator method>
+** < foreach, reverse, remove >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -33,60 +33,52 @@
 
 #include <s_list.h>
 #include <stddef.h>
-#include <f_print.h>
-#include <stdlib.h>
 
-void		f_list_init(t_list *v_this, void (*funct_destroy)(void *data))
-{
-	v_this->v_begin = NULL;
-	v_this->v_end = NULL;
-	v_this->v_size = 0;
-	v_this->v_funct_destroy = funct_destroy;
-}
-
-inline void	f_list_print_addr(const t_list *v_this)
-{
-	t_cell	*current;
-
-	uf_print_str("Begin : ");
-	uf_print_addr(v_this->v_begin);
-	uf_print_str("\tEnd : ");
-	uf_print_addr(v_this->v_end);
-	uf_print_str("\n");
-	current = v_this->v_begin;
-	while (current != NULL)
-	{
-		uf_print_addr(current->v_prev);
-		if (current->v_prev == NULL)
-			uf_print_char('\t');
-		uf_print_str("\t<- ");
-		uf_print_addr(current);
-		uf_print_str(" ->\t");
-		uf_print_addr(current->v_next);
-		uf_print_str("\n\033[0m");
-		current = current->v_next;
-	}
-}
-
-void		f_list_clear(t_list *v_this)
+bool	f_list_foreach(t_list *v_this, bool (*funct)(void *data))
 {
 	t_cell	*cur;
-	t_cell	*del;
 
 	cur = v_this->v_begin;
 	while (cur != NULL)
 	{
-		del = cur;
+		if (funct(cur->v_data) == false)
+			return (false);
 		cur = cur->v_next;
-		if (v_this->v_funct_destroy != NULL)
-			v_this->v_funct_destroy(del->v_data);
-		free(del);
 	}
-	D_LIST(init)(v_this, v_this->v_funct_destroy);
+	return (true);
 }
 
-void		f_list_destroy(t_list *v_this)
+void	f_list_reverse(t_list *v_this)
 {
-	D_LIST(clear)(v_this);
-	v_this->v_funct_destroy = NULL;
+	t_cell	*begin;
+	t_cell	*end;
+	void	*tmp;
+
+	begin = v_this->v_begin;
+	end = v_this->v_end;
+	while (begin != end)
+	{
+		tmp = begin->v_data;
+		begin->v_data = end->v_data;
+		end->v_data = tmp;
+		if (end->v_prev == begin)
+			break;
+		begin = begin->v_next;
+		end = end->v_prev;
+	}
+}
+
+void	f_list_remove(t_list *v_this,
+					  bool (*cmp)(void *data, void *value), void *value)
+{
+	t_cell	*cur;
+
+	cur = v_this->v_begin;
+	while (cur != NULL)
+	{
+		if (cmp(cur->v_data, value) == true)
+			cur = D_LIST(erase)(v_this, cur);	
+		else
+			cur = cur->v_next;
+	}
 }

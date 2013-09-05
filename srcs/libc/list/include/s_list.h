@@ -61,6 +61,8 @@ void	*f_list_back(t_list *v_this);
 void	*f_list_front(t_list *v_this);
 bool	f_list_foreach(t_list *v_this, bool (*funct)(void *value));
 void	f_list_reverse(t_list *v_this);
+void	f_list_remove(t_list *v_this,
+					  bool (*cmp)(void *data, void *value), void *value);
 void	f_list_clear(t_list *v_this);
 void	f_list_destroy(t_list *v_this);
 

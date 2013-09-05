@@ -24,9 +24,9 @@ LDFAGS	+=	-L./lib42 -l42
 DEBUG	=	-g3 -fno-inline -DD_ERRORS_ON
 
 OBJDIR	=	.objs
-LISTDIR	=	src
+LISTDIR	=
 
-DIRSRC	=	src
+DIRSRC	=
 
 EXEC	=	a.out
 LIB42	=	lib42.a

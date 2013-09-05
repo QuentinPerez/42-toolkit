@@ -1,6 +1,0 @@
-#! /bin/sh
-
-cd source
-./make_lib
-cd ..
-cp -r source/lib42 .

@@ -6,13 +6,13 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/30 17:48:19 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/02 22:25:27 by qperez           ###   ########.fr       */
+/*   Updated: 2013/09/05 14:21:09 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 ** <This function contains all s_list_modifier method>
-** < push_back, push_front, pop_back, pop_front >
+** < push_back, push_front, pop_back, pop_front, erase >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -90,4 +90,23 @@ void	f_list_pop_front(t_list *v_this)
 		else
 			v_this->v_end = NULL;
 	}
+}
+
+t_cell	*f_list_erase(t_list *v_this, t_cell *erase)
+{
+	t_cell	*ret;
+
+	ret = erase->v_next;
+	if (v_this->v_funct_destroy != NULL)
+		v_this->v_funct_destroy(erase->v_data);
+	if (erase == v_this->v_begin)
+		v_this->v_begin = ret;
+	else if (erase == v_this->v_end)
+		v_this->v_end = erase->v_prev;
+	if (erase->v_prev != NULL)
+		erase->v_prev->v_next = erase->v_next;
+	if (erase->v_next != NULL)
+		erase->v_next->v_prev = erase->v_prev;
+	v_this->v_size = v_this->v_size - 1;
+	return (ret);
 }
