@@ -22,11 +22,11 @@ m_error.c
 
 ## How to use ?
 
-You can see example [here](https://github.com/QuentinPerez/42-toolkit/tree/master/examples/c/f_error).
+You can see example [here](https://github.com/QuentinPerez/42-toolkit/tree/master/examples/libc/f_error).
 
 ## Warning
 
-You should add -DD_ERRORS_ON to CFLAGS or compile in debug with [Makefile](https://github.com/QuentinPerez/42-toolkit/tree/master/srcs/Makefile)
+You should add <code>-DD_ERRORS_ON</code> to CFLAGS or compile in debug with [Makefile](https://github.com/QuentinPerez/42-toolkit/tree/master/srcs/Makefile)
 
 ## License
 

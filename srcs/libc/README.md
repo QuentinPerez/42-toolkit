@@ -5,6 +5,7 @@
 
     - f_error/		"Treat return value"
     - f_string/		"Function to write"
+	- list/			"Double linked-list"
 
 ## How to make libraries
 
@@ -24,7 +25,7 @@ And add dependency <code>$(LIB42)</code> with this line:
 
 ## Example
 
-You can see example [here](https://github.com/QuentinPerez/42-toolkit/tree/master/examples/c/lib).
+You can see example [here](https://github.com/QuentinPerez/42-toolkit/tree/master/examples/libc/lib).
 
 ## License
 

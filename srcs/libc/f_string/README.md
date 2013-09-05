@@ -47,7 +47,7 @@ f_str_tools.c:
 
 ## How to use ?
 
-You can see example [here](https://github.com/QuentinPerez/42-toolkit/tree/master/examples/c/f_string).
+You can see example [here](https://github.com/QuentinPerez/42-toolkit/tree/master/examples/libc/f_string).
 
 ## License
 
