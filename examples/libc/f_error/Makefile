@@ -41,11 +41,10 @@ OBJ		=	$(addprefix $(OBJDIR)/, $(SRC:.c=.o))
 .SILENT:
 
 $(addprefix $(OBJDIR)/, %.o)	:	%.c
-								/usr/bin/make tmp
 								$(CC) $(CFLAGS) -o $@ -c $<
 								printf '\033[0;32mBuilding C Object $@\n\033[0m' "Building C Object $@"
 
-$(EXEC)	:	$(OBJ)
+$(EXEC)	:	$(OBJDIR) $(OBJ)
 		$(CC) $(CFLAGS) -o $(EXEC) $(OBJ) $(LDFLAGS)
 		printf '\033[1;31m%s \033[1;35m%s \033[1;33m%s\n\033[0m' "Linking C executable" "$(EXEC)" "$(CC)"
 
@@ -72,14 +71,12 @@ every	:	re
 
 all		:	$(EXEC)
 
-tmp		:
-		if [ ! -d $(OBJDIR) ]; then			\
-			/bin/mkdir $(OBJDIR);			\
-			for DIR in $(LISTDIR);			\
-			do								\
-				/bin/mkdir $(OBJDIR)/$$DIR;	\
-			done							\
-		fi
+$(OBJDIR)	:
+		/bin/mkdir $(OBJDIR);			\
+		for DIR in $(LISTDIR);			\
+		do								\
+			/bin/mkdir $(OBJDIR)/$$DIR;	\
+		done							\
 
 help	:
 		printf '\033[1;34m%s\t\033[0m⇒ %s\n' "clean"	"Cleaning all object"
