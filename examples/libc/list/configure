@@ -1,7 +1,8 @@
 #! /bin/sh
 
-cd ../../../srcs/libc
-./make_lib
-cd -
-rm lib42
-ln -s ../../../srcs/libc/lib42
+if [ ! -e lib42 ]; then
+	cd ../../../srcs/libc
+	./make_lib
+	cd -
+	ln -s ../../../srcs/libc/lib42
+fi
