@@ -19,8 +19,9 @@
 #
 
 CC		=	cc
-CFLAGS	+=	-Wextra -Wall -Werror -I./lib42/include
-LDFAGS	+=	-L./lib42 -l42
+DIR42	=	lib42
+CFLAGS	+=	-Wextra -Wall -Werror -I./$(DIR42)/include
+LDFLAGS	+=	-L./$(DIR42) -l42
 DEBUG	=	-g3 -fno-inline -DD_ERRORS_ON
 
 OBJDIR	=	.objs
@@ -29,7 +30,7 @@ LISTDIR	=	src
 DIRSRC	=	src
 
 EXEC	=	a.out
-LIB42	=	lib42.a
+LIB42	=	$(DIR42)/lib42.a
 
 SRC		=	$(DIRSRC)/main.c
 
@@ -43,11 +44,11 @@ $(addprefix $(OBJDIR)/, %.o)	:	%.c
 								printf '\033[0;32mBuilding C Object $@\n\033[0m' "Building C Object $@"
 
 $(EXEC)	:	$(OBJ) $(LIB42)
-		$(CC) $(CFLAGS) -o $(EXEC) $(OBJ) $(LDFAGS)
+		$(CC) $(CFLAGS) -o $(EXEC) $(OBJ) $(LDFLAGS)
 		printf '\033[1;31m%s \033[1;35m%s \033[1;33m%s\n\033[0m' "Linking C executable" "$(EXEC)" "$(CC)"
 
-$(LIB42)	:
-			make -C lib42
+$(LIB42)	:	force
+			make -C $(DIR42)
 
 clean	:
 		/bin/rm	-fr $(OBJDIR)
@@ -71,9 +72,7 @@ every	:	re
 		printf '\033[1;33m%s\n\033[0m' "Good job !"
 
 relib	:
-		./configure
-		make re -C lib42
-		make re
+		make re -C $(DIR42)
 
 all		:	$(EXEC)
 
@@ -94,5 +93,8 @@ help	:
 		printf '\n'
 		printf '\033[1;34m%s\t\033[0m⇒ %s\n' "analyze"	"Analyze code but compile nothing"
 		printf '\033[1;34m%s\t\033[0m⇒ %s\n' "every"	"God code"
+
+force	:
+		true
 
 .PHONY:	clean fclean re debug analyze every relib

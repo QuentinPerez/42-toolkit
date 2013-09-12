@@ -20,7 +20,7 @@
 
 CC		=	cc
 CFLAGS	+=	-Wextra -Wall -Werror -I./f_string/include
-LDFAGS	+=
+LDFLAGS	+=
 DEBUG	=	-g3 -fno-inline -DD_ERRORS_ON
 
 OBJDIR	=	.objs
@@ -44,7 +44,7 @@ $(addprefix $(OBJDIR)/, %.o)	:	%.c
 								printf '\033[0;32mBuilding C Object $@\n\033[0m' "Building C Object $@"
 
 $(EXEC)	:	$(OBJ)
-		$(CC) $(CFLAGS) -o $(EXEC) $(OBJ) $(LDFAGS)
+		$(CC) $(CFLAGS) -o $(EXEC) $(OBJ) $(LDFLAGS)
 		printf '\033[1;31m%s \033[1;35m%s \033[1;33m%s\n\033[0m' "Linking C executable" "$(EXEC)" "$(CC)"
 
 clean	:

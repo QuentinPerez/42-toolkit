@@ -1,7 +1,0 @@
-#! /bin/sh
-
-cd libdirectory
-./make_lib
-cd ..
-cp -r libdirectory/lib42 .
-

@@ -3,7 +3,7 @@
 
 ## Tools list
 
-	- c/		tools in C
+	- libc/		tools in C
     - Makefile/	template
     - vim/		tools for vim
 

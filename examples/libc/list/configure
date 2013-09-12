@@ -1,7 +1,7 @@
 #! /bin/sh
 
-cd libdirectory
+cd ../../../srcs/libc
 ./make_lib
-cd ..
-cp -r libdirectory/lib42 .
-
+cd -
+rm lib42
+ln -s ../../../srcs/libc/lib42

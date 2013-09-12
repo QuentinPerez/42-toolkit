@@ -1,4 +1,4 @@
-42-toolkit	C
+42-toolkit	Libc
 ==========
 
 ## Tools unable
@@ -10,22 +10,30 @@
 ## How to make libraries
 
     - ./make_lib
-    - cp -R lib42/ ToYourWorkDirectory/
 
-Add to your Makefile:
+## Add to your Makefile
 
-    - LDFLAGS   +=  -L./lib42 -l42
-    - LIB42     =   lib42.a
-    - $(LIB42)  :
-    -           make -C lib42
+Variable:
 
-And add dependency <code>$(LIB42)</code> with this line:
+	- DIR42    = lib42
+	- CFLAGS  += -I./$(DIR42)/include
+	- LDFLAGS += -L./$(DIR42) -l42
+	- LIB42    = $(LIB42)/lib42.a
 
-    - $(EXEC)   :   $(OBJ) $(LIB42)
+Rules:
+
+	- $(LIB42)	:	force
+	-  			make -C $(DIR42)
+    -
+	- relib		:
+	- 			make re -C $(DIR42)
+    -
+	- force		:
+	- 			true
 
 ## Example
 
-You can see example [here](https://github.com/QuentinPerez/42-toolkit/tree/master/examples/libc/lib).
+You can see example for list [here](https://github.com/QuentinPerez/42-toolkit/tree/master/examples/libc/list).
 
 ## License
 
