@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/30 17:48:19 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/05 14:21:09 by qperez           ###   ########.fr       */
+/*   Updated: 2013/09/12 13:52:47 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ void	f_list_pop_back(t_list *v_this)
 {
 	if (v_this->v_end != NULL)
 	{
+		v_this->v_funct_destroy(v_this->v_end->v_data);
 		v_this->v_end = v_this->v_end->v_prev;
 		v_this->v_size = v_this->v_size - 1;
 		if (v_this->v_end != NULL)
@@ -83,6 +84,7 @@ void	f_list_pop_front(t_list *v_this)
 {
 	if (v_this->v_begin != NULL)
 	{
+		v_this->v_funct_destroy(v_this->v_begin->v_data);
 		v_this->v_begin = v_this->v_begin->v_next;
 		v_this->v_size = v_this->v_size - 1;
 		if (v_this->v_begin != NULL)
@@ -97,8 +99,7 @@ t_cell	*f_list_erase(t_list *v_this, t_cell *erase)
 	t_cell	*ret;
 
 	ret = erase->v_next;
-	if (v_this->v_funct_destroy != NULL)
-		v_this->v_funct_destroy(erase->v_data);
+	v_this->v_funct_destroy(erase->v_data);
 	if (erase == v_this->v_begin)
 		v_this->v_begin = ret;
 	else if (erase == v_this->v_end)

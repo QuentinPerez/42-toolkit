@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/28 20:52:06 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/05 15:21:06 by qperez           ###   ########.fr       */
+/*   Updated: 2013/09/12 13:58:20 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,20 @@
 #include <f_print.h>
 #include <stdlib.h>
 
+static void	f_list_funct_destroy(void *data)
+{
+	(void)data;
+}
+
 void		f_list_init(t_list *v_this, void (*funct_destroy)(void *data))
 {
 	v_this->v_begin = NULL;
 	v_this->v_end = NULL;
 	v_this->v_size = 0;
-	v_this->v_funct_destroy = funct_destroy;
+	if (funct_destroy == NULL)
+		v_this->v_funct_destroy = funct_destroy;
+	else
+		v_this->v_funct_destroy = &f_list_funct_destroy;
 }
 
 inline void	f_list_print_addr(const t_list *v_this)
@@ -78,8 +86,7 @@ void		f_list_clear(t_list *v_this)
 	{
 		del = cur;
 		cur = cur->v_next;
-		if (v_this->v_funct_destroy != NULL)
-			v_this->v_funct_destroy(del->v_data);
+		v_this->v_funct_destroy(del->v_data);
 		free(del);
 	}
 	D_LIST(init)(v_this, v_this->v_funct_destroy);

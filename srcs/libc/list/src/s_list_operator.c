@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/30 22:50:59 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/05 14:31:24 by qperez           ###   ########.fr       */
+/*   Updated: 2013/09/12 13:59:54 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void	f_list_remove(t_list *v_this,
 	while (cur != NULL)
 	{
 		if (cmp(cur->v_data, value) == true)
-			cur = D_LIST(erase)(v_this, cur);	
+			cur = D_LIST(erase)(v_this, cur);
 		else
 			cur = cur->v_next;
 	}
