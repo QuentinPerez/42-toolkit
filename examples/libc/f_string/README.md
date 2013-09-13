@@ -1,4 +1,4 @@
-42-toolkit	Example -> C f_string Function
+42-toolkit	Example -> C f_string
 ==========
 
 # How to use

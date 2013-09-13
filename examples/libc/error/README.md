@@ -1,10 +1,12 @@
-42-toolkit	Example -> C f_error
+42-toolkit	Example -> C Struct error
 ==========
 
 # How to use
 
-    - make debug
+	- ./configure
+    - make
     - ./a.out
+	- cat file.txt
 
 ## License
 
