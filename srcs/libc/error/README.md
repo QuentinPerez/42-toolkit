@@ -6,7 +6,11 @@
 	- init(t_error *v_this, const char *file)
 	  /* This function init struct t_error */
 
-	- add(t_error *v_this, const char *error)
+	- add(t_error *v_this, const char *error, bool ret)
+	  /* This function append to file or if file was NULL print on screen */
+	  /* And return ret */
+
+	- add_v(t_error *v_this, const char *error)
 	  /* This function append to file or if file was NULL print on screen */
 
 	- destroy(t_error *v_this)

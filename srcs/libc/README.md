@@ -5,7 +5,7 @@
 
     - f_error/		"Treat return value"
     - f_string/		"Function to write"
-    - list/		"Double linked-list"
+    - list/			"Double linked-list"
     - error/		"Write error to file"
 
 ## How to make libraries

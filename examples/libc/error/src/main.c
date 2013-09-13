@@ -6,12 +6,22 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/13 12:58:04 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/13 14:12:54 by qperez           ###   ########.fr       */
+/*   Updated: 2013/09/13 15:05:29 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <error/s_error.h>
+
+bool	uf_test_bool(t_error *v_this)
+{
+	return (D_ERROR(add)(v_this, "return true", true));
+}
+
+void	uf_test_void(t_error *v_this)
+{
+	return (D_ERROR(add_v)(v_this, "return void"));
+}
 
 int	main(int argc, char const** argv)
 {
@@ -22,8 +32,8 @@ int	main(int argc, char const** argv)
 		printf("Error\n");
 		return (-1);
 	}
-	D_ERROR(add)(&error, "test 1");
-	D_ERROR(add)(&error, "test 2");
+	uf_test_void(&error);
+	uf_test_bool(&error);
 	D_ERROR(destroy)(&error);
 	(void)argc;
 	(void)argv;

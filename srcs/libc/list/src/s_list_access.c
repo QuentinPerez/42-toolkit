@@ -6,12 +6,12 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/02 22:27:02 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/04 18:28:02 by qperez           ###   ########.fr       */
+/*   Updated: 2013/09/13 15:12:21 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This function contains all s_list_access method>
+** <This function contains s_list_access method>
 ** < back, front, begin, end >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
