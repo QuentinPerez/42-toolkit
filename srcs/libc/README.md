@@ -5,7 +5,8 @@
 
     - f_error/		"Treat return value"
     - f_string/		"Function to write"
-	- list/			"Double linked-list"
+    - list/		"Double linked-list"
+    - error/		"Write error to file"
 
 ## How to make libraries
 
@@ -33,7 +34,7 @@ Rules:
 
 ## Example
 
-You can see example for list [here](https://github.com/QuentinPerez/42-toolkit/tree/master/examples/libc/list).
+You can see Makefile lib example [here](https://github.com/QuentinPerez/42-toolkit/tree/master/examples/libc/list/Makefile).
 
 ## License
 
