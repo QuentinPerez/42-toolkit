@@ -6,12 +6,12 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/30 22:50:59 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/13 15:12:45 by qperez           ###   ########.fr       */
+/*   Updated: 2013/09/16 15:12:46 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This function contains s_list_operator method>
+** <This file contains s_list_operator method>
 ** < foreach, reverse, remove >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **

@@ -6,12 +6,12 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/30 17:43:18 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/13 15:12:28 by qperez           ###   ########.fr       */
+/*   Updated: 2013/09/16 15:12:35 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This function contains s_list_capacity method>
+** <This file contains s_list_capacity method>
 ** < empty, size >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **

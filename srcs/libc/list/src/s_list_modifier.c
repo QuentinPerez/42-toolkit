@@ -6,12 +6,12 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/30 17:48:19 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/13 15:12:35 by qperez           ###   ########.fr       */
+/*   Updated: 2013/09/16 15:12:42 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This function contains s_list_modifier method>
+** <This file contains s_list_modifier method>
 ** < push_back, push_front, pop_back, pop_front, erase >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **

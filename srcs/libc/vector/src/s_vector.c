@@ -6,12 +6,12 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/16 12:10:46 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/16 15:05:03 by qperez           ###   ########.fr       */
+/*   Updated: 2013/09/16 15:12:59 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This function contains s_vector method>
+** <This file contains s_vector method>
 ** < init, destroy, clear >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **

@@ -6,12 +6,12 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/28 20:58:01 by qperez            #+#    #+#             */
-/*   Updated: 2013/08/31 10:06:27 by qperez           ###   ########.fr       */
+/*   Updated: 2013/09/16 15:12:08 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This function contains s_cell method>
+** <This file contains s_cell method>
 ** < create >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **

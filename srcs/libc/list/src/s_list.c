@@ -6,12 +6,12 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/28 20:52:06 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/13 15:12:13 by qperez           ###   ########.fr       */
+/*   Updated: 2013/09/16 15:12:24 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This function contains s_list method>
+** <This file contains s_list method>
 ** < init, print_addr, clear, destroy >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **

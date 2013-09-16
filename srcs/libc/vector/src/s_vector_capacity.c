@@ -6,12 +6,12 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/16 15:05:19 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/16 15:08:56 by qperez           ###   ########.fr       */
+/*   Updated: 2013/09/16 15:13:07 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This function contains s_vector_capacity method>
+** <This file contains s_vector_capacity method>
 ** < size, capacity, empty >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
