@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s_vector.h                                         :+:      :+:    :+:   */
+/*   s_vector_capacity.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/09/16 12:11:43 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/16 15:09:28 by qperez           ###   ########.fr       */
+/*   Created: 2013/09/16 15:05:19 by qperez            #+#    #+#             */
+/*   Updated: 2013/09/16 15:08:56 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains all s_vector prototype>
+** <This function contains s_vector_capacity method>
+** < size, capacity, empty >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -30,29 +31,19 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef S_VECTOR_H
-# define S_VECTOR_H
+#include <s_vector.h>
 
-#include <t_types.h>
-#include <d_bool.h>
-
-typedef struct	s_vector
+inline bool	f_vector_empty(const t_vector *v_this)
 {
-	uint	v_size;
-	uint	v_capacity;
-	void	**v_data;
-	uint	(*f_realloc)(uint size);
-	void	(*f_delete)(void *ptr);
-}				t_vector;
+	return (v_this->v_size == 0);
+}
 
-# define D_VECTOR(funct)	f_vector_##funct
+inline uint	f_vector_size(const t_vector *v_this)
+{
+	return (v_this->v_size);
+}
 
-bool	f_vector_init(t_vector *v_this, uint (*uf_realloc)(uint size),
-					  void (*uf_delete)(void *ptr));
-void	f_vector_clear(t_vector *v_this);
-bool	f_vector_empty(const t_vector *v_this);
-uint	f_vector_size(const t_vector *v_this);
-uint	f_vector_capacity(const t_vector *v_this);
-void	f_vector_destroy(t_vector *v_this);
-
-#endif
+inline uint	f_vector_capacity(const t_vector *v_this)
+{
+	return (v_this->v_capacity);
+}

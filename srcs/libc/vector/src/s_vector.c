@@ -6,13 +6,13 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/16 12:10:46 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/16 12:52:28 by qperez           ###   ########.fr       */
+/*   Updated: 2013/09/16 15:05:03 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 ** <This function contains s_vector method>
-** < init, destroy >
+** < init, destroy, clear >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -64,16 +64,26 @@ bool				f_vector_init(t_vector *v_this,
 	return (true);
 }
 
-void	f_vector_destroy(t_vector *v_this)
+inline void			f_vector_clear(t_vector *v_this)
 {
-	uint	i;
+	int	size;
 
-	i = 0;
-	while (i < v_this->v_size)
+	size = (int)v_this->v_size - 1;
+	while (size > -1)
 	{
-		v_this->f_delete(v_this->v_data[i]);
-		free(v_this->v_data[i]);
-		i = i + 1;
+		v_this->f_delete(v_this->v_data[size]);
+		free(v_this->v_data[size]);
+		size = size - 1;
 	}
-	free(v_this->v_data);
+	v_this->v_size = 0;
+}
+
+void				f_vector_destroy(t_vector *v_this)
+{
+	D_VECTOR(clear)(v_this);
+	if (v_this->v_capacity > 0)
+		free(v_this->v_data);
+	v_this->v_capacity = 0;
+	v_this->f_delete = NULL;
+	v_this->f_realloc = NULL;
 }
