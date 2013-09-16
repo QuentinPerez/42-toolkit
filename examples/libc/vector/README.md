@@ -1,4 +1,4 @@
-42-toolkit	Example -> C Struct list
+42-toolkit	Example -> C Struct vector
 ==========
 
 # How to use
