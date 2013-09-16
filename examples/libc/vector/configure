@@ -1,0 +1,10 @@
+#! /bin/sh
+
+if [ -e lib42 ]; then
+	rm lib42
+fi
+
+cd ../../../srcs/libc
+./make_lib
+cd -
+ln -s ../../../srcs/libc/lib42
