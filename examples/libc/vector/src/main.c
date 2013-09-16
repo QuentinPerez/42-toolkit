@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/05 15:08:40 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/16 15:46:06 by qperez           ###   ########.fr       */
+/*   Updated: 2013/09/16 20:20:45 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,12 @@
 #include <stdlib.h>
 #include <f_string/f_print.h>
 
-static void	uf_print(void *ptr)
+static bool	uf_print(void *ptr)
 {
-	uf_print_str("Destroy ptr : ");
+	uf_print_str("Value : ");
 	uf_print_nbr(*(int*)ptr);
 	uf_print_char('\n');
+	return (true);
 }
 
 int	main(int argc, char const** argv)
@@ -29,7 +30,7 @@ int	main(int argc, char const** argv)
 	t_vector	vector;
 
 	i = 0;
-	D_VECTOR(init)(&vector, NULL, &uf_print);
+	D_VECTOR(init)(&vector, NULL, NULL);
 	while (i < 32)
 	{
 		ptr = malloc(sizeof(*ptr));
@@ -37,6 +38,7 @@ int	main(int argc, char const** argv)
 		D_VECTOR(push_back)(&vector, ptr);
 		i = i + 1;
 	}
+	D_VECTOR(foreach)(&vector, &uf_print);
 	D_VECTOR(destroy)(&vector);
 	(void)argc;
 	(void)argv;

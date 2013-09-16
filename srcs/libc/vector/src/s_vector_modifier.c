@@ -6,13 +6,13 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/16 15:17:58 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/16 15:45:51 by qperez           ###   ########.fr       */
+/*   Updated: 2013/09/16 20:24:51 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 ** <This file contains s_vector_modifier method>
-** < push_back, erase, remove >
+** < push_back, erase, reserve >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -99,14 +99,9 @@ void				*f_vector_erase(t_vector *v_this, void *erase)
 	return (ret);
 }
 
-bool				f_vector_remove(t_vector *v_this, void *ptr)
+bool				f_vector_reserve(t_vector *v_this, uint size)
 {
-	void	*erase;
-
-	erase = D_VECTOR(erase)(v_this, ptr);
-	if (erase == NULL)
-		return (m_error("Couldn't find pointer", false));
-	v_this->f_delete(erase);
-	free(erase);
-	return (true);
+	if (size <= v_this->v_capacity)
+		return (false);
+	return (D_VECTOR(realloc)(v_this, size));
 }

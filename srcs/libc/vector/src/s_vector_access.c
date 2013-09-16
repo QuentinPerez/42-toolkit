@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s_vector.h                                         :+:      :+:    :+:   */
+/*   s_vector_access.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/09/16 12:11:43 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/16 20:26:04 by qperez           ###   ########.fr       */
+/*   Created: 2013/09/16 20:26:33 by qperez            #+#    #+#             */
+/*   Updated: 2013/09/16 20:32:01 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains all s_vector prototype>
+** <This file contains s_vector_access method>
+** < at, front, back, data >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -30,32 +31,28 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef S_VECTOR_H
-# define S_VECTOR_H
-
-#include <t_types.h>
-#include <d_bool.h>
-
-typedef struct	s_vector
+inline void	*f_vector_at(t_vector *v_this, uint index)
 {
-	uint	v_size;
-	uint	v_capacity;
-	void	**v_data;
-	uint	(*f_realloc)(uint size);
-	void	(*f_delete)(void *ptr);
-}				t_vector;
+	if (index > v_this->v_size - 1)
+		return (NULL);
+	return (v_this->v_data[index]);
+}
 
-# define D_VECTOR(funct)	f_vector_##funct
+inline void	**f_vector_data(t_vector *v_this)
+{
+	return (v_this->v_data);
+}
 
-bool	f_vector_init(t_vector *v_this, uint (*uf_realloc)(uint size),
-					  void (*uf_delete)(void *ptr));
-void	f_vector_clear(t_vector *v_this);
-bool	f_vector_empty(const t_vector *v_this);
-uint	f_vector_size(const t_vector *v_this);
-uint	f_vector_capacity(const t_vector *v_this);
-bool	f_vector_push_back(t_vector *v_this, void *data);
-bool	f_vector_foreach(t_vector *v_this, bool (*funct)(void *ptr));
-bool	f_vector_reserve(t_vector *v_this, uint new_size);
-void	f_vector_destroy(t_vector *v_this);
+inline void	*f_vector_front(t_vector *v_this)
+{
+	if (v_this->v_size > 1)
+		return (v_this->v_size[0]);
+	return (NULL);
+}
 
-#endif
+inline void	*f_vector_back(t_vector *v_this)
+{
+	if (v_this->v_size > 1)
+		return (v_this->v_size[v_this->v_size - 1]);
+	return (NULL);
+}
