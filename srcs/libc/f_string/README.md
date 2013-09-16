@@ -8,7 +8,7 @@ f_print.c:
 	- uf_print_char(char c)
 	/* Print 'c' on screen */
 
-	- uf_print_nbr(ssize_ti nbr)
+	- uf_print_nbr(ssize_t nbr)
 	/* Print value of 'nbr' on screen */
 
 	- uf_print_str(const char *str)
