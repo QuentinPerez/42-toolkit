@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s_vector.h                                         :+:      :+:    :+:   */
+/*   s_vector_modifier.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/09/16 12:11:43 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/16 15:26:13 by qperez           ###   ########.fr       */
+/*   Created: 2013/09/16 15:17:58 by qperez            #+#    #+#             */
+/*   Updated: 2013/09/16 15:25:43 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains all s_vector prototype>
+** <This file contains s_vector_modifier method>
+** < push_back >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -30,30 +31,40 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef S_VECTOR_H
-# define S_VECTOR_H
+#include <s_vector.h>
+#include <stdlib.h>
+#include <m_error.h>
 
-#include <t_types.h>
-#include <d_bool.h>
-
-typedef struct	s_vector
+static bool	f_vector_realloc(t_vector *v_this, uint size)
 {
-	uint	v_size;
-	uint	v_capacity;
-	void	**v_data;
-	uint	(*f_realloc)(uint size);
-	void	(*f_delete)(void *ptr);
-}				t_vector;
+	void	**tmp;
 
-# define D_VECTOR(funct)	f_vector_##funct
+	tmp = v_this->v_data;
+	v_this->v_data = realloc(v_this->v_data, sizeof(*v_this->v_data) * size);
+	if (v_this->v_data == NULL)
+	{
+		v_this->v_data = tmp;
+		return (m_error("Bad alloc", false));
+	}
+	v_this->v_capacity = size;
+	return (true);
+}
 
-bool	f_vector_init(t_vector *v_this, uint (*uf_realloc)(uint size),
-					  void (*uf_delete)(void *ptr));
-void	f_vector_clear(t_vector *v_this);
-bool	f_vector_empty(const t_vector *v_this);
-uint	f_vector_size(const t_vector *v_this);
-uint	f_vector_capacity(const t_vector *v_this);
-bool	f_vector_push_back(t_vector *v_this, void *data);
-void	f_vector_destroy(t_vector *v_this);
+bool		f_vector_push_back(t_vector *v_this, void *data)
+{
+	uint	new_size;
 
-#endif
+	if (data == NULL)
+		return (m_error("Null pointer", false));
+	new_size = v_this->f_realloc(v_this->v_size);
+	if (v_this->v_size + 1 > v_this->v_capacity &&
+		D_VECTOR(realloc)(v_this, new_size) == false)
+		return (false);
+	v_this->v_data[v_this->v_size] = data;
+	v_this->v_size = v_this->v_size + 1;
+	return (true);
+}
+
+
+
+

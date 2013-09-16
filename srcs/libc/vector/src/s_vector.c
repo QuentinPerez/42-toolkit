@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/16 12:10:46 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/16 15:12:59 by qperez           ###   ########.fr       */
+/*   Updated: 2013/09/16 15:17:13 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ bool				f_vector_init(t_vector *v_this,
 	v_this->f_delete = uf_delete;
 	if (uf_delete == NULL)
 		v_this->f_delete = &uf_vector_delete;
-	v_this->v_data = malloc(sizeof(*v_this->v_data) * 2);
+	v_this->v_data = calloc(2, sizeof(*v_this->v_data));
 	if (v_this->v_data == NULL)
 		return (m_error("Bad alloc", false));
 	v_this->v_capacity = 2;
