@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/05 15:08:40 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/16 15:30:30 by qperez           ###   ########.fr       */
+/*   Updated: 2013/09/16 15:46:06 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	main(int argc, char const** argv)
 
 	i = 0;
 	D_VECTOR(init)(&vector, NULL, &uf_print);
-	while (i < 256)
+	while (i < 32)
 	{
 		ptr = malloc(sizeof(*ptr));
 		*ptr = i;

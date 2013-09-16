@@ -6,13 +6,13 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/16 15:17:58 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/16 15:25:43 by qperez           ###   ########.fr       */
+/*   Updated: 2013/09/16 15:45:51 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 ** <This file contains s_vector_modifier method>
-** < push_back >
+** < push_back, erase, remove >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -35,7 +35,7 @@
 #include <stdlib.h>
 #include <m_error.h>
 
-static bool	f_vector_realloc(t_vector *v_this, uint size)
+static bool			f_vector_realloc(t_vector *v_this, uint size)
 {
 	void	**tmp;
 
@@ -50,7 +50,20 @@ static bool	f_vector_realloc(t_vector *v_this, uint size)
 	return (true);
 }
 
-bool		f_vector_push_back(t_vector *v_this, void *data)
+static inline void	f_vector_decal(t_vector *v_this, uint start)
+{
+	uint	end;
+
+	end = v_this->v_size - 1;
+	while (start < end)
+	{
+		v_this->v_data[start] = v_this->v_data[start + 1];
+		v_this->v_data[start + 1] = NULL;
+		start = start + 1;
+	}
+}
+
+bool				f_vector_push_back(t_vector *v_this, void *data)
 {
 	uint	new_size;
 
@@ -65,6 +78,35 @@ bool		f_vector_push_back(t_vector *v_this, void *data)
 	return (true);
 }
 
+void				*f_vector_erase(t_vector *v_this, void *erase)
+{
+	uint	i;
+	void	*ret;
 
+	i = 0;
+	while (i < v_this->v_size)
+	{
+		if (v_this->v_data[i] == erase)
+			break;
+		i = i + 1;
+	}
+	if (i == v_this->v_size || v_this->v_data[i] == NULL)
+		return (NULL);
+	ret = v_this->v_data[i];
+	v_this->v_data[i] = NULL;
+	D_VECTOR(decal)(v_this, i);
+	v_this->v_size = v_this->v_size - 1;
+	return (ret);
+}
 
+bool				f_vector_remove(t_vector *v_this, void *ptr)
+{
+	void	*erase;
 
+	erase = D_VECTOR(erase)(v_this, ptr);
+	if (erase == NULL)
+		return (m_error("Couldn't find pointer", false));
+	v_this->f_delete(erase);
+	free(erase);
+	return (true);
+}
