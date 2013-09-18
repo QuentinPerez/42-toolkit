@@ -3,7 +3,7 @@
 
 ## How to install ?
 
-All plugins are copy to $HOME/.vim/plugin
+All plugins are copy to $HOME/.vim/
 
     - cd PluginDirectory
     - ./configure
@@ -13,6 +13,7 @@ All plugins are copy to $HOME/.vim/plugin
     - header		"Make header like 42"
     - generator-h	"Make .h like 42"
 	- speed_open	"Switch between .c and .h"
+	- syntax		"Highlight lib42 keyword"
 
 ## License
 
