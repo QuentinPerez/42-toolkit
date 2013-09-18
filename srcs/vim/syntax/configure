@@ -1,0 +1,23 @@
+#! /bin/sh
+
+FILE=c.vim
+
+if [ ! -d $HOME/.vim ]; then
+	/bin/mkdir $HOME/.vim
+	if [ ! -d $HOME/.vim/syntax ]; then
+		/bin/mkdir $HOME/.vim/syntax
+	fi
+fi
+
+if [ ! -f $HOME/.vim/syntax/$FILE ]; then
+	printf "Copy $FILE to $HOME/.vim/syntax\n"
+	cp $FILE $HOME/.vim/syntax
+else
+	printf "Do you want update your $FILE (y/n) ? : "
+	read ANSWER
+	if [ $ANSWER == "y" ]; then
+		cp $FILE $HOME/.vim/syntax
+		printf "Updated $FILE\n"
+	fi
+fi
+
