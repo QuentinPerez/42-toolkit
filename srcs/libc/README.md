@@ -7,6 +7,7 @@
     - f_string/		"Function to write"
     - list/			"Double linked-list"
     - error/		"Write error to file"
+	- vector/		"Pointer buffer resizeable"
 
 ## How to make libraries
 

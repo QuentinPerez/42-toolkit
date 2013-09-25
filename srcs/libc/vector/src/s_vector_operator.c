@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/16 20:15:12 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/16 20:34:34 by qperez           ###   ########.fr       */
+/*   Updated: 2013/09/25 14:30:36 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@
 */
 
 #include <s_vector.h>
+#include <m_error.h>
+#include <stdlib.h>
 
 bool	f_vector_foreach(t_vector *v_this, bool (*funct)(void *))
 {

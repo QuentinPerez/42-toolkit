@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/16 20:26:33 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/16 20:32:01 by qperez           ###   ########.fr       */
+/*   Updated: 2013/09/25 14:35:01 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,9 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+#include <s_vector.h>
+#include <stddef.h>
+
 inline void	*f_vector_at(t_vector *v_this, uint index)
 {
 	if (index > v_this->v_size - 1)
@@ -38,7 +41,7 @@ inline void	*f_vector_at(t_vector *v_this, uint index)
 	return (v_this->v_data[index]);
 }
 
-inline void	**f_vector_data(t_vector *v_this)
+void	**f_vector_data(t_vector *v_this)
 {
 	return (v_this->v_data);
 }
@@ -46,13 +49,13 @@ inline void	**f_vector_data(t_vector *v_this)
 inline void	*f_vector_front(t_vector *v_this)
 {
 	if (v_this->v_size > 1)
-		return (v_this->v_size[0]);
+		return (v_this->v_data[0]);
 	return (NULL);
 }
 
 inline void	*f_vector_back(t_vector *v_this)
 {
 	if (v_this->v_size > 1)
-		return (v_this->v_size[v_this->v_size - 1]);
+		return (v_this->v_data[v_this->v_size - 1]);
 	return (NULL);
 }
