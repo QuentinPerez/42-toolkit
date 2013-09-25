@@ -1,4 +1,4 @@
-#! /bin/sh
+#! /bin/bash
 
 INCLUDE=include
 SRC=src
@@ -8,7 +8,7 @@ if [ -e $TMP ]; then
 	/bin/rm -fr $TMP
 fi
 
-LIST_OF_DIRECTORY=$(find . -type d -d 1)
+LIST_OF_DIRECTORY=$(find . -maxdepth 1 -type d | sed 's/\.$//g')
 
 /bin/mkdir $TMP
 /bin/mkdir $TMP/$INCLUDE
@@ -51,7 +51,7 @@ function	fix_header
 					DIR=$(echo $LIST_OF_FILE_H | tr ' ' '\n' | grep "$PATTERN" | sed 's/'$TMP'\/'$INCLUDE'\///g' | sed 's/\//\\\//g')
 					CHANGE=$(echo "#include <$PATTERN>")
 					TO=$(echo "#include <$DIR>")
-					sed -i '' "s/$CHANGE/$TO/g" $1
+					sed -i --posix "s/$CHANGE/$TO/g" $1
 				fi
 			done
 		done
