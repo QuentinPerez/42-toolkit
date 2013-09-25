@@ -27,6 +27,9 @@
 	- reserve(t_vector *v_this, uint new_size)
 	  /* This function change capacity */
 
+	- erase(t_vector *v_this, void *ptr)
+	  /* This function delete ptr */
+
 	- destroy(t_vector *v_this)
 	  /* This function destroy t_vector */
 

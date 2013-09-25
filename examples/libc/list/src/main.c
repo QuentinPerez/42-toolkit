@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/05 15:08:40 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/05 15:14:30 by qperez           ###   ########.fr       */
+/*   Updated: 2013/09/25 22:16:25 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 void	uf_destroy_value(void *data)
 {
 	uf_print_str("Destroy : ");
-	uf_print_nbr((int)data);
+	uf_print_nbr((size_t)data);
 	uf_print_char('\n');
 }
 
@@ -24,7 +24,7 @@ void	uf_destroy_value(void *data)
 int	main(int argc, char const** argv)
 {
 	t_list	list;
-	uint	i;
+	size_t	i;
 
 	i = 0;
 	D_LIST(init)(&list, &uf_destroy_value);
