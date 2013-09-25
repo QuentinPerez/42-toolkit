@@ -30,6 +30,18 @@
 	- erase(t_vector *v_this, void *ptr)
 	  /* This function delete ptr */
 
+	- at(t_vector *v_this, uint index)
+	  /* This function return index element */
+
+	- data(t_vector *v_this)
+	  /* This function data pointer */
+
+	- front(t_vector *v_this)
+	  /* This function first element */
+
+	- back(t_vector *v_this,)
+	  /* This function last element */
+
 	- destroy(t_vector *v_this)
 	  /* This function destroy t_vector */
 
