@@ -16,7 +16,7 @@ f_memory.c
 
 ## How to use ?
 
-You can see example [here](https://github.com/QuentinPerez/42-toolkit/tree/master/examples/libc/f_error).
+You can see example [here](https://github.com/QuentinPerez/42-toolkit/tree/master/examples/libc/f_memory).
 
 ## License
 
