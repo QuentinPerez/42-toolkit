@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/16 12:10:46 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/26 13:33:50 by qperez           ###   ########.fr       */
+/*   Updated: 2013/09/26 14:34:43 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,5 @@ void				f_vector_destroy(t_vector *v_this)
 	D_VECTOR(clear)(v_this);
 	if (v_this->v_capacity > 0)
 		free(v_this->v_data);
-	v_this->v_capacity = 0;
-	v_this->f_delete = NULL;
-	v_this->f_realloc = NULL;
+	uf_memset(v_this, 0, sizeof(*v_this));
 }
