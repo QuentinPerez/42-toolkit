@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/30 17:43:18 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/16 15:12:35 by qperez           ###   ########.fr       */
+/*   Updated: 2013/09/26 13:32:25 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ inline bool	f_list_empty(const t_list *v_this)
 	return (v_this->v_size == 0);
 }
 
-inline uint	f_list_size(const t_list *v_this)
+inline ui	f_list_size(const t_list *v_this)
 {
 	return (v_this->v_size);
 }

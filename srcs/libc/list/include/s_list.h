@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/28 20:55:51 by qperez            #+#    #+#             */
-/*   Updated: 2013/08/30 23:01:05 by qperez           ###   ########.fr       */
+/*   Updated: 2013/09/26 13:31:51 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ typedef struct	s_list
 {
 	t_cell	*v_begin;
 	t_cell	*v_end;
-	uint	v_size;
+	ui		v_size;
 	void	(*v_funct_destroy)(void *data);
 }				t_list;
 
@@ -48,7 +48,7 @@ typedef struct	s_list
 
 void	f_list_init(t_list *v_this, void (*v_funct_destroy)(void *data));
 bool	f_list_empty(const t_list *v_this);
-uint	f_list_size(const t_list *v_this);
+ui		f_list_size(const t_list *v_this);
 t_cell	*f_list_begin(const t_list *v_this);
 t_cell	*f_list_end(const t_list *v_this);
 t_cell	*f_list_erase(t_list *v_this, t_cell *erase);

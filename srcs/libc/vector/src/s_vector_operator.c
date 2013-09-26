@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/16 20:15:12 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/25 14:30:36 by qperez           ###   ########.fr       */
+/*   Updated: 2013/09/26 13:34:39 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@
 
 bool	f_vector_foreach(t_vector *v_this, bool (*funct)(void *))
 {
-	uint	i;
-	uint	size;
+	ui	i;
+	ui	size;
 
 	i = 0;
 	size = v_this->v_size;

@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/16 12:10:46 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/16 15:17:13 by qperez           ###   ########.fr       */
+/*   Updated: 2013/09/26 13:33:50 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,13 @@ static inline void	uf_vector_delete(void *ptr)
 	(void)ptr;
 }
 
-static inline uint	uf_vector_realloc(uint size)
+static inline ui	uf_vector_realloc(ui size)
 {
 	return (size << 1);
 }
 
 bool				f_vector_init(t_vector *v_this,
-								  uint (*uf_realloc)(uint size),
+								  ui (*uf_realloc)(ui size),
 								  void (*uf_delete)(void *ptr))
 {
 	v_this->v_size = 0;

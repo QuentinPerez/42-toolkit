@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/16 15:05:19 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/16 15:13:07 by qperez           ###   ########.fr       */
+/*   Updated: 2013/09/26 13:34:09 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,12 @@ inline bool	f_vector_empty(const t_vector *v_this)
 	return (v_this->v_size == 0);
 }
 
-inline uint	f_vector_size(const t_vector *v_this)
+inline ui	f_vector_size(const t_vector *v_this)
 {
 	return (v_this->v_size);
 }
 
-inline uint	f_vector_capacity(const t_vector *v_this)
+inline ui	f_vector_capacity(const t_vector *v_this)
 {
 	return (v_this->v_capacity);
 }

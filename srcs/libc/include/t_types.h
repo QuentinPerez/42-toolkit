@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   t_types.h                                           :+:      :+:    :+:   */
+/*   t_types.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/29 10:39:17 by qperez            #+#    #+#             */
-/*   Updated: 2013/08/29 10:41:27 by qperez           ###   ########.fr       */
+/*   Updated: 2013/09/26 12:55:29 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@
 #ifndef T_TYPES_H
 # define T_TYPES_H
 
-typedef unsigned int	uint;
-typedef unsigned long	ulong;
+typedef unsigned char	uc;
+typedef unsigned int	ui;
+typedef unsigned long	ul;
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/16 20:26:33 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/25 23:11:23 by qperez           ###   ########.fr       */
+/*   Updated: 2013/09/26 13:33:58 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@
 #include <s_vector.h>
 #include <stddef.h>
 
-inline void	*f_vector_at(t_vector *v_this, uint index)
+inline void	*f_vector_at(t_vector *v_this, ui index)
 {
 	if (index > v_this->v_size - 1)
 		return (NULL);
