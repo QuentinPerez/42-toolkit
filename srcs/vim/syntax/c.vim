@@ -1,4 +1,4 @@
-syntax keyword lib42type uint ulong t_error t_list t_vector
+syntax keyword lib42type ic ui ul t_error t_list t_vector
 highlight link lib42type Type
 
 syntax keyword v_thistype v_this
