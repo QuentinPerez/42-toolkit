@@ -9,7 +9,6 @@ All plugins are copy to $HOME/.vim/
 	- ./install
 
 	individually:
-
     - cd PluginDirectory
     - ./configure
 
