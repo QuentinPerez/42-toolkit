@@ -5,6 +5,11 @@
 
 All plugins are copy to $HOME/.vim/
 
+	install or update all plugin:
+	- ./install
+
+	individually:
+
     - cd PluginDirectory
     - ./configure
 

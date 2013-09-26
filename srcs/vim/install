@@ -1,0 +1,13 @@
+#! /bin/bash
+
+ALL_DIR=$(find . -type d)
+
+for DIR in $ALL_DIR
+do
+	if [ $DIR != "." ];
+	then
+		cd $DIR
+		./configure
+		cd ..
+	fi
+done
