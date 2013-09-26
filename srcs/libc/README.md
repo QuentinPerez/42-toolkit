@@ -5,6 +5,7 @@
 
     - f_error/		"Treat return value"
     - f_string/		"Function to write"
+    - f_memory/		"Function to play with memory"
     - list/			"Double linked-list"
     - error/		"Write error to file"
 	- vector/		"Pointer buffer resizeable"
