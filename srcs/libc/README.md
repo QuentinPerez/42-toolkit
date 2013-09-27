@@ -6,13 +6,15 @@
     - f_error/		"Treat return value"
     - f_string/		"Function to write"
     - f_memory/		"Function to play with memory"
-    - list/			"Double linked-list"
     - error/		"Write error to file"
-	- vector/		"Pointer buffer resizeable"
+    - list/			"Double linked-list"
+	- vector/		"Pointer array that can change size"
+	- stack/		"Last-in-First-out container"
 
 ## How to make libraries
 
     - ./make_lib
+	- cd lib42
 
 ## Add to your Makefile
 
@@ -22,6 +24,10 @@ Variable:
 	- CFLAGS  += -I./$(DIR42)/include
 	- LDFLAGS += -L./$(DIR42) -l42
 	- LIB42    = $(LIB42)/lib42.a
+
+Add dependencies:
+	- $(EXEC)	:	$(LIB42) ...
+	- 			...
 
 Rules:
 
