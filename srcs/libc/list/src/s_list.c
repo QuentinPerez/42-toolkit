@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/28 20:52:06 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/26 14:33:49 by qperez           ###   ########.fr       */
+/*   Updated: 2013/09/27 17:52:35 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void		f_list_init(t_list *v_this, void (*funct_destroy)(void *data))
 
 inline void	f_list_print_addr(const t_list *v_this)
 {
-	t_cell	*current;
+	t_list_cell	*current;
 
 	uf_print_str("\033[1;34mBegin\033[0m : ");
 	uf_print_addr(v_this->v_begin);
@@ -76,8 +76,8 @@ inline void	f_list_print_addr(const t_list *v_this)
 
 void		f_list_clear(t_list *v_this)
 {
-	t_cell	*cur;
-	t_cell	*del;
+	t_list_cell	*cur;
+	t_list_cell	*del;
 
 	cur = v_this->v_begin;
 	while (cur != NULL)

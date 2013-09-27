@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/02 22:27:02 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/16 15:12:29 by qperez           ###   ########.fr       */
+/*   Updated: 2013/09/27 17:51:22 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,26 +34,26 @@
 #include <s_list.h>
 #include <stddef.h>
 
-void			*f_list_back(t_list *v_this)
+void				*f_list_back(t_list *v_this)
 {
 	if (v_this->v_end != NULL)
 		return (v_this->v_end->v_data);
 	return (NULL);
 }
 
-void			*f_list_front(t_list *v_this)
+void				*f_list_front(t_list *v_this)
 {
 	if (v_this->v_begin != NULL)
 		return (v_this->v_begin->v_data);
 	return (NULL);
 }
 
-inline t_cell	*f_list_begin(const t_list *v_this)
+inline t_list_cell	*f_list_begin(const t_list *v_this)
 {
 	return (v_this->v_begin);
 }
 
-inline t_cell	*f_list_end(const t_list *v_this)
+inline t_list_cell	*f_list_end(const t_list *v_this)
 {
 	return (v_this->v_end);
 }

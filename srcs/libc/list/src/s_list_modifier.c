@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/30 17:48:19 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/16 15:12:42 by qperez           ###   ########.fr       */
+/*   Updated: 2013/09/27 17:52:09 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@
 #include <s_list.h>
 #include <m_error.h>
 
-bool	f_list_push_back(t_list *v_this, void *data)
+bool		f_list_push_back(t_list *v_this, void *data)
 {
-	t_cell	*cell;
+	t_list_cell	*cell;
 
 	cell = D_CELL(create)(v_this->v_end, NULL, data);
 	if (cell == NULL)
@@ -50,9 +50,9 @@ bool	f_list_push_back(t_list *v_this, void *data)
 	return (true);
 }
 
-bool	f_list_push_front(t_list *v_this, void *data)
+bool		f_list_push_front(t_list *v_this, void *data)
 {
-	t_cell	*cell;
+	t_list_cell	*cell;
 
 	cell = D_CELL(create)(NULL, v_this->v_begin, data);
 	if (cell == NULL)
@@ -66,7 +66,7 @@ bool	f_list_push_front(t_list *v_this, void *data)
 	return (true);
 }
 
-void	f_list_pop_back(t_list *v_this)
+void		f_list_pop_back(t_list *v_this)
 {
 	if (v_this->v_end != NULL)
 	{
@@ -80,7 +80,7 @@ void	f_list_pop_back(t_list *v_this)
 	}
 }
 
-void	f_list_pop_front(t_list *v_this)
+void		f_list_pop_front(t_list *v_this)
 {
 	if (v_this->v_begin != NULL)
 	{
@@ -94,9 +94,9 @@ void	f_list_pop_front(t_list *v_this)
 	}
 }
 
-t_cell	*f_list_erase(t_list *v_this, t_cell *erase)
+t_list_cell	*f_list_erase(t_list *v_this, t_list_cell *erase)
 {
-	t_cell	*ret;
+	t_list_cell	*ret;
 
 	ret = erase->v_next;
 	v_this->v_funct_destroy(erase->v_data);

@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s_cell.c                                           :+:      :+:    :+:   */
+/*   s_list_cell.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/28 20:58:01 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/16 15:12:08 by qperez           ###   ########.fr       */
+/*   Updated: 2013/09/27 17:48:27 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains s_cell method>
+** <This file contains s_list_cell method>
 ** < create >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
@@ -31,12 +31,13 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <s_cell.h>
+#include <s_list_cell.h>
 #include <stdlib.h>
 
-t_cell	*f_cell_create(t_cell *prev, t_cell *next, void *data)
+t_list_cell	*f_list_cell_create(t_list_cell *prev,
+								t_list_cell *next, void *data)
 {
-	t_cell	*cell;
+	t_list_cell	*cell;
 
 	cell = malloc(sizeof(*cell));
 	if (cell == NULL)

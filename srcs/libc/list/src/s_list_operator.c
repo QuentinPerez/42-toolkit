@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/30 22:50:59 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/16 15:12:46 by qperez           ###   ########.fr       */
+/*   Updated: 2013/09/27 17:53:07 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@
 
 bool	f_list_foreach(t_list *v_this, bool (*funct)(void *data))
 {
-	t_cell	*cur;
+	t_list_cell	*cur;
 
 	cur = v_this->v_begin;
 	while (cur != NULL)
@@ -50,12 +50,12 @@ bool	f_list_foreach(t_list *v_this, bool (*funct)(void *data))
 
 void	f_list_reverse(t_list *v_this)
 {
-	t_cell	*begin;
-	t_cell	*end;
-	void	*tmp;
+	t_list_cell	*begin;
+	t_list_cell	*end;
+	void		*tmp;
 
-	begin = v_this->v_begin;
 	end = v_this->v_end;
+	begin = v_this->v_begin;
 	while (begin != end)
 	{
 		tmp = begin->v_data;
@@ -71,7 +71,7 @@ void	f_list_reverse(t_list *v_this)
 void	f_list_remove(t_list *v_this,
 					  bool (*cmp)(void *data, void *value), void *value)
 {
-	t_cell	*cur;
+	t_list_cell	*cur;
 
 	cur = v_this->v_begin;
 	while (cur != NULL)
