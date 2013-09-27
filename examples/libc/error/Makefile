@@ -42,7 +42,7 @@ $(addprefix $(OBJDIR)/, %.o)	:	%.c
 								$(CC) $(CFLAGS) -o $@ -c $<
 								printf '\033[0;32mBuilding C Object $@\n\033[0m' "Building C Object $@"
 
-$(EXEC)	:	$(OBJDIR) $(LIB42) $(OBJ)
+$(EXEC)	:	$(DIR42) $(OBJDIR) $(LIB42) $(OBJ)
 		$(CC) $(CFLAGS) -o $(EXEC) $(OBJ) $(LDFLAGS)
 		printf '\033[1;31m%s \033[1;35m%s \033[1;33m%s\n\033[0m' "Linking C executable" "$(EXEC)" "$(CC)"
 
@@ -54,7 +54,7 @@ clean	:
 		printf '\033[1;34m%s\n\033[0m' "Clean project $(EXEC)"
 
 fclean	:	clean
-		/bin/rm -fr $(EXEC)
+		/bin/rm -fr $(EXEC) $(DIR42)
 		printf '\033[1;34m%s\n\033[0m' "Fclean project $(EXEC)"
 
 re		:	fclean all
@@ -74,6 +74,9 @@ relib	:
 		make re -C $(DIR42)
 
 all		:	$(EXEC)
+
+$(DIR42)	:
+			../configure
 
 $(OBJDIR)	:
 		/bin/mkdir $(OBJDIR);			\

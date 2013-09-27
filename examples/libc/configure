@@ -1,8 +1,8 @@
 #! /bin/sh
 
-if [ -e lib42 ]; then
-	rm lib42
-fi
+# Please don't use
+
+printf "Generating lib42 ...\n"
 
 cd ../../../srcs/libc
 ./make_lib

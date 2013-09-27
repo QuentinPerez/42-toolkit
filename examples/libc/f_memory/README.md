@@ -3,7 +3,6 @@
 
 # How to use
 
-    - ./configure
     - make
     - ./a.out
 
