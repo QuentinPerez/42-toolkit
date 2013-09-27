@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s_vector.c                                         :+:      :+:    :+:   */
+/*   s_stack.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/09/16 12:10:46 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/27 15:50:34 by qperez           ###   ########.fr       */
+/*   Created: 2013/09/27 15:34:44 by qperez            #+#    #+#             */
+/*   Updated: 2013/09/27 15:51:09 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains s_vector method>
-** < init, destroy, clear >
+** <This file contains s_stack functin>
+** < init, destroy >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -31,58 +31,23 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <s_vector.h>
-#include <stdlib.h>
-#include <m_error.h>
+#include <s_stack.h>
 #include <f_memory.h>
 
-static inline void	uf_vector_delete(void *ptr)
+static void	f_stack_funct_destroy(void *data)
 {
-	(void)ptr;
+	(void)data;
 }
 
-static inline ui	uf_vector_realloc(ui size)
+void		f_stack_init(t_stack *v_this, void (*funct_destroy)(void *data))
 {
-	return (size << 1);
+	uf_memset(v_this, 0, sizeof(*v_this));
+	v_this->v_funct_destroy = f_stack_funct_destroy;
+	if (funct_destroy != NULL)
+		v_this->v_funct_destroy = funct_destroy;
 }
 
-bool				f_vector_init(t_vector *v_this,
-								  ui (*uf_realloc)(ui size),
-								  void (*uf_delete)(void *ptr))
+void		f_stack_destroy(t_stack *v_this)
 {
-	v_this->v_size = 0;
-	v_this->v_capacity = 0;
-	v_this->f_realloc = uf_realloc;
-	if (uf_realloc == NULL)
-		v_this->f_realloc = &uf_vector_realloc;
-	v_this->f_delete = uf_delete;
-	if (uf_delete == NULL)
-		v_this->f_delete = &uf_vector_delete;
-	v_this->v_data = calloc(2, sizeof(*v_this->v_data));
-	if (v_this->v_data == NULL)
-		return (m_error("Bad alloc", false));
-	v_this->v_capacity = 2;
-	return (true);
-}
-
-inline void			f_vector_clear(t_vector *v_this)
-{
-	int	size;
-
-	size = (int)v_this->v_size - 1;
-	while (size > -1)
-	{
-		v_this->f_delete(v_this->v_data[size]);
-		free(v_this->v_data[size]);
-		size = size - 1;
-	}
-	v_this->v_size = 0;
-}
-
-void				f_vector_destroy(t_vector *v_this)
-{
-	D_VECTOR(clear)(v_this);
-	if (v_this->v_capacity > 0)
-		free(v_this->v_data);
 	uf_memset(v_this, 0, sizeof(*v_this));
 }
