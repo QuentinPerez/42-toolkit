@@ -3,6 +3,11 @@
 
 There are lots of dev Tools.
 
+## Why I wanted to do this
+
+	"Give me six hours to chop down a tree and I will spend the first four
+	sharpening the axe." Abraham Lincoln.
+
 ## Contributing
 
 ### I've found a bug!
