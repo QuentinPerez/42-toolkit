@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s_stack.h                                          :+:      :+:    :+:   */
+/*   s_stack_access.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/09/27 15:34:52 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/27 17:40:09 by qperez           ###   ########.fr       */
+/*   Created: 2013/09/27 17:35:18 by qperez            #+#    #+#             */
+/*   Updated: 2013/09/27 17:40:15 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains all s_stack prototype>
+** <This file contains s_stack function>
+** < top >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -30,34 +31,22 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef S_STACK_H
-# define S_STACK_H
+#include <s_stack.h>
+#include <stddef.h>
 
-#include <t_types.h>
-#include <d_bool.h>
-
-typedef struct	s_stack_cell
+void		*f_stack_top(t_stack *v_this)
 {
-	void				*v_data;
-	struct s_stack_cell	*v_prev;
-}				t_stack_cell;
+	if (v_this->v_last != NULL)
+		return (v_this->v_last->v_data);
+	return (NULL);
+}
 
-typedef struct	s_stack
+inline bool	f_stack_empty(t_stack *v_this)
 {
-	ui				v_size;
-	t_stack_cell	*v_last;
-	void			(*v_funct_destroy)(void *data);
-}				t_stack;
+	return (v_this->v_size == 0);
+}
 
-# define D_STACK(funct)	f_stack_##funct
-
-void	f_stack_init(t_stack *v_this, void (*funct_destroy)(void *data));
-void	f_stack_destroy(t_stack *v_this);
-bool	f_stack_push(t_stack *v_this, void *data);
-void	f_stack_pop(t_stack *v_this);
-void	f_stack_clear(t_stack *v_this);
-void	*f_stack_top(t_stack *v_this);
-bool	f_stack_empty(t_stack *v_this);
-ui		f_stack_size(t_stack *v_this);
-
-#endif
+inline ui	f_stack_size(t_stack *v_this)
+{
+	return (v_this->v_size);
+}

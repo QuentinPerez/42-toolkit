@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s_stack.h                                          :+:      :+:    :+:   */
+/*   s_stack_modifier.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/09/27 15:34:52 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/27 17:40:09 by qperez           ###   ########.fr       */
+/*   Created: 2013/09/27 17:18:23 by qperez            #+#    #+#             */
+/*   Updated: 2013/09/27 17:41:41 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains all s_stack prototype>
+** <This file contains s_stack function>
+** < push, pop >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -30,34 +31,42 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef S_STACK_H
-# define S_STACK_H
+#include <s_stack.h>
+#include <m_error.h>
+#include <stdlib.h>
 
-#include <t_types.h>
-#include <d_bool.h>
-
-typedef struct	s_stack_cell
+static t_stack_cell	*f_stack_create_cell(void *data)
 {
-	void				*v_data;
-	struct s_stack_cell	*v_prev;
-}				t_stack_cell;
+	t_stack_cell	*cell;
 
-typedef struct	s_stack
+	cell = malloc(sizeof(*cell));
+	if (cell != NULL)
+		cell->v_data = data;
+	return (cell);
+}
+
+bool	f_stack_push(t_stack *v_this, void *data)
 {
-	ui				v_size;
-	t_stack_cell	*v_last;
-	void			(*v_funct_destroy)(void *data);
-}				t_stack;
+	t_stack_cell	*push;
 
-# define D_STACK(funct)	f_stack_##funct
+	push = D_STACK(create_cell)(data);
+	if (push == NULL)
+		return (m_error("Bad alloc", false));
+	push->v_prev = v_this->v_last;
+	v_this->v_last = push;
+	v_this->v_size = v_this->v_size + 1;
+	return (true);
+}
 
-void	f_stack_init(t_stack *v_this, void (*funct_destroy)(void *data));
-void	f_stack_destroy(t_stack *v_this);
-bool	f_stack_push(t_stack *v_this, void *data);
-void	f_stack_pop(t_stack *v_this);
-void	f_stack_clear(t_stack *v_this);
-void	*f_stack_top(t_stack *v_this);
-bool	f_stack_empty(t_stack *v_this);
-ui		f_stack_size(t_stack *v_this);
+void	f_stack_pop(t_stack *v_this)
+{
+	t_stack_cell	*del;
 
-#endif
+	if (v_this->v_last == NULL)
+		return ;
+	del = v_this->v_last;
+	v_this->v_funct_destroy(v_this->v_last->v_data);
+	v_this->v_last = v_this->v_last->v_prev;
+	v_this->v_size = v_this->v_size - 1;
+	free(del);
+}

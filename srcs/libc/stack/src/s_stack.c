@@ -6,12 +6,12 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/27 15:34:44 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/27 15:51:09 by qperez           ###   ########.fr       */
+/*   Updated: 2013/09/27 17:42:21 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains s_stack functin>
+** <This file contains s_stack function>
 ** < init, destroy >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
@@ -33,6 +33,7 @@
 
 #include <s_stack.h>
 #include <f_memory.h>
+#include <stdlib.h>
 
 static void	f_stack_funct_destroy(void *data)
 {
@@ -47,7 +48,22 @@ void		f_stack_init(t_stack *v_this, void (*funct_destroy)(void *data))
 		v_this->v_funct_destroy = funct_destroy;
 }
 
+void		f_stack_clear(t_stack *v_this)
+{
+	t_stack_cell	*del;
+
+	while (v_this->v_last != NULL)
+	{
+		del = v_this->v_last;
+		v_this->v_funct_destroy(v_this->v_last->v_data);
+		v_this->v_last = v_this->v_last->v_prev;
+		free(del);
+	}
+	v_this->v_size = 0;
+}
+
 void		f_stack_destroy(t_stack *v_this)
 {
+	D_STACK(clear)(v_this);
 	uf_memset(v_this, 0, sizeof(*v_this));
 }
