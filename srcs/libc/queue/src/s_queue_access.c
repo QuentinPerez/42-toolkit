@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s_queue.h                                          :+:      :+:    :+:   */
+/*   s_queue_access.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/09/30 11:02:36 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/30 13:47:59 by qperez           ###   ########.fr       */
+/*   Created: 2013/09/30 13:26:50 by qperez            #+#    #+#             */
+/*   Updated: 2013/09/30 14:26:02 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains all s_queue prototype>
+** <This file contains s_queue function>
+** < empty, size, front, back >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -30,34 +31,29 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef S_QUEUE_H
-# define S_QUEUE_H
+#include <s_queue.h>
+#include <stddef.h>
 
-#include <t_types.h>
-#include <d_bool.h>
-
-typedef struct	s_queue_cell
+inline bool	f_queue_empty(t_queue *v_this)
 {
-	void				*v_data;
-	struct s_queue_cell	*v_next;
-}				t_queue_cell;
+	return (v_this->v_size == 0);
+}
 
-typedef struct	s_queue
+inline ui	f_queue_size(t_queue *v_this)
 {
-	ui				v_size;
-	t_queue_cell	*v_head;
-	t_queue_cell	*v_tail;
-	void			(*v_funct_destroy)(void *data);
-}				t_queue;
+	return (v_this->v_size);
+}
 
-# define D_QUEUE(funct)	f_queue_##funct
+inline void	*f_queue_front(t_queue *v_this)
+{
+	if (v_this->v_head != NULL)
+		return (v_this->v_head->v_data);
+	return (NULL);
+}
 
-void	f_queue_init(t_queue *v_this, void (*funct_destroy)(void *data));
-void	f_queue_clear(t_queue *v_this);
-void	f_queue_destroy(t_queue *v_this);
-bool	f_queue_empty(t_queue *v_this);
-ui		f_queue_size(t_queue *v_this);
-bool	f_queue_push(t_queue *v_this, void *data);
-void	*f_queue_pop(t_queue *v_this);
-
-#endif
+inline void	*f_queue_back(t_queue *v_this)
+{
+	if (v_this->v_tail != NULL)
+		return (v_this->v_tail->v_data);
+	return (NULL);
+}

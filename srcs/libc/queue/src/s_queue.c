@@ -6,13 +6,13 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/30 11:02:29 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/30 11:14:19 by qperez           ###   ########.fr       */
+/*   Updated: 2013/09/30 13:53:09 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 ** <This file contains all s_queue function>
-** < init, destroy >
+** < init, destroy, clear >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -52,11 +52,11 @@ void	f_queue_clear(t_queue *v_this)
 {
 	t_queue_cell	*del;
 
-	while (v_this->v_tail != NULL)
+	while (v_this->v_head != NULL)
 	{
-		del = v_this->v_tail;
-		v_this->v_funct_destroy(v_this->v_tail->v_data);
-		v_this->v_tail = v_this->v_tail->v_prev;
+		del = v_this->v_head;
+		v_this->v_funct_destroy(del->v_data);
+		v_this->v_head = del->v_next;
 		free(del);
 	}
 	v_this->v_tail = NULL;

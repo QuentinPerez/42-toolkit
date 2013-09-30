@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/27 15:48:40 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/30 11:49:40 by qperez           ###   ########.fr       */
+/*   Updated: 2013/09/30 14:21:39 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,16 @@ void	uf_print(void *data)
 
 int		main(int argc, char const** argv)
 {
+	ui		i;
 	t_queue	queue;
 
+	i = 0;
 	D_QUEUE(init)(&queue, &uf_print);
+	while (i < 5)
+	{
+		D_QUEUE(push)(&queue, (void*)i);
+		i = i + 1;
+	}
 	D_QUEUE(destroy)(&queue);
 	(void)argc;
 	(void)argv;

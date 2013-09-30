@@ -10,6 +10,7 @@
     - list/			"Double linked-list"
 	- vector/		"Pointer array that can change size"
 	- stack/		"Last-in-First-out container"
+	- queue/		"First-in-First-out container"
 
 ## How to make libraries
 

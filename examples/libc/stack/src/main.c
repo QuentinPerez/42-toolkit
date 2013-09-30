@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/27 15:48:40 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/27 17:38:19 by qperez           ###   ########.fr       */
+/*   Updated: 2013/09/30 13:44:54 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ int		main(int argc, char const** argv)
 	ui		i;
 	t_stack	stack;
 
+	i = 0;
 	D_STACK(init)(&stack, &uf_print);
 	while (i < 5)
 	{
