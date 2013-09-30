@@ -1,13 +1,38 @@
 #! /bin/bash
 
-ALL_DIR=$(find . -type d)
-
-for DIR in $ALL_DIR
-do
-	if [ $DIR != "." ];
-	then
-		cd $DIR
-		./configure
-		cd ..
+if [ ! -d $HOME/.vim ]; then
+	/bin/mkdir $HOME/.vim
+	if [ ! -d $HOME/.vim/plugin ]; then
+		/bin/mkdir $HOME/.vim/plugin
 	fi
+	if [ ! -d $HOME/.vim/syntax ]; then
+		/bin/mkdir $HOME/.vim/syntax
+	fi
+fi
+
+DIR_FILE=("generator-h" "header" "speed_open" "syntax")
+VIM_FILE="generator_h.vim make_header.vim speed_open.vim c.vim"
+DIRECTORY=("plugin" "plugin" "plugin" "syntax")
+INDEX=0
+
+for FILE in $VIM_FILE
+do
+	if [ ! -f $HOME/.vim/${DIRECTORY[$INDEX]}/$FILE ]; then
+		printf "Do you want install \e[34m$FILE\e[0m to $HOME/.vim/${DIRECTORY[$INDEX]} (y/n) ? : "
+		read ANSWER
+		if [ $ANSWER == "y" ]; then
+			cp ${DIR_FILE[$INDEX]}/$FILE $HOME/.vim/${DIRECTORY[$INDEX]}
+			printf "Plugin $FILE \e[32minstalled.\e[0m\n"
+		else
+			printf "Plugin $FILE \e[31mnot installed.\e[0m\n"
+		fi
+	else
+		printf "Do you want \e[35mupdate\e[0m your \e[34m$FILE\e[0m (y/n) ? : "
+		read ANSWER
+		if [ $ANSWER == "y" ]; then
+			cp ${DIR_FILE[$INDEX]}/$FILE $HOME/.vim/${DIRECTORY[$INDEX]}
+			printf "\e[32mUpdated\e[0m $FILE\n"
+		fi
+	fi
+	INDEX=$((INDEX + 1))
 done
