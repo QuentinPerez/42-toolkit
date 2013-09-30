@@ -27,6 +27,9 @@
 	- size(t_stack *v_this)
 	  /* This function return number element */
 
+	- foreach(t_stack *v_this, bool (*funct)(void *data))
+	  /* This function apply funct for all element */
+
 
 ## How to use ?
 

@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/27 15:48:40 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/30 13:44:54 by qperez           ###   ########.fr       */
+/*   Updated: 2013/09/30 14:51:33 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
 #include <f_string/f_print.h>
 #include <stddef.h>
 
-void	uf_print(void *data)
+bool	uf_print(void *data)
 {
-	uf_print_str("Destroy : ");
 	uf_print_nbr((size_t)data);
-	uf_print_char('\n');
+	uf_print_char(' ');
+	return (true);
 }
 
 int		main(int argc, char const** argv)
@@ -29,14 +29,13 @@ int		main(int argc, char const** argv)
 	t_stack	stack;
 
 	i = 0;
-	D_STACK(init)(&stack, &uf_print);
+	D_STACK(init)(&stack, NULL);
 	while (i < 5)
 	{
 		D_STACK(push)(&stack, (void*)i);
 		i = i + 1;
 	}
-	uf_print_str("Top : ");
-	uf_print_nbr((size_t)D_STACK(top)(&stack));
+	D_STACK(foreach)(&stack, &uf_print);
 	uf_print_char('\n');
 	D_STACK(destroy)(&stack);
 	(void)argc;
