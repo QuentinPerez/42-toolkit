@@ -2,7 +2,7 @@
 
 # Please don't use
 
-printf "Generating lib42 ...\n"
+printf "\e[36mGenerating lib42 \e[0m...\n"
 
 cd ../../../srcs/libc
 ./make_lib
