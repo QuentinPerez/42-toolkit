@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/27 15:48:40 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/30 14:21:39 by qperez           ###   ########.fr       */
+/*   Updated: 2013/09/30 14:43:01 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
 #include <f_string/f_print.h>
 #include <stddef.h>
 
-void	uf_print(void *data)
+bool	uf_print(void *data)
 {
-	uf_print_str("Destroy : ");
 	uf_print_nbr((size_t)data);
-	uf_print_char('\n');
+	uf_print_char(' ');
+	return (true);
 }
 
 int		main(int argc, char const** argv)
@@ -29,12 +29,14 @@ int		main(int argc, char const** argv)
 	t_queue	queue;
 
 	i = 0;
-	D_QUEUE(init)(&queue, &uf_print);
+	D_QUEUE(init)(&queue, NULL);
 	while (i < 5)
 	{
 		D_QUEUE(push)(&queue, (void*)i);
 		i = i + 1;
 	}
+	D_QUEUE(foreach)(&queue, &uf_print);
+	uf_print_char('\n');
 	D_QUEUE(destroy)(&queue);
 	(void)argc;
 	(void)argv;

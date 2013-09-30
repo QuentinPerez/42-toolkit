@@ -1,31 +1,37 @@
-42-toolkit	C Stack
+42-toolkit	C Queue
 ==========
 
 ## Function
 
-	- init(t_stack *v_this, void (*funct_destroy)(void *data))
-	  /* This function init structure t_stack */
+	- init(t_queue *v_this, void (*funct_destroy)(void *data))
+	  /* This function init structure t_queue */
 
-	- destroy(t_stack *v_this)
-	  /* This function clear and reset t_stack */
+	- destroy(t_queue *v_this)
+	  /* This function clear and reset t_queue */
 
-	- push(t_stack *v_this, void *data)
+	- push(t_queue *v_this, void *data)
 	  /* This function put element at the end */
 
-	- pop(t_stack *v_this)
-	  /* This function delete last element */
+	- pop(t_queue *v_this)
+	  /* This function delete first element */
 
-	- clear(t_stack *v_this)
-	  /* This function clear and delete all element */
-
-	- top(t_stack *v_this)
+	- back(t_queue *v_this)
 	  /* This function return last element */
 
-	- empty(t_stack *v_this)
+	- front(t_queue *v_this)
+	  /* This function return first element */
+
+	- clear(t_queue *v_this)
+	  /* This function clear and delete all element */
+
+	- empty(t_queue *v_this)
 	  /* This function true if structure is empty */
 
-	- size(t_stack *v_this)
+	- size(t_queue *v_this)
 	  /* This function return number element */
+
+	- foreach(t_queue *v_this, bool (*funct)(void *data))
+	  /* This function apply funct for all element */
 
 
 ## How to use ?

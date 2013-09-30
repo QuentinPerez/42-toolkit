@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s_queue.h                                          :+:      :+:    :+:   */
+/*   s_queue_operator.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/09/30 11:02:36 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/30 14:42:23 by qperez           ###   ########.fr       */
+/*   Created: 2013/09/30 14:37:19 by qperez            #+#    #+#             */
+/*   Updated: 2013/09/30 14:40:57 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains all s_queue prototype>
+** <This file contains s_queue_operator method>
+** < foreach >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -30,35 +31,19 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef S_QUEUE_H
-# define S_QUEUE_H
+#include <s_queue.h>
+#include <stddef.h>
 
-#include <t_types.h>
-#include <d_bool.h>
-
-typedef struct	s_queue_cell
+bool	f_queue_foreach(t_queue *v_this, bool (*funct)(void *data))
 {
-	void				*v_data;
-	struct s_queue_cell	*v_next;
-}				t_queue_cell;
+	t_queue_cell	*cur;
 
-typedef struct	s_queue
-{
-	ui				v_size;
-	t_queue_cell	*v_head;
-	t_queue_cell	*v_tail;
-	void			(*v_funct_destroy)(void *data);
-}				t_queue;
-
-# define D_QUEUE(funct)	f_queue_##funct
-
-void	f_queue_init(t_queue *v_this, void (*funct_destroy)(void *data));
-void	f_queue_clear(t_queue *v_this);
-void	f_queue_destroy(t_queue *v_this);
-bool	f_queue_empty(t_queue *v_this);
-ui		f_queue_size(t_queue *v_this);
-bool	f_queue_push(t_queue *v_this, void *data);
-void	*f_queue_pop(t_queue *v_this);
-bool	f_queue_foreach(t_queue *v_this, bool (*funct)(void * data));
-
-#endif
+	cur = v_this->v_head;
+	while (cur != NULL)
+	{
+		if (funct(cur->v_data) == false)
+			return (false);
+		cur = cur->v_next;
+	}
+	return (true);
+}
