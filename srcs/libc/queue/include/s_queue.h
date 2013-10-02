@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/30 11:02:36 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/30 14:42:23 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/02 13:18:37 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ typedef struct	s_queue
 	ui				v_size;
 	t_queue_cell	*v_head;
 	t_queue_cell	*v_tail;
-	void			(*v_funct_destroy)(void *data);
+	void			(*f_destroy)(void *data);
 }				t_queue;
 
 # define D_QUEUE(funct)	f_queue_##funct

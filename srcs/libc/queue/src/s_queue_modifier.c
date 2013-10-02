@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/30 13:28:54 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/30 14:25:21 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/02 13:22:36 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	*f_queue_pop(t_queue *v_this)
 	if (v_this->v_head != NULL)
 	{
 		del = v_this->v_head;
-		v_this->v_funct_destroy(del->v_data);
+		v_this->f_destroy(del->v_data);
 		v_this->v_head = del->v_next;
 		v_this->v_size = v_this->v_size - 1;
 		if (v_this->v_size == 0)

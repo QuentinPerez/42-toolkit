@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/27 17:18:23 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/27 17:41:41 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/02 13:23:34 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	f_stack_pop(t_stack *v_this)
 	if (v_this->v_last == NULL)
 		return ;
 	del = v_this->v_last;
-	v_this->v_funct_destroy(v_this->v_last->v_data);
+	v_this->f_destroy(v_this->v_last->v_data);
 	v_this->v_last = v_this->v_last->v_prev;
 	v_this->v_size = v_this->v_size - 1;
 	free(del);

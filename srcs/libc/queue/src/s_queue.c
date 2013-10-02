@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/30 11:02:29 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/30 13:53:09 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/02 13:22:15 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,17 +35,17 @@
 #include <f_memory.h>
 #include <stdlib.h>
 
-static void	f_queue_funct_destroy(void *data)
+static void	uf_queue_funct_destroy(void *data)
 {
 	(void)data;
 }
 
-void	f_queue_init(t_queue *v_this, void (*funct_destroy)(void *data))
+void	f_queue_init(t_queue *v_this, void (*uf_funct_destroy)(void *data))
 {
 	uf_memset(v_this, 0, sizeof(*v_this));
-	v_this->v_funct_destroy = f_queue_funct_destroy;
-	if (funct_destroy != NULL)
-		v_this->v_funct_destroy = funct_destroy;
+	v_this->f_destroy = uf_queue_funct_destroy;
+	if (uf_funct_destroy != NULL)
+		v_this->f_destroy = uf_funct_destroy;
 }
 
 void	f_queue_clear(t_queue *v_this)
@@ -55,7 +55,7 @@ void	f_queue_clear(t_queue *v_this)
 	while (v_this->v_head != NULL)
 	{
 		del = v_this->v_head;
-		v_this->v_funct_destroy(del->v_data);
+		v_this->f_destroy(del->v_data);
 		v_this->v_head = del->v_next;
 		free(del);
 	}
@@ -67,5 +67,5 @@ void	f_queue_clear(t_queue *v_this)
 void	f_queue_destroy(t_queue *v_this)
 {
 	D_QUEUE(clear)(v_this);
-	v_this->v_funct_destroy = NULL;
+	v_this->f_destroy = NULL;
 }

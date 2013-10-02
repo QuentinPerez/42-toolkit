@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/28 20:55:51 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/27 17:53:40 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/02 13:18:25 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ typedef struct	s_list
 	t_list_cell	*v_begin;
 	t_list_cell	*v_end;
 	ui			v_size;
-	void		(*v_funct_destroy)(void *data);
+	void		(*f_destroy)(void *data);
 }				t_list;
 
 # define D_LIST(funct)	f_list_##funct

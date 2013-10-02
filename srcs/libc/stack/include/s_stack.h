@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/27 15:34:52 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/30 14:49:31 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/02 13:18:51 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ typedef struct	s_stack
 {
 	ui				v_size;
 	t_stack_cell	*v_last;
-	void			(*v_funct_destroy)(void *data);
+	void			(*f_destroy)(void *data);
 }				t_stack;
 
 # define D_STACK(funct)	f_stack_##funct

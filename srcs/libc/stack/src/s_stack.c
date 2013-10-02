@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/27 15:34:44 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/27 17:42:21 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/02 13:23:03 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,17 +35,17 @@
 #include <f_memory.h>
 #include <stdlib.h>
 
-static void	f_stack_funct_destroy(void *data)
+static void	uf_stack_funct_destroy(void *data)
 {
 	(void)data;
 }
 
-void		f_stack_init(t_stack *v_this, void (*funct_destroy)(void *data))
+void		f_stack_init(t_stack *v_this, void (*uf_funct_destroy)(void *data))
 {
 	uf_memset(v_this, 0, sizeof(*v_this));
-	v_this->v_funct_destroy = f_stack_funct_destroy;
-	if (funct_destroy != NULL)
-		v_this->v_funct_destroy = funct_destroy;
+	v_this->f_destroy = uf_stack_funct_destroy;
+	if (uf_funct_destroy != NULL)
+		v_this->f_destroy = uf_funct_destroy;
 }
 
 void		f_stack_clear(t_stack *v_this)
@@ -55,7 +55,7 @@ void		f_stack_clear(t_stack *v_this)
 	while (v_this->v_last != NULL)
 	{
 		del = v_this->v_last;
-		v_this->v_funct_destroy(v_this->v_last->v_data);
+		v_this->f_destroy(v_this->v_last->v_data);
 		v_this->v_last = v_this->v_last->v_prev;
 		free(del);
 	}

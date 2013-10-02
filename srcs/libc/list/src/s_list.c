@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/28 20:52:06 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/27 17:52:35 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/02 13:20:59 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,17 +37,17 @@
 #include <stdlib.h>
 #include <f_memory/f_memory.h>
 
-static void	f_list_funct_destroy(void *data)
+static void	uf_list_funct_destroy(void *data)
 {
 	(void)data;
 }
 
-void		f_list_init(t_list *v_this, void (*funct_destroy)(void *data))
+void		f_list_init(t_list *v_this, void (*uf_funct_destroy)(void *data))
 {
 	uf_memset(v_this, 0, sizeof(*v_this));
-	v_this->v_funct_destroy = &f_list_funct_destroy;
-	if (funct_destroy == NULL)
-		v_this->v_funct_destroy = funct_destroy;
+	v_this->f_destroy = uf_list_funct_destroy;
+	if (uf_funct_destroy == NULL)
+		v_this->f_destroy = uf_funct_destroy;
 }
 
 inline void	f_list_print_addr(const t_list *v_this)
@@ -84,14 +84,14 @@ void		f_list_clear(t_list *v_this)
 	{
 		del = cur;
 		cur = cur->v_next;
-		v_this->v_funct_destroy(del->v_data);
+		v_this->f_destroy(del->v_data);
 		free(del);
 	}
-	D_LIST(init)(v_this, v_this->v_funct_destroy);
+	D_LIST(init)(v_this, v_this->f_destroy);
 }
 
 void		f_list_destroy(t_list *v_this)
 {
 	D_LIST(clear)(v_this);
-	v_this->v_funct_destroy = NULL;
+	v_this->f_destroy = NULL;
 }
