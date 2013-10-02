@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s_array.c                                          :+:      :+:    :+:   */
+/*   s_array_modifier.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/10/02 12:59:24 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/02 15:22:19 by qperez           ###   ########.fr       */
+/*   Created: 2013/10/02 15:23:05 by qperez            #+#    #+#             */
+/*   Updated: 2013/10/02 15:44:24 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains s_array function>
-** < init, destroy, clear >
+** <This file contains s_array_modifier function>
+** < push_back >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -32,60 +32,37 @@
 */
 
 #include <s_array.h>
+#include <f_memory.h>
 #include <m_error.h>
 #include <stdlib.h>
-#include <f_memory.h>
 
-static inline void	uf_array_delete(void *ptr)
+static bool	f_array_realloc(t_array *v_this, ui size)
 {
-	(void)ptr;
-}
+	void	*tmp;
 
-static inline ui	uf_array_realloc(ui size)
-{
-	return (size << 1);
-}
-
-bool				f_array_init(t_array *v_this,
-								 ui (*uf_realloc)(ui size),
-								 void (*uf_delete)(void *ptr),
-								 ui type_size)
-{
-	v_this->v_size = 0;
-	v_this->v_capacity = 0;
-	v_this->f_realloc = uf_realloc;
-	if (uf_realloc == NULL)
-		v_this->f_realloc = uf_array_realloc;
-	v_this->f_delete = uf_delete;
-	if (uf_delete == NULL)
-		v_this->f_delete = uf_array_delete;
-	v_this->v_data = calloc(2, type_size);
+	tmp = v_this->v_data;
+	v_this->v_data = realloc(v_this->v_data, size * v_this->v_type_size);
 	if (v_this->v_data == NULL)
+	{
+		v_this->v_data = tmp;
 		return (m_error("Bad alloc", false));
-	v_this->v_capacity = 2;
-	v_this->v_type_size = type_size;
+	}
+	v_this->v_capacity = size;
 	return (true);
 }
 
-void				f_array_clear(t_array *v_this)
+bool		f_array_push_back(t_array *v_this, void *data)
 {
-	ui		i;
-	ui		size;
-	char	*ptr;
+	char	*to;
+	ui		new_size;
 
-	i = 0;
-	ptr = (char*)v_this->v_data;
-	size = v_this->v_size * v_this->v_type_size;
-	while (i < size)
-	{
-		v_this->f_delete((void*)(ptr + i));
-		i = i + v_this->v_type_size;
-	}
-}
-
-void				f_array_destroy(t_array *v_this)
-{
-	D_ARRAY(clear)(v_this);
-	free(v_this->v_data);
-	uf_memset(v_this, 0, sizeof(*v_this));
+	new_size = v_this->f_realloc(v_this->v_capacity);
+	if (v_this->v_size + 1 > v_this->v_capacity &&
+		D_ARRAY(realloc)(v_this, new_size) == false)
+		return (false);
+	to = (char*)v_this->v_data;
+	to = to + v_this->v_size * v_this->v_type_size;
+	uf_memcpy(to, data, v_this->v_type_size);
+	v_this->v_size = v_this->v_size + 1;
+	return (true);
 }

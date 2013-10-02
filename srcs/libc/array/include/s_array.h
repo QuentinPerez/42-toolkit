@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/02 12:55:27 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/02 13:31:25 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/02 15:50:38 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@
 typedef struct	s_array
 {
 	ui		v_size;
+	ui		v_type_size;
 	ui		v_capacity;
 	void	*v_data;
 	ui		(*f_realloc)(ui size);
@@ -49,6 +50,9 @@ typedef struct	s_array
 
 bool	f_array_init(t_array *v_this, ui (*uf_realloc)(ui size),
 					 void (*uf_delete)(void *ptr), ui type_size);
+void	f_array_clear(t_array *v_this);
+bool	f_array_foreach(t_array *v_this, bool (*funct)(void *data));
+bool	f_array_push_back(t_array *v_this, void *data);
 void	f_array_destroy(t_array *v_this);
 
 #endif
