@@ -6,12 +6,11 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/05 15:08:40 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/27 15:52:25 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/02 13:34:18 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <vector/s_vector.h>
-#include <stddef.h>
 #include <stdlib.h>
 #include <f_string/f_print.h>
 

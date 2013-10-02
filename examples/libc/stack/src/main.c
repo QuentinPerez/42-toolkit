@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/27 15:48:40 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/30 14:51:33 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/02 13:34:05 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include <stdlib.h>
 #include <stack/s_stack.h>
 #include <f_string/f_print.h>
-#include <stddef.h>
 
 bool	uf_print(void *data)
 {
