@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s_array.h                                          :+:      :+:    :+:   */
+/*   s_array_capacity.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/10/02 12:55:27 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/03 14:27:30 by qperez           ###   ########.fr       */
+/*   Created: 2013/10/03 13:26:16 by qperez            #+#    #+#             */
+/*   Updated: 2013/10/03 14:18:43 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains all s_array prototype>
+** <This file contains s_array_capacity function>
+** < empty, size, capacity >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -30,34 +31,19 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef S_ARRAY_H
-# define S_ARRAY_H
+#include <s_array.h>
 
-#include <t_types.h>
-#include <d_bool.h>
-
-typedef struct	s_array
+inline bool	f_array_empty(t_array *v_this)
 {
-	ui		v_size;
-	ui		v_type_size;
-	ui		v_capacity;
-	void	*v_data;
-	ui		(*f_realloc)(ui size);
-	void	(*f_delete)(void *ptr);
-}				t_array;
+	return (v_this->v_size == 0);
+}
 
-# define f_array_data(v, type)	(type)fm_array_data(v)
-# define D_ARRAY(funct)			f_array_##funct
+inline ui	f_array_capacity(t_array *v_this)
+{
+	return (v_this->v_capacity);
+}
 
-bool	f_array_init(t_array *v_this, ui (*uf_realloc)(ui size),
-					 void (*uf_delete)(void *ptr), ui type_size);
-void	f_array_clear(t_array *v_this);
-bool	f_array_foreach(t_array *v_this, bool (*funct)(void *data));
-bool	f_array_push_back(t_array *v_this, void *data);
-bool	f_array_empty(t_array *v_this);
-ui		f_array_capacity(t_array *v_this);
-ui		f_array_size(t_array *v_this);
-void	f_array_destroy(t_array *v_this);
-void	*fm_array_data(t_array *v_this);
-
-#endif
+inline ui	f_array_size(t_array *v_this)
+{
+	return (v_this->v_size);
+}

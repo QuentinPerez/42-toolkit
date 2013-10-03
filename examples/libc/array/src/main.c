@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/27 15:48:40 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/02 15:51:39 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/03 14:26:06 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ int		main(int argc, char const** argv)
 {
 	ui		i;
 	t_array array;
+	t_point	*ptr;
 	t_point	point;
 
 	i = 0;
@@ -53,6 +54,14 @@ int		main(int argc, char const** argv)
 		i = i + 1;
 	}
 	D_ARRAY(foreach)(&array, uf_print_point);
+	uf_print_str("\e[34mWith good type passing to data\e[0m\n");
+	ptr = D_ARRAY(data)(&array, t_point*);
+	i = 0;
+	while (i < D_ARRAY(size)(&array))
+	{
+		uf_print_point(ptr + i);
+		i = i + 1;
+	}
 	D_ARRAY(destroy)(&array);
 	(void)argc;
 	(void)argv;
