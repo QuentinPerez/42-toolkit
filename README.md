@@ -1,7 +1,12 @@
 42-toolkit
 ==========
 
+<p align="center">
+	<img src="https://raw.github.com/QuentinPerez/42-toolkit/master/doc/images/logo-42.png" alt="42" title="42">
+</p>
+<p align="center">
 There are lots of dev Tools.
+</p>
 
 ## Why I wanted to do this
 
