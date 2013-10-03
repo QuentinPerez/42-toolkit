@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/27 15:48:40 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/02 13:33:57 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/03 14:43:24 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ bool	uf_print(void *data)
 
 int		main(int argc, char const** argv)
 {
-	ui		i;
+	size_t	i;
 	t_queue	queue;
 
 	i = 0;
