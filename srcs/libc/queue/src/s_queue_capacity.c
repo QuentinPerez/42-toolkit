@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/03 14:30:28 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/03 14:31:02 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/03 15:55:07 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,12 @@
 
 #include <s_queue.h>
 
-inline bool	f_queue_empty(t_queue *v_this)
+inline bool	f_queue_empty(const t_queue *v_this)
 {
 	return (v_this->v_size == 0);
 }
 
-inline ui	f_queue_size(t_queue *v_this)
+inline ui	f_queue_size(const t_queue *v_this)
 {
 	return (v_this->v_size);
 }

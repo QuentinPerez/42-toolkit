@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/30 11:02:36 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/02 13:18:37 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/03 15:54:46 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,8 @@ typedef struct	s_queue
 void	f_queue_init(t_queue *v_this, void (*funct_destroy)(void *data));
 void	f_queue_clear(t_queue *v_this);
 void	f_queue_destroy(t_queue *v_this);
-bool	f_queue_empty(t_queue *v_this);
-ui		f_queue_size(t_queue *v_this);
+bool	f_queue_empty(const t_queue *v_this);
+ui		f_queue_size(const t_queue *v_this);
 bool	f_queue_push(t_queue *v_this, void *data);
 void	*f_queue_pop(t_queue *v_this);
 bool	f_queue_foreach(t_queue *v_this, bool (*funct)(void * data));

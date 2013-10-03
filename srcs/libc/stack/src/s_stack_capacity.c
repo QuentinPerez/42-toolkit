@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/03 14:31:57 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/03 14:32:37 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/03 15:54:32 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,12 @@
 
 #include <s_stack.h>
 
-inline bool	f_stack_empty(t_stack *v_this)
+inline bool	f_stack_empty(const t_stack *v_this)
 {
 	return (v_this->v_size == 0);
 }
 
-inline ui	f_stack_size(t_stack *v_this)
+inline ui	f_stack_size(const t_stack *v_this)
 {
 	return (v_this->v_size);
 }

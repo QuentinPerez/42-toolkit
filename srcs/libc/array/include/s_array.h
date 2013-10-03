@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/02 12:55:27 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/03 14:27:30 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/03 15:56:04 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,9 +54,9 @@ bool	f_array_init(t_array *v_this, ui (*uf_realloc)(ui size),
 void	f_array_clear(t_array *v_this);
 bool	f_array_foreach(t_array *v_this, bool (*funct)(void *data));
 bool	f_array_push_back(t_array *v_this, void *data);
-bool	f_array_empty(t_array *v_this);
-ui		f_array_capacity(t_array *v_this);
-ui		f_array_size(t_array *v_this);
+bool	f_array_empty(const t_array *v_this);
+ui		f_array_capacity(const t_array *v_this);
+ui		f_array_size(const t_array *v_this);
 void	f_array_destroy(t_array *v_this);
 void	*fm_array_data(t_array *v_this);
 

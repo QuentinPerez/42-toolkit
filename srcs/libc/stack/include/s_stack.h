@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/27 15:34:52 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/02 13:18:51 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/03 15:54:02 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,8 @@ bool	f_stack_push(t_stack *v_this, void *data);
 void	f_stack_pop(t_stack *v_this);
 void	f_stack_clear(t_stack *v_this);
 void	*f_stack_top(t_stack *v_this);
-bool	f_stack_empty(t_stack *v_this);
-ui		f_stack_size(t_stack *v_this);
+bool	f_stack_empty(const t_stack *v_this);
+ui		f_stack_size(const t_stack *v_this);
 bool	f_stack_foreach(t_stack *v_this, bool (*funct)(void *data));
 
 #endif
