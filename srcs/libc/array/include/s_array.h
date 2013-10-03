@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/02 12:55:27 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/03 15:56:04 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/03 16:12:50 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,8 @@ bool	f_array_push_back(t_array *v_this, void *data);
 bool	f_array_empty(const t_array *v_this);
 ui		f_array_capacity(const t_array *v_this);
 ui		f_array_size(const t_array *v_this);
+void	f_array_remove_if(t_array *v_this, bool (*ft_cmp)(void *d1, void *d2),
+						  void *data);
 void	f_array_destroy(t_array *v_this);
 void	*fm_array_data(t_array *v_this);
 

@@ -6,13 +6,13 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/02 15:23:05 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/02 15:44:24 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/03 16:43:36 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 ** <This file contains s_array_modifier function>
-** < push_back >
+** < push_back, remove_if >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -65,4 +65,29 @@ bool		f_array_push_back(t_array *v_this, void *data)
 	uf_memcpy(to, data, v_this->v_type_size);
 	v_this->v_size = v_this->v_size + 1;
 	return (true);
+}
+
+void		f_array_remove_if(t_array *v_this,
+							  bool (*ft_cmp)(void *d1, void *d2), void *data)
+{
+	ui		i;
+	ui		size;
+	char	*ptr;
+
+	i = 0;
+	ptr = (char*)v_this->v_data;
+	size = v_this->v_size * v_this->v_type_size;
+	while (i < size)
+	{
+		if (ft_cmp((void*)(ptr + i), data) == true)
+		{
+			uf_memcpy(ptr + i, ptr + i + v_this->v_type_size,
+					  size - i - v_this->v_type_size);
+			uf_memset(ptr + size - v_this->v_type_size, 0, v_this->v_type_size);
+			v_this->v_size = v_this->v_size - 1;
+			size = v_this->v_size * v_this->v_type_size;
+		}
+		else
+			i = i + v_this->v_type_size;
+	}
 }
