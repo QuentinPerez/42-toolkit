@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s_stack_access.c                                   :+:      :+:    :+:   */
+/*   s_stack_capacity.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/09/27 17:35:18 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/03 14:32:08 by qperez           ###   ########.fr       */
+/*   Created: 2013/10/03 14:31:57 by qperez            #+#    #+#             */
+/*   Updated: 2013/10/03 14:32:37 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains s_stack_access function>
-** < top >
+** <This file contains s_stack_capacity function>
+** < empty, size >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -32,12 +32,13 @@
 */
 
 #include <s_stack.h>
-#include <stddef.h>
 
-void		*f_stack_top(t_stack *v_this)
+inline bool	f_stack_empty(t_stack *v_this)
 {
-	if (v_this->v_last != NULL)
-		return (v_this->v_last->v_data);
-	return (NULL);
+	return (v_this->v_size == 0);
 }
 
+inline ui	f_stack_size(t_stack *v_this)
+{
+	return (v_this->v_size);
+}
