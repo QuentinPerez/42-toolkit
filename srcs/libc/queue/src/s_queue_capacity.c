@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s_queue_access.c                                   :+:      :+:    :+:   */
+/*   s_queue_capacity.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/09/30 13:26:50 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/03 14:33:01 by qperez           ###   ########.fr       */
+/*   Created: 2013/10/03 14:30:28 by qperez            #+#    #+#             */
+/*   Updated: 2013/10/03 14:31:02 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains s_queue_access function>
-** < front, back >
+** <This file contains s_queue_capacity function>
+** < empty, size >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -32,18 +32,14 @@
 */
 
 #include <s_queue.h>
-#include <stddef.h>
 
-inline void	*f_queue_front(t_queue *v_this)
+inline bool	f_queue_empty(t_queue *v_this)
 {
-	if (v_this->v_head != NULL)
-		return (v_this->v_head->v_data);
-	return (NULL);
+	return (v_this->v_size == 0);
 }
 
-void	*f_queue_back(t_queue *v_this)
+inline ui	f_queue_size(t_queue *v_this)
 {
-	if (v_this->v_tail != NULL)
-		return (v_this->v_tail->v_data);
-	return (NULL);
+	return (v_this->v_size);
 }
+
