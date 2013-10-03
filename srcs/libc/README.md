@@ -9,6 +9,7 @@
     - error/		"Write error to file"
     - list/			"Double linked-list"
 	- vector/		"Pointer array that can change size"
+	- array/		"Struct array that can change size"
 	- stack/		"Last-in-First-out container"
 	- queue/		"First-in-First-out container"
 
