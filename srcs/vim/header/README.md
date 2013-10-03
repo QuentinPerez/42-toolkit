@@ -13,14 +13,14 @@ This plugin generate header like 42.
 
 When you open <code>newfile.c</code> this plugin put header on the top.
 
-# Warning
-
-The script <code>configure</code> add two variable in your environnement.
-
 # Env
 
-    - MAIL42=YourMail
-    - USER42=YourUser
+	- Add to your profile_file (.bashrc | .zshrc | .profile | ...).
+
+    - export MAIL42=YourMail
+    - export USER42=YourUser
+
+	- reset your prompt and like it
 
 
 ## License
