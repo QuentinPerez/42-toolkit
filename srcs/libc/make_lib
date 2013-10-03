@@ -38,6 +38,12 @@ done
 
 LIST_OF_FILE_H=$(find $TMP/$INCLUDE -type f -name "*.h")
 
+function	sed_replace_portable
+{
+	local	tmpfile="$(mktemp -t temp.XXXXX)"
+	sed "s/$2/$3/g" $1 > ${tmpfile} && mv ${tmpfile} $1
+}
+
 function	fix_header
 {
 	while [ ! -z "$1" ];
@@ -51,7 +57,7 @@ function	fix_header
 					DIR=$(echo $LIST_OF_FILE_H | tr ' ' '\n' | grep "$PATTERN" | sed 's/'$TMP'\/'$INCLUDE'\///g' | sed 's/\//\\\//g')
 					CHANGE=$(echo "#include <$PATTERN>")
 					TO=$(echo "#include <$DIR>")
-					sed -i --posix "s/$CHANGE/$TO/g" $1
+					sed_replace_portable $1 "$CHANGE" "$TO"
 				fi
 			done
 		done
