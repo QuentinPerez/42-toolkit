@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   f_strcpy.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/08/28 18:08:55 by qperez            #+#    #+#             */
-/*   Updated: 2013/08/30 16:15:06 by qperez           ###   ########.fr       */
+/*   Created: 2013/10/06 21:20:02 by qperez            #+#    #+#             */
+/*   Updated: 2013/10/06 22:11:20 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <main>
+** <This file contains function>
+** < uf_strcpy, uf_strncpy, uf_strlcpy >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -30,31 +31,55 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <f_print_fd.h>
-#include <stdio.h>
+#include <stddef.h>
+#include <f_str_tools.h>
+#include <f_memory.h>
 
-#define	D_TEST(funct, param)	printf("== "#funct" ==\n"); funct(param, 1)
-
-#include <stdio.h>
-
-int	main(int argc, const char **argv)
+char	*uf_strcpy(char *dest, const char *src)
 {
-	char	c;
-	char	*ptr;
+	char	*tmp;
 
-	(void)argc;
-	(void)argv;
-	ptr = &c;
-	D_TEST(uf_print_str_fd, "Hello World\n");
-	D_TEST(uf_print_nbr_fd, 42);
-	uf_print_char_fd('\n', 1);
-	D_TEST(uf_print_char_fd, '!');
-	uf_print_char_fd('\n', 1);
-	printf("== uf_print_nbr_base_fd ==\n");
-	uf_print_nbr_base_fd(42, 1, 30);
-	uf_print_char_fd('\n', 1);
-	printf("== uf_print_addr_fd ==\n");
-	uf_print_addr_fd(ptr, 1);
-	uf_print_char_fd('\n', 1);
-	return (0);
+	tmp = dest;
+	while (*src != '\0')
+	{
+		*dest = *src;
+		dest = dest + 1;
+		src = src + 1;
+	}
+	*dest = '\0';
+	return (tmp);
+}
+
+char	*uf_strncpy(char *dest, const char *src, size_t size)
+{
+	char	*tmp;
+
+	tmp = dest;
+	while (size != 0)
+	{
+		*tmp = *src;
+		if (*src != 0)
+			src++;
+		tmp++;
+		size--;
+	}
+	return (dest);
+}
+
+size_t	uf_strlcpy(char *dest, const char *src, size_t size)
+{
+	size_t	ret;
+	size_t	len;
+
+	ret = uf_str_len(src);
+	if (size != 0)
+	{
+		if (ret >= size)
+			len = size - 1;
+		else
+			len = ret;
+		uf_memcpy(dest, src, len);
+		dest[len] = '\0';
+	}
+	return (ret);
 }
