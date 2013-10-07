@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/30 13:28:54 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/02 13:22:36 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/07 03:44:48 by irabeson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,10 @@ static t_queue_cell	*f_queue_create_cell(void *data)
 
 	cell = malloc(sizeof(*cell));
 	if (cell != NULL)
+	{
 		cell->v_data = data;
-	cell->v_next = NULL;
+		cell->v_next = NULL;
+	}
 	return (cell);
 }
 
