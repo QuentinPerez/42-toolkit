@@ -1,18 +1,18 @@
-/* ************************************************************************** */
+﻿/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s_list_cell_count.c                                :+:      :+:    :+:   */
+/*   s_list_split.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: irabeson <irabeson42@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/07 19:58:18 by irabeson          #+#    #+#             */
-/*   Updated: 2013/10/07 19:58:18 by irabeson         ###   ########.fr       */
+/*   Updated: 2013/10/07 23:41:40 by irabeson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains s_list_cell_count method>
-** < count >
+** <This file contains s_list_split method>
+** < split >
 ** Copyright (C) <2013>  Iohann Rabeson <irabeson42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -31,22 +31,40 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <s_list_cell.h>
-#include <stddef.h>
+#include <s_list.h>
+#include <t_types.h>
+#include <stdlib.h>
 
-ui			f_list_cell_count(const t_list_cell *other_begin,
-							  const t_list_cell *other_end)
+void		f_list_split_imp(t_list *v_this, t_list *new_list,
+							 t_list_cell *split_at)
 {
-	ui	count;
+	new_list->v_begin = split_at;
+	new_list->v_end = v_this->v_end;
+	new_list->v_size = D_CELL(count)(split_at, v_this->v_end);
+	v_this->v_size = v_this->v_size - new_list->v_size;
+	v_this->v_end = split_at->v_prev;
+	v_this->v_end->v_next = NULL;
+	new_list->v_begin->v_prev = NULL;
+	new_list->v_end->v_next = NULL;
+}
 
-	count = 0;
-	if (other_end != NULL)
+void		f_list_split(t_list *v_this, t_list_cell *split_at,
+						 t_list *new_list)
+{
+	if (new_list != NULL && split_at != NULL)
 	{
-		while (other_begin != NULL)
+		if (!D_LIST(empty)(new_list))
+			D_LIST(clear)(new_list);
+		if (v_this->v_begin == split_at)
 		{
-			other_begin = other_begin->v_next;
-			count += 1;
+			(*new_list) = (*v_this);
+			v_this->v_size = 0;
+			v_this->v_begin = NULL;
+			v_this->v_end = NULL;
+		}
+		else
+		{
+			f_list_split_imp(v_this, new_list, split_at);
 		}
 	}
-	return (count);
 }

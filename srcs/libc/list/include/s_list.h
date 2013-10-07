@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/28 20:55:51 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/07 04:15:13 by irabeson         ###   ########.fr       */
+/*   Updated: 2013/10/07 23:41:40 by irabeson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,8 @@ void		f_list_pop_front(t_list *v_this);
 t_list_cell	*f_list_insert(t_list *v_this, t_list_cell *position, void *data);
 void		*f_list_back(t_list *v_this);
 void		*f_list_front(t_list *v_this);
+void		f_list_split(t_list *v_this, t_list_cell *split_at,
+						 t_list *new_list);
 bool		f_list_foreach(t_list *v_this, bool (*funct)(void *value));
 void		f_list_reverse(t_list *v_this);
 void		f_list_remove(t_list *v_this,
