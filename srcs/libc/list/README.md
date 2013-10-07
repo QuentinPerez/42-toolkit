@@ -36,6 +36,9 @@
 	- pop_front(t_list *v_this)
 	  /* This function delete first data */
 
+	- insert(f_list_insert(t_list *v_this, t_list_cell *position, void *data)
+	  /* This function insert data before the cell at the specified position */
+	  
 	- back(t_list *v_this)
 	  /* This function return last data */
 
