@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   f_memory.h                                         :+:      :+:    :+:   */
+/*   f_memory_print.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/09/26 12:48:37 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/08 00:35:03 by qperez           ###   ########.fr       */
+/*   Created: 2013/10/08 00:22:04 by qperez            #+#    #+#             */
+/*   Updated: 2013/10/08 01:11:06 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains all f_memory prototype>
+** <This file contains all f_memory_print function>
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -30,16 +30,69 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef F_MEMORY_H
-# define F_MEMORY_H
-
-#include <stddef.h>
 #include <t_types.h>
-#include <d_bool.h>
+#include <f_print.h>
 
-void	*uf_memset(void *src, uc c, size_t size);
-void	uf_memcpy(void *to, const void *from, size_t size);
-bool	uf_memcmp(const void *left, void *right, size_t size);
-void	*uf_print_memory(const void *addr, ui size);
+static void	uf_print_content(uc *data, ui size)
+{
+	ui	i;
 
-#endif
+	i = 0;
+	uf_print_char(' ');
+	while (i < size)
+	{
+		if (data[i] < 32 || data[i] == 127)
+			uf_print_char('.');
+		else
+			uf_print_char(data[i]);
+		i = i + 1;
+	}
+	uf_print_char('\n');
+}
+
+static void	uf_print_hex(char c)
+{
+	if (c < 16)
+		uf_print_char('0');
+	uf_print_nbr_base(c, 16);
+}
+
+static uc	*uf_print_data(uc *data, ui size)
+{
+	ui	i;
+
+	i = 0;
+	uf_print_addr(data);
+	uf_print_str(": ");
+	while (i < size)
+	{
+		if (i % 2 == 0 && i != 0)
+			uf_print_char(' ');
+		uf_print_hex(*data);
+		data = data + 1;
+		i = i + 1;
+	}
+	while (i < 16)
+	{
+		if (i % 2 == 0 && i != 0)
+			uf_print_char(' ');
+		uf_print_str("  ");
+		i = i + 1;
+	}
+	uf_print_content(data - size, size);
+	return (data);
+}
+
+void		*uf_print_memory(const void *addr, ui size)
+{
+	uc	*data;
+
+	data = (uc*)addr;
+	while (size > 16)
+	{
+		data = uf_print_data(data, 16);
+		size = size - 16;
+	}
+	data = uf_print_data(data, size);
+	return ((void*)addr);
+}

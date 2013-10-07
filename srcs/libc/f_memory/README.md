@@ -14,6 +14,9 @@ f_memory.c
 	- uf_memcpy(void *to, const void *from, size_t size)
 	/* This function copies n bytes memory "from" to "to" */
 
+	- uf_print_memory(const void *to, ui size)
+	/* This function print memory */
+
 ## How to use ?
 
 You can see example [here](https://github.com/QuentinPerez/42-toolkit/tree/master/examples/libc/f_memory).

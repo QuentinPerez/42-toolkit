@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/28 18:08:55 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/06 22:42:33 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/08 01:11:39 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,10 @@ int	main(int argc, const char **argv)
 	uf_strcat(dest, "-tool");
 	uf_print_str(dest);
 	uf_print_str("\nAdd kit\n");
-	uf_strncat(dest, "kitfoobar", 3);
+	uf_strncat(dest, "kitfoobarhello", 16);
 	uf_print_str(dest);
+	uf_print_str("\n");
+	uf_print_memory(dest, 50);
 	(void)argv;
 	(void)argc;
 	return (0);
