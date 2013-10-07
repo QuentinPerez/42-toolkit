@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   f_string.h                                         :+:      :+:    :+:   */
+/*   f_stricmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/10/06 21:23:29 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/07 23:16:58 by qperez           ###   ########.fr       */
+/*   Created: 2013/10/07 23:03:19 by qperez            #+#    #+#             */
+/*   Updated: 2013/10/07 23:19:36 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains all f_string function>
+** <This file contains function>
+** < uf_stricmp, uf_strnicmp >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -30,20 +31,46 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef F_STRING_H
-# define F_STRING_H
-
+#include <t_types.h>
+#include <f_char.h>
 #include <stddef.h>
 
-char	*uf_strcpy(char *dest, const char *src);
-char	*uf_strncpy(char *dest, const char *src, size_t size);
-size_t	uf_strlcpy(char *dest, const char *src, size_t size);
-char	*uf_strcat(char *dest, const char *src);
-char	*uf_strncat(char *dest, const char *src, size_t size);
-size_t	uf_strlcat(char *dest, const char *src, size_t size);
-int		uf_strcmp(const char *left, const char *right);
-int		uf_strncmp(const char *left, const char *right, size_t count);
-int		uf_stricmp(const char *left, const char *right);
-int		uf_strnicmp(const char *left, const char *right, size_t count);
+int	uf_stricmp(const char *left, const char *right)
+{
+	uc	left_letter;
+	uc	right_letter;
 
-#endif
+	while (*left != '\0' && *right != '\0')
+	{
+		left_letter = uf_to_lower(*left);
+		right_letter = uf_to_lower(*right);
+		if (left_letter != right_letter)
+			break ;
+		right = right + 1;
+		left = left + 1;
+	}
+	return ((int)((uc)*left - (uc)*right));
+}
+
+int	uf_strnicmp(const char *left, const char *right, size_t count)
+{
+	uc	left_letter;
+	uc	right_letter;
+
+	if (count == 0)
+		return (0);
+	while (*left != '\0' && *right != '\0' && count != 0)
+	{
+		left_letter = uf_to_lower(*left);
+		right_letter = uf_to_lower(*right);
+		count = count - 1;
+		if (left_letter != right_letter)
+			break ;
+		if (count == 0)
+			return (0);
+		right = right + 1;
+		left = left + 1;
+	}
+	return ((int)((uc)*left - (uc)*right));
+
+}

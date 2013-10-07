@@ -75,6 +75,14 @@ f_strcmp.c:
 	- uf_strncmp(char *dest, const char *src, size_t size)
 	/* Like strcmp but you compare length size */
 
+f_stricmp.c:
+
+	- uf_stricmp(char *dest, const char *src)
+	/* Like uf_strcmp (case insensitive) */
+
+	- uf_strnicmp(char *dest, const char *src, size_t size)
+	/* Like uf_strncmp (case insensitive) */
+
 f_char.c:
 
 	- uf_to_lower(const uc c)
