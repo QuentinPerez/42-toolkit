@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s_list_cell.h                                      :+:      :+:    :+:   */
+/*   s_list_cell_count.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
+/*   By: irabeson <irabeson42@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/08/28 20:58:10 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/27 17:49:47 by qperez           ###   ########.fr       */
+/*   Created: 2013/10/07 19:58:18 by irabeson          #+#    #+#             */
+/*   Updated: 2013/10/07 19:58:18 by irabeson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains all s_list_cell prototype>
-** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
+** <This file contains s_list_cell_count method>
+** < count >
+** Copyright (C) <2013>  Iohann Rabeson <irabeson42@gmail.com>
 **
 ** This file is part of 42-toolkit.
 **
@@ -30,24 +31,22 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef S_LIST_CELL_H
-# define S_LIST_CELL_H
+#include <s_list_cell.h>
+#include <stddef.h>
 
-#include <d_bool.h>
-#include <t_types.h>
-
-typedef struct	s_list_cell
-{
-	struct s_list_cell	*v_next;
-	struct s_list_cell	*v_prev;
-	void				*v_data;
-}				t_list_cell;
-
-# define D_CELL(funct)	f_list_cell_##funct
-
-t_list_cell	*f_list_cell_create(t_list_cell *prev,
-								t_list_cell *next, void *data);		
 ui			f_list_cell_count(const t_list_cell *other_begin,
-							  const t_list_cell *other_end);
-						 
-#endif
+							  const t_list_cell *other_end)
+{
+	ui	count;
+	
+	count = 0;
+	if (other_end != NULL)
+	{
+		while (other_begin != NULL)
+		{
+			other_begin = other_begin->v_next;
+			count += 1;
+		}
+	}
+	return (count);
+}
