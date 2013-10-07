@@ -42,9 +42,33 @@ Rules:
 	- force		:
 	- 			true
 
+## How to add to my git project (at school) ?
+
+Variable:
+
+	- TOOLKIT    = 42-toolkit
+
+Add dependencies:
+
+	- $(DIR42)	:	$(TOOLKIT)
+				cd $(TOOLKIT)/srcs/libc && ./make_lib && mv $(DIR42) ../../../
+
+Rules:
+
+	- $(TOOLKIT)	:
+				git submodule add https://github.com/QuentinPerez/42-toolkit.git
+				git submodule init
+
+Update:
+
+	- git submodule update
+
+
 ## Example
 
-You can see Makefile lib example [here](https://github.com/QuentinPerez/42-toolkit/tree/master/examples/libc/list/Makefile).
+You can see Makefile example [here](https://github.com/QuentinPerez/42-toolkit/tree/master/examples/libc/list/Makefile).
+
+You can see Makefile example for school [here](https://github.com/QuentinPerez/42-toolkit/tree/master/examples/libc/school/Makefile).
 
 ## License
 
