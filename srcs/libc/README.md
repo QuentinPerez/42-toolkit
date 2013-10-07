@@ -28,6 +28,7 @@ Variable:
 	- LIB42    = $(LIB42)/lib42.a
 
 Add dependencies:
+
 	- $(EXEC)	:	$(LIB42) ...
 	- 			...
 
@@ -42,7 +43,7 @@ Rules:
 	- force		:
 	- 			true
 
-## How to add to my git project (at school) ?
+## How add to your git project (at school) ?
 
 Variable:
 
