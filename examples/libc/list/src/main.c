@@ -12,6 +12,7 @@
 
 #include <list/s_list.h>
 #include <f_string/f_print.h>
+#include <stddef.h>
 
 bool	uf_print_value(void *data)
 {
@@ -21,35 +22,124 @@ bool	uf_print_value(void *data)
 	return (true);
 }
 
+t_list_cell	*uf_list_cell_n(t_list *list, ui n)
+{
+	t_list_cell	*cur;
+	ui			i;
+	
+	i = 0;
+	cur = list->v_begin;
+	while (cur != NULL && i < n)
+	{
+		cur = cur->v_next;
+		++i;
+	}
+	return (cur);
+}
+
+void	check_equal_ui(ui expected, ui current)
+{
+	if (expected == current)
+	{
+		uf_print_str("OK: ");
+		uf_print_nbr(expected);
+		uf_print_str(" == ");
+		uf_print_nbr(current);
+		uf_print_char('\n');
+	}
+	else
+	{
+		uf_print_str("FAIL: ");
+		uf_print_nbr(expected);
+		uf_print_str(" != ");
+		uf_print_nbr(current);
+		uf_print_char('\n');
+	}
+}
+
 void	tf_cell_count()
 {
 	t_list	list;
 	int		i;
-	int		expected;
-	int		count_return;
 	
-	uf_print_str("Test cell count: ");
+	uf_print_str("Test cell_count\n");
 	i = 0;
 	D_LIST(init)(&list, NULL);
+	check_equal_ui(D_LIST(size)(&list),
+				   D_CELL(count)(list.v_begin, list.v_end));
 	while (i < 5)
 	{
 		D_LIST(push_back)(&list, (void *)i);
 		i = i + 1;
 	}
-	expected = D_LIST(size)(&list);
-	count_return = D_CELL(count)(list.v_begin, list.v_end);
-	if (expected == count_return)
-		uf_print_str("OK\n");
-	else
-	{
-		uf_print_str("FAIL\n");
-		uf_print_str("expected: ");
-		uf_print_nbr(expected);
-		uf_print_char('\n');
-		uf_print_str("count return: ");
-		uf_print_nbr(count_return);
-		uf_print_char('\n');
-	}
+	check_equal_ui(D_LIST(size)(&list),
+				   D_CELL(count)(list.v_begin, list.v_end));
+}
+
+void	tf_list_split01()
+{
+	t_list	listA;
+	t_list	listB;
+	
+	uf_print_str("Test list_splice 01\n");
+	D_LIST(init)(&listA, NULL);
+	D_LIST(init)(&listB, NULL);
+	
+	D_LIST(push_back)(&listA, (void *)0);
+	D_LIST(push_back)(&listA, (void *)1);
+	D_LIST(push_back)(&listA, (void *)2);
+	D_LIST(push_back)(&listA, (void *)3);
+	D_LIST(split)(&listA, listA.v_begin, &listB);
+	check_equal_ui(D_LIST(size)(&listA), 0);
+	check_equal_ui(D_LIST(size)(&listB), 4);
+	check_equal_ui((ui)uf_list_cell_n(&listB, 0)->v_data, 0);
+	check_equal_ui((ui)uf_list_cell_n(&listB, 1)->v_data, 1);
+	check_equal_ui((ui)uf_list_cell_n(&listB, 2)->v_data, 2);
+	check_equal_ui((ui)uf_list_cell_n(&listB, 3)->v_data, 3);
+}
+
+void	tf_list_split02()
+{
+	t_list	listA;
+	t_list	listB;
+	
+	uf_print_str("Test list_splice 02\n");
+	D_LIST(init)(&listA, NULL);
+	D_LIST(init)(&listB, NULL);
+	
+	D_LIST(push_back)(&listA, (void *)0);
+	D_LIST(push_back)(&listA, (void *)1);
+	D_LIST(push_back)(&listA, (void *)2);
+	D_LIST(push_back)(&listA, (void *)3);
+	D_LIST(split)(&listA, listA.v_begin->v_next, &listB);
+	check_equal_ui(D_LIST(size)(&listA), 1);
+	check_equal_ui(D_LIST(size)(&listB), 3);
+	check_equal_ui((ui)(uf_list_cell_n(&listA, 0)->v_data), 0);
+	check_equal_ui((ui)(uf_list_cell_n(&listB, 0)->v_data), 1);
+	check_equal_ui((ui)(uf_list_cell_n(&listB, 1)->v_data), 2);
+	check_equal_ui((ui)(uf_list_cell_n(&listB, 2)->v_data), 3);
+}
+
+void	tf_list_split03()
+{
+	t_list	listA;
+	t_list	listB;
+	
+	uf_print_str("Test list_splice 03\n");
+	D_LIST(init)(&listA, NULL);
+	D_LIST(init)(&listB, NULL);
+	
+	D_LIST(push_back)(&listA, (void *)0);
+	D_LIST(push_back)(&listA, (void *)1);
+	D_LIST(push_back)(&listA, (void *)2);
+	D_LIST(push_back)(&listA, (void *)3);
+	D_LIST(split)(&listA, uf_list_cell_n(&listA, 3), &listB);
+	check_equal_ui(D_LIST(size)(&listA), 3);
+	check_equal_ui(D_LIST(size)(&listB), 1);
+	check_equal_ui((ui)(uf_list_cell_n(&listA, 0)->v_data), 0);
+	check_equal_ui((ui)(uf_list_cell_n(&listA, 1)->v_data), 1);
+	check_equal_ui((ui)(uf_list_cell_n(&listA, 2)->v_data), 2);
+	check_equal_ui((ui)(uf_list_cell_n(&listB, 0)->v_data), 3);
 }
 
 int	main(int argc, char const** argv)
@@ -72,6 +162,9 @@ int	main(int argc, char const** argv)
 	D_LIST(foreach)(&list, uf_print_value);
 	D_LIST(destroy)(&list);
 	tf_cell_count();
+	tf_list_split01();
+	tf_list_split02();
+	tf_list_split03();
 	(void)argc;
 	(void)argv;
 	return (0);
