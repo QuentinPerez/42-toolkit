@@ -11,6 +11,7 @@ For any questions use the [issues tracker](https://github.com/QuentinPerez/42-to
 
 Remenber: **a function should do one thing, and it should do it well**.
 
+You can (**must**) see [norme 42](https://docs.google.com/file/d/0Byas2-wgCXhnMTR0ak5XeTNEalE/edit?usp=sharing).
 ## Commits
 
 ### What should I know?
