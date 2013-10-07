@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   f_stricmp.c                                        :+:      :+:    :+:   */
+/*   f_strcasecmp.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/07 23:03:19 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/07 23:19:36 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/07 23:37:24 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 ** <This file contains function>
-** < uf_stricmp, uf_strnicmp >
+** < uf_str_case_cmp, uf_str_case_ncmp >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -35,7 +35,7 @@
 #include <f_char.h>
 #include <stddef.h>
 
-int	uf_stricmp(const char *left, const char *right)
+int	uf_str_case_cmp(const char *left, const char *right)
 {
 	uc	left_letter;
 	uc	right_letter;
@@ -52,7 +52,7 @@ int	uf_stricmp(const char *left, const char *right)
 	return ((int)((uc)*left - (uc)*right));
 }
 
-int	uf_strnicmp(const char *left, const char *right, size_t count)
+int	uf_str_case_ncmp(const char *left, const char *right, size_t count)
 {
 	uc	left_letter;
 	uc	right_letter;

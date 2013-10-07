@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/06 21:23:29 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/07 23:16:58 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/07 23:37:40 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ char	*uf_strncat(char *dest, const char *src, size_t size);
 size_t	uf_strlcat(char *dest, const char *src, size_t size);
 int		uf_strcmp(const char *left, const char *right);
 int		uf_strncmp(const char *left, const char *right, size_t count);
-int		uf_stricmp(const char *left, const char *right);
-int		uf_strnicmp(const char *left, const char *right, size_t count);
+int		uf_str_case_cmp(const char *left, const char *right);
+int		uf_str_case_ncmp(const char *left, const char *right, size_t count);
 
 #endif

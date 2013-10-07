@@ -75,12 +75,12 @@ f_strcmp.c:
 	- uf_strncmp(char *dest, const char *src, size_t size)
 	/* Like strcmp but you compare length size */
 
-f_stricmp.c:
+f_strcasecmp.c:
 
-	- uf_stricmp(char *dest, const char *src)
+	- uf_str_case_cmp(char *dest, const char *src)
 	/* Like uf_strcmp (case insensitive) */
 
-	- uf_strnicmp(char *dest, const char *src, size_t size)
+	- uf_str_case_ncmp(char *dest, const char *src, size_t size)
 	/* Like uf_strncmp (case insensitive) */
 
 f_char.c:
