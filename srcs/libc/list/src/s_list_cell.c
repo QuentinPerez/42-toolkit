@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/28 20:58:01 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/27 17:48:27 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/07 03:53:32 by irabeson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,11 @@ t_list_cell	*f_list_cell_create(t_list_cell *prev,
 	t_list_cell	*cell;
 
 	cell = malloc(sizeof(*cell));
-	if (cell == NULL)
-		return (NULL);
-	cell->v_next = next;
-	cell->v_prev = prev;
-	cell->v_data = data;
+	if (cell != NULL)
+	{
+		cell->v_next = next;
+		cell->v_prev = prev;
+		cell->v_data = data;
+	}
 	return (cell);
 }
