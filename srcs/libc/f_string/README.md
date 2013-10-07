@@ -76,6 +76,7 @@ f_strcmp.c:
 	/* Like strcmp but you compare length size */
 
 f_char.c:
+
 	- uf_to_lower(const uc c)
 	/* Convert uppercase letter to lowercase */
 

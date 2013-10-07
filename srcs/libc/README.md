@@ -4,7 +4,7 @@
 ## Tools unable
 
     - f_error/		"Treat return value"
-    - f_string/		"Function to write"
+    - f_string/		"It's funny"
     - f_memory/		"Function to play with memory"
     - error/		"Write error to file"
     - list/			"Double linked-list"
