@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   f_string.h                                         :+:      :+:    :+:   */
+/*   f_char.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/10/06 21:23:29 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/07 21:05:32 by qperez           ###   ########.fr       */
+/*   Created: 2013/10/07 20:56:15 by qperez            #+#    #+#             */
+/*   Updated: 2013/10/07 21:13:01 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains all f_string function>
+** <This file contains function>
+** < uf_tolower, uf_toupper, uf_is_lower, uf_is_upper >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -30,18 +31,29 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef F_STRING_H
-# define F_STRING_H
+#include <t_types.h>
+#include <d_bool.h>
 
-#include <stddef.h>
+bool	uf_is_upper(const uc c)
+{
+	return (c > '@' && c < '[');
+}
 
-char	*uf_strcpy(char *dest, const char *src);
-char	*uf_strncpy(char *dest, const char *src, size_t size);
-size_t	uf_strlcpy(char *dest, const char *src, size_t size);
-char	*uf_strcat(char *dest, const char *src);
-char	*uf_strncat(char *dest, const char *src, size_t size);
-size_t	uf_strlcat(char *dest, const char *src, size_t size);
-int		uf_strcmp(const char *left, const char *right);
-int		uf_strncmp(const char *left, const char *right, size_t count);
+bool	uf_is_lower(const uc c)
+{
+	return (c > '`' && c < '{');
+}
 
-#endif
+uc		uf_to_lower(const uc c)
+{
+	if (uf_is_upper(c) == true)
+		return (c + 32);
+	return (c);
+}
+
+uc		uf_to_upper(const uc c)
+{
+	if (uf_is_lower(c) == true)
+		return (c - 32);
+	return (c);
+}
