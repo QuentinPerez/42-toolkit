@@ -6,7 +6,7 @@
 /*   By: irabeson <irabeson42@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/07 04:18:37 by irabeson          #+#    #+#             */
-/*   Updated: 2013/10/07 05:36:00 by irabeson         ###   ########.fr       */
+/*   Updated: 2013/10/07 11:57:43 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,22 +37,25 @@
 t_list_cell	*f_list_insert(t_list *v_this, t_list_cell *position, void *data)
 {
 	t_list_cell	*cell;
-	t_list_cell	*prev_cell;
-	t_list_cell	*next_cell;
-	
-	prev_cell = position->v_prev;
-	next_cell = position;
-	cell = D_CELL(create)(prev_cell, next_cell, data);
+
+	if (position == NULL)
+	{
+		if (D_LIST(push_back)(v_this, data) == true)
+			return (D_LIST(end)(v_this));
+		else
+			return (NULL);
+	}
+	cell = D_CELL(create)(position->v_prev, position, data);
 	if (cell != NULL)
 	{
-		if (prev_cell != NULL)
-			prev_cell->v_next = cell;
+		if (position->v_prev != NULL)
+			position->v_prev->v_next = cell;
 		else
 			v_this->v_begin = cell;
-		next_cell->v_prev = cell;
+		position->v_prev = cell;
 		v_this->v_size = v_this->v_size + 1;
 	}
 	else
-		m_error("Bad alloc", 0);
+		m_error("Bad alloc", (size_t)NULL);
 	return (cell);
 }

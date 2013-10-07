@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/28 20:52:06 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/02 13:20:59 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/07 11:45:36 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void		f_list_init(t_list *v_this, void (*uf_funct_destroy)(void *data))
 {
 	uf_memset(v_this, 0, sizeof(*v_this));
 	v_this->f_destroy = uf_list_funct_destroy;
-	if (uf_funct_destroy == NULL)
+	if (uf_funct_destroy != NULL)
 		v_this->f_destroy = uf_funct_destroy;
 }
 
