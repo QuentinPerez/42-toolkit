@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/08 13:53:57 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/08 20:52:57 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/08 21:13:56 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@
 #include <s_list.h>
 #include <m_error.h>
 #include <stdlib.h>
+#include <f_memory.h>
 
 static void	f_htable_delete_cell(void *data)
 {
@@ -70,4 +71,5 @@ bool		f_htable_init(t_htable *v_this, ui prime,
 void	f_htable_destroy(t_htable *v_this)
 {
 	D_ARRAY(destroy)(&v_this->v_array);
+	uf_memset(v_this, 0, sizeof(*v_this));
 }

@@ -1,4 +1,4 @@
-42-toolkit	C Hashtable
+42-toolkit	C Htable
 ==========
 
 ## Function
@@ -21,7 +21,7 @@
 
 ## How to use ?
 
-You can see example [here](https://github.com/QuentinPerez/42-toolkit/tree/master/examples/libc/hashtable).
+You can see example [here](https://github.com/QuentinPerez/42-toolkit/tree/master/examples/libc/htable).
 
 ## License
 

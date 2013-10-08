@@ -1,4 +1,4 @@
-42-toolkit	Example -> C Struct hashtable
+42-toolkit	Example -> C Struct htable
 ==========
 
 # How to use
