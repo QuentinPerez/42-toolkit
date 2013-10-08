@@ -3,7 +3,7 @@
 
 ## Function
 
-f_memory.c
+f_memory.c:
 
 	- uf_memset(void *src, unsigned char c, size_t size)
 	/* This function write len bytes of value c */
@@ -14,8 +14,15 @@ f_memory.c
 	- uf_memcpy(void *to, const void *from, size_t size)
 	/* This function copies n bytes memory "from" to "to" */
 
+f_print_memory.c:
+
 	- uf_print_memory(const void *to, ui size)
 	/* This function print memory */
+
+f_free.c:
+
+	- uf_free_tab(void **tab)
+	/* This function delete all element of tab and delete tab */
 
 ## How to use ?
 
