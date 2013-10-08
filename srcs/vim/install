@@ -10,9 +10,9 @@ if [ ! -d $HOME/.vim ]; then
 	fi
 fi
 
-DIR_FILE=("generator-h" "header" "speed_open" "syntax")
-VIM_FILE="generator_h.vim make_header.vim speed_open.vim c.vim"
-DIRECTORY=("plugin" "plugin" "plugin" "syntax")
+DIR_FILE=("syntax" "header" "speed_open" "generator-h")
+VIM_FILE="c.vim make_header.vim speed_open.vim generator_h.vim"
+DIRECTORY=("syntax" "plugin" "plugin" "plugin")
 INDEX=0
 
 for FILE in $VIM_FILE
