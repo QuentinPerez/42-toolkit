@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/08 19:25:06 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/08 20:52:33 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/08 21:07:07 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,8 +107,19 @@ bool					f_htable_add(t_htable *v_this,
 
 void					*f_htable_get(t_htable *v_this, const char *str)
 {
-	ui		key;
+	t_list		*list;
+	void		*ret;
+	t_list_cell	*cell;
 
-	key = D_HTABLE(generate_key)(v_this, str);
-	return ((void*)(size_t)key);
+	ret = NULL;
+	list = D_ARRAY(at)(&v_this->v_array,
+					   D_HTABLE(generate_key)(v_this, str), t_list *);
+	cell = D_LIST(begin)(list);
+	while (cell != NULL && ret == NULL)
+	{
+		if (uf_strcmp(str, ((t_htable_cell*)cell->v_data)->v_key) == 0)
+			ret = ((t_htable_cell*)cell->v_data)->v_data;
+		cell = cell->v_next;
+	}
+	return (ret);
 }

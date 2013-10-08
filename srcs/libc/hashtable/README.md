@@ -7,6 +7,15 @@
 	  /* This function initialize t_htable */
 	  /* WARNING Use a number prime */
 
+	- add(t_htable *v_this, const char *key, void *data)
+	  /* This function add new key */
+
+	- get(t_htable *v_this, const char *key)
+	  /* This function return element at key */
+
+	- print(t_htable *v_this, bool (*uf_print)(t_htable_cell *data))
+	  /* This function print all element */
+
 	- destroy(t_htable *v_this)
 	  /* This function destroy t_htable */
 

@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/08 13:01:24 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/08 20:54:57 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/08 21:08:58 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	main(int argc, char const** argv)
 {
 	t_htable	htable;
 
-	D_HTABLE(init)(&htable, 71, NULL);
+	D_HTABLE(init)(&htable, 127, NULL);
 	D_HTABLE(add)(&htable, "hello", (void*)1);
 	D_HTABLE(add)(&htable, "men", (void*)2);
 	D_HTABLE(add)(&htable, "born", (void*)3);
@@ -37,6 +37,8 @@ int	main(int argc, char const** argv)
 	D_HTABLE(add)(&htable, "paris", (void*)8);
 	D_HTABLE(add)(&htable, "school", (void*)9);
 	D_HTABLE(print)(&htable, uf_print_value);
+	uf_print_nbr((size_t)D_HTABLE(get)(&htable, "42"));
+	uf_print_char('\n');
 	D_HTABLE(destroy)(&htable);
 	(void)argc;
 	(void)argv;
