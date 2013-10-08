@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/08 13:47:03 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/08 14:03:11 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/08 14:37:25 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,12 @@
 typedef struct	s_htable
 {
 	t_array	v_array;
+	ui		v_prime;
 }				t_htable;
 
 # define D_HTABLE(funct)	f_htable_##funct
 
-bool	f_htable_init(t_htable *v_this, void (*f_del)(void *ptr));
+bool	f_htable_init(t_htable *v_this, ui size, void (*f_del)(void *ptr));
 void	f_htable_destroy(t_htable *v_this);
 
 #endif

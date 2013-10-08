@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/08 13:53:57 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/08 14:04:04 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/08 14:39:53 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,14 +35,36 @@
 #include <s_list.h>
 #include <m_error.h>
 
-bool	f_htable_init(t_htable *v_this, void (*f_del)(void *ptr))
+bool	f_htable_init(t_htable *v_this, ui prime, void (*f_delete)(void *ptr))
 {
-	if (D_ARRAY(init)(&v_this->v_array, NULL, f_del, sizeof(t_list)) == false)
+	ui		i;
+	t_list	*list;
+
+	i = 0;
+	if (D_ARRAY(init)(&v_this->v_array, NULL, (void (*)(void *))D_LIST(destroy),
+					  sizeof(t_list)) == false)
 		return (m_error("Could not initialize array", false));
+	list = D_ARRAY(data)(&v_this->v_array, t_list *);
+	while (i < prime)
+	{
+		D_LIST(init)(&list[i], f_delete);
+		i = i + 1;
+	}
+	v_this->v_prime = prime;
 	return (true);
 }
 
 void	f_htable_destroy(t_htable *v_this)
 {
+	ui		i;
+	t_list	*list;
+
+	i = 0;
+	list = D_ARRAY(data)(&v_this->v_array, t_list *);
+	while (i < v_this->v_prime)
+	{
+		D_LIST(destroy)(&list[i]);
+		i = i + 1;
+	}
 	D_ARRAY(destroy)(&v_this->v_array);
 }

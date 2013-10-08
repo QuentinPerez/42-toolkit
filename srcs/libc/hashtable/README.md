@@ -3,7 +3,12 @@
 
 ## Function
 
+	- init(t_htable *v_this, ui number_prine, void (*f_delete)(void *data))
+	  /* This function initialize t_htable */
+	  /* WARNING Use a number prime */
 
+	- destroy(t_htable *v_this)
+	  /* This function destroy t_htable */
 
 ## How to use ?
 
