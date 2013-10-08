@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/02 15:23:05 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/03 16:43:36 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/08 14:17:34 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,13 @@ static bool	f_array_realloc(t_array *v_this, ui size)
 	}
 	v_this->v_capacity = size;
 	return (true);
+}
+
+bool		f_array_resize(t_array *v_this, ui size)
+{
+	if (size < v_this->v_capacity)
+		return (m_error("Bad resize", false));
+	return (D_ARRAY(realloc)(v_this, size));
 }
 
 bool		f_array_push_back(t_array *v_this, void *data)
