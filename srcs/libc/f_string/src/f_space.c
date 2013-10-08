@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/07 23:41:00 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/07 23:51:24 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/08 14:12:37 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@
 #include <d_bool.h>
 #include <t_types.h>
 
-bool	uf_is_space(unsigned char c)
+bool	uf_is_space(const uc c)
 {
 	return (c == '\t' || c == ' ' || c == '\r' ||
 			c == '\f' || c == '\v' || c == '\n');

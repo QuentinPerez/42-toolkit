@@ -97,6 +97,14 @@ f_char.c:
 	- uf_is_upper(const uc c)
 	/* Return true if letter is uppercase */
 
+f_space.c:
+
+	- uf_is_space(const uc c)
+	/* Return true if c is space */
+
+	- uf_skip_space(const char *str)
+	/* Increase str while is space */
+
 ## How to use ?
 
 You can see example [here](https://github.com/QuentinPerez/42-toolkit/tree/master/examples/libc/f_string).
