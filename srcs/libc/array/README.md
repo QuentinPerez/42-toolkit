@@ -34,6 +34,10 @@
 	  /* This function data pointer */
 	  /* WARNING here you pass typeof struct you can (must) see example */
 
+	- at(t_array *v_this, ui index, TYPEOF)
+	  /* This function pointer to index */
+	  /* WARNING here you pass typeof struct you can (must) see example */
+
 	- destroy(t_array *v_this)
 	  /* This function destroy t_array */
 

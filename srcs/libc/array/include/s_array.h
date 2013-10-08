@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/02 12:55:27 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/08 14:17:56 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/08 19:47:20 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,9 @@ typedef struct	s_array
 	void	(*f_delete)(void *ptr);
 }				t_array;
 
-# define f_array_data(v, type)	(type)fm_array_data(v)
-# define D_ARRAY(funct)			f_array_##funct
+# define f_array_at(v, index, type)	(type)fm_array_at(v, index)
+# define f_array_data(v, type)		(type)fm_array_data(v)
+# define D_ARRAY(funct)				f_array_##funct
 
 bool	f_array_init(t_array *v_this, ui (*uf_realloc)(ui size),
 					 void (*uf_delete)(void *ptr), ui type_size);
@@ -62,5 +63,6 @@ void	f_array_remove_if(t_array *v_this, bool (*ft_cmp)(void *d1, void *d2),
 bool	f_array_resize(t_array *v_this, ui size);
 void	f_array_destroy(t_array *v_this);
 void	*fm_array_data(t_array *v_this);
+void	*fm_array_at(t_array *v_this, ui index);
 
 #endif

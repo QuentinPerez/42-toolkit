@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/03 13:59:04 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/03 14:26:39 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/08 19:47:30 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,9 @@
 inline void	*fm_array_data(t_array *v_this)
 {
 	return (v_this->v_data);
+}
+
+inline void	*fm_array_at(t_array *v_this, ui index)
+{
+	return (v_this->v_data + index * v_this->v_type_size);
 }
