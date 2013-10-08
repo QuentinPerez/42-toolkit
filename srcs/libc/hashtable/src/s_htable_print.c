@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s_htable.h                                         :+:      :+:    :+:   */
+/*   s_htable_print.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/10/08 13:47:03 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/08 20:55:46 by qperez           ###   ########.fr       */
+/*   Created: 2013/10/08 19:59:30 by qperez            #+#    #+#             */
+/*   Updated: 2013/10/08 20:56:08 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains all s_array prototype>
+** <This file contains s_htable_print function>
+** < print >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -30,31 +31,27 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef S_HTABLE_H
-# define S_HTABLE_H
+#include <s_htable.h>
+#include <f_print.h>
+#include <s_list.h>
 
-#include <s_array.h>
-
-typedef struct	s_htable_cell
+void	f_htable_print(t_htable *v_this, bool (*uf_print)(t_htable_cell *data))
 {
-	char	*v_key;
-	void	*v_data;
-	void	(*f_delete)(void *data);
-}				t_htable_cell;
+	ui		i;
+	t_list	*list;
 
-typedef struct	s_htable
-{
-	t_array	v_array;
-	ui		v_prime;
-	void	(*f_delete)(void *data);
-}				t_htable;
-
-# define D_HTABLE(funct)	f_htable_##funct
-
-bool	f_htable_init(t_htable *v_this, ui size, void (*f_del)(void *ptr));
-bool	f_htable_add(t_htable *v_this, const char *key, void *data);
-void	*f_htable_get(t_htable *v_this, const char *key);
-void	f_htable_print(t_htable *v_this, bool (*uf_print)(t_htable_cell *data));
-void	f_htable_destroy(t_htable *v_this);
-
-#endif
+	i = 0;
+	list = D_ARRAY(data)(&v_this->v_array, t_list *);
+	while (i < v_this->v_prime)
+	{
+		if (D_LIST(size)(list + i) > 0)
+		{
+			uf_print_char('[');
+			uf_print_nbr(i);
+			uf_print_str("]-> ");
+			D_LIST(foreach)(list + i, (bool (*)(void *))uf_print);
+			uf_print_char('\n');
+		}
+		i = i + 1;
+	}
+}
