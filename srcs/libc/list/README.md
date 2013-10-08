@@ -38,7 +38,7 @@
 
 	- insert(f_list_insert(t_list *v_this, t_list_cell *position, void *data)
 	  /* This function insert data before the cell at the specified position */
-	  
+
 	- back(t_list *v_this)
 	  /* This function return last data */
 
@@ -51,7 +51,7 @@
 	- reverse(t_list *v_this)
 	  /* This function reverse list */
 
-	- remove(t_list *v_this, bool (*cmp)(void *data, void *value), void *value)
+	- remove_if(t_list *v_this, bool (*cmp)(void *data, void *value), void *value)
 	  /* This function remove element if cmp return true */
 
 	- clear(t_list *v_this)
