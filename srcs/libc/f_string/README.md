@@ -97,6 +97,11 @@ f_char.c:
 	- uf_is_upper(const uc c)
 	/* Return true if letter is uppercase */
 
+f_strdup.c:
+
+	- uf_strdup(const char *str)
+	/* Return copy of str */
+
 f_space.c:
 
 	- uf_is_space(const uc c)

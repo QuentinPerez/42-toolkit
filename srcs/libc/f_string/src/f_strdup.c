@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   f_string.h                                         :+:      :+:    :+:   */
+/*   f_strdup.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/10/06 21:23:29 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/08 20:37:51 by qperez           ###   ########.fr       */
+/*   Created: 2013/10/08 20:33:45 by qperez            #+#    #+#             */
+/*   Updated: 2013/10/08 20:36:45 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains all f_string function>
+** <This file contains f_strdup function>
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -30,21 +30,16 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef F_STRING_H
-# define F_STRING_H
+#include <stdlib.h>
+#include <f_string.h>
+#include <f_str_tools.h>
 
-#include <stddef.h>
+char	*uf_strdup(const char *str)
+{
+	char	*ret;
 
-char	*uf_strcpy(char *dest, const char *src);
-char	*uf_strncpy(char *dest, const char *src, size_t size);
-size_t	uf_strlcpy(char *dest, const char *src, size_t size);
-char	*uf_strcat(char *dest, const char *src);
-char	*uf_strncat(char *dest, const char *src, size_t size);
-size_t	uf_strlcat(char *dest, const char *src, size_t size);
-int		uf_strcmp(const char *left, const char *right);
-int		uf_strncmp(const char *left, const char *right, size_t count);
-int		uf_str_case_cmp(const char *left, const char *right);
-int		uf_str_case_ncmp(const char *left, const char *right, size_t count);
-char	*uf_strdup(const char *str);
-
-#endif
+	ret = malloc(sizeof(*ret) * (uf_str_len(str) + 1));
+	if (ret != NULL)
+		uf_strcpy(ret, str);
+	return (ret);
+}
