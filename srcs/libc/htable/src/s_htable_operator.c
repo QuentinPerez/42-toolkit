@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s_htable.c                                         :+:      :+:    :+:   */
+/*   s_htable_operator.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/10/08 13:53:57 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/09 08:30:52 by qperez           ###   ########.fr       */
+/*   Created: 2013/10/09 08:21:59 by qperez            #+#    #+#             */
+/*   Updated: 2013/10/09 12:01:42 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains s_htable function>
-** < init, destroy >
+** <This file contains s_htable_operator function>
+** < erase, delete, remove_if >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -33,33 +33,48 @@
 
 #include <s_htable.h>
 #include <s_list.h>
-#include <m_error.h>
-#include <f_memory.h>
+#include <stddef.h>
+#include <f_string.h>
 
-void	f_htable_delete_cell(void *data);
+ui		f_htable_generate_key(const t_htable *v_this, const char *str);
 
-bool	f_htable_init(t_htable *v_this, ui prime, void (*f_delete)(void *ptr))
+void	*f_htable_erase(t_htable *v_this, const char *key)
 {
-	ui		i;
-	t_list	list;
+	t_list		*list;
+	void		*ret;
+	t_list_cell	*cell;
 
-	i = 0;
-	if (D_ARRAY(init)(&v_this->v_array, NULL, (void (*)(void *))D_LIST(destroy),
-					  sizeof(t_list)) == false)
-		return (m_error("Could not initialize array", false));
-	D_LIST(init)(&list, D_HTABLE(delete_cell));
-	while (i < prime)
+	ret = NULL;
+	list = D_ARRAY(at)(&v_this->v_array,
+					   D_HTABLE(generate_key)(v_this, key), t_list *);
+	cell = D_LIST(begin)(list);
+	while (cell != NULL && ret == NULL)
 	{
-		D_ARRAY(push_back)(&v_this->v_array, &list);
-		i = i + 1;
+		if (uf_strcmp(key, ((t_htable_cell*)cell->v_data)->v_key) == 0)
+		{
+			D_LIST(erase)(list, cell, &ret);
+			ret = ((t_htable_cell*)ret)->v_data;
+		}
+		cell = cell->v_next;
 	}
-	v_this->v_prime = prime;
-	v_this->f_delete = f_delete;
-	return (true);
+	return (ret);
 }
 
-void	f_htable_destroy(t_htable *v_this)
+void	f_htable_delete(t_htable *v_this, const char *key)
 {
-	D_ARRAY(destroy)(&v_this->v_array);
-	uf_memset(v_this, 0, sizeof(*v_this));
+	t_list		*list;
+	t_list_cell	*cell;
+
+	list = D_ARRAY(at)(&v_this->v_array,
+					   D_HTABLE(generate_key)(v_this, key), t_list *);
+	cell = D_LIST(begin)(list);
+	while (cell != NULL)
+	{
+		if (uf_strcmp(key, ((t_htable_cell*)cell->v_data)->v_key) == 0)
+		{
+			D_LIST(delete)(list, cell);
+			break ;
+		}
+		cell = cell->v_next;
+	}
 }

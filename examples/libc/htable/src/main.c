@@ -6,12 +6,12 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/08 13:01:24 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/08 21:08:58 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/09 12:02:27 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
-#include <hashtable/s_htable.h>
+#include <htable/s_htable.h>
 #include <f_string/f_print.h>
 
 
@@ -36,6 +36,7 @@ int	main(int argc, char const** argv)
 	D_HTABLE(add)(&htable, "42", (void*)7);
 	D_HTABLE(add)(&htable, "paris", (void*)8);
 	D_HTABLE(add)(&htable, "school", (void*)9);
+	D_HTABLE(delete)(&htable, "paris");
 	D_HTABLE(print)(&htable, uf_print_value);
 	uf_print_nbr((size_t)D_HTABLE(get)(&htable, "42"));
 	uf_print_char('\n');

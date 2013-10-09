@@ -13,6 +13,12 @@
 	- get(t_htable *v_this, const char *key)
 	  /* This function return element at key */
 
+	- delete(t_htable *v_this, const char *key)
+	  /* This function element at key */
+
+	- erase(t_htable *v_this, const char *key)
+	  /* This function remove element to htable and return data */
+
 	- print(t_htable *v_this, bool (*uf_print)(t_htable_cell *data))
 	  /* This function print all element */
 

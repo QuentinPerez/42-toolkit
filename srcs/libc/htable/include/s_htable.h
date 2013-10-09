@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/08 13:47:03 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/08 20:55:46 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/09 12:00:07 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,8 @@ bool	f_htable_init(t_htable *v_this, ui size, void (*f_del)(void *ptr));
 bool	f_htable_add(t_htable *v_this, const char *key, void *data);
 void	*f_htable_get(t_htable *v_this, const char *key);
 void	f_htable_print(t_htable *v_this, bool (*uf_print)(t_htable_cell *data));
+void	f_htable_delete(t_htable *v_this, const char *key);
+void	*f_htable_erase(t_htable *v_this, const char *key);
 void	f_htable_destroy(t_htable *v_this);
 
 #endif

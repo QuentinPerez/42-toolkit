@@ -12,6 +12,7 @@
 	- array/		"Struct array that can change size"
 	- stack/		"Last-in-First-out container"
 	- queue/		"First-in-First-out container"
+	- htable/		"Hash table"
 
 ## How to make libraries
 
