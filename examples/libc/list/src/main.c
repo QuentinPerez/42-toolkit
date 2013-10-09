@@ -15,8 +15,8 @@
 #include <stddef.h>
 #include <f_error/m_error.h>
 
-void	tf_cell_count(void);
 void	uf_check_equal_ui(ui expected, ui current);
+void	tf_cell_count(void);
 void	tf_list_split01(void);
 void	tf_list_split02(void);
 void	tf_list_split03(void);
@@ -83,7 +83,7 @@ void	tf_list_split01(void)
 	t_list	listA;
 	t_list	listB;
 
-	m_infos("Test 01");
+	m_infos("Test list split 01");
 	D_LIST(init)(&listA, NULL);
 	D_LIST(init)(&listB, NULL);
 	uf_add_number_to_list(&listA, 4);
@@ -103,7 +103,7 @@ void	tf_list_split02(void)
 	t_list	listA;
 	t_list	listB;
 
-	m_infos("Test 02");
+	m_infos("Test list split 02");
 	D_LIST(init)(&listA, NULL);
 	D_LIST(init)(&listB, NULL);
 	uf_add_number_to_list(&listA, 4);
@@ -123,7 +123,7 @@ void	tf_list_split03()
 	t_list	listA;
 	t_list	listB;
 
-	m_infos("Test 03");
+	m_infos("Test list split 03");
 	D_LIST(init)(&listA, NULL);
 	D_LIST(init)(&listB, NULL);
 	uf_add_number_to_list(&listA, 4);
@@ -137,4 +137,3 @@ void	tf_list_split03()
 	D_LIST(destroy)(&listA);
 	D_LIST(destroy)(&listB);
 }
-
