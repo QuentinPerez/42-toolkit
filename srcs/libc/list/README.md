@@ -38,12 +38,15 @@
 
 	- insert(f_list_insert(t_list *v_this, t_list_cell *position, void *data)
 	  /* This function insert data before the cell at the specified position */
-	  
+
 	- back(t_list *v_this)
 	  /* This function return last data */
 
 	- front(t_list *v_this)
 	  /* This function return the first data */
+
+	- split(t_list *v_this, t_list_cell *split_at, t_list *new_list)
+	  /* This function split a list in 2 part and assign the new part to new_list */
 
 	- foreach(t_list *v_this, bool (*funct)(void *value))
 	  /* This function apply for lot of elements */
