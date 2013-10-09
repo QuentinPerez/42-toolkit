@@ -24,8 +24,8 @@
 	- foreach(t_array *v_this, bool (*funct)(void *ptr))
 	  /* This function apply for lot of elements */
 
-	- remove_if(t_array *v_this, bool (*ft_cmp)(void *d1, void *d2), void *data);
-	  /* This function destroy element if ft_cmp return true */
+	- delete_if(t_array *v_this, bool (*ft_cmp)(void *d1, void *d2), void *data);
+	  /* This function delete element if ft_cmp return true */
 
 	- resize(t_array *v_this, ui size)
 	  /* This function resize array */

@@ -6,13 +6,13 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/02 15:23:05 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/08 14:17:34 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/09 12:11:06 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 ** <This file contains s_array_modifier function>
-** < push_back, remove_if >
+** < push_back, delete_if >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -74,7 +74,7 @@ bool		f_array_push_back(t_array *v_this, void *data)
 	return (true);
 }
 
-void		f_array_remove_if(t_array *v_this,
+void		f_array_delete_if(t_array *v_this,
 							  bool (*ft_cmp)(void *d1, void *d2), void *data)
 {
 	ui		i;
