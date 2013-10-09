@@ -53,7 +53,7 @@ void		f_list_split(t_list *v_this, t_list_cell *split_at,
 {
 	if (new_list != NULL && split_at != NULL)
 	{
-		if (!D_LIST(empty)(new_list))
+		if (D_LIST(empty)(new_list) == false)
 			D_LIST(clear)(new_list);
 		if (v_this->v_begin == split_at)
 		{
