@@ -106,7 +106,6 @@ void	tf_list_split02()
 	uf_print_str("Test list_splice 02\n");
 	D_LIST(init)(&listA, NULL);
 	D_LIST(init)(&listB, NULL);
-	
 	D_LIST(push_back)(&listA, (void *)0);
 	D_LIST(push_back)(&listA, (void *)1);
 	D_LIST(push_back)(&listA, (void *)2);
@@ -118,6 +117,8 @@ void	tf_list_split02()
 	check_equal_ui((ui)(uf_list_cell_n(&listB, 0)->v_data), 1);
 	check_equal_ui((ui)(uf_list_cell_n(&listB, 1)->v_data), 2);
 	check_equal_ui((ui)(uf_list_cell_n(&listB, 2)->v_data), 3);
+	D_LIST(destroy)(&listA);
+	D_LIST(destroy)(&listB);
 }
 
 void	tf_list_split03()
@@ -128,7 +129,6 @@ void	tf_list_split03()
 	uf_print_str("Test list_splice 03\n");
 	D_LIST(init)(&listA, NULL);
 	D_LIST(init)(&listB, NULL);
-	
 	D_LIST(push_back)(&listA, (void *)0);
 	D_LIST(push_back)(&listA, (void *)1);
 	D_LIST(push_back)(&listA, (void *)2);
@@ -140,6 +140,8 @@ void	tf_list_split03()
 	check_equal_ui((ui)(uf_list_cell_n(&listA, 1)->v_data), 1);
 	check_equal_ui((ui)(uf_list_cell_n(&listA, 2)->v_data), 2);
 	check_equal_ui((ui)(uf_list_cell_n(&listB, 0)->v_data), 3);
+	D_LIST(destroy)(&listA);
+	D_LIST(destroy)(&listB);
 }
 
 int	main(int argc, char const** argv)
