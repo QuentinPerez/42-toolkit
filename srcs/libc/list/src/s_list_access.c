@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/02 22:27:02 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/27 17:51:22 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/09 23:34:33 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,9 +60,9 @@ inline t_list_cell	*f_list_end(const t_list *v_this)
 
 t_list_cell			*f_list_get_cell(t_list *list, ui cell_at)
 {
-	t_list_cell	*cur;
 	ui			i;
-	
+	t_list_cell	*cur;
+
 	i = 0;
 	cur = list->v_begin;
 	while (cur != NULL && i < cell_at)

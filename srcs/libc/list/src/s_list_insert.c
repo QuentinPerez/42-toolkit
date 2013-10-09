@@ -6,7 +6,7 @@
 /*   By: irabeson <irabeson42@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/07 04:18:37 by irabeson          #+#    #+#             */
-/*   Updated: 2013/10/07 11:57:43 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/09 23:42:42 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,8 @@
 #include <s_list.h>
 #include <m_error.h>
 
+t_list_cell	*f_list_cell_create(t_list_cell *prv, t_list_cell *nxt, void *data);
+
 t_list_cell	*f_list_insert(t_list *v_this, t_list_cell *position, void *data)
 {
 	t_list_cell	*cell;
@@ -45,7 +47,7 @@ t_list_cell	*f_list_insert(t_list *v_this, t_list_cell *position, void *data)
 		else
 			return (NULL);
 	}
-	cell = D_CELL(create)(position->v_prev, position, data);
+	cell = D_LIST_CELL(create)(position->v_prev, position, data);
 	if (cell != NULL)
 	{
 		if (position->v_prev != NULL)

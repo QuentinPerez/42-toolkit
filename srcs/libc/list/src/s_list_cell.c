@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/28 20:58:01 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/07 03:53:32 by irabeson         ###   ########.fr       */
+/*   Updated: 2013/10/09 23:36:41 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@
 #include <s_list_cell.h>
 #include <stdlib.h>
 
-t_list_cell	*f_list_cell_create(t_list_cell *prev,
-								t_list_cell *next, void *data)
+t_list_cell			*f_list_cell_create(t_list_cell *prev,
+										t_list_cell *next, void *data)
 {
 	t_list_cell	*cell;
 
@@ -47,4 +47,14 @@ t_list_cell	*f_list_cell_create(t_list_cell *prev,
 		cell->v_data = data;
 	}
 	return (cell);
+}
+
+inline t_list_cell	*f_list_cell_next(const t_list_cell *cur)
+{
+	return (cur->v_next);
+}
+
+inline t_list_cell	*f_list_cell_prev(const t_list_cell *cur)
+{
+	return (cur->v_prev);
 }

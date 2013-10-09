@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/28 12:30:46 by qperez            #+#    #+#             */
-/*   Updated: 2013/08/29 14:09:22 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/09 23:20:56 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void	fm_infos(const char *funct, const char *infos)
 	uf_print_str_fd(funct, 1);
 	uf_print_str_fd("(): \033[0;33m", 1);
 	uf_print_str_fd(infos, 1);
-	uf_print_str_fd(".\033[0;37m\n", 1);
+	uf_print_str_fd(".\033[0m\n", 1);
 #endif
 	(void)funct;
 	(void)infos;

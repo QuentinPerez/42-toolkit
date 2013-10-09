@@ -6,7 +6,7 @@
 /*   By: irabeson <irabeson42@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/07 19:58:18 by irabeson          #+#    #+#             */
-/*   Updated: 2013/10/07 23:41:40 by irabeson         ###   ########.fr       */
+/*   Updated: 2013/10/09 23:39:49 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static void	f_list_split_imp(t_list *v_this, t_list *new_list,
 {
 	new_list->v_begin = split_at;
 	new_list->v_end = D_LIST(end)(v_this);
-	new_list->v_size = D_CELL(count)(split_at, v_this->v_end);
+	new_list->v_size = D_LIST_CELL(count)(split_at, v_this->v_end);
 	v_this->v_size = D_LIST(size)(v_this) - D_LIST(size)(new_list);
 	v_this->v_end = split_at->v_prev;
 	v_this->v_end->v_next = NULL;

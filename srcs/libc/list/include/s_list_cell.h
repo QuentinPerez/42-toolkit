@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/28 20:58:10 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/08 00:38:47 by irabeson         ###   ########.fr       */
+/*   Updated: 2013/10/09 23:37:39 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,11 @@ typedef struct	s_list_cell
 	void				*v_data;
 }				t_list_cell;
 
-# define D_CELL(funct)	f_list_cell_##funct
+# define D_LIST_CELL(funct)	f_list_cell_##funct
 
-t_list_cell	*f_list_cell_create(t_list_cell *prev,
-								t_list_cell *next, void *data);
 ui			f_list_cell_count(const t_list_cell *other_begin,
 							  const t_list_cell *other_end);
+t_list_cell	*f_list_cell_next(const t_list_cell *cur);
+t_list_cell	*f_list_cell_prev(const t_list_cell *cur);
 
 #endif
