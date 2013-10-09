@@ -6,13 +6,13 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/16 20:15:12 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/26 13:34:39 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/09 12:15:09 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 ** <This file contains s_vector_operator method>
-** < foreach, remove >
+** < foreach, delete >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -51,7 +51,7 @@ bool	f_vector_foreach(t_vector *v_this, bool (*funct)(void *))
 	return (true);
 }
 
-bool	f_vector_remove(t_vector *v_this, void *ptr)
+bool	f_vector_delete(t_vector *v_this, void *ptr)
 {
 	void	*erase;
 

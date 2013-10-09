@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/16 12:11:43 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/26 13:33:26 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/09 12:14:26 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,7 @@ ui		f_vector_size(const t_vector *v_this);
 ui		f_vector_capacity(const t_vector *v_this);
 bool	f_vector_push_back(t_vector *v_this, void *data);
 void	*f_vector_erase(t_vector *v_this, void *erase);
+void	f_vector_delete(t_vector *v_this, void *mb_del);
 bool	f_vector_foreach(t_vector *v_this, bool (*funct)(void *ptr));
 bool	f_vector_reserve(t_vector *v_this, ui new_size);
 void	*f_vector_at(t_vector *v_this, ui index);

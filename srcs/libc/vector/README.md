@@ -28,6 +28,9 @@
 	  /* This function change capacity */
 
 	- erase(t_vector *v_this, void *ptr)
+	  /* This function remove ptr to vector and return data */
+
+	- delete(t_vector *v_this, void *ptr)
 	  /* This function delete ptr */
 
 	- at(t_vector *v_this, uint index)
