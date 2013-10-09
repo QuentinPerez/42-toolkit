@@ -6,13 +6,13 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/30 22:50:59 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/09 08:21:10 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/09 12:02:10 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 ** <This file contains s_list_operator method>
-** < foreach, reverse, remove_if >
+** < foreach, reverse, delete_if, delete >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -68,7 +68,17 @@ void	f_list_reverse(t_list *v_this)
 	}
 }
 
-void	f_list_remove_if(t_list *v_this,
+t_list_cell	*f_list_delete(t_list *v_this, t_list_cell *mb_del)
+{
+	void		*del;
+	t_list_cell	*ret;
+
+	ret = D_LIST(erase)(v_this, mb_del, &del);
+	v_this->f_destroy(del);
+	return (ret);
+}
+
+void	f_list_delete_if(t_list *v_this,
 						 bool (*cmp)(void *data, void *value), void *value)
 {
 	t_list_cell	*cur;
@@ -77,7 +87,7 @@ void	f_list_remove_if(t_list *v_this,
 	while (cur != NULL)
 	{
 		if (cmp(cur->v_data, value) == true)
-			cur = D_LIST(erase)(v_this, cur);
+			cur = D_LIST(delete)(v_this, cur);
 		else
 			cur = cur->v_next;
 	}

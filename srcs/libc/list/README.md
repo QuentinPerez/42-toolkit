@@ -18,8 +18,8 @@
 	- end(const t_list *v_this)
 	  /* This function return end of list */
 
-	- erase(t_list *v_this, t_cell *erase)
-	  /* This function delete cellule and call funct_destroy for data */
+	- erase(t_list *v_this, t_cell *cell, void **data)
+	  /* This function remove cell to list and put element in data */
 
 	- print_addr(const t_list *v_this)
 	  /* This function print addr of lot of cellule */
@@ -51,8 +51,11 @@
 	- reverse(t_list *v_this)
 	  /* This function reverse list */
 
-	- remove_if(t_list *v_this, bool (*cmp)(void *data, void *value), void *value)
-	  /* This function remove element if cmp return true */
+	- delete_if(t_list *v_this, bool (*cmp)(void *data, void *value), void *value)
+	  /* This function delete element if cmp return true */
+
+	- delete(t_list *v_this, t_list_cell *cell)
+	  /* This function delete cell and return next element */
 
 	- clear(t_list *v_this)
 	  /* This function remove all elements */

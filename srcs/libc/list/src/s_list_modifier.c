@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/30 17:48:19 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/02 13:21:48 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/09 08:46:38 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,12 +94,13 @@ void		f_list_pop_front(t_list *v_this)
 	}
 }
 
-t_list_cell	*f_list_erase(t_list *v_this, t_list_cell *erase)
+t_list_cell	*f_list_erase(t_list *v_this, t_list_cell *erase, void **data)
 {
 	t_list_cell	*ret;
 
 	ret = erase->v_next;
-	v_this->f_destroy(erase->v_data);
+	if (data != NULL)
+		*data = erase->v_data;
 	if (erase == v_this->v_begin)
 		v_this->v_begin = ret;
 	else if (erase == v_this->v_end)

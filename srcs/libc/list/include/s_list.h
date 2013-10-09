@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/28 20:55:51 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/09 08:20:34 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/09 12:00:37 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ bool		f_list_empty(const t_list *v_this);
 ui			f_list_size(const t_list *v_this);
 t_list_cell	*f_list_begin(const t_list *v_this);
 t_list_cell	*f_list_end(const t_list *v_this);
-t_list_cell	*f_list_erase(t_list *v_this, t_list_cell *erase);
+t_list_cell	*f_list_erase(t_list *v_this, t_list_cell *erase, void **data);
 void		f_list_print_addr(const t_list *v_this);
 bool		f_list_push_back(t_list *v_this, void *data);
 void		f_list_pop_back(t_list *v_this);
@@ -62,7 +62,8 @@ void		*f_list_back(t_list *v_this);
 void		*f_list_front(t_list *v_this);
 bool		f_list_foreach(t_list *v_this, bool (*funct)(void *value));
 void		f_list_reverse(t_list *v_this);
-void		f_list_remove_if(t_list *v_this,
+t_list_cell	*f_list_delete(t_list *v_this, t_list_cell *mb_delete);
+void		f_list_delete_if(t_list *v_this,
 							 bool (*cmp)(void *data, void *value), void *value);
 void		f_list_clear(t_list *v_this);
 void		f_list_destroy(t_list *v_this);
