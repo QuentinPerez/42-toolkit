@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/30 22:50:59 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/08 18:24:51 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/09 08:21:10 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	f_list_reverse(t_list *v_this)
 }
 
 void	f_list_remove_if(t_list *v_this,
-					  bool (*cmp)(void *data, void *value), void *value)
+						 bool (*cmp)(void *data, void *value), void *value)
 {
 	t_list_cell	*cur;
 

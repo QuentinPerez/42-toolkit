@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/28 20:55:51 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/08 18:24:12 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/09 08:20:34 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void		*f_list_front(t_list *v_this);
 bool		f_list_foreach(t_list *v_this, bool (*funct)(void *value));
 void		f_list_reverse(t_list *v_this);
 void		f_list_remove_if(t_list *v_this,
-						  bool (*cmp)(void *data, void *value), void *value);
+							 bool (*cmp)(void *data, void *value), void *value);
 void		f_list_clear(t_list *v_this);
 void		f_list_destroy(t_list *v_this);
 
