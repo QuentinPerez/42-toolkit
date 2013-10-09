@@ -35,13 +35,13 @@
 #include <t_types.h>
 #include <stdlib.h>
 
-void		f_list_split_imp(t_list *v_this, t_list *new_list,
+static void	f_list_split_imp(t_list *v_this, t_list *new_list,
 							 t_list_cell *split_at)
 {
 	new_list->v_begin = split_at;
-	new_list->v_end = v_this->v_end;
+	new_list->v_end = D_LIST(end)(v_this);
 	new_list->v_size = D_CELL(count)(split_at, v_this->v_end);
-	v_this->v_size = v_this->v_size - new_list->v_size;
+	v_this->v_size = D_LIST(size)(v_this) - D_LIST(size)(new_list);
 	v_this->v_end = split_at->v_prev;
 	v_this->v_end->v_next = NULL;
 	new_list->v_begin->v_prev = NULL;
@@ -57,14 +57,16 @@ void		f_list_split(t_list *v_this, t_list_cell *split_at,
 			D_LIST(clear)(new_list);
 		if (v_this->v_begin == split_at)
 		{
-			(*new_list) = (*v_this);
+			new_list->v_begin = D_LIST(begin)(v_this);
+			new_list->v_end = D_LIST(end)(v_this);
+			new_list->v_size = D_LIST(size)(v_this);
+			new_list->f_destroy = v_this->f_destroy;
 			v_this->v_size = 0;
 			v_this->v_begin = NULL;
 			v_this->v_end = NULL;
+			v_this->f_destroy = NULL;
 		}
 		else
-		{
-			f_list_split_imp(v_this, new_list, split_at);
-		}
+			D_LIST(split_imp)(v_this, new_list, split_at);
 	}
 }

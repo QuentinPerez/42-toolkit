@@ -51,6 +51,7 @@ bool		f_list_empty(const t_list *v_this);
 ui			f_list_size(const t_list *v_this);
 t_list_cell	*f_list_begin(const t_list *v_this);
 t_list_cell	*f_list_end(const t_list *v_this);
+t_list_cell	*f_list_get_cell(t_list *list, ui cell_at);
 t_list_cell	*f_list_erase(t_list *v_this, t_list_cell *erase);
 void		f_list_print_addr(const t_list *v_this);
 bool		f_list_push_back(t_list *v_this, void *data);

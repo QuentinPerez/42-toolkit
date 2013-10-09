@@ -12,7 +12,7 @@
 
 /*
 ** <This file contains s_list_access method>
-** < back, front, begin, end >
+** < back, front, begin, end, get_cell >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -56,4 +56,19 @@ inline t_list_cell	*f_list_begin(const t_list *v_this)
 inline t_list_cell	*f_list_end(const t_list *v_this)
 {
 	return (v_this->v_end);
+}
+
+t_list_cell			*f_list_get_cell(t_list *list, ui cell_at)
+{
+	t_list_cell	*cur;
+	ui			i;
+	
+	i = 0;
+	cur = list->v_begin;
+	while (cur != NULL && i < cell_at)
+	{
+		cur = cur->v_next;
+		i = i + 1;
+	}
+	return (cur);
 }
