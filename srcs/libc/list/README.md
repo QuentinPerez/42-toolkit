@@ -21,6 +21,12 @@
 	- erase(t_list *v_this, t_cell *cell, void **data)
 	  /* This function remove cell to list and put element in data */
 
+	- get_cell(t_list *list, ui cell_at)
+	  /* This function get one cell specified by his position */
+
+	- erase(t_list *v_this, t_cell *erase)
+	  /* This function delete cellule and call funct_destroy for data */
+
 	- print_addr(const t_list *v_this)
 	  /* This function print addr of lot of cellule */
 
@@ -44,6 +50,9 @@
 
 	- front(t_list *v_this)
 	  /* This function return the first data */
+
+	- split(t_list *v_this, t_list_cell *split_at, t_list *new_list)
+	  /* This function split a list in 2 part and assign the new part to new_list */
 
 	- foreach(t_list *v_this, bool (*funct)(void *value))
 	  /* This function apply for lot of elements */

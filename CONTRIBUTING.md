@@ -9,7 +9,7 @@ Please refer to existing code and try to keep the same coding style as the one c
 
 For any questions use the [issues tracker](https://github.com/QuentinPerez/42-toolkit/issues)
 
-Remenber: **a function should do one thing, and it should do it well**.
+Remember: **a function should do one thing, and it should do it well**.
 
 You can (**must**) see [norme 42](https://docs.google.com/file/d/0Byas2-wgCXhnMTR0ak5XeTNEalE/edit?usp=sharing).
 
