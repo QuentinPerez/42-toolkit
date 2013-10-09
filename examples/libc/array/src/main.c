@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/27 15:48:40 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/03 16:49:38 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/09 12:19:58 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ int		main(int argc, char const** argv)
 	cmp.x = 5;
 	cmp.y = 7;
 	cmp.z = 11;
-	D_ARRAY(remove_if)(&array, uf_cmp_point, &cmp);
+	D_ARRAY(delete_if)(&array, uf_cmp_point, &cmp);
 	uf_print_str("\e[34mWith good type passing to data\e[0m\n");
 	ptr = D_ARRAY(data)(&array, t_point*);
 	i = 0;
