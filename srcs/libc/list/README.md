@@ -18,6 +18,9 @@
 	- end(const t_list *v_this)
 	  /* This function return end of list */
 
+	- get_cell(t_list *list, ui cell_at)
+	  /* This function get one cell specified by his position */
+
 	- erase(t_list *v_this, t_cell *erase)
 	  /* This function delete cellule and call funct_destroy for data */
 
