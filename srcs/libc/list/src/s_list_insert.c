@@ -50,12 +50,12 @@ t_list_cell	*f_list_insert(t_list *v_this, t_list_cell *position, void *data)
 	cell = D_LIST_CELL(create)(position->v_prev, position, data);
 	if (cell != NULL)
 	{
-		if (position->v_prev != NULL)
-			position->v_prev->v_next = cell;
+		if (D_LIST_CELL(prev)(position) != NULL)
+			D_LIST_CELL(prev)(position)->v_next = cell;
 		else
 			v_this->v_begin = cell;
 		position->v_prev = cell;
-		v_this->v_size = v_this->v_size + 1;
+		v_this->v_size = D_LIST(size)(v_this) + 1;
 	}
 	else
 		m_error("Bad alloc", (size_t)NULL);
