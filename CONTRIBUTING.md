@@ -18,6 +18,7 @@ LIB42 Rules:
 	- count += 1			/* WRONG */
 	- count = count + 1		/* RIGHT */
 
+	- if (test())			/* WRONG */
 	- if (!test())			/* WRONG */
 	- if (test() == false)	/* RIGHT */
 
