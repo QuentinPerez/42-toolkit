@@ -63,6 +63,13 @@ void	tf_cell_count(void)
 	}
 	uf_check_equal_ui(D_LIST(size)(&list),
 					  D_LIST_CELL(count)(list.v_begin, list.v_end));
+	uf_check_equal_ui(4,
+					  D_LIST_CELL(count)(list.v_begin, list.v_end->v_prev));
+	uf_check_equal_ui(4,
+					  D_LIST_CELL(count)(list.v_begin->v_next, list.v_end));
+	uf_check_equal_ui(1,
+					  D_LIST_CELL(count)(list.v_begin->v_next,
+										 list.v_begin->v_next));
 	D_LIST(destroy)(&list);
 }
 
