@@ -42,17 +42,15 @@ ui	f_list_cell_count(const t_list_cell *other_begin,
 	count = 0;
 	if (other_end != NULL)
 	{
-		if (other_begin == other_end)
-			return (1);
 		while (other_begin != NULL)
 		{
-			count = count + 1;
-			other_begin = other_begin->v_next;
 			if (other_begin == other_end)
 			{
 				count = count + 1;
 				break;
 			}
+			count = count + 1;
+			other_begin = other_begin->v_next;
 		}
 	}
 	return (count);
