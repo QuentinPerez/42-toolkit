@@ -32,7 +32,9 @@ DIRSRC	=	src
 EXEC	=	a.out
 LIB42	=	$(DIR42)/lib42.a
 
-SRC		=	$(DIRSRC)/main.c
+SRC		=	$(DIRSRC)/main.c		\
+			$(DIRSRC)/tf_splice.c	\
+			$(DIRSRC)/tf_split.c
 
 OBJ		=	$(addprefix $(OBJDIR)/, $(SRC:.c=.o))
 
