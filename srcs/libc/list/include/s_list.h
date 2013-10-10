@@ -65,6 +65,9 @@ void		f_list_split(t_list *v_this, t_list_cell *split_at,
 						 t_list *new_list);
 bool		f_list_foreach(t_list *v_this, bool (*funct)(void *value));
 void		f_list_reverse(t_list *v_this);
+void		f_list_splice(t_list *v_this, t_list_cell *position,
+						  t_list *other_list, t_list_cell *other_begin,
+						  t_list_cell *other_end);
 t_list_cell	*f_list_delete(t_list *v_this, t_list_cell *mb_delete);
 void		f_list_delete_if(t_list *v_this,
 							 bool (*cmp)(void *data, void *value), void *value);
