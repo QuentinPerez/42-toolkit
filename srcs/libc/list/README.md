@@ -60,8 +60,8 @@
 	- reverse(t_list *v_this)
 	  /* This function reverse list */
 
-	- splice(t_list *v_this, t_list_cell *position, t_list *other_list,
-			 t_list_cell *other_begin, t_list_cell *other_end);
+	- splice(t_list *v_this, t_list_cell *position,
+			 t_list *other_list, t_list_interval *other_interval);
 	  /* This function transfers elements from other_list to v_this before position */
 
 	- delete_if(t_list *v_this, bool (*cmp)(void *data, void *value), void *value)
