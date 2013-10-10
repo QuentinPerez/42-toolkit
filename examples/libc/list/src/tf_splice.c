@@ -31,8 +31,8 @@ void	tf_list_splice01(void)
 	D_LIST(push_back)(&listB, (void *)1);
 	D_LIST(push_back)(&listB, (void *)2);
 	D_LIST(push_back)(&listB, (void *)-2);
-	f_list_splice(&listA, D_LIST(begin)(&listA)->v_next, &listB,
-				  D_LIST(begin)(&listB)->v_next, D_LIST(end)(&listB)->v_prev);
+	D_LIST(splice)(&listA, D_LIST(begin)(&listA)->v_next, &listB,
+				   D_LIST(begin)(&listB)->v_next, D_LIST(end)(&listB)->v_prev);
 	uf_check_equal_ui((ui)(D_LIST(size)(&listA)), 4);
 	uf_check_equal_ui((ui)(D_LIST(size)(&listB)), 2);
 	uf_check_equal_ui((ui)(D_LIST(get_cell)(&listA, 0)->v_data), 0);
@@ -59,8 +59,8 @@ void	tf_list_splice02(void)
 	D_LIST(push_back)(&listB, (void *)0);
 	D_LIST(push_back)(&listB, (void *)1);
 	D_LIST(push_back)(&listB, (void *)-2);
-	f_list_splice(&listA, D_LIST(begin)(&listA), &listB,
-				  D_LIST(begin)(&listB)->v_next, D_LIST(end)(&listB)->v_prev);
+	D_LIST(splice)(&listA, D_LIST(begin)(&listA), &listB,
+				   D_LIST(begin)(&listB)->v_next, D_LIST(end)(&listB)->v_prev);
 	uf_check_equal_ui((ui)(D_LIST(size)(&listA)), 4);
 	uf_check_equal_ui((ui)(D_LIST(size)(&listB)), 2);
 	uf_check_equal_ui((ui)(D_LIST(get_cell)(&listA, 0)->v_data), 0);
@@ -87,8 +87,8 @@ void	tf_list_splice03(void)
 	D_LIST(push_back)(&listB, (void *)2);
 	D_LIST(push_back)(&listB, (void *)3);
 	D_LIST(push_back)(&listB, (void *)-2);
-	f_list_splice(&listA, NULL, &listB,
-				  D_LIST(begin)(&listB)->v_next, D_LIST(end)(&listB)->v_prev);
+	D_LIST(splice)(&listA, NULL, &listB,
+				   D_LIST(begin)(&listB)->v_next, D_LIST(end)(&listB)->v_prev);
 	uf_check_equal_ui((ui)(D_LIST(size)(&listA)), 4);
 	uf_check_equal_ui((ui)(D_LIST(size)(&listB)), 2);
 	uf_check_equal_ui((ui)(D_LIST(get_cell)(&listA, 0)->v_data), 0);
@@ -115,8 +115,8 @@ void	tf_list_splice04(void)
 	D_LIST(push_back)(&listB, (void *)2);
 	D_LIST(push_back)(&listB, (void *)3);
 	D_LIST(push_back)(&listB, (void *)-2);
-	f_list_splice(&listA, NULL, &listB,
-				  D_LIST(begin)(&listB)->v_next, D_LIST(end)(&listB)->v_prev);
+	D_LIST(splice)(&listA, NULL, &listB,
+				   D_LIST(begin)(&listB)->v_next, D_LIST(end)(&listB)->v_prev);
 	uf_check_equal_ui((ui)(D_LIST(size)(&listA)), 4);
 	uf_check_equal_ui((ui)(D_LIST(size)(&listB)), 2);
 	uf_check_equal_ui((ui)(D_LIST(get_cell)(&listA, 0)->v_data), 0);
@@ -141,8 +141,8 @@ void	tf_list_splice05(void)
 	D_LIST(push_back)(&listB, (void *)1);
 	D_LIST(push_back)(&listB, (void *)2);
 	D_LIST(push_back)(&listB, (void *)3);
-	f_list_splice(&listA, NULL, &listB,
-				  D_LIST(begin)(&listB), D_LIST(end)(&listB));
+	D_LIST(splice)(&listA, NULL, &listB,
+				   D_LIST(begin)(&listB), D_LIST(end)(&listB));
 	uf_check_equal_ui((ui)(D_LIST(size)(&listA)), 4);
 	uf_check_equal_ui((ui)(D_LIST(size)(&listB)), 0);
 	uf_check_equal_ui((ui)(D_LIST(get_cell)(&listA, 0)->v_data), 0);
@@ -161,8 +161,8 @@ void	tf_list_splice06(void)
 	m_infos("Test list splice 06");
 	D_LIST(init)(&listA, NULL);
 	D_LIST(init)(&listB, NULL);
-	f_list_splice(&listA, NULL, &listB,
-				  D_LIST(begin)(&listB), D_LIST(end)(&listB));
+	D_LIST(splice)(&listA, NULL, &listB,
+				   D_LIST(begin)(&listB), D_LIST(end)(&listB));
 	uf_check_equal_ui((ui)(D_LIST(size)(&listA)), 0);
 	uf_check_equal_ui((ui)(D_LIST(size)(&listB)), 0);
 	D_LIST(destroy)(&listA);
@@ -183,10 +183,10 @@ void	tf_list_splice07(void)
 	D_LIST(push_back)(&listB, (void *)1);
 	D_LIST(push_back)(&listB, (void *)3);
 	D_LIST(push_back)(&listB, (void *)5);
-	f_list_splice(&listA, D_LIST(begin)(&listA)->v_next, &listB,
-				  D_LIST(begin)(&listB), D_LIST(begin)(&listB));
-	f_list_splice(&listA, NULL, &listB,
-				  D_LIST(begin)(&listB), D_LIST(begin)(&listB));
+	D_LIST(splice)(&listA, D_LIST(begin)(&listA)->v_next, &listB,
+				   D_LIST(begin)(&listB), D_LIST(begin)(&listB));
+	D_LIST(splice)(&listA, NULL, &listB,
+				   D_LIST(begin)(&listB), D_LIST(begin)(&listB));
 	uf_check_equal_ui((ui)(D_LIST(size)(&listA)), 4);
 	uf_check_equal_ui((ui)(D_LIST(size)(&listB)), 1);
 	uf_check_equal_ui((ui)(D_LIST(get_cell)(&listA, 0)->v_data), 0);
