@@ -42,6 +42,8 @@ ui	f_list_cell_count(const t_list_cell *other_begin,
 	count = 0;
 	if (other_end != NULL)
 	{
+		if (other_begin == other_end)
+			return (1);
 		while (other_begin != NULL)
 		{
 			count = count + 1;
