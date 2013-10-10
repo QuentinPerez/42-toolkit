@@ -69,8 +69,8 @@ static ui	f_list_pick_cells(t_list *v_this, t_list_cell *begin,
 	
 	if (D_LIST(empty)(v_this))
 		return (0);
-	if (begin == NULL)
-		begin = D_LIST(end)(v_this);
+	if (end == NULL)
+		end = D_LIST(end)(v_this);
 	cell_count = D_LIST_CELL(count)(begin, end);
 	D_LIST(pick_cells_imp)(v_this, begin, end);
 	v_this->v_size = v_this->v_size - cell_count;
