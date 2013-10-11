@@ -35,7 +35,7 @@
 #include <m_error.h>
 
 static void	f_list_pick_cells_imp(t_list *const v_this,
-								  t_list_cell * const begin,
+								  t_list_cell *const begin,
 								  t_list_cell *const end)
 {
 	t_list_cell	*cell_before;
@@ -62,7 +62,7 @@ static void	f_list_pick_cells_imp(t_list *const v_this,
 		cell_after->v_prev = cell_before;
 }
 
-static ui	f_list_pick_cells(t_list *v_this, t_list_cell *begin,
+static ui	f_list_pick_cells(t_list *const v_this, t_list_cell *const begin,
 							  t_list_cell *end)
 {
 	ui	cell_count;
@@ -79,7 +79,7 @@ static ui	f_list_pick_cells(t_list *v_this, t_list_cell *begin,
 	return (cell_count);
 }
 
-static void	f_list_splice_imp(t_list *v_this, t_list_cell * const position,
+static void	f_list_splice_imp(t_list *const v_this, t_list_cell *const position,
 							  t_list_cell *const other_begin,
 							  t_list_cell *const other_end)
 {

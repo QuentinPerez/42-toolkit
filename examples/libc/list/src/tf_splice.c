@@ -190,7 +190,6 @@ void	tf_list_splice07(void)
 	m_infos("Test list splice 07");
 	D_LIST(init)(&listA, NULL);
 	D_LIST(init)(&listB, NULL);
-	
 	D_LIST(push_back)(&listA, (void *)0);
 	D_LIST(push_back)(&listA, (void *)2);
 	D_LIST(push_back)(&listB, (void *)1);

@@ -12,7 +12,7 @@
 
 /*
 ** <This file contains all s_list_interval function>
-** < init >
+** < init, begin, end >
 ** Copyright (C) <2013>  Iohann Rabeson <irabeson42@gmail.com>
 **
 ** This file is part of 42-toolkit.
