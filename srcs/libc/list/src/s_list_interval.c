@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s_list_cell_count.c                                :+:      :+:    :+:   */
+/*   s_list_interval.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: irabeson <irabeson42@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/10/07 19:58:18 by irabeson          #+#    #+#             */
-/*   Updated: 2013/10/09 23:38:09 by qperez           ###   ########.fr       */
+/*   Created: 2013/10/10 14:30:45 by irabeson          #+#    #+#             */
+/*   Updated: 2013/10/10 20:02:33 by irabeson         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains s_list_cell_count method>
-** < count >
+** <This file contains all s_list_interval function>
+** < init, begin, end >
 ** Copyright (C) <2013>  Iohann Rabeson <irabeson42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -31,27 +31,21 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <s_list_cell.h>
-#include <stddef.h>
+#include <s_list_interval.h>
 
-ui	f_list_cell_count(const t_list_cell *other_begin,
-					  const t_list_cell *other_end)
+void		f_list_interval_init(t_list_interval *v_this, t_list_cell *begin,
+								 t_list_cell *end)
 {
-	ui	count;
+	v_this->v_begin = begin;
+	v_this->v_end = end;
+}
 
-	count = 0;
-	if (other_end != NULL)
-	{
-		while (other_begin != NULL)
-		{
-			if (other_begin == other_end)
-			{
-				count = count + 1;
-				break;
-			}
-			count = count + 1;
-			other_begin = other_begin->v_next;
-		}
-	}
-	return (count);
+t_list_cell	*f_list_interval_begin(const t_list_interval *v_this)
+{
+	return (v_this->v_begin);
+}
+
+t_list_cell	*f_list_interval_end(const t_list_interval *v_this)
+{
+	return (v_this->v_end);
 }

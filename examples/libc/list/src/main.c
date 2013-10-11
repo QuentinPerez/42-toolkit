@@ -12,14 +12,21 @@
 
 #include <list/s_list.h>
 #include <f_string/f_print.h>
-#include <stddef.h>
 #include <f_error/m_error.h>
+#include <stddef.h>
 
 void	uf_check_equal_ui(ui expected, ui current);
 void	tf_cell_count(void);
 void	tf_list_split01(void);
 void	tf_list_split02(void);
 void	tf_list_split03(void);
+void	tf_list_splice01(void);
+void	tf_list_splice02(void);
+void	tf_list_splice03(void);
+void	tf_list_splice04(void);
+void	tf_list_splice05(void);
+void	tf_list_splice06(void);
+void	tf_list_splice07(void);
 
 int		main(int argc, char const** argv)
 {
@@ -27,6 +34,13 @@ int		main(int argc, char const** argv)
 	tf_list_split01();
 	tf_list_split02();
 	tf_list_split03();
+	tf_list_splice01();
+	tf_list_splice02();
+	tf_list_splice03();
+	tf_list_splice04();
+	tf_list_splice05();
+	tf_list_splice06();
+	tf_list_splice07();
 	(void)argc;
 	(void)argv;
 	return (0);
@@ -63,6 +77,13 @@ void	tf_cell_count(void)
 	}
 	uf_check_equal_ui(D_LIST(size)(&list),
 					  D_LIST_CELL(count)(list.v_begin, list.v_end));
+	uf_check_equal_ui(4,
+					  D_LIST_CELL(count)(list.v_begin, list.v_end->v_prev));
+	uf_check_equal_ui(4,
+					  D_LIST_CELL(count)(list.v_begin->v_next, list.v_end));
+	uf_check_equal_ui(1,
+					  D_LIST_CELL(count)(list.v_begin->v_next,
+										 list.v_begin->v_next));
 	D_LIST(destroy)(&list);
 }
 
@@ -76,64 +97,4 @@ void	uf_add_number_to_list(t_list *list, size_t number)
 		D_LIST(push_back)(list, (void *)i);
 		i = i + 1;
 	}
-}
-
-void	tf_list_split01(void)
-{
-	t_list	listA;
-	t_list	listB;
-
-	m_infos("Test list split 01");
-	D_LIST(init)(&listA, NULL);
-	D_LIST(init)(&listB, NULL);
-	uf_add_number_to_list(&listA, 4);
-	D_LIST(split)(&listA, D_LIST(begin)(&listA), &listB);
-	uf_check_equal_ui(D_LIST(size)(&listA), 0);
-	uf_check_equal_ui(D_LIST(size)(&listB), 4);
-	uf_check_equal_ui((ui)D_LIST(get_cell)(&listB, 0)->v_data, 0);
-	uf_check_equal_ui((ui)D_LIST(get_cell)(&listB, 1)->v_data, 1);
-	uf_check_equal_ui((ui)D_LIST(get_cell)(&listB, 2)->v_data, 2);
-	uf_check_equal_ui((ui)D_LIST(get_cell)(&listB, 3)->v_data, 3);
-	D_LIST(destroy)(&listA);
-	D_LIST(destroy)(&listB);
-}
-
-void	tf_list_split02(void)
-{
-	t_list	listA;
-	t_list	listB;
-
-	m_infos("Test list split 02");
-	D_LIST(init)(&listA, NULL);
-	D_LIST(init)(&listB, NULL);
-	uf_add_number_to_list(&listA, 4);
-	D_LIST(split)(&listA, D_LIST(begin)(&listA)->v_next, &listB);
-	uf_check_equal_ui(D_LIST(size)(&listA), 1);
-	uf_check_equal_ui(D_LIST(size)(&listB), 3);
-	uf_check_equal_ui((ui)(D_LIST(get_cell)(&listA, 0)->v_data), 0);
-	uf_check_equal_ui((ui)(D_LIST(get_cell)(&listB, 0)->v_data), 1);
-	uf_check_equal_ui((ui)(D_LIST(get_cell)(&listB, 1)->v_data), 2);
-	uf_check_equal_ui((ui)(D_LIST(get_cell)(&listB, 2)->v_data), 3);
-	D_LIST(destroy)(&listA);
-	D_LIST(destroy)(&listB);
-}
-
-void	tf_list_split03()
-{
-	t_list	listA;
-	t_list	listB;
-
-	m_infos("Test list split 03");
-	D_LIST(init)(&listA, NULL);
-	D_LIST(init)(&listB, NULL);
-	uf_add_number_to_list(&listA, 4);
-	D_LIST(split)(&listA, D_LIST(get_cell)(&listA, 3), &listB);
-	uf_check_equal_ui(D_LIST(size)(&listA), 3);
-	uf_check_equal_ui(D_LIST(size)(&listB), 1);
-	uf_check_equal_ui((ui)(D_LIST(get_cell)(&listA, 0)->v_data), 0);
-	uf_check_equal_ui((ui)(D_LIST(get_cell)(&listA, 1)->v_data), 1);
-	uf_check_equal_ui((ui)(D_LIST(get_cell)(&listA, 2)->v_data), 2);
-	uf_check_equal_ui((ui)(D_LIST(get_cell)(&listB, 0)->v_data), 3);
-	D_LIST(destroy)(&listA);
-	D_LIST(destroy)(&listB);
 }
