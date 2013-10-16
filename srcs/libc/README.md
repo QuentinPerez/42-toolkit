@@ -13,6 +13,7 @@
 	- stack/		"Last-in-First-out container"
 	- queue/		"First-in-First-out container"
 	- htable/		"Hash table"
+	- timer/		"Timer in milliseconds"
 
 ## How to make libraries
 
