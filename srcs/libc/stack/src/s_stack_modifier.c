@@ -31,8 +31,8 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <s_stack.h>
-#include <m_error.h>
+#include <stack/s_stack.h>
+#include <f_error/m_error.h>
 #include <stdlib.h>
 
 static t_stack_cell	*f_stack_create_cell(void *data)

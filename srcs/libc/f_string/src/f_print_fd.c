@@ -30,8 +30,8 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <f_print_fd.h>
-#include <f_str_tools.h>
+#include <f_string/f_print_fd.h>
+#include <f_string/f_str_tools.h>
 
 ssize_t	uf_print_char_fd(char c, int fd)
 {

@@ -31,8 +31,8 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <s_stack.h>
-#include <f_memory.h>
+#include <stack/s_stack.h>
+#include <f_memory/f_memory.h>
 #include <stdlib.h>
 
 static void	uf_stack_funct_destroy(void *data)

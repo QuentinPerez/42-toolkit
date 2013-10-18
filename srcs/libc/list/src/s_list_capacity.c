@@ -31,7 +31,7 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <s_list.h>
+#include <list/s_list.h>
 
 inline bool	f_list_empty(const t_list *v_this)
 {

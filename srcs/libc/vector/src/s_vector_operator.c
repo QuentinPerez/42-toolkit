@@ -31,8 +31,8 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <s_vector.h>
-#include <m_error.h>
+#include <vector/s_vector.h>
+#include <f_error/m_error.h>
 #include <stdlib.h>
 
 bool	f_vector_foreach(t_vector *v_this, bool (*funct)(void *))

@@ -31,7 +31,7 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <s_timer.h>
+#include <timer/s_timer.h>
 
 void	f_timer_start(t_timer *v_this)
 {

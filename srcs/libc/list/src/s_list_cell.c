@@ -31,7 +31,7 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <s_list_cell.h>
+#include <list/s_list_cell.h>
 #include <stdlib.h>
 
 t_list_cell			*f_list_cell_create(t_list_cell *prev,

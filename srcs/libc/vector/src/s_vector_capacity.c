@@ -31,7 +31,7 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <s_vector.h>
+#include <vector/s_vector.h>
 
 inline bool	f_vector_empty(const t_vector *v_this)
 {

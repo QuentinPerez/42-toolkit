@@ -31,7 +31,7 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <s_array.h>
+#include <array/s_array.h>
 
 bool	f_array_foreach(t_array *v_this, bool (*funct)(void *data))
 {

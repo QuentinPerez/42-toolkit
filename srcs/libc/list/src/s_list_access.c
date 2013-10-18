@@ -31,7 +31,7 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <s_list.h>
+#include <list/s_list.h>
 #include <stddef.h>
 
 void				*f_list_back(t_list *v_this)

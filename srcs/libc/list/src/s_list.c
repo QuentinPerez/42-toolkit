@@ -31,9 +31,9 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <s_list.h>
+#include <list/s_list.h>
 #include <stddef.h>
-#include <f_print.h>
+#include <f_string/f_print.h>
 #include <stdlib.h>
 #include <f_memory/f_memory.h>
 

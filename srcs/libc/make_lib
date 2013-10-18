@@ -1,8 +1,8 @@
 #! /bin/bash
 
-INCLUDE=include
 SRC=src
 TMP=lib42
+INCLUDE=include
 
 if [ -e $TMP ]; then
 	/bin/rm -fr $TMP
@@ -38,10 +38,14 @@ done
 
 LIST_OF_FILE_H=$(find $TMP/$INCLUDE -type f -name "*.h")
 
-function	sed_replace_portable
+function	sed_fix
 {
-	local	tmpfile="$(mktemp -t temp.XXXXX)"
-	sed "s/$2/$3/g" $1 > ${tmpfile} && mv ${tmpfile} $1
+	local	tmp_file="$(mktemp -t temp.XXXXX)"
+	local	name_file="$(basename $1)"
+	local	file="$(find . -type f -name $name_file -not -path "./$TMP/*")"
+
+	sed "s/$2/$3/g" $1 > ${tmp_file} && mv ${tmp_file} $1
+	cp $1 $file
 }
 
 function	fix_header
@@ -57,7 +61,10 @@ function	fix_header
 					DIR=$(echo $LIST_OF_FILE_H | tr ' ' '\n' | grep "$PATTERN" | sed 's/'$TMP'\/'$INCLUDE'\///g' | sed 's/\//\\\//g')
 					CHANGE=$(echo "#include <$PATTERN>")
 					TO=$(echo "#include <$DIR>")
-					sed_replace_portable $1 "$CHANGE" "$TO"
+					if [ "$CHANGE" != "$TO" ]; then
+						echo $1 "$CHANGE" "$TO"
+						sed_fix $1 "$CHANGE" "$TO"
+					fi
 				fi
 			done
 		done
@@ -65,11 +72,22 @@ function	fix_header
 	done
 }
 
-fix_header $(find $TMP/$SRC -type f -name "*.c")
-fix_header $LIST_OF_FILE_H
+while getopts "f" OPTION
+do
+	case $OPTION in
+		f)
+		fix_header $(find $TMP/$SRC -type f -name "*.c")
+		fix_header $LIST_OF_FILE_H
+		;;
+	esac
+done
 
 cat ../../doc/misc/Makefile_part1.txt > $TMP/Makefile
 printf "SRC\t\t=\t" >> $TMP/Makefile
-SRC=$(find $TMP/$SRC -type f -name "*.c" | sed 's/'$TMP'\///g')
-echo $SRC >> $TMP/Makefile
+for SRC in $(find $TMP/$SRC -type f -name "*.c" | sed 's/'$TMP'\///g')
+do
+	printf "$SRC \\" >> $TMP/Makefile
+	printf "\n\t\t\t" >> $TMP/Makefile
+	INDEX=$((INDEX + 1))
+done
 cat ../../doc/misc/Makefile_part2.txt >> $TMP/Makefile

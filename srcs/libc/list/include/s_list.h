@@ -33,8 +33,8 @@
 #ifndef S_LIST_H
 # define S_LIST_H
 
-#include <s_list_cell.h>
-#include <s_list_interval.h>
+#include <list/s_list_cell.h>
+#include <list/s_list_interval.h>
 #include <t_types.h>
 
 typedef struct	s_list

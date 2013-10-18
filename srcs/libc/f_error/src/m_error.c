@@ -30,8 +30,8 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <m_error.h>
-#include <f_print_fd.h>
+#include <f_error/m_error.h>
+#include <f_string/f_print_fd.h>
 
 char	fm_print_infos(const char *file, int line, const char *fct)
 {

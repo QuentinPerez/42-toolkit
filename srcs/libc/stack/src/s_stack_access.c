@@ -31,7 +31,7 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <s_stack.h>
+#include <stack/s_stack.h>
 #include <stddef.h>
 
 void		*f_stack_top(t_stack *v_this)

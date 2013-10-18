@@ -32,7 +32,7 @@
 */
 
 #include <t_types.h>
-#include <f_char.h>
+#include <f_string/f_char.h>
 #include <stddef.h>
 
 int	uf_str_case_cmp(const char *left, const char *right)

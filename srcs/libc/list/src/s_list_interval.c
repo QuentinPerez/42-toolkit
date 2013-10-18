@@ -31,7 +31,7 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <s_list_interval.h>
+#include <list/s_list_interval.h>
 
 void		f_list_interval_init(t_list_interval *v_this, t_list_cell *begin,
 								 t_list_cell *end)

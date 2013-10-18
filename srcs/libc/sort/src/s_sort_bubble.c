@@ -31,7 +31,7 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <s_sort.h>
+#include <sort/s_sort.h>
 
 void	f_sort_bubble(t_sort *v_this, void *begin, ui size)
 {

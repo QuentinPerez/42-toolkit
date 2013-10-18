@@ -31,9 +31,9 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <s_array.h>
-#include <f_memory.h>
-#include <m_error.h>
+#include <array/s_array.h>
+#include <f_memory/f_memory.h>
+#include <f_error/m_error.h>
 #include <stdlib.h>
 
 static bool	f_array_realloc(t_array *v_this, ui size)

@@ -31,7 +31,7 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <s_vector.h>
+#include <vector/s_vector.h>
 #include <stddef.h>
 
 inline void	*f_vector_at(t_vector *v_this, ui index)

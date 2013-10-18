@@ -31,7 +31,7 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <s_sort.h>
+#include <sort/s_sort.h>
 
 void	f_sort_init(t_sort *v_this, bool (*cmp)(void *d1, void *d2),
 					void (*swap)(void *d1, void *d2), ui size_of)

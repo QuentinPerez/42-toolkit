@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/30 11:02:29 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/02 13:22:15 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/18 14:12:06 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <s_queue.h>
-#include <f_memory.h>
+#include <queue/s_queue.h>
+#include <f_memory/f_memory.h>
 #include <stdlib.h>
 
 static void	uf_queue_funct_destroy(void *data)

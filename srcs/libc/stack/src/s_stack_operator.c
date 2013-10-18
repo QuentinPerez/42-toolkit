@@ -31,7 +31,7 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <s_stack.h>
+#include <stack/s_stack.h>
 #include <stddef.h>
 
 bool	f_stack_foreach(t_stack *v_this, bool (*funct)(void *data))

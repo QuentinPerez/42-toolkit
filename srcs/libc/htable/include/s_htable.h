@@ -33,7 +33,7 @@
 #ifndef S_HTABLE_H
 # define S_HTABLE_H
 
-#include <s_array.h>
+#include <array/s_array.h>
 
 typedef struct	s_htable_cell
 {

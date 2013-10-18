@@ -31,8 +31,8 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <s_error.h>
-#include <f_print_fd.h>
+#include <error/s_error.h>
+#include <f_string/f_print_fd.h>
 
 char	fm_pt_serr(t_error *v_this, char n1, char n2, const char *error)
 {

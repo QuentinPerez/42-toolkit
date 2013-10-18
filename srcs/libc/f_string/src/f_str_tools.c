@@ -30,8 +30,8 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <f_str_tools.h>
-#include <f_print_fd.h>
+#include <f_string/f_str_tools.h>
+#include <f_string/f_print_fd.h>
 
 size_t	uf_str_len(const char *str)
 {

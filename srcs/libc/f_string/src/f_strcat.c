@@ -32,8 +32,8 @@
 */
 
 #include <stddef.h>
-#include <f_str_tools.h>
-#include <f_memory.h>
+#include <f_string/f_str_tools.h>
+#include <f_memory/f_memory.h>
 
 char	*uf_strcat(char *dest, const char *src)
 {

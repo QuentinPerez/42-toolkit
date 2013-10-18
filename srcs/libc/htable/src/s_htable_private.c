@@ -10,10 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <s_htable.h>
+#include <htable/s_htable.h>
 #include <stdlib.h>
-#include <f_string.h>
-#include <f_str_tools.h>
+#include <f_string/f_string.h>
+#include <f_string/f_str_tools.h>
 
 static void		uf_cell_delete(void *data)
 {

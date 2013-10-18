@@ -31,8 +31,8 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <s_list.h>
-#include <m_error.h>
+#include <list/s_list.h>
+#include <f_error/m_error.h>
 
 static void	f_list_pick_cells_imp(t_list *const v_this,
 								  t_list_cell *const begin,

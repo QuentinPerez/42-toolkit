@@ -31,10 +31,10 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <s_vector.h>
+#include <vector/s_vector.h>
 #include <stdlib.h>
-#include <m_error.h>
-#include <f_memory.h>
+#include <f_error/m_error.h>
+#include <f_memory/f_memory.h>
 
 static inline void	uf_vector_delete(void *ptr)
 {

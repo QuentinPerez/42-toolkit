@@ -31,9 +31,9 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <s_vector.h>
+#include <vector/s_vector.h>
 #include <stdlib.h>
-#include <m_error.h>
+#include <f_error/m_error.h>
 
 static bool			f_vector_realloc(t_vector *v_this, ui size)
 {

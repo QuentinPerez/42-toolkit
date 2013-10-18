@@ -31,7 +31,7 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <s_error.h>
+#include <error/s_error.h>
 #include <unistd.h>
 #include <fcntl.h>
 

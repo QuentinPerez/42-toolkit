@@ -31,7 +31,7 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <s_queue.h>
+#include <queue/s_queue.h>
 
 inline bool	f_queue_empty(const t_queue *v_this)
 {

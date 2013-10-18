@@ -31,10 +31,10 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <s_htable.h>
-#include <s_list.h>
-#include <m_error.h>
-#include <f_memory.h>
+#include <htable/s_htable.h>
+#include <list/s_list.h>
+#include <f_error/m_error.h>
+#include <f_memory/f_memory.h>
 
 void	f_htable_delete_cell(void *data);
 

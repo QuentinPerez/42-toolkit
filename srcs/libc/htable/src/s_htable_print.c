@@ -31,9 +31,9 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <s_htable.h>
-#include <f_print.h>
-#include <s_list.h>
+#include <htable/s_htable.h>
+#include <f_string/f_print.h>
+#include <list/s_list.h>
 
 void	f_htable_print(t_htable *v_this, bool (*uf_print)(t_htable_cell *data))
 {

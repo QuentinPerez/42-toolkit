@@ -31,9 +31,9 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <s_queue.h>
+#include <queue/s_queue.h>
 #include <stdlib.h>
-#include <m_error.h>
+#include <f_error/m_error.h>
 
 static t_queue_cell	*f_queue_create_cell(void *data)
 {

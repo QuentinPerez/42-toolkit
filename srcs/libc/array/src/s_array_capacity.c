@@ -31,7 +31,7 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <s_array.h>
+#include <array/s_array.h>
 
 inline bool	f_array_empty(const t_array *v_this)
 {

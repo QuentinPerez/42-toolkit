@@ -31,8 +31,8 @@
 */
 
 #include <stdlib.h>
-#include <f_string.h>
-#include <f_str_tools.h>
+#include <f_string/f_string.h>
+#include <f_string/f_str_tools.h>
 
 char	*uf_strdup(const char *str)
 {

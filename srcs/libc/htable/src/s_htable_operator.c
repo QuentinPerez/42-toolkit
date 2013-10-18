@@ -31,10 +31,10 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <s_htable.h>
-#include <s_list.h>
+#include <htable/s_htable.h>
+#include <list/s_list.h>
 #include <stddef.h>
-#include <f_string.h>
+#include <f_string/f_string.h>
 
 ui		f_htable_generate_key(const t_htable *v_this, const char *str);
 

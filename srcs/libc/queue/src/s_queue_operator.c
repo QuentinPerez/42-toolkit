@@ -31,7 +31,7 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <s_queue.h>
+#include <queue/s_queue.h>
 #include <stddef.h>
 
 bool	f_queue_foreach(t_queue *v_this, bool (*funct)(void *data))
