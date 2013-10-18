@@ -6,6 +6,7 @@
     - f_error/		"Treat return value"
     - f_string/		"It's funny"
     - f_memory/		"Function to play with memory"
+    - f_crypto/		"Function to encrypt-decrypt"
     - error/		"Write error to file"
     - list/			"Double linked-list"
 	- vector/		"Pointer array that can change size"
