@@ -14,6 +14,7 @@
 	- queue/		"First-in-First-out container"
 	- htable/		"Hash table"
 	- timer/		"Timer in milliseconds"
+	- sort/			"Function to sort"
 
 ## How to make libraries
 

@@ -1,4 +1,4 @@
-42-toolkit	Example -> C Struct timer
+42-toolkit	Example -> C Struct sort
 ==========
 
 # How to use
