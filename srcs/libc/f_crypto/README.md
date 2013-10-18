@@ -1,10 +1,10 @@
 42-toolkit	C Crypto Function
 ==========
 
+## Function
+
 	- uf_crypto_xor(void *data, const char *key, ui data_size)
 	 /* This function use xor algorithm for encrypt / decrypt data */
-
-## Function
 
 ## How to use ?
 
