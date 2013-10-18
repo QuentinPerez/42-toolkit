@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/16 12:55:00 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/18 12:58:05 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/18 13:06:18 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ static void uf_init(int *tab)
 	ui	i;
 
 	i = 0;
+	srand(time(NULL));
 	while (i < SIZE_TAB)
 	{
 		tab[i] = rand() % SIZE_TAB;
