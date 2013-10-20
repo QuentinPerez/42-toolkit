@@ -6,7 +6,7 @@
 /*   By: irabeson <irabeson42@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/20 16:02:05 by irabeson          #+#    #+#             */
-/*   Updated: 2013/10/20 17:00:46 by irabeson         ###   ########.fr       */
+/*   Updated: 2013/10/20 22:20:08 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,12 @@
 
 #include <f_string/f_str_tools.h>
 
-static char	uf_rotate(char c, int n, char base)
+static inline char	uf_rotate(char c, int n, char base)
 {
-	return ((((c - base) + n) % (n * 2)) + base);
+	return ((((c - base) + n) % (n << 1)) + base);
 }
 
-void		uf_crypto_rot5(char *str)
+void				uf_crypto_rot5(char *str)
 {
 	while (*str != '\0')
 	{
@@ -48,7 +48,7 @@ void		uf_crypto_rot5(char *str)
 	}
 }
 
-void		uf_crypto_rot13(char *str)
+void				uf_crypto_rot13(char *str)
 {
 	while (*str != '\0')
 	{
@@ -60,13 +60,13 @@ void		uf_crypto_rot13(char *str)
 	}
 }
 
-void		uf_crypto_rot18(char *str)
+void				uf_crypto_rot18(char *str)
 {
 	uf_crypto_rot5(str);
 	uf_crypto_rot13(str);
 }
 
-void		uf_crypto_rot47(char *str)
+void				uf_crypto_rot47(char *str)
 {
 	while (*str != '\0')
 	{

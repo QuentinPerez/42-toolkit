@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/08 00:22:04 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/08 01:11:06 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/20 22:45:33 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,6 @@ void		*uf_print_memory(const void *addr, ui size)
 		data = uf_print_data(data, 16);
 		size = size - 16;
 	}
-	data = uf_print_data(data, size);
+	uf_print_data(data, size);
 	return ((void*)addr);
 }

@@ -88,6 +88,5 @@ for SRC in $(find $TMP/$SRC -type f -name "*.c" | sed 's/'$TMP'\///g')
 do
 	printf "$SRC \\" >> $TMP/Makefile
 	printf "\n\t\t\t" >> $TMP/Makefile
-	INDEX=$((INDEX + 1))
 done
 cat ../../doc/misc/Makefile_part2.txt >> $TMP/Makefile

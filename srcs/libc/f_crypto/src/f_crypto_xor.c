@@ -6,13 +6,13 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/18 17:21:22 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/18 17:37:46 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/20 20:17:43 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 ** <This file contains f_crypto_xor function>
-** < encrypt, decrypt >
+** < xor >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.

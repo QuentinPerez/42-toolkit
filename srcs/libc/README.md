@@ -73,7 +73,7 @@ Update:
 
 You can see Makefile example [here](https://github.com/QuentinPerez/42-toolkit/tree/master/examples/libc/list/Makefile).
 
-You can see Makefile example for school [here](https://github.com/QuentinPerez/42-toolkit/tree/master/examples/libc/school/Makefile).
+You can see Makefile example for school [here](https://github.com/QuentinPerez/42-toolkit/tree/master/doc/school/Makefile).
 
 ## License
 
