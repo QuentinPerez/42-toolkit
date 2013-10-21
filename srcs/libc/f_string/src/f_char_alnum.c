@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   f_char.h                                           :+:      :+:    :+:   */
+/*   f_char_alnum.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/10/07 21:03:48 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/21 23:25:43 by qperez           ###   ########.fr       */
+/*   Created: 2013/10/21 23:06:57 by qperez            #+#    #+#             */
+/*   Updated: 2013/10/21 23:26:52 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains all f_char function>
+** <This file contains function>
+** < uf_isalpha, uf_isdigit, uf_isprint >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -30,18 +31,20 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef F_CHAR_H
-# define F_CHAR_H
-
-#include <d_bool.h>
 #include <t_types.h>
+#include <d_bool.h>
 
-bool	uf_is_upper(const uc c);
-bool	uf_is_lower(const uc c);
-uc		uf_to_lower(const uc c);
-uc		uf_to_upper(const uc c);
-bool	uf_is_alpha(const uc c);
-bool	uf_is_printable(const uc c);
-bool	uf_is_digit(const uc c);
+extern inline bool	uf_is_alpha(const uc c)
+{
+	return ((c > 96 && c < 123) || (c > 64 && c < 91));
+}
 
-#endif
+extern inline bool	uf_is_digit(const uc c)
+{
+	return (c > 47 && c < 58);
+}
+
+extern inline bool	uf_is_printable(const uc c)
+{
+	return (c > 31 && c < 127);
+}
