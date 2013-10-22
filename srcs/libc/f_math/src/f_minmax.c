@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   f_math.h                                           :+:      :+:    :+:   */
+/*   f_minmax.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/10/21 23:52:21 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/22 11:52:15 by qperez           ###   ########.fr       */
+/*   Created: 2013/10/22 11:46:25 by qperez            #+#    #+#             */
+/*   Updated: 2013/10/22 11:50:04 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains f_math prototype>
+** <This file contains f_minmax function>
+** < uf_min, uf_max >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -30,11 +31,16 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef F_MATH_H
-# define F_MATH_H
+extern inline double	uf_min(const double x, const double y)
+{
+	if (x > y)
+		return (y);
+	return (x);
+}
 
-double	uf_abs(double value);
-double	uf_min(const double x, const double y);
-double	uf_max(const double x, const double y);
-
-#endif
+extern inline double	uf_max(const double x, const double y)
+{
+	if (x > y)
+		return (x);
+	return (y);
+}
