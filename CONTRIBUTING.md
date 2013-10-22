@@ -16,6 +16,8 @@ You can (**must**) see [norme 42](https://docs.google.com/file/d/0Byas2-wgCXhnMT
 LIB42 Rules:
 
 	- count += 1			/* WRONG */
+	- ++count				/* WRONG */
+	- count++ 				/* WRONG */
 	- count = count + 1		/* RIGHT */
 
 	- if (test())			/* WRONG */
