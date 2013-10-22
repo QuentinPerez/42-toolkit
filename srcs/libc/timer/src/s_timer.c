@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/16 12:38:55 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/16 12:54:49 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/22 22:59:20 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@
 */
 
 #include <timer/s_timer.h>
+#include <stddef.h>
 
 void	f_timer_start(t_timer *v_this)
 {

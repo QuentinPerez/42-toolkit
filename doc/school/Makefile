@@ -25,6 +25,15 @@ CFLAGS	+=	-Wextra -Wall -Werror -I./$(DIR42)/include
 LDFLAGS	+=	-L./$(DIR42) -l42
 DEBUG	=	-g3 -fno-inline -DD_ERRORS_ON
 
+NB_CORE =	1
+UNAME	:=	$(shell uname -s)
+ifeq ($(UNAME), Linux)
+	NB_CORE	:=	$(shell grep -c ^processor /proc/cpuinfo)
+endif
+ifeq ($(UNAME), Darwin)
+	NB_CORE	:=	$(shell sysctl -n hw.ncpu)
+endif
+
 OBJDIR	=	.objs
 LISTDIR	=	src
 
@@ -48,7 +57,7 @@ $(EXEC)	:	$(DIR42) $(OBJDIR) $(LIB42) $(OBJ)
 		printf '\033[1;31m%s \033[1;35m%s \033[1;33m%s\n\033[0m' "Linking C executable" "$(EXEC)" "$(CC)"
 
 $(LIB42)	:	force
-			make -C $(DIR42)
+			make -j$(NB_CORE) -C $(DIR42)
 
 clean	:
 		/bin/rm	-fr $(OBJDIR) $(DIR42)
@@ -72,7 +81,7 @@ every	:	re
 		printf '\033[1;33m%s\n\033[0m' "Good job !"
 
 relib	:
-		make re -C $(DIR42)
+		make re -j$(NB_CORE) -C $(DIR42)
 
 all		:	$(EXEC)
 

@@ -19,22 +19,29 @@
 #
 
 CC		=	cc
-CFLAGS	+=	-Wextra -Wall -Werror -I./f_string/include -I./f_error/include
-LDFLAGS	+=
+DIR42	=	lib42
+CFLAGS	+=	-Wextra -Wall -Werror -I./$(DIR42)/include
+LDFLAGS	+=	-L./$(DIR42) -l42
 DEBUG	=	-g3 -fno-inline -DD_ERRORS_ON
 
-OBJDIR	=	.objs
-LISTDIR	=	f_error f_error/src f_string f_string/src
+NB_CORE =	1
+UNAME	:=	$(shell uname -s)
+ifeq ($(UNAME), Linux)
+	NB_CORE	:=	$(shell grep -c ^processor /proc/cpuinfo)
+endif
+ifeq ($(UNAME), Darwin)
+	NB_CORE	:=	$(shell sysctl -n hw.ncpu)
+endif
 
-DIRSRC	=	f_error/src
-DIRSTR	=	f_string/src
+OBJDIR	=	.objs
+LISTDIR	=	src
+
+DIRSRC	=	src
 
 EXEC	=	a.out
+LIB42	=	$(DIR42)/lib42.a
 
-SRC		=	main.c						\
-			$(DIRSRC)/m_error.c			\
-			$(DIRSTR)/f_print_fd.c		\
-			$(DIRSTR)/f_str_tools.c
+SRC		=	$(DIRSRC)/main.c
 
 OBJ		=	$(addprefix $(OBJDIR)/, $(SRC:.c=.o))
 
@@ -44,12 +51,15 @@ $(addprefix $(OBJDIR)/, %.o)	:	%.c
 								$(CC) $(CFLAGS) -o $@ -c $<
 								printf '\033[0;32mBuilding C Object $@\n\033[0m' "Building C Object $@"
 
-$(EXEC)	:	$(OBJDIR) $(OBJ)
+$(EXEC)	:	$(DIR42) $(OBJDIR) $(LIB42) $(OBJ)
 		$(CC) $(CFLAGS) -o $(EXEC) $(OBJ) $(LDFLAGS)
 		printf '\033[1;31m%s \033[1;35m%s \033[1;33m%s\n\033[0m' "Linking C executable" "$(EXEC)" "$(CC)"
 
+$(LIB42)	:	force
+			make -j$(NB_CORE) -C $(DIR42)
+
 clean	:
-		/bin/rm	-fr $(OBJDIR)
+		/bin/rm	-fr $(OBJDIR) $(DIR42)
 		printf '\033[1;34m%s\n\033[0m' "Clean project $(EXEC)"
 
 fclean	:	clean
@@ -69,7 +79,13 @@ every	:	CFLAGS += -Weverything
 every	:	re
 		printf '\033[1;33m%s\n\033[0m' "Good job !"
 
+relib	:
+		make re -j$(NB_CORE) -C $(DIR42)
+
 all		:	$(EXEC)
+
+$(DIR42)	:
+			../configure
 
 $(OBJDIR)	:
 		/bin/mkdir $(OBJDIR);			\
@@ -87,4 +103,7 @@ help	:
 		printf '\033[1;34m%s\t\033[0m⇒ %s\n' "analyze"	"Analyze code but compile nothing"
 		printf '\033[1;34m%s\t\033[0m⇒ %s\n' "every"	"God code"
 
-.PHONY:	clean fclean re debug analyze every
+force	:
+		true
+
+.PHONY:	clean fclean re debug analyze every relib

@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/16 12:55:00 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/22 15:43:03 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/22 23:09:29 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ int	main(int argc, char const** argv)
 	tf_launch("Bubble", uf_sort_bubble);
 	tf_launch("Shell", uf_sort_shell);
 	tf_launch("Counting", (void (*)(int*, ui))uf_sort_counting);
+//	tf_launch("Quick", uf_sort_quick);
 	(void)argc;
 	(void)argv;
 	return (0);
