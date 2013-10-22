@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/18 12:23:30 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/22 14:15:17 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/22 15:25:28 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,6 @@
 
 void	uf_sort_bubble(int *ptr, ui size);
 void	uf_sort_shell(int *ptr, ui size);
+bool	uf_sort_counting(int *ptr, ui size);
 
 #endif

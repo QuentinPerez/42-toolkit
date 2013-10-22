@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/16 12:55:00 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/22 14:16:27 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/22 15:43:03 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,19 @@ static bool	uf_check_if_tab_is_sorted(int *tab)
 	return (true);
 }
 
+void	uf_print_tab(int *tab)
+{
+	ui	i;
+
+	i = 0;
+	while (i < SIZE_TAB)
+	{
+		uf_print_nbr(tab[i]);
+		uf_print_char(' ');
+		i = i + 1;
+	}
+}
+
 void	tf_launch(const char *name, void (*sort)(int *, ui))
 {
 	t_timer	timer;
@@ -63,13 +76,16 @@ void	tf_launch(const char *name, void (*sort)(int *, ui))
 		uf_print_str(" milliseconds\n\n");
 	}
 	else
-		uf_print_str("FAIL\n");
+	{
+		uf_print_tab(ptr_int);
+	}
 }
 
 int	main(int argc, char const** argv)
 {
 	tf_launch("Bubble", uf_sort_bubble);
 	tf_launch("Shell", uf_sort_shell);
+	tf_launch("Counting", (void (*)(int*, ui))uf_sort_counting);
 	(void)argc;
 	(void)argv;
 	return (0);

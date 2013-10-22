@@ -7,8 +7,10 @@
 	  /* Bubble sort Worst case performance O(n^2) */
 
 	- uf_sort_shell(int *ptr, ui size)
-	  /* Bubble sort Worst case performance O(n^2) */
+	  /* Shell sort Worst case performance depens on gap sequence */
 
+	- uf_sort_counting(int *ptr, ui size)
+	  /* Shell sort Worst case performance O(n) */
 
 ## How to use ?
 
