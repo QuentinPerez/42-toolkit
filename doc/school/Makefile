@@ -89,7 +89,7 @@ $(DIR42)	:	$(TOOLKIT)
 			cd $(TOOLKIT)/srcs/libc && ./make_lib && mv $(DIR42) ../../../
 
 $(TOOLKIT)	:
-			git submodule add https://github.com/QuentinPerez/42-toolkit.git
+			git submodule add https://github.com/42School/42-toolkit.git
 			git submodule init
 
 $(OBJDIR)	:

@@ -28,10 +28,10 @@ Welcome, First just take a look at [these guidelines](CONTRIBUTING.md).
 
 ## Who's behind it?
 
-### Contributors
+### Contributors Team
 * [Iohann Rabeson](https://github.com/IohannRabeson)
 
-### Maintainers
+### Owner
 
 * [Quentin Perez](https://github.com/QuentinPerez)
 
