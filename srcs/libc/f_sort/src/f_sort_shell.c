@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s_sort.h                                           :+:      :+:    :+:   */
+/*   f_sort_shell.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/10/18 12:23:30 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/18 12:59:37 by qperez           ###   ########.fr       */
+/*   Created: 2013/10/22 13:03:26 by qperez            #+#    #+#             */
+/*   Updated: 2013/10/22 14:22:20 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains s_sort prototype>
+** <This file contains f_sort_shell function>
+** < shell >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -30,23 +31,32 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef S_SORT_H
-# define S_SORT_H
-
-#include <d_bool.h>
 #include <t_types.h>
+#include <stdio.h>
 
-typedef struct	s_sort
+void	uf_sort_shell(int *begin, ui size)
 {
-	ui		v_sizeof;
-	bool	(*f_cmp)(void* left, void *right);
-	void	(*f_swap)(void* left, void *right);
-}				t_sort;
+	ui	h;
+	ui	i;
+	ui	j;
+	int	tmp;
 
-# define D_SORT(funct)	f_sort_##funct
-
-void	f_sort_init(t_sort *v_this, bool (*cmp)(void *d1, void *d2),
-					void (*swap)(void *d1, void *d2), ui size_of);
-void	f_sort_bubble(t_sort *v_this, void *ptr, ui size);
-
-#endif
+	h = size >> 1;
+	while (h > 0)
+	{
+		i = h;
+		while (i < size)
+		{
+			j = i;
+			tmp = begin[i];
+			while (j >= h && tmp < begin[j - h])
+			{
+				begin[j] = begin[j - h];
+				j = j - h;
+			}
+			begin[j] = tmp;
+			i = i + 1;
+		}
+		h = h >> 1;
+	}
+}

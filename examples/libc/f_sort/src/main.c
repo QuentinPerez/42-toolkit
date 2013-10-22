@@ -6,16 +6,17 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/16 12:55:00 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/18 13:06:18 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/22 14:16:27 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <timer/s_timer.h>
-#include <sort/s_sort.h>
+#include <f_sort/f_sort.h>
 #include <f_string/f_print.h>
+#include <f_error/m_error.h>
 #include <stdlib.h>
 
-#define	SIZE_TAB	500
+#define	SIZE_TAB	30000
 
 static void uf_init(int *tab)
 {
@@ -30,51 +31,45 @@ static void uf_init(int *tab)
 	}
 }
 
-static void	uf_print(int *tab)
+static bool	uf_check_if_tab_is_sorted(int *tab)
 {
 	ui	i;
 
 	i = 0;
-	uf_print_str("[ ");
-	while (i < SIZE_TAB)
+	while (i < SIZE_TAB - 1)
 	{
-		uf_print_nbr(tab[i]);
-		uf_print_char(' ');
+		if (tab[i] > tab[i + 1])
+		{
+			return (false);
+		}
 		i = i + 1;
 	}
-	uf_print_str("]\n");
+	return (true);
 }
 
-static bool	uf_cmp(void *left, void *right)
+void	tf_launch(const char *name, void (*sort)(int *, ui))
 {
-	return (*((int*)left) > *((int*)right));
-}
+	t_timer	timer;
+	int		ptr_int[SIZE_TAB];
 
-static void	uf_swap(void *left, void *right)
-{
-	int	tmp;
-
-	tmp = *(int*)left;
-	*(int*)left = *(int*)right;
-	*((int*)right) = tmp;
+	m_infos(name);
+	uf_init(ptr_int);
+	D_TIMER(start)(&timer);
+	sort(ptr_int, SIZE_TAB);
+	D_TIMER(pause)(&timer);
+	if (uf_check_if_tab_is_sorted(ptr_int) == true)
+	{
+		uf_print_nbr(D_TIMER(get_ticks)(&timer));
+		uf_print_str(" milliseconds\n\n");
+	}
+	else
+		uf_print_str("FAIL\n");
 }
 
 int	main(int argc, char const** argv)
 {
-	t_sort	sort;
-	t_timer	timer;
-	int		ptr_int[SIZE_TAB];
-
-	uf_init(ptr_int);
-	uf_print(ptr_int);
-	D_SORT(init)(&sort, uf_cmp, uf_swap, sizeof(ptr_int) / SIZE_TAB);
-	D_TIMER(start)(&timer);
-	D_SORT(bubble)(&sort, ptr_int, SIZE_TAB);
-	D_TIMER(pause)(&timer);
-	uf_print_str("sort in ");
-	uf_print_nbr(D_TIMER(get_ticks)(&timer));
-	uf_print_str(" milliseconds\n");
-	uf_print(ptr_int);
+	tf_launch("Bubble", uf_sort_bubble);
+	tf_launch("Shell", uf_sort_shell);
 	(void)argc;
 	(void)argv;
 	return (0);

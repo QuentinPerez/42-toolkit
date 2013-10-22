@@ -8,6 +8,7 @@
     - f_memory/		"Function to play with memory"
     - f_crypto/		"Function to encrypt-decrypt"
     - f_math/		"Math tools"
+	- f_sort/		"Function to sort"
     - error/		"Write error to file"
     - list/			"Double linked-list"
 	- vector/		"Pointer array that can change size"
@@ -16,7 +17,6 @@
 	- queue/		"First-in-First-out container"
 	- htable/		"Hash table"
 	- timer/		"Timer in milliseconds"
-	- sort/			"Function to sort"
 
 ## How to make libraries
 

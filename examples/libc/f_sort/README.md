@@ -1,4 +1,4 @@
-42-toolkit	Example -> C Struct sort
+42-toolkit	Example -> C f_sort
 ==========
 
 # How to use

@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s_sort.c                                           :+:      :+:    :+:   */
+/*   f_sort_bubble.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/10/18 12:27:05 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/18 12:40:29 by qperez           ###   ########.fr       */
+/*   Created: 2013/10/18 12:23:14 by qperez            #+#    #+#             */
+/*   Updated: 2013/10/22 14:15:43 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains s_sort function>
-** < init >
+** <This file contains f_sort_bubble function>
+** < bubble >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -31,12 +31,29 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <sort/s_sort.h>
+#include <d_bool.h>
+#include <t_types.h>
 
-void	f_sort_init(t_sort *v_this, bool (*cmp)(void *d1, void *d2),
-					void (*swap)(void *d1, void *d2), ui size_of)
+void	uf_sort_bubble(int *begin, ui size)
 {
-	v_this->f_cmp = cmp;
-	v_this->f_swap = swap;
-	v_this->v_sizeof = size_of;
+	ui	x;
+	ui	y;
+	int	tmp;
+
+	x = 0;
+	while (x < size)
+	{
+		y = 0;
+		while (y < size - 1)
+		{
+			if (begin[y] > begin[y + 1])
+			{
+				tmp = begin[y];
+				begin[y] = begin[y + 1];
+				begin[y + 1] = tmp;
+			}
+			y = y + 1;
+		}
+		x = x + 1;
+	}
 }

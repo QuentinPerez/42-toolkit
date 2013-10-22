@@ -1,18 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s_sort_bubble.c                                    :+:      :+:    :+:   */
+/*   f_sort.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/10/18 12:23:14 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/18 12:47:57 by qperez           ###   ########.fr       */
+/*   Created: 2013/10/18 12:23:30 by qperez            #+#    #+#             */
+/*   Updated: 2013/10/22 14:15:17 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains s_sort_bubble function>
-** < bubble >
+** <This file contains f_sort prototype>
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -31,27 +30,12 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <sort/s_sort.h>
+#ifndef F_SORT_H
+# define F_SORT_H
 
-void	f_sort_bubble(t_sort *v_this, void *begin, ui size)
-{
-	ui	x;
-	ui	y;
-	uc	*right;
-	uc	*left;
+#include <t_types.h>
 
-	x = 0;
-	while (x < size)
-	{
-		y = 0;
-		while (y < size - 1)
-		{
-			left = (uc*)begin + (y * v_this->v_sizeof);
-			right = left + v_this->v_sizeof;
-			if (v_this->f_cmp(left, right) == true)
-				v_this->f_swap(left, right);
-			y = y + 1;
-		}
-		x = x + 1;
-	}
-}
+void	uf_sort_bubble(int *ptr, ui size);
+void	uf_sort_shell(int *ptr, ui size);
+
+#endif
