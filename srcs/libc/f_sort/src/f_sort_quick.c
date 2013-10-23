@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   f_sort.h                                           :+:      :+:    :+:   */
+/*   f_sort_quick.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/10/18 12:23:30 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/23 13:06:11 by qperez           ###   ########.fr       */
+/*   Created: 2013/10/23 13:04:55 by qperez            #+#    #+#             */
+/*   Updated: 2013/10/23 13:21:54 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains f_sort prototype>
+** <This file contains f_sort_quick function>
+** < quick >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -26,18 +27,48 @@
 ** MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 ** GNU General Public License for more details.
 **
-** You should have received a copy of the GNU General Public License
+** You should have received ptr copy of the GNU General Public License
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef F_SORT_H
-# define F_SORT_H
-
 #include <t_types.h>
 
-void	uf_sort_bubble(int *ptr, ui size);
-void	uf_sort_shell(int *ptr, ui size);
-void	uf_sort_quick(int *ptr, ui size);
-bool	uf_sort_counting(int *ptr, ui size);
+static inline void	uf_sort_quick_swap(int **left, int **right)
+{
+	int	tmp;
 
-#endif
+	tmp = *(*left);
+	*(*left) = *(*right);
+	*(*right) = tmp;
+	*right = *right - 1;
+	*left = *left + 1;
+}
+
+void				uf_sort_quick(int *ptr, ui size)
+{
+	int	pivot;
+	int	*left;
+	int	*right;
+
+	if (size < 2)
+		return ;
+	left = ptr;
+	pivot = ptr[size >> 1];
+	right = ptr + size - 1;
+	while (left <= right)
+	{
+		if (*left < pivot)
+		{
+			left = left + 1;
+			continue ;
+		}
+		if (*right > pivot)
+		{
+			right = right - 1;
+			continue ;
+		}
+		uf_sort_quick_swap(&left, &right);
+	}
+	uf_sort_quick(ptr, right - ptr + 1);
+	uf_sort_quick(left, ptr + size - left);
+}

@@ -4,13 +4,20 @@
 ## Function
 
 	- uf_sort_bubble(int *ptr, ui size)
+	  /* Bubble sort Average case performance O(n^2) */
 	  /* Bubble sort Worst case performance O(n^2) */
 
 	- uf_sort_shell(int *ptr, ui size)
-	  /* Shell sort Worst case performance depens on gap sequence */
+	  /* Shell sort Average case performance - */
+	  /* Shell sort Worst case performance nlog^2n */
 
 	- uf_sort_counting(int *ptr, ui size)
-	  /* Shell sort Worst case performance O(n) */
+	  /* Counting sort Average case performance O(n + k) */
+	  /* Counting sort Worst case performance O(n + k) */
+
+	- uf_sort_quick(int *ptr, ui size)
+	  /* Quick sort Average case performance O(nlogn) */
+	  /* Quick sort Worst case performance O(n^2) */
 
 ## How to use ?
 

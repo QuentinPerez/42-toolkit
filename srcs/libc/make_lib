@@ -84,7 +84,7 @@ done
 
 cat ../../doc/misc/Makefile_part1.txt > $TMP/Makefile
 printf "SRC\t\t=\t" >> $TMP/Makefile
-for SRC in $(find $TMP/$SRC -type f -name "*.c" | sed 's/'$TMP'\///g')
+for SRC in $(find $TMP/$SRC -type f -name "*.c" | sed 's/'$TMP'\///g' | sort)
 do
 	printf "$SRC \\" >> $TMP/Makefile
 	printf "\n\t\t\t" >> $TMP/Makefile
