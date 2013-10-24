@@ -4,9 +4,14 @@
 <p align="center">
 	<img src="https://raw.github.com/QuentinPerez/42-toolkit/master/doc/images/logo-42.png" alt="42" title="42">
 </p>
-<p align="center">
-There are lots of dev Tools.
-</p>
+
+## 42School
+
+42's priority is P2P so I started a open source project for me and my colleagues.
+This project contains basic tools that allow us to work faster and more efficiently.
+This code will prevent wasting time on rewriting the same function several times
+and allow us to share ideas at the same time.
+Less time on the generic code and more time on our school project.
 
 ## Why I wanted to do this
 
@@ -34,6 +39,10 @@ Welcome, First just take a look at [these guidelines](CONTRIBUTING.md).
 ### Owner
 
 * [Quentin Perez](https://github.com/QuentinPerez)
+
+## Lib42
+
+The library has been tested on Darwin, Linux system and Windows with cygwin.
 
 ## License
 
