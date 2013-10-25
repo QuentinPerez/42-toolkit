@@ -37,6 +37,14 @@ f_print_fd.c:
 	- uf_print_addr_fd(void *addr)
 	/* Print address 'addr' on out fd */
 
+f_print_spec.c:	/* Experimental function */
+
+	- uf_print_floating_nbr_fd(double number, ui digit, int fd)
+	/* Print floating value of 'number' on out fd */
+
+	- uf_print_floating_nbr(double number, ui digit)
+	/* Print floating value of 'number' on screen */
+
 f_str_tools.c:
 
 	- uf_str_len(const char *str)

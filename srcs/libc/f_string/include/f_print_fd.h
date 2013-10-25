@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/28 15:11:46 by qperez            #+#    #+#             */
-/*   Updated: 2013/08/28 15:12:36 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/25 17:05:24 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,12 @@
 # define F_PRINT_FD_H
 
 #include <unistd.h>
+#include <t_types.h>
 
 ssize_t	uf_print_char_fd(char c, int fd);
 ssize_t	uf_print_str_fd(const char *str, int fd);
 void	uf_print_nbr_fd(ssize_t nb, int fd);
+void	uf_print_floating_nbr_fd(double nbr, ui digit, int fd);
 void	uf_print_nbr_base_fd(ssize_t nbr, int fd, ssize_t base);
 void	uf_print_addr_fd(void *addr, int fd);
 

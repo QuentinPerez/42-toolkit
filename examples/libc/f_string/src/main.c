@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/28 18:08:55 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/08 01:11:39 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/25 17:05:52 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ int	main(int argc, const char **argv)
 	uf_print_str(dest);
 	uf_print_str("\n");
 	uf_print_memory(dest, 50);
+	uf_print_floating_nbr(345.409, 10);
 	(void)argv;
 	(void)argc;
 	return (0);
