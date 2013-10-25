@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s_string_print.c                                   :+:      :+:    :+:   */
+/*   s_string_access.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/10/25 11:05:31 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/25 11:26:50 by qperez           ###   ########.fr       */
+/*   Created: 2013/10/25 11:29:57 by qperez            #+#    #+#             */
+/*   Updated: 2013/10/25 11:39:44 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains s_string_print function>
-** < print_memory, print_fd, print >
+** <This file contains s_string_access function>
+** < size, capacity, empty, dup >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -30,27 +30,26 @@
 ** You should have received a copy of the GNU General Public License
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+
 #include <string/s_string.h>
-#include <f_error/m_error.h>
-#include <f_string/f_print_fd.h>
-#include <f_memory/f_memory.h>
+#include <f_string/f_string.h>
 
-void	f_string_print_memory(t_string *v_this, const char *name)
+inline ui	f_string_size(t_string *v_this)
 {
-	if (name != NULL)
-		m_infos(name);
-	else
-		m_infos("string");
-	uf_print_memory(v_this->v_str, v_this->v_capacity);
+	return (v_this->v_size);
 }
 
-void	f_string_print_fd(t_string *v_this, ui fd)
+inline ui	f_string_capacity(t_string *v_this)
 {
-	if (write(fd, v_this->v_str, v_this->v_size != v_this->v_size))
-		m_error("Write : Fail", 0);
+	return (v_this->v_capacity);
 }
 
-void	f_string_print(t_string *v_this)
+inline bool	f_string_empty(t_string *v_this)
 {
-	f_string_print_fd(v_this, 1);
+	return (v_this->v_size == 0);
+}
+
+char		*f_string_dup(t_string *v_this)
+{
+	return (uf_strdup(v_this->v_str));
 }

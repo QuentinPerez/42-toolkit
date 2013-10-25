@@ -6,10 +6,11 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/22 12:40:41 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/25 11:15:51 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/25 11:33:59 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <f_string/f_print.h>
 #include <string/s_string.h>
 
 int	main(int argc, char const** argv)

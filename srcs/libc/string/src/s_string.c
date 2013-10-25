@@ -6,13 +6,13 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/22 12:13:42 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/25 11:05:08 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/25 11:33:50 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 ** <This file contains s_string function>
-** < init, destroy >
+** < init, clear, destroy >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -57,6 +57,19 @@ bool				f_string_init(t_string *v_this, ui (*uf_realloc)(ui size))
 	v_this->v_capacity = size;
 	v_this->v_hex = "0123456789ABCDEF";
 	return (true);
+}
+
+void				f_string_clear(t_string *v_this)
+{
+	ui	size;
+
+	size = v_this->v_capacity;
+	while (size > 0)
+	{
+		v_this->v_str[size - 1] = '\0';
+		size = size - 1;
+	}
+	v_this->v_size = 0;
 }
 
 void				f_string_destroy(t_string *v_this)

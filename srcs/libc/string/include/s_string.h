@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/22 12:13:53 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/25 11:15:22 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/25 11:37:30 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,11 @@ bool	f_string_init(t_string *v_this, ui (*uf_realloc)(ui size));
 void	f_string_print(t_string *v_this);
 void	f_string_print_fd(t_string *v_this, ui fd);
 void	f_string_print_memory(t_string *v_this, const char *name);
+char	*f_string_dup(t_string *v_this);
+ui		f_string_capacity(t_string *v_this);
+bool	f_string_empty(t_string *v_this);
+ui		f_string_size(t_string *v_this);
+void	f_string_clear(t_string *v_this);
 void	f_string_destroy(t_string *v_this);
 
 #endif
