@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s_string_print.c                                   :+:      :+:    :+:   */
+/*   s_string_add.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/10/25 11:05:31 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/25 13:53:32 by qperez           ###   ########.fr       */
+/*   Created: 2013/10/25 13:16:21 by qperez            #+#    #+#             */
+/*   Updated: 2013/10/25 14:37:32 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains s_string_print function>
-** < print_memory, print_fd, print >
+** <This file contains s_string_add function>
+** < add_str >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -30,27 +30,48 @@
 ** You should have received a copy of the GNU General Public License
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+
 #include <string/s_string.h>
 #include <f_error/m_error.h>
-#include <f_string/f_print_fd.h>
+#include <f_string/f_str_tools.h>
+#include <f_string/f_string.h>
 #include <f_memory/f_memory.h>
+#include <stdlib.h>
 
-void	f_string_print_memory(t_string *v_this, const char *name)
+bool	uf_string_realloc(t_string *v_this, ui add)
 {
-	if (name != NULL)
-		m_infos(name);
-	else
-		m_infos("string");
-	uf_print_memory(v_this->v_str, v_this->v_capacity);
+	char	*tmp;
+	ui		new_capacity;
+
+	new_capacity = v_this->v_capacity;
+	while (v_this->v_size + add > new_capacity)
+		new_capacity = v_this->f_realloc(new_capacity);
+	tmp = realloc(v_this->v_str, new_capacity);
+	if (v_this->v_str == NULL)
+	{
+		free(v_this->v_str);
+		uf_memset(v_this, 0, sizeof(*v_this));
+		return (m_error("Bad alloc", false));
+	}
+	v_this->v_str = tmp;
+	v_this->v_capacity = new_capacity;
+	return (true);
 }
 
-void	f_string_print_fd(t_string *v_this, ui fd)
+bool	f_string_add_str(t_string *v_this, const char *str)
 {
-	if (write(fd, v_this->v_str, v_this->v_size) != v_this->v_size)
-		m_error("Write : Fail", 0);
+	ui	size;
+
+	size = uf_str_len(str);
+	if (size == 0)
+		return (m_error("Your string is empty", false));
+	size = size + 1;
+	if (v_this->v_size + size > v_this->v_capacity &&
+		uf_string_realloc(v_this, size) == false)
+		return (false);
+	uf_strcat(v_this->v_str + v_this->v_size, str);
+	v_this->v_size = v_this->v_size + size - 1;
+	return (true);
 }
 
-void	f_string_print(t_string *v_this)
-{
-	f_string_print_fd(v_this, 1);
-}
+

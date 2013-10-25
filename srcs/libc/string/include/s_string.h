@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/22 12:13:53 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/25 11:37:30 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/25 13:48:14 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ ui		f_string_capacity(t_string *v_this);
 bool	f_string_empty(t_string *v_this);
 ui		f_string_size(t_string *v_this);
 void	f_string_clear(t_string *v_this);
+bool	f_string_add_str(t_string *v_this, const char *str);
 void	f_string_destroy(t_string *v_this);
 
 #endif
