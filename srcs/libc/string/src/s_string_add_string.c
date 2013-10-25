@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/25 18:44:48 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/25 18:56:47 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/25 19:29:39 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,3 +64,16 @@ bool	f_string_add_char(t_string *v_this, uc c)
 	v_this->v_str[v_this->v_size] = '\0';
 	return (true);
 }
+
+bool	f_string_add_nstr(t_string *v_this, const char *str, ui size)
+{
+	if (size == 0)
+		return (m_error("Your string is empty", false));
+	if (v_this->v_size + size + 1 > v_this->v_capacity &&
+		uf_string_realloc(v_this, size) == false)
+		return (false);
+	uf_strncat(v_this->v_str + v_this->v_size, str, size);
+	v_this->v_size = v_this->v_size + size;
+	return (true);
+}
+
