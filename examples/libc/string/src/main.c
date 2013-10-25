@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/22 12:40:41 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/25 14:38:26 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/25 18:57:11 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,14 @@
 
 int	main(int argc, char const** argv)
 {
-	ui			i;
 	t_string	string;
 
 	D_STRING(init)(&string, 0);
-	i = 0;
-	while (i < 4)
-	{
-		D_STRING(add_str)(&string, "Hello\n");
-		i = i + 1;
-	}
+	D_STRING(add_str)(&string, "Hello ");
+	D_STRING(add_nbr)(&string, 42);
+	D_STRING(add_char)(&string, ' ');
+	D_STRING(add_ptr)(&string, (void*)0xdeadbff);
+	D_STRING(add_char)(&string, '\n');
 	D_STRING(print_memory)(&string, "Client Buffer");
 	D_STRING(print)(&string);
 	D_STRING(destroy)(&string);

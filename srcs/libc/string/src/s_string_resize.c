@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s_string_add.c                                     :+:      :+:    :+:   */
+/*   s_string_resize.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/10/25 13:16:21 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/25 14:37:32 by qperez           ###   ########.fr       */
+/*   Created: 2013/10/25 18:38:40 by qperez            #+#    #+#             */
+/*   Updated: 2013/10/25 18:55:21 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains s_string_add function>
-** < add_str >
+** <This file contains s_string_resize function>
+** <  >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -32,10 +32,8 @@
 */
 
 #include <string/s_string.h>
-#include <f_error/m_error.h>
-#include <f_string/f_str_tools.h>
-#include <f_string/f_string.h>
 #include <f_memory/f_memory.h>
+#include <f_error/m_error.h>
 #include <stdlib.h>
 
 bool	uf_string_realloc(t_string *v_this, ui add)
@@ -57,21 +55,4 @@ bool	uf_string_realloc(t_string *v_this, ui add)
 	v_this->v_capacity = new_capacity;
 	return (true);
 }
-
-bool	f_string_add_str(t_string *v_this, const char *str)
-{
-	ui	size;
-
-	size = uf_str_len(str);
-	if (size == 0)
-		return (m_error("Your string is empty", false));
-	size = size + 1;
-	if (v_this->v_size + size > v_this->v_capacity &&
-		uf_string_realloc(v_this, size) == false)
-		return (false);
-	uf_strcat(v_this->v_str + v_this->v_size, str);
-	v_this->v_size = v_this->v_size + size - 1;
-	return (true);
-}
-
 
