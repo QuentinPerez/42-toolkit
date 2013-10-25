@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s_string.c                                         :+:      :+:    :+:   */
+/*   s_string_print.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/10/22 12:13:42 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/25 11:05:08 by qperez           ###   ########.fr       */
+/*   Created: 2013/10/25 11:05:31 by qperez            #+#    #+#             */
+/*   Updated: 2013/10/25 11:19:48 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains s_string function>
-** < init, destroy >
+** <This file contains s_string_print function>
+** < print_memory, print_fd, print >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -30,37 +30,26 @@
 ** You should have received a copy of the GNU General Public License
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
-
-#include <stdlib.h>
 #include <string/s_string.h>
 #include <f_error/m_error.h>
+#include <f_string/f_print_fd.h>
 #include <f_memory/f_memory.h>
 
-static inline ui	uf_string_realloc(ui size)
+void	f_string_print_memory(t_string *v_this, const char *name)
 {
-	return (size << 1);
+	if (name != NULL)
+		m_infos(name);
+	else
+		m_infos("string");
+	uf_print_memory(v_this->v_str, v_this->v_capacity);
 }
 
-bool				f_string_init(t_string *v_this, ui (*uf_realloc)(ui size))
+void	f_string_print_fd(t_string *v_this, ui fd)
 {
-	ui	size;
-
-	size = 2;
-	v_this->v_size = 0;
-	v_this->v_str = malloc(sizeof(*v_this->v_str) * size);
-	if (v_this->v_str == NULL)
-		return (m_error("Bad alloc", false));
-	uf_memset(v_this->v_str, 'A', size * sizeof(*v_this->v_str));
-	v_this->f_realloc = uf_string_realloc;
-	if (uf_realloc != NULL)
-		v_this->f_realloc = uf_realloc;
-	v_this->v_capacity = size;
-	v_this->v_hex = "0123456789ABCDEF";
-	return (true);
+	write(fd, v_this->v_str, v_this->v_size);
 }
 
-void				f_string_destroy(t_string *v_this)
+void	f_string_print(t_string *v_this)
 {
-	free(v_this->v_str);
-	uf_memset(v_this, 0, sizeof(*v_this));
+	f_string_print_fd(v_this, 1);
 }
