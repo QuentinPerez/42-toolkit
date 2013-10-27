@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/28 16:40:56 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/22 18:29:23 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/27 17:25:54 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	*uf_test_return_function_pointer(void)
 	void	*(*why)();
 
 	why = &uf_test_return_function_pointer;
-	return (void*)(m_error("I return function pointer", (size_t)why));
+	return (void*)(m_error((size_t)why, "I return function pointer"));
 }
 
 void	*uf_test_return_addr(void)
@@ -27,17 +27,17 @@ void	*uf_test_return_addr(void)
 	char	*why;
 
 	why = &c;
-	return (void*)(m_error("I return addr", (size_t)why));
+	return (void*)(m_error((size_t)why, "I return addr"));
 }
 
 int		uf_test_return_negative_value(void)
 {
-	return (m_error("I return -1", -1));
+	return (m_error(-1, "I return -1"));
 }
 
 int		uf_test_return_value(void)
 {
-	return (m_error("I return 1", 1));
+	return (m_error(1, "I return 1"));
 }
 
 void	uf_test_return_in_function_void(void)
@@ -47,9 +47,6 @@ void	uf_test_return_in_function_void(void)
 
 int		main(int argc, const char **argv)
 {
-#ifndef	D_ERRORS_ON
-	printf("\nIt's better with debug flags use 'make debug'\n\n");
-#endif
 	printf("\n== Return with different value ==\n");
 	printf("\nI receive %d\n----\n", uf_test_return_value());
 	printf("\nI receive negative number %d\n----\n", uf_test_return_negative_value());
@@ -58,7 +55,7 @@ int		main(int argc, const char **argv)
 	printf("\n== Return in function void ==\n");
 	uf_test_return_in_function_void();
 	printf("\n\n== Function infos ==\n");
-	m_infos("42 school");
+	m_infos("%d school", 42);
 	(void)argv;
 	(void)argc;
 	return (0);

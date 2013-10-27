@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/28 12:30:46 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/09 23:20:56 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/27 17:17:23 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@
 
 #include <f_error/m_error.h>
 #include <f_string/f_print_fd.h>
+#include <string/s_string.h>
 
 char	fm_print_infos(const char *file, int line, const char *fct)
 {
@@ -50,34 +51,48 @@ char	fm_print_infos(const char *file, int line, const char *fct)
 	return (0);
 }
 
-size_t	fm_error(char nothing, const char *err, size_t ret)
+size_t	fm_error(char nothing, size_t ret, const char *fmt, ...)
 {
 #ifdef	D_ERRORS_ON
-	uf_print_str_fd(err, 2);
-	uf_print_str_fd(".\033[0;37m\n", 2);
+	va_list		ap;
+	t_string	str;
+
+	va_start(ap, fmt);
+	D_STRING(init)(&str, 0);
+	D_STRING(variadic_list)(&str, fmt, &ap);
+	D_STRING(add_str)(&str, ".\033[0;37m\n");
+	D_STRING(print_fd)(&str, 2);
+	D_STRING(destroy)(&str);
+	va_end(ap);
 #endif
 	(void)nothing;
-	(void)err;
+	(void)fmt;
 	return (ret);
 }
 
-void	fm_error_v(char nothing, const char *err)
+void	fm_error_v(char nothing, const char *fmt, ...)
 {
 #ifdef	D_ERRORS_ON
-	fm_error(0, err, 0);
+	fm_error(0, 0, fmt);
 #endif
 	(void)nothing;
-	(void)err;
+	(void)fmt;
 }
 
-void	fm_infos(const char *funct, const char *infos)
+void	fm_infos(const char *funct, const char *infos, ...)
 {
 #ifdef	D_ERRORS_ON
-	uf_print_str_fd("\033[1;37m→\t", 1);
-	uf_print_str_fd(funct, 1);
-	uf_print_str_fd("(): \033[0;33m", 1);
-	uf_print_str_fd(infos, 1);
-	uf_print_str_fd(".\033[0m\n", 1);
+	va_list		ap;
+	t_string	str;
+
+	va_start(ap, infos);
+	D_STRING(init)(&str, 0);
+	D_STRING(variadic)(&str, "\033[1;37m→\t%s(): \033[0;33m", funct);
+	D_STRING(variadic_list)(&str, infos, &ap);
+	D_STRING(add_str)(&str, ".\033[0m\n");
+	D_STRING(print_fd)(&str, 2);
+	D_STRING(destroy)(&str);
+	va_end(ap);
 #endif
 	(void)funct;
 	(void)infos;
