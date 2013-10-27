@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/16 15:17:58 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/26 13:34:32 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/27 17:42:15 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static bool			f_vector_realloc(t_vector *v_this, ui size)
 	if (v_this->v_data == NULL)
 	{
 		v_this->v_data = tmp;
-		return (m_error("Bad alloc", false));
+		return (m_error(false, "Bad alloc"));
 	}
 	v_this->v_capacity = size;
 	return (true);
@@ -68,7 +68,7 @@ bool				f_vector_push_back(t_vector *v_this, void *data)
 	ui	new_size;
 
 	if (data == NULL)
-		return (m_error("Null pointer", false));
+		return (m_error(false, "Null pointer"));
 	new_size = v_this->f_realloc(v_this->v_size);
 	if (v_this->v_size + 1 > v_this->v_capacity &&
 		D_VECTOR(realloc)(v_this, new_size) == false)

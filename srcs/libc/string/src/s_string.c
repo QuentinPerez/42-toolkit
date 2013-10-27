@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/22 12:13:42 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/25 13:54:33 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/27 17:39:48 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ bool				f_string_init(t_string *v_this, ui (*uf_realloc)(ui size))
 	v_this->v_size = 0;
 	v_this->v_str = malloc(sizeof(*v_this->v_str) * size);
 	if (v_this->v_str == NULL)
-		return (m_error("Bad alloc", false));
+		return (m_error(false, "Bad alloc"));
 	uf_memset(v_this->v_str, 0, size * sizeof(*v_this->v_str));
 	v_this->f_realloc = uf_string_realloc;
 	if (uf_realloc != NULL)

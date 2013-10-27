@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/30 13:28:54 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/07 03:44:48 by irabeson         ###   ########.fr       */
+/*   Updated: 2013/10/27 17:39:22 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ bool	f_queue_push(t_queue *v_this, void *data)
 
 	push = D_QUEUE(create_cell)(data);
 	if (push == NULL)
-		return (m_error("Bad alloc", false));
+		return (m_error(false, "Bad alloc"));
 	if (v_this->v_head == NULL)
 		v_this->v_head = push;
 	if (v_this->v_tail != NULL)

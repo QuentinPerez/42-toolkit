@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/30 17:48:19 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/09 23:43:45 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/27 17:38:32 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ bool		f_list_push_back(t_list *v_this, void *data)
 
 	cell = D_LIST_CELL(create)(v_this->v_end, NULL, data);
 	if (cell == NULL)
-		return (m_error("Bad alloc", false));
+		return (m_error(false, "Bad alloc"));
 	if (v_this->v_size == 0)
 		v_this->v_begin = cell;
 	else
@@ -58,7 +58,7 @@ bool		f_list_push_front(t_list *v_this, void *data)
 
 	cell = D_LIST_CELL(create)(NULL, v_this->v_begin, data);
 	if (cell == NULL)
-		return (m_error("Bad alloc", false));
+		return (m_error(false, "Bad alloc"));
 	if (v_this->v_size == 0)
 		v_this->v_end = cell;
 	else

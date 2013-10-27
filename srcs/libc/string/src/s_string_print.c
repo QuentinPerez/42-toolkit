@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/25 11:05:31 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/25 13:53:32 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/27 17:41:14 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	f_string_print_memory(t_string *v_this, const char *name)
 void	f_string_print_fd(t_string *v_this, ui fd)
 {
 	if (write(fd, v_this->v_str, v_this->v_size) != v_this->v_size)
-		m_error("Write : Fail", 0);
+		m_error(0, "Write : Fail");
 }
 
 void	f_string_print(t_string *v_this)

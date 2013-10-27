@@ -6,7 +6,7 @@
 /*   By: irabeson <irabeson42@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/07 04:18:37 by irabeson          #+#    #+#             */
-/*   Updated: 2013/10/09 23:42:42 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/27 17:37:28 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@
 */
 
 #include <list/s_list.h>
-#include <f_error/m_error.h>
+#include <stddef.h>
 
 t_list_cell	*f_list_cell_create(t_list_cell *prv, t_list_cell *nxt, void *data);
 
@@ -57,7 +57,5 @@ t_list_cell	*f_list_insert(t_list *v_this, t_list_cell *position, void *data)
 		position->v_prev = cell;
 		v_this->v_size = D_LIST(size)(v_this) + 1;
 	}
-	else
-		m_error("Bad alloc", (size_t)NULL);
 	return (cell);
 }

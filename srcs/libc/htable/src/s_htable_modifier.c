@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/08 19:25:06 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/09 08:39:38 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/27 17:36:04 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ bool			f_htable_add(t_htable *v_this, const char *str, void *data)
 	element = D_ARRAY(at)(&v_this->v_array, key, t_list *);
 	cell = D_HTABLE(create_cell)(str, data, v_this->f_delete);
 	if (cell == NULL)
-		return (m_error("Could not alloc cellule", (size_t)NULL));
+		return (m_error(false, "Bad alloc"));
 	return (D_LIST(push_back)(element, cell));
 }
 

@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/16 12:10:46 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/02 13:10:59 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/27 17:41:36 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ bool				f_vector_init(t_vector *v_this,
 		v_this->f_delete = uf_vector_delete;
 	v_this->v_data = calloc(2, sizeof(*v_this->v_data));
 	if (v_this->v_data == NULL)
-		return (m_error("Bad alloc", false));
+		return (m_error(false, "Bad alloc"));
 	v_this->v_capacity = 2;
 	return (true);
 }
