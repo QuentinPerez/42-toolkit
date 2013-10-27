@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/25 19:19:43 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/25 20:21:48 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/27 16:53:45 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,26 +36,18 @@
 #include <stdarg.h>
 #include <unistd.h>
 
-static bool	uf_string_exit_variadic(va_list *ap, const char *why, bool ret)
-{
-	if (why != NULL)
-		m_error(why, ret);
-	va_end(*ap);
-	return (false);
-}
-
 static bool	uf_string_treat_argument_next(t_string *v_this, va_list *ap,
 										  const char **fmt)
 {
 	if (**fmt == 's')
 	{
 		if (D_STRING(add_str)(v_this, va_arg(*ap, char *)) == false)
-			return (uf_string_exit_variadic(ap, NULL, false));
+			return (false);
 	}
 	else if (**fmt == 'p')
 	{
 		if (D_STRING(add_ptr)(v_this, va_arg(*ap, void *)) == false)
-			return (uf_string_exit_variadic(ap, NULL, false));
+			return (false);
 	}
 	return (true);
 
@@ -68,43 +60,75 @@ static bool	uf_string_treat_argument(t_string *v_this, va_list *ap,
 	if (**fmt == 'd' || **fmt == 'i')
 	{
 		if (D_STRING(add_nbr)(v_this, va_arg(*ap, ssize_t)) == false)
-			return (uf_string_exit_variadic(ap, NULL, false));
+			return (false);
 	}
 	else if (**fmt == 'x' || **fmt == 'X')
 	{
 		if (D_STRING(add_nbr_base)(v_this, va_arg(*ap, ssize_t), 16) == false)
-			return (uf_string_exit_variadic(ap, NULL, false));
+			return (false);
 	}
 	else if (**fmt == 'c')
 	{
 		if (D_STRING(add_char)(v_this, va_arg(*ap, int)) == false)
-			return (uf_string_exit_variadic(ap, NULL, false));
+			return (false);
 	}
-	return (uf_string_treat_argument_next(v_this, ap, fmt));
+	else
+		return (uf_string_treat_argument_next(v_this, ap, fmt));
+	return (true);
 }
 
 bool		f_string_variadic(t_string *v_this, const char *fmt, ...)
 {
 	va_list		ap;
 	const char	*tmp;
+	bool		error;
 
 	tmp = fmt;
+	error = false;
 	va_start(ap, fmt);
-	while (*fmt != '\0')
+	while (*fmt != '\0' && error == false)
 	{
 		if (*fmt == '%')
 		{
-			if (D_STRING(add_nstr)(v_this, tmp, fmt - tmp) == false)
-				return (uf_string_exit_variadic(&ap, NULL, false));
-			if (uf_string_treat_argument(v_this, &ap, &fmt) == false)
-				return (false);
+			if (D_STRING(add_nstr)(v_this, tmp, fmt - tmp) == false ||
+				uf_string_treat_argument(v_this, &ap, &fmt) == false)
+				error = true;
 			fmt = fmt + 1;
 			tmp = fmt;
 		}
 		else
 			fmt = fmt + 1;
 	}
-	if (tmp != fmt && D_STRING(add_nstr)(v_this, tmp, fmt - tmp) == false)
-		return (uf_string_exit_variadic(&ap, NULL, false));
-	return (uf_string_exit_variadic(&ap, NULL, true));
+	if (error == false && tmp != fmt &&
+		D_STRING(add_nstr)(v_this, tmp, fmt - tmp) == false)
+		error = true;
+	va_end(ap);
+	return (error);
+}
+
+bool		f_string_variadic_list(t_string *v_this, const char *fmt,
+								   va_list *ap)
+{
+	const char	*tmp;
+	bool		error;
+
+	tmp = fmt;
+	error = false;
+	while (*fmt != '\0' && error == false)
+	{
+		if (*fmt == '%')
+		{
+			if (D_STRING(add_nstr)(v_this, tmp, fmt - tmp) == false ||
+				uf_string_treat_argument(v_this, ap, &fmt) == false)
+				error = true;
+			fmt = fmt + 1;
+			tmp = fmt;
+		}
+		else
+			fmt = fmt + 1;
+	}
+	if (error == false && tmp != fmt &&
+		D_STRING(add_nstr)(v_this, tmp, fmt - tmp) == false)
+		error = true;
+	return (error);
 }
