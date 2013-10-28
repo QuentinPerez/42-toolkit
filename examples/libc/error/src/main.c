@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/13 12:58:04 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/13 15:05:29 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/28 13:04:10 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 bool	uf_test_bool(t_error *v_this)
 {
-	return (D_ERROR(add)(v_this, "return true", true));
+	return (D_ERROR(add)(v_this, true, "return true"));
 }
 
 void	uf_test_void(t_error *v_this)

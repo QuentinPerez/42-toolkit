@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/13 12:25:09 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/13 15:03:07 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/28 12:59:38 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,26 +34,23 @@
 # define S_ERROR_H
 
 #include <d_bool.h>
+//#include <stdarg.h>
 
 typedef struct	s_error
 {
 	int	v_fd;
 }				t_error;
 
-# define D_ERROR(funct)			f_error_##funct
-# define D_PT_TIME(v)			fm_pt_time(v, __DATE__, __TIME__, __FILE__)
-# define D_PT_FUNC(v)			fm_pt_funct(v, __LINE__, __func__)
-# define D_PT_S_ERR(v, n)		fm_pt_serr(v, D_PT_TIME(v), D_PT_FUNC(v), n)
-# define f_error_add(v, n, ret)	fm_error_add(D_PT_S_ERR(v, n), ret)
-# define f_error_add_v(v, n)	fm_error_add_v(D_PT_S_ERR(v, n))
+# define D_ERROR(funct)				f_error_##funct
+# define D_MINFOS(v)				fm_pt_infos(v, __LINE__, __func__, __FILE__)
+# define f_error_add(v, r, f, ...)	fm_add(v, D_MINFOS(v), r, f, ##__VA_ARGS__)
+# define f_error_add_v(v, f, ...)	fm_add_v(v, D_MINFOS(v), f, ##__VA_ARGS__)
 
 bool	f_error_init(t_error *v_this, const char *filename);
 void	f_error_destroy(t_error *v_this);
-bool	fm_error_add(char nothing, bool ret_val);
-void	fm_error_add_v(char nothing);
-char	fm_pt_time(t_error *v_this, const char *date, const char *time,
-				   const char *file);
-char	fm_pt_funct(t_error *v_this, const int line, const char *func);
-char	fm_pt_serr(t_error *v_this, char n1, char n2, const char *error);
+bool	fm_add(t_error *v_this, char nothing, bool ret, const char *error, ...);
+void	fm_add_v(t_error *v_this, char nothing, const char *error, ...);
+char	fm_pt_infos(t_error *v_this, const int line, const char *funct,
+					const char *file);
 
 #endif

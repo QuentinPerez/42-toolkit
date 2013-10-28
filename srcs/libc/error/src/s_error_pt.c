@@ -6,13 +6,13 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/13 15:07:15 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/13 15:10:43 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/28 13:04:52 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 ** <This file contains error macros method>
-** < fm_pt_serr, fm_pt_time, fm_pt_funct >
+** < fm_error_infos >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -31,38 +31,31 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+#include <time.h>
 #include <error/s_error.h>
 #include <f_string/f_print_fd.h>
 
-char	fm_pt_serr(t_error *v_this, char n1, char n2, const char *error)
+char	fm_pt_infos(t_error *v_this, const int line,
+					const char *funct, const char *file)
 {
-	uf_print_str_fd("()\n\t\t→ ", v_this->v_fd);
-	uf_print_str_fd(error, v_this->v_fd);
-	uf_print_char_fd('\n', v_this->v_fd);
-	(void)n1;
-	(void)n2;
-	return (1);
-}
+	time_t		raw_time;
+	struct tm	*ptm;
 
-
-char	fm_pt_time(t_error *v_this, const char *date,
-				   const char *time, const char *file)
-{
-	uf_print_char_fd('[', v_this->v_fd);
-	uf_print_str_fd(date, v_this->v_fd);
-	uf_print_str_fd("] (", v_this->v_fd);
-	uf_print_str_fd(time, v_this->v_fd);
+	time(&raw_time);
+	ptm = gmtime(&raw_time);
+	uf_print_str_fd("(", v_this->v_fd);
+	uf_print_nbr_fd((ptm->tm_hour + 1) % 24, v_this->v_fd);
+	uf_print_str_fd(":", v_this->v_fd);
+	uf_print_nbr_fd(ptm->tm_min, v_this->v_fd);
+	uf_print_str_fd(":", v_this->v_fd);
+	uf_print_nbr_fd(ptm->tm_sec, v_this->v_fd);
 	uf_print_str_fd(") ", v_this->v_fd);
 	uf_print_str_fd(file, v_this->v_fd);
 	uf_print_str_fd(", line ", v_this->v_fd);
-	return (1);
-}
-
-char	fm_pt_funct(t_error *v_this, const int line, const char *funct)
-{
 	uf_print_nbr_fd(line, v_this->v_fd);
 	uf_print_str_fd(": ", v_this->v_fd);
 	uf_print_str_fd(funct, v_this->v_fd);
+	(void)v_this;
 	return (1);
 }
 
