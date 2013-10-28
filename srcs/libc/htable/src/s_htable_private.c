@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/09 08:25:06 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/09 08:35:32 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/28 15:14:19 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ t_htable_cell	*f_htable_create_cell(const char *key, void *data,
 	}
 	return (cell);
 }
+
 void			f_htable_delete_cell(void *data)
 {
 	t_htable_cell	*cell;

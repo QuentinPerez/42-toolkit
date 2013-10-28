@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/30 22:50:59 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/09 23:38:55 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/28 15:14:40 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@
 
 #include <list/s_list.h>
 #include <stddef.h>
+#include <stdlib.h>
 
 bool		f_list_foreach(t_list *v_this, bool (*funct)(void *data))
 {
@@ -75,6 +76,7 @@ t_list_cell	*f_list_delete(t_list *v_this, t_list_cell *mb_del)
 
 	ret = D_LIST(erase)(v_this, mb_del, &del);
 	v_this->f_destroy(del);
+	free(mb_del);
 	return (ret);
 }
 
