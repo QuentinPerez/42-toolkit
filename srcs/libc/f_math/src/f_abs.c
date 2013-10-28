@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/21 23:50:31 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/21 23:53:37 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/28 14:34:15 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-extern inline double	uf_abs(double value)
+double	uf_abs(double value)
 {
 	if (value < 0)
 		value = -value;

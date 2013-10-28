@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/21 23:36:28 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/21 23:46:19 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/28 14:34:27 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,12 @@
 
 #include <f_math/t_math.h>
 
-extern inline double	uf_deg_to_rad(double deg)
+double	uf_deg_to_rad(double deg)
 {
 	return (deg * D_PI / 180);
 }
 
-extern inline double	uf_rad_to_deg(double rad)
+double	uf_rad_to_deg(double rad)
 {
 	return (rad * 180 / D_PI);
 }
