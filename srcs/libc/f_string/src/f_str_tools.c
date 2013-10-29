@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/28 15:09:03 by qperez            #+#    #+#             */
-/*   Updated: 2013/08/30 16:13:11 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/28 21:12:55 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,17 @@
 
 #include <f_string/f_str_tools.h>
 #include <f_string/f_print_fd.h>
+#include <f_error/m_error.h>
 
 size_t	uf_str_len(const char *str)
 {
 	size_t	len;
 
 	len = 0;
+	if (str == NULL)
+		m_infos("Pointer NULL");
 	while (str[len] != '\0')
-	{
 		len = len + 1;
-	}
 	return (len);
 }
 
