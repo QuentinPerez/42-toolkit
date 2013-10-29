@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   f_print_fd.h                                       :+:      :+:    :+:   */
+/*   f_print_bits.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/08/28 15:11:46 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/29 17:04:54 by qperez           ###   ########.fr       */
+/*   Created: 2013/10/29 13:39:42 by qperez            #+#    #+#             */
+/*   Updated: 2013/10/29 17:04:37 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains all f_print_fd prototype>
+** <This file contains all f_print_bits function>
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -30,18 +30,24 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef F_PRINT_FD_H
-# define F_PRINT_FD_H
+#include <f_string/f_print_fd.h>
 
-#include <unistd.h>
-#include <t_types.h>
+void	uf_print_bits_fd(size_t value, size_t size, int fd)
+{
+	size_t	max;
 
-ssize_t	uf_print_char_fd(char c, int fd);
-ssize_t	uf_print_str_fd(const char *str, int fd);
-void	uf_print_nbr_fd(ssize_t nb, int fd);
-void	uf_print_bits_fd(size_t value, size_t size, int fd);
-void	uf_print_floating_nbr_fd(double nbr, ui digit, int fd);
-void	uf_print_nbr_base_fd(ssize_t nbr, int fd, ssize_t base);
-void	uf_print_addr_fd(void *addr, int fd);
+	max = ((size_t)1 << (size * 8 - 1));
+	while (max > 0)
+	{
+		if (value & max)
+			uf_print_nbr_fd(1, fd);
+		else
+			uf_print_nbr_fd(0, fd);
+		max = max >> 1;
+	}
+}
 
-#endif
+void	uf_print_bits(size_t value, size_t size)
+{
+	uf_print_bits_fd(value, size, 1);
+}
