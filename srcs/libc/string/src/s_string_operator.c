@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/28 13:28:29 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/28 13:51:14 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/29 23:01:10 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,15 +33,37 @@
 
 #include <string/s_string.h>
 #include <f_memory/f_memory.h>
+#include <f_string/f_str_tools.h>
 
-void	f_string_erase(t_string *v_this, ui form, ui to)
+bool	uf_string_realloc(t_string *v_this, ui add);
+
+void	f_string_erase(t_string *v_this, ui from, ui to)
 {
 	ui	size;
 
-	if (form >= to || to >= v_this->v_size)
+	if (from >= to || to >= v_this->v_size)
 		return ;
 	size = v_this->v_size - to;
-	uf_memcpy(v_this->v_str + form, v_this->v_str + to, size);
-	uf_memset(v_this->v_str + form + size, '\0', to - form);
-	v_this->v_size = v_this->v_size - (to - form);
+	uf_memcpy(v_this->v_str + from, v_this->v_str + to, size);
+	uf_memset(v_this->v_str + from + size, '\0', to - from);
+	v_this->v_size = v_this->v_size - (to - from);
+}
+
+bool	f_string_insert(t_string *v_this, const char *insert, ui at)
+{
+	ui	size;
+
+	if (at >= v_this->v_size)
+		return (D_STRING(add_str)(v_this, insert));
+	size = uf_str_len(insert);
+	if (size == 0)
+		return (true);
+	if (v_this->v_size + size + 1 > v_this->v_capacity &&
+		uf_string_realloc(v_this, size + 1) == false)
+		return (false);
+	uf_memcpy(v_this->v_str + at + size, v_this->v_str + at,
+			  v_this->v_size - at);
+	uf_memcpy(v_this->v_str + at, insert, size);
+	v_this->v_size = v_this->v_size + size;
+	return (true);
 }
