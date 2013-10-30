@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   f_strdup.c                                         :+:      :+:    :+:   */
+/*   f_getstr.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/10/08 20:33:45 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/30 13:52:38 by qperez           ###   ########.fr       */
+/*   Created: 2013/10/30 13:45:49 by qperez            #+#    #+#             */
+/*   Updated: 2013/10/30 14:48:07 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains f_strdup function>
+** <This file contains all f_getstr function>
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -30,21 +30,44 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <stdlib.h>
-#include <t_types.h>
-#include <f_string/f_string.h>
-#include <f_string/f_str_tools.h>
+#include <unistd.h>
+#include <string/s_string.h>
+#include <f_error/m_error.h>
 
-char	*uf_strdup(const char *str)
+static bool	uf_get_data(t_string *string, ui fd, uc terminate)
 {
-	ui		size;
-	char	*ret;
+	char	c;
+	ui		nb_read;
 
-	size = uf_str_len(str);
-	if (size == 0)
-		return (NULL);
-	ret = malloc(sizeof(*ret) * (size + 1));
-	if (ret != NULL)
-		uf_strcpy(ret, str);
+	nb_read = read(fd, &c, 1);
+	while (nb_read == 1)
+	{
+		if (D_STRING(add_char)(string, c) == false)
+			return (false);
+		if (c == terminate)
+			return (true);
+		nb_read = read(fd, &c, 1);
+	}
+	if (D_STRING(empty)(string) == false)
+		return (D_STRING(add_char)(string, terminate));
+	return (false);
+}
+
+char		*uf_getstr(ui fd, uc terminate)
+{
+	t_string	string;
+	char		*ret;
+
+	ret = NULL;
+	if (D_STRING(init)(&string, 0) == false)
+		return ((char*)m_error((ssize_t)NULL, "Could not initialize string"));
+	if (uf_get_data(&string, fd, terminate) == true)
+		ret = D_STRING(dup)(&string);
+	D_STRING(destroy)(&string);
 	return (ret);
+}
+
+char		*uf_getline(ui fd)
+{
+	return (uf_getstr(fd, '\n'));
 }

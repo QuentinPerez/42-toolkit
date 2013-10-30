@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/06 21:23:29 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/08 20:37:51 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/30 14:40:51 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@
 # define F_STRING_H
 
 #include <stddef.h>
+#include <d_bool.h>
 
 char	*uf_strcpy(char *dest, const char *src);
 char	*uf_strncpy(char *dest, const char *src, size_t size);
@@ -46,5 +47,7 @@ int		uf_strncmp(const char *left, const char *right, size_t count);
 int		uf_str_case_cmp(const char *left, const char *right);
 int		uf_str_case_ncmp(const char *left, const char *right, size_t count);
 char	*uf_strdup(const char *str);
+char	*uf_getstr(ui fd, uc terminate);
+char	*uf_getline(ui fd);
 
 #endif
