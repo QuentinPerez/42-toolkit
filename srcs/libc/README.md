@@ -17,6 +17,7 @@
 	- queue/		"First-in-First-out container"
 	- htable/		"Hash table"
 	- timer/		"Timer in milliseconds"
+	- getopt/		"Treat argv"
 
 ## How to make libraries
 
