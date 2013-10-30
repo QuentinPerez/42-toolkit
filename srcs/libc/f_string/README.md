@@ -6,29 +6,29 @@
 f_print.c:
 
 	- uf_print_char(char c)
-	/* Print 'c' on screen */
+	/* Print 'c' on stdout */
 
 	- uf_print_nbr(ssize_t nbr)
-	/* Print value of 'nbr' on screen */
+	/* Print value of 'nbr' on stdout */
 
 	- uf_print_str(const char *str)
-	/* Print the string 'str' on screen */
+	/* Print the string 'str' on stdout */
 
 	- uf_print_nbr_base(ssize_t nbr, ssize_t base)
-	/* Print value of 'nbr' in 'base' on screen */
+	/* Print value of 'nbr' in 'base' on stdout */
 
 	- uf_print_addr(void *addr)
-	/* Print address 'addr' on screen */
+	/* Print address 'addr' on stdout */
 
 f_print_fd.c:
 
-	- uf_print_char_fd(char c, int fd)
+	- uf_print_char_fd(char c, ui fd)
 	/* Print 'c' on out fd */
 
-	- uf_print_nbr_fd(int nbr, int fd)
+	- uf_print_nbr_fd(ui nbr, ui fd)
 	/* Print value of 'nbr' on out fd */
 
-	- uf_print_str_fd(const char *str, int fd)
+	- uf_print_str_fd(const char *str, ui fd)
 	/* Print the string 'str' on out fd */
 
 	- uf_print_nbr_base_fd(ssize_t nbr, ssize_t base)
@@ -39,18 +39,40 @@ f_print_fd.c:
 
 f_print_spec.c:	/* Experimental function */
 
-	- uf_print_floating_nbr_fd(double number, ui digit, int fd)
+	- uf_print_floating_nbr_fd(double number, ui digit, ui fd)
 	/* Print floating value of 'number' on out fd */
 
 	- uf_print_floating_nbr(double number, ui digit)
-	/* Print floating value of 'number' on screen */
+	/* Print floating value of 'number' on stdout */
+
+	- uf_print_bits_fd(size_t value, size_t size, ui fd)
+	/* Print value in bits on out fd */
+
+	- uf_print_bits(size_t value, size_t size)
+	/* Print value in bits on stdout */
+
+f_print_variadic.c:
+
+	- uf_print_variadic_fd(ui fd, const char *fmt, ...)
+	  /* Like printf */
+
+	- uf_print_variadic(const char *fmt, ...)
+	  /* Like printf */
+
+f_print_nstr.c:
+
+	- uf_print_nstr_fd(const char *str, ui size, ui fd)
+	  /* Print size bytes of str on out fd */
+
+	- uf_print_nstr(const char *str, ui size)
+	  /* Print size bytes of str on stdout */
 
 f_str_tools.c:
 
 	- uf_str_len(const char *str)
 	/* Return lenght of string 'str' */
 
-	- uf_print_in_base(char nbr, int fd)
+	- uf_print_in_base(char nbr, ui fd)
 	/* Tools for print value in good base */
 
 f_strcat.c:

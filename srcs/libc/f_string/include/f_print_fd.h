@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/28 15:11:46 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/29 17:04:54 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/30 11:21:03 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,14 @@
 #include <unistd.h>
 #include <t_types.h>
 
-ssize_t	uf_print_char_fd(char c, int fd);
-ssize_t	uf_print_str_fd(const char *str, int fd);
-void	uf_print_nbr_fd(ssize_t nb, int fd);
-void	uf_print_bits_fd(size_t value, size_t size, int fd);
-void	uf_print_floating_nbr_fd(double nbr, ui digit, int fd);
-void	uf_print_nbr_base_fd(ssize_t nbr, int fd, ssize_t base);
-void	uf_print_addr_fd(void *addr, int fd);
+ssize_t	uf_print_char_fd(char c, ui fd);
+ssize_t	uf_print_str_fd(const char *str, ui fd);
+ssize_t	uf_print_nstr_fd(const char *str, ui size, ui fd);
+void	uf_print_nbr_fd(ssize_t nb, ui fd);
+void	uf_print_bits_fd(size_t value, size_t size, ui fd);
+void	uf_print_floating_nbr_fd(double nbr, ui digit, ui fd);
+void	uf_print_nbr_base_fd(ssize_t nbr, ssize_t base, ui fd);
+void	uf_print_variadic_fd(ui fd, const char *fmt, ...);
+void	uf_print_addr_fd(void *addr, ui fd);
 
 #endif

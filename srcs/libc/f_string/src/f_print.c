@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/29 17:30:08 by qperez            #+#    #+#             */
-/*   Updated: 2013/08/30 17:38:44 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/30 11:18:01 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	uf_print_nbr(ssize_t nbr)
 
 void	uf_print_nbr_base(ssize_t nbr, ssize_t base)
 {
-	uf_print_nbr_base_fd(nbr, 1, base);
+	uf_print_nbr_base_fd(nbr, base, 1);
 }
 
 void	uf_print_addr(void *addr)
