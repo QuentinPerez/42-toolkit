@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/28 18:08:55 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/30 14:52:43 by qperez           ###   ########.fr       */
+/*   Updated: 2013/10/31 12:04:02 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	main(int argc, const char **argv)
 	uf_print_memory(dest, 50);
 	uf_print_floating_nbr(345.409, 10);
 	uf_print_str("\nCat mode: Quit press q<enter>\n");
-	line = uf_getline(0);
+	line = uf_getline(0, false);
 	while (line != NULL)
 	{
 		if (uf_strcmp(line, "q\n") == 0)
@@ -49,7 +49,7 @@ int	main(int argc, const char **argv)
 		}
 		uf_print_str(line);
 		free(line);
-		line = uf_getline(0);
+		line = uf_getline(0, false);
 	}
 	(void)argv;
 	(void)argc;
