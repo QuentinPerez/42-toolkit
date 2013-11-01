@@ -1,17 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   f_string.h                                         :+:      :+:    :+:   */
+/*   f_intarray.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/10/06 21:23:29 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/31 18:05:29 by qperez           ###   ########.fr       */
+/*   Created: 2013/10/31 17:58:49 by qperez            #+#    #+#             */
+/*   Updated: 2013/10/31 18:06:22 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains all f_string function>
+** <This file contains function>
+** < uf_itoa_base, uf_itoa >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -30,27 +31,23 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef F_STRING_H
-# define F_STRING_H
-
-#include <stddef.h>
-#include <d_bool.h>
 #include <t_types.h>
+#include <string/s_string.h>
 
-char	*uf_strcpy(char *dest, const char *src);
-char	*uf_strncpy(char *dest, const char *src, size_t size);
-size_t	uf_strlcpy(char *dest, const char *src, size_t size);
-char	*uf_strcat(char *dest, const char *src);
-char	*uf_strncat(char *dest, const char *src, size_t size);
-size_t	uf_strlcat(char *dest, const char *src, size_t size);
-int		uf_strcmp(const char *left, const char *right);
-int		uf_strncmp(const char *left, const char *right, size_t count);
-int		uf_str_case_cmp(const char *left, const char *right);
-int		uf_str_case_ncmp(const char *left, const char *right, size_t count);
-char	*uf_itoa(int nbr);
-char	*uf_itoa_base(int nbr, ui base);
-char	*uf_strdup(const char *str);
-char	*uf_getstr(ui fd, uc terminate, bool del_terminate);
-char	*uf_getline(ui fd, bool del_terminate);
+char	*uf_itoa_base(int nbr, ui base)
+{
+	char		*ret;
+	t_string	str;
 
-#endif
+	ret = NULL;
+	if (D_STRING(init)(&str, 0) == true &&
+		D_STRING(add_nbr_base)(&str, nbr, base) == true)
+		ret = D_STRING(dup)(&str);
+	D_STRING(destroy)(&str);
+	return (ret);
+}
+
+char	*uf_itoa(int nbr)
+{
+	return (uf_itoa_base(nbr, 10));
+}
