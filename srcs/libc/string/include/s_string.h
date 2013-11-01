@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/22 12:13:53 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/29 23:00:11 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/01 17:49:46 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ bool	f_string_add_char(t_string *v_this, uc c);
 bool	f_string_add_nbr(t_string *v_this, ssize_t nbr);
 bool	f_string_add_ptr(t_string *v_this, void *addr);
 bool	f_string_add_nbr_base(t_string *v_this, ssize_t nbr, ui base);
+bool	f_string_add_color(t_string *v_this, ui color, ui fx);
 bool	f_string_variadic(t_string *v_this, const char *fmt, ...);
 bool	f_string_variadic_list(t_string *v_this, const char *fmt, va_list *ap);
 char	**f_string_split(t_string *v_this, const char *charset);

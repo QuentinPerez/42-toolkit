@@ -48,6 +48,9 @@
 	- add_nbr_base(t_string *v_this, ssize_t nbr, ui base)
 	 /* This function add nbr in base to string buffer */
 
+	- add_color(t_string *v_this, ui color, ui fx);
+	 /* This function add color */
+
 	- variadic(t_string *v_this, const char *fmt, ...)
 	 /* This function like prinft */
 
