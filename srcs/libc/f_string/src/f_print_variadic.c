@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/30 11:05:34 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/30 11:30:38 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/01 17:43:31 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,9 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <f_string/f_print_fd.h>
 #include <stdarg.h>
+#include <f_string/f_print.h>
+#include <f_string/f_print_fd.h>
 
 static void	uf_print_treat_argument(va_list *ap, const char **fmt, ui fd)
 {
@@ -46,6 +47,10 @@ static void	uf_print_treat_argument(va_list *ap, const char **fmt, ui fd)
 		uf_print_str_fd(va_arg(*ap, char *), fd);
 	else if (**fmt == 'p')
 		uf_print_addr_fd(va_arg(*ap, void *), fd);
+	else if (**fmt == 'e')
+		uf_print_color(va_arg(*ap, int));
+	else if (**fmt == 'E')
+		uf_print_color_fx(va_arg(*ap, int), 1);
 }
 
 void		uf_print_variadic_fd(ui fd, const char *fmt, ...)

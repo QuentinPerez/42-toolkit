@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   f_print.h                                          :+:      :+:    :+:   */
+/*   f_print_color.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/08/29 17:32:48 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/01 15:36:58 by qperez           ###   ########.fr       */
+/*   Created: 2013/11/01 15:29:06 by qperez            #+#    #+#             */
+/*   Updated: 2013/11/01 15:37:21 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains all f_print function>
+** <This file contains all f_print_color function>
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -30,22 +30,17 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef F_PRINT_H
-# define F_PRINT_H
+#include <f_string/f_print.h>
 
-#include <f_string/f_print_fd.h>
-#include <unistd.h>
+void	uf_print_color_fx(ui color, ui params)
+{
+	uf_print_str("\033[");
+	if (params > 0)
+		uf_print_variadic("%d;", params);
+	uf_print_variadic("%dm", color);
+}
 
-ssize_t	uf_print_char(char c);
-ssize_t	uf_print_str(const char *str);
-void	uf_print_nstr(const char *str, ui size);
-void	uf_print_nbr(ssize_t nb);
-void	uf_print_color(ui color);
-void	uf_print_color_fx(ui color, ui fx);
-void	uf_print_bits(size_t value, size_t size);
-void	uf_print_floating_nbr(double nbr, ui digit);
-void	uf_print_nbr_base(ssize_t nbr, ssize_t base);
-void	uf_print_variadic(const char *fmt, ...);
-void	uf_print_addr(void *addr);
-
-#endif
+void	uf_print_color(ui color)
+{
+	uf_print_color_fx(color, 0);
+}
