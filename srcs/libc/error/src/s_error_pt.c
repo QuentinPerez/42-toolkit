@@ -6,13 +6,13 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/13 15:07:15 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/28 13:04:52 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/03 17:01:46 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 ** <This file contains error macros method>
-** < fm_error_infos >
+** < mf_pt_infos >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -35,7 +35,7 @@
 #include <error/s_error.h>
 #include <f_string/f_print_fd.h>
 
-char	fm_pt_infos(t_error *v_this, const int line,
+char	mf_pt_infos(t_error *v_this, const int line,
 					const char *funct, const char *file)
 {
 	time_t		raw_time;

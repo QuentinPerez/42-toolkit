@@ -6,13 +6,13 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/03 13:59:04 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/08 19:47:30 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/03 17:00:04 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 ** <This file contains s_array_access function>
-** < data >
+** < data, at >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -33,12 +33,12 @@
 
 #include <array/s_array.h>
 
-inline void	*fm_array_data(t_array *v_this)
+inline void	*mf_array_data(t_array *v_this)
 {
 	return (v_this->v_data);
 }
 
-inline void	*fm_array_at(t_array *v_this, ui index)
+inline void	*mf_array_at(t_array *v_this, ui index)
 {
 	return (v_this->v_data + index * v_this->v_type_size);
 }

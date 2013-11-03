@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/28 12:24:04 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/27 17:15:56 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/03 16:57:35 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,14 @@
 #include <stddef.h>
 #include <stdarg.h>
 
-# define D_PRINT_INFOS			fm_print_infos(__FILE__, __LINE__, __func__)
-# define m_error(ret, fmt, ...)	fm_error(D_PRINT_INFOS, ret, fmt, ##__VA_ARGS__)
-# define m_error_v(fmt, ...)	fm_error_v(D_PRINT_INFOS, fmt, ##__VA_ARGS__)
-# define m_infos(str_inf, ...)	fm_infos(__func__, str_inf, ##__VA_ARGS__)
+# define D_PRINT_INFOS			mf_print_infos(__FILE__, __LINE__, __func__)
+# define m_error(ret, fmt, ...)	mf_error(D_PRINT_INFOS, ret, fmt, ##__VA_ARGS__)
+# define m_error_v(fmt, ...)	mf_error_v(D_PRINT_INFOS, fmt, ##__VA_ARGS__)
+# define m_infos(str_inf, ...)	mf_infos(__func__, str_inf, ##__VA_ARGS__)
 
-char	fm_print_infos(const char *file, int line, const char *fct);
-size_t	fm_error(char call_print_infos, size_t ret, const char *fmt, ...);
-void	fm_error_v(char call_print_infos, const char *fmt, ...);
-void	fm_infos(const char *funct, const char *infos, ...);
+char	mf_print_infos(const char *file, int line, const char *fct);
+size_t	mf_error(char call_print_infos, size_t ret, const char *fmt, ...);
+void	mf_error_v(char call_print_infos, const char *fmt, ...);
+void	mf_infos(const char *funct, const char *infos, ...);
 
 #endif

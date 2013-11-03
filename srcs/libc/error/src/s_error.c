@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/13 12:48:51 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/28 12:59:55 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/03 17:02:01 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ bool	f_error_init(t_error *v_this, const char *filename)
 	return (v_this->v_fd != -1);
 }
 
-bool	fm_add(t_error *v_this, char nothing, bool ret, const char *error, ...)
+bool	mf_add(t_error *v_this, char nothing, bool ret, const char *error, ...)
 {
 	va_list		ap;
 	t_string	str;
@@ -64,7 +64,7 @@ bool	fm_add(t_error *v_this, char nothing, bool ret, const char *error, ...)
 	return (ret);
 }
 
-void	fm_add_v(t_error *v_this, char nothing, const char *error, ...)
+void	mf_add_v(t_error *v_this, char nothing, const char *error, ...)
 {
 	va_list		ap;
 	t_string	str;

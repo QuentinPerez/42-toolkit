@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/28 12:30:46 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/27 17:17:23 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/03 16:58:35 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@
 #include <f_string/f_print_fd.h>
 #include <string/s_string.h>
 
-char	fm_print_infos(const char *file, int line, const char *fct)
+char	mf_print_infos(const char *file, int line, const char *fct)
 {
 #ifdef	D_ERRORS_ON
 	uf_print_str_fd("\033[0;37m", 2);
@@ -51,7 +51,7 @@ char	fm_print_infos(const char *file, int line, const char *fct)
 	return (0);
 }
 
-size_t	fm_error(char nothing, size_t ret, const char *fmt, ...)
+size_t	mf_error(char nothing, size_t ret, const char *fmt, ...)
 {
 #ifdef	D_ERRORS_ON
 	va_list		ap;
@@ -70,16 +70,16 @@ size_t	fm_error(char nothing, size_t ret, const char *fmt, ...)
 	return (ret);
 }
 
-void	fm_error_v(char nothing, const char *fmt, ...)
+void	mf_error_v(char nothing, const char *fmt, ...)
 {
 #ifdef	D_ERRORS_ON
-	fm_error(0, 0, fmt);
+	mf_error(0, 0, fmt);
 #endif
 	(void)nothing;
 	(void)fmt;
 }
 
-void	fm_infos(const char *funct, const char *infos, ...)
+void	mf_infos(const char *funct, const char *infos, ...)
 {
 #ifdef	D_ERRORS_ON
 	va_list		ap;
