@@ -18,6 +18,7 @@
 	- htable/		"Hash table"
 	- timer/		"Timer in milliseconds"
 	- getopt/		"Treat argv"
+	- unit/			"42 unit testing"
 
 ## How to make libraries
 
