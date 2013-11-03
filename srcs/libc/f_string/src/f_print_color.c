@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/01 15:29:06 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/01 15:37:21 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/01 20:09:11 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,12 @@ void	uf_print_color_fx(ui color, ui params)
 {
 	uf_print_str("\033[");
 	if (params > 0)
-		uf_print_variadic("%d;", params);
-	uf_print_variadic("%dm", color);
+	{
+		uf_print_nbr(params);
+		uf_print_char(';');
+	}
+	uf_print_nbr(color);
+	uf_print_char('m');
 }
 
 void	uf_print_color(ui color)
