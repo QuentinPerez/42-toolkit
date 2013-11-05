@@ -6,7 +6,7 @@
 /*   By: irabeson <irabeson42@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/07 04:18:37 by irabeson          #+#    #+#             */
-/*   Updated: 2013/10/27 17:37:28 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/04 09:37:13 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,8 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <list/s_list.h>
 #include <stddef.h>
+#include <list/s_list.h>
 
 t_list_cell	*f_list_cell_create(t_list_cell *prv, t_list_cell *nxt, void *data);
 

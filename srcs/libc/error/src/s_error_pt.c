@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/13 15:07:15 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/03 17:01:46 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/04 09:43:35 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,5 @@ char	mf_pt_infos(t_error *v_this, const int line,
 	uf_print_nbr_fd(line, v_this->v_fd);
 	uf_print_str_fd(": ", v_this->v_fd);
 	uf_print_str_fd(funct, v_this->v_fd);
-	(void)v_this;
 	return (1);
 }
-

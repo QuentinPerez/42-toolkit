@@ -6,12 +6,12 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/31 11:09:07 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/01 18:32:12 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/03 23:37:06 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains all s_unit prototype>
+** <This file contains s_unit prototype>
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -52,7 +52,8 @@ typedef struct	s_unit
 
 bool	f_unit_init(t_unit *v_this);
 bool	f_unit_add_context(t_unit *v_this, const char *name,
-						   bool (*init)(void *), bool (*destroy)(void *));
+						   bool (*init)(void *data),
+						   bool (*destroy)(void *data));
 bool	mf_unit_add_test(t_unit *v_this, const char *context,
 						 const char *name, void (*test)(struct s_unit_test *));
 void	mf_unit_assert(struct s_unit_test *t, bool check, ui line, char *file);

@@ -6,12 +6,12 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/30 11:02:36 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/03 15:54:46 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/04 11:40:25 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains all s_queue prototype>
+** <This file contains s_queue prototype>
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -44,10 +44,10 @@ typedef struct	s_queue_cell
 
 typedef struct	s_queue
 {
-	ui				v_size;
-	t_queue_cell	*v_head;
-	t_queue_cell	*v_tail;
-	void			(*f_destroy)(void *data);
+	ui					v_size;
+	t_queue_cell		*v_head;
+	t_queue_cell		*v_tail;
+	void				(*f_destroy)(void *data);
 }				t_queue;
 
 # define D_QUEUE(funct)	f_queue_##funct
@@ -59,6 +59,8 @@ bool	f_queue_empty(const t_queue *v_this);
 ui		f_queue_size(const t_queue *v_this);
 bool	f_queue_push(t_queue *v_this, void *data);
 void	*f_queue_pop(t_queue *v_this);
+void	*f_queue_front(t_queue *v_this);
+void	*f_queue_back(t_queue *v_this);
 bool	f_queue_foreach(t_queue *v_this, bool (*funct)(void * data));
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/16 20:15:12 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/27 17:42:33 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/05 23:57:03 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@
 
 #include <vector/s_vector.h>
 #include <f_error/m_error.h>
-#include <stdlib.h>
 
 bool	f_vector_foreach(t_vector *v_this, bool (*funct)(void *))
 {
@@ -59,6 +58,5 @@ bool	f_vector_delete(t_vector *v_this, void *ptr)
 	if (erase == NULL)
 		return (m_error(false, "Couldn't find pointer"));
 	v_this->f_delete(erase);
-	free(erase);
 	return (true);
 }

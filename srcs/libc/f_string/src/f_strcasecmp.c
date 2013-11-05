@@ -6,12 +6,12 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/07 23:03:19 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/07 23:37:24 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/04 09:50:47 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains function>
+** <This file contains f_strcasecmp function>
 ** < uf_str_case_cmp, uf_str_case_ncmp >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
@@ -72,5 +72,4 @@ int	uf_str_case_ncmp(const char *left, const char *right, size_t count)
 		left = left + 1;
 	}
 	return ((int)((uc)*left - (uc)*right));
-
 }

@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/02 15:46:25 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/02 15:50:39 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/04 09:42:28 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,11 @@ bool	f_array_foreach(t_array *v_this, bool (*funct)(void *data))
 	char	*ptr;
 
 	i = 0;
-	ptr = (char*)v_this->v_data;
+	ptr = (char *)v_this->v_data;
 	size = v_this->v_size * v_this->v_type_size;
 	while (i < size)
 	{
-		if (funct((void*)(ptr + i)) == false)
+		if (funct((void *)(ptr + i)) == false)
 			return (false);
 		i = i + v_this->v_type_size;
 	}

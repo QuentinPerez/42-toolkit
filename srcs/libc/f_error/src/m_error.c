@@ -6,12 +6,12 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/28 12:30:46 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/03 16:58:35 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/05 23:59:37 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains all m_error function>
+** <This file contains m_error function>
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -30,7 +30,6 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <f_error/m_error.h>
 #include <f_string/f_print_fd.h>
 #include <string/s_string.h>
 
@@ -57,6 +56,11 @@ size_t	mf_error(char nothing, size_t ret, const char *fmt, ...)
 	va_list		ap;
 	t_string	str;
 
+	if (fmt == NULL)
+	{
+		uf_print_str_fd("An internal has occured\n", 2);
+		return (ret);
+	}
 	va_start(ap, fmt);
 	D_STRING(init)(&str, 0);
 	D_STRING(variadic_list)(&str, fmt, &ap);
@@ -85,6 +89,11 @@ void	mf_infos(const char *funct, const char *infos, ...)
 	va_list		ap;
 	t_string	str;
 
+	if (infos == NULL)
+	{
+		uf_print_str_fd("An internal has occured\n", 2);
+		return ;
+	}
 	va_start(ap, infos);
 	D_STRING(init)(&str, 0);
 	D_STRING(variadic)(&str, "\033[1;37m→\t%s(): \033[0;33m", funct);

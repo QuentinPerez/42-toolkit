@@ -6,12 +6,12 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/31 11:39:40 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/01 19:44:36 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/04 10:08:02 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains all s_unit_console function>
+** <This file contains s_unit_console function>
 ** < console_run >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
@@ -35,7 +35,6 @@
 #include <unit/s_unit.h>
 #include <unit/s_unit_console.h>
 #include <f_string/f_string.h>
-#include <f_string/f_str_tools.h>
 #include <f_string/f_print.h>
 
 void		uf_unit_console_treat_failure(t_unit *v_this);
@@ -102,4 +101,3 @@ void		f_unit_console_run(t_unit *v_this)
 			uf_treat_line(v_this, opt, line);
 	}
 }
-

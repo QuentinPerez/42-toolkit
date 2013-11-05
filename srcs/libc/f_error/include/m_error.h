@@ -6,12 +6,12 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/28 12:24:04 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/03 16:57:35 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/04 09:29:38 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains all m_error prototype>
+** <This file contains m_error prototype>
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -34,7 +34,6 @@
 # define M_ERROR_H
 
 #include <stddef.h>
-#include <stdarg.h>
 
 # define D_PRINT_INFOS			mf_print_infos(__FILE__, __LINE__, __func__)
 # define m_error(ret, fmt, ...)	mf_error(D_PRINT_INFOS, ret, fmt, ##__VA_ARGS__)

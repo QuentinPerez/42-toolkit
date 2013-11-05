@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/29 18:02:55 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/30 10:45:14 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/04 09:53:22 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,6 @@ static bool	uf_fmt_av(t_getopt *v_this, t_string *string,
 	return (true);
 }
 
-
 static bool	uf_getopt_init_option(t_getopt *v_this, ui ac, const char **av)
 {
 	ui			i;
@@ -115,7 +114,7 @@ static bool	uf_getopt_init_option(t_getopt *v_this, ui ac, const char **av)
 bool		f_getopt_init(t_getopt *v_this, int argc,
 						  const char **argv, const char *opt)
 {
-	uf_memset(v_this, '\0', sizeof(*v_this));
+	uf_memset(v_this, 0, sizeof(*v_this));
 	if (argc < 2)
 		return (false);
 	if (uf_getopt_split_posibility(v_this, opt) == false)
@@ -123,10 +122,10 @@ bool		f_getopt_init(t_getopt *v_this, int argc,
 	if (uf_getopt_init_option(v_this, argc, argv) == false)
 		return (false);
 	if (v_this->v_posibility != NULL)
-		uf_free_tab((void**)v_this->v_posibility);
+		uf_free_tab((void **)v_this->v_posibility);
 	v_this->v_posibility = NULL;
 	v_this->v_current_argc = 1;
-	v_this->v_argv = (char**)argv;
+	v_this->v_argv = (char **)argv;
 	v_this->v_argc = argc;
 	return (true);
 }
@@ -134,6 +133,6 @@ bool		f_getopt_init(t_getopt *v_this, int argc,
 void		f_getopt_destroy(t_getopt *v_this)
 {
 	if (v_this->v_option != NULL)
-		uf_free_tab((void**)v_this->v_option);
-	uf_memset(v_this, '\0', sizeof(*v_this));
+		uf_free_tab((void **)v_this->v_option);
+	uf_memset(v_this, 0, sizeof(*v_this));
 }

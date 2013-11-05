@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/16 12:55:00 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/23 17:49:20 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/04 20:40:28 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <f_string/f_print.h>
 #include <f_error/m_error.h>
 #include <stdlib.h>
+#include <time.h>
 
 #define	SIZE_TAB	30000
 
@@ -76,13 +77,18 @@ void	tf_launch(const char *name, void (*sort)(int *, ui))
 		uf_print_str(" milliseconds\n\n");
 	}
 	else
-	{
 		uf_print_tab(ptr_int);
-	}
 }
+
+/*
+ * This file is a little example of the t_array structure
+ */
 
 int	main(int argc, char const** argv)
 {
+	/*
+ 	* Who has the biggest ...
+	 */
 	tf_launch("Shell", uf_sort_shell);
 	tf_launch("Counting", (void (*)(int*, ui))uf_sort_counting);
 	tf_launch("Quick", uf_sort_quick);

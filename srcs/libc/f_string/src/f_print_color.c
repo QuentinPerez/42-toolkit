@@ -6,12 +6,12 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/01 15:29:06 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/01 20:09:11 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/03 23:50:51 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains all f_print_color function>
+** <This file contains f_print_color function>
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.

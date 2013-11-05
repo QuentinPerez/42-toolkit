@@ -6,12 +6,12 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/26 12:48:37 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/08 00:35:03 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/03 23:30:30 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains all f_memory prototype>
+** <This file contains f_memory prototype>
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.

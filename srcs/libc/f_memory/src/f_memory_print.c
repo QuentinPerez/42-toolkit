@@ -6,12 +6,12 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/08 00:22:04 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/20 22:45:33 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/03 23:46:39 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains all f_memory_print function>
+** <This file contains f_memory_print function>
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -87,12 +87,12 @@ void		*uf_print_memory(const void *addr, ui size)
 {
 	uc	*data;
 
-	data = (uc*)addr;
+	data = (uc *)addr;
 	while (size > 16)
 	{
 		data = uf_print_data(data, 16);
 		size = size - 16;
 	}
 	uf_print_data(data, size);
-	return ((void*)addr);
+	return ((void *)addr);
 }

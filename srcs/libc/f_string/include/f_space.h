@@ -6,12 +6,12 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/07 23:42:21 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/08 14:12:49 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/03 23:32:06 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains all f_space function>
+** <This file contains f_space function>
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.

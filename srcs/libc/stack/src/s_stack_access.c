@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/27 17:35:18 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/03 14:32:08 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/03 23:59:27 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,9 @@
 #include <stack/s_stack.h>
 #include <stddef.h>
 
-void		*f_stack_top(t_stack *v_this)
+void	*f_stack_top(t_stack *v_this)
 {
 	if (v_this->v_last != NULL)
 		return (v_this->v_last->v_data);
 	return (NULL);
 }
-

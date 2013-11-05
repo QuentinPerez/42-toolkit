@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/25 18:44:48 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/28 14:30:32 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/04 10:04:12 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@
 #include <string/s_string.h>
 #include <f_string/f_str_tools.h>
 #include <f_string/f_string.h>
-#include <f_error/m_error.h>
 
 ui		uf_string_realloc(t_string *v_this, ui add);
 
@@ -76,4 +75,3 @@ bool	f_string_add_nstr(t_string *v_this, const char *str, ui size)
 	v_this->v_size = v_this->v_size + size;
 	return (true);
 }
-

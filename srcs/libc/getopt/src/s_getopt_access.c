@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/29 23:09:01 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/30 11:00:25 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/03 23:48:02 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,6 @@ static bool	uf_getopt_check_option(t_getopt *v_this, const char *check)
 	}
 	return (false);
 }
-
 
 bool		f_getopt_option(t_getopt *v_this)
 {

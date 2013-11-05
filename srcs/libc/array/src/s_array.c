@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/02 12:59:24 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/27 17:33:26 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/04 09:41:23 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+#include <stdlib.h>
 #include <array/s_array.h>
 #include <f_error/m_error.h>
-#include <stdlib.h>
 #include <f_memory/f_memory.h>
 
 static inline void	uf_array_delete(void *ptr)
@@ -74,7 +74,7 @@ void				f_array_clear(t_array *v_this)
 	char	*ptr;
 
 	i = 0;
-	ptr = (char*)v_this->v_data;
+	ptr = (char *)v_this->v_data;
 	size = v_this->v_size * v_this->v_type_size;
 	while (i < size)
 	{

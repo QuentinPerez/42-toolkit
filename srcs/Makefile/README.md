@@ -1,16 +1,17 @@
-42-toolkit	Makefile
+Makefile
 ==========
 
 ## Rules
 
-    - clean		Cleaning all object
-    - fclean	Cleaning all object and executable
+    - clean		Cleaning all objects
+    - fclean	Cleaning all objects and executable
     - debug		Add debug flags
-    - re		Deleting all object and build
+    - re		Deleting all objects and build
 
     - analyze	Analyze code but compile nothing
     - every		God code
-    - help		verbose arguments
+    - help		Verbose arguments
+===
 
 ## License
 

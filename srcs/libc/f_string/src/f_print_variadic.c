@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/30 11:05:34 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/01 17:43:31 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/05 23:42:57 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ static void	uf_print_treat_argument(va_list *ap, const char **fmt, ui fd)
 {
 	*fmt = *fmt + 1;
 	if (**fmt == 'd' || **fmt == 'i')
-		uf_print_nbr_fd(va_arg(*ap, ssize_t), fd);
+		uf_print_nbr_fd(va_arg(*ap, int), fd);
 	else if (**fmt == 'x' || **fmt == 'X')
-		uf_print_nbr_base_fd(va_arg(*ap, ssize_t), 16, fd);
+		uf_print_nbr_base_fd(va_arg(*ap, int), 16, fd);
 	else if (**fmt == 'c')
 		uf_print_char_fd(va_arg(*ap, int), fd);
 	else if (**fmt == 's')
@@ -89,7 +89,7 @@ void		uf_print_variadic(const char *fmt, ...)
 		if (*fmt == '%')
 		{
 			uf_print_nstr_fd(tmp, fmt - tmp, 1);
-			uf_print_treat_argument(&ap, &fmt , 1);
+			uf_print_treat_argument(&ap, &fmt, 1);
 			fmt = fmt + 1;
 			tmp = fmt;
 		}

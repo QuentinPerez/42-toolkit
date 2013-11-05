@@ -6,13 +6,13 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/28 13:28:29 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/29 23:01:10 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/04 00:01:20 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 ** <This file contains s_string_operator function>
-** < erase >
+** < erase, insert >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.

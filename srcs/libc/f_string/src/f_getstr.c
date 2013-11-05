@@ -6,12 +6,12 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/30 13:45:49 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/31 12:02:52 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/03 23:50:14 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains all f_getstr function>
+** <This file contains f_getstr function>
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -62,7 +62,7 @@ char		*uf_getstr(ui fd, uc terminate, bool del)
 
 	ret = NULL;
 	if (D_STRING(init)(&string, 0) == false)
-		return ((char*)m_error((ssize_t)NULL, "Could not initialize string"));
+		return ((char *)m_error((ssize_t)NULL, "Could not initialize string"));
 	if (uf_get_data(&string, fd, terminate, del) == true)
 		ret = D_STRING(dup)(&string);
 	D_STRING(destroy)(&string);

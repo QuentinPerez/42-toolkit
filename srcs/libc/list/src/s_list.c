@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/28 20:52:06 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/07 11:45:36 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/04 09:58:49 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,9 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <list/s_list.h>
-#include <stddef.h>
-#include <f_string/f_print.h>
 #include <stdlib.h>
+#include <list/s_list.h>
+#include <f_string/f_print.h>
 #include <f_memory/f_memory.h>
 
 static void	uf_list_funct_destroy(void *data)

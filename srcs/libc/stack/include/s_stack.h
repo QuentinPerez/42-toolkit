@@ -6,12 +6,12 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/27 15:34:52 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/03 15:54:02 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/03 23:35:33 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains all s_stack prototype>
+** <This file contains s_stack prototype>
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -44,9 +44,9 @@ typedef struct	s_stack_cell
 
 typedef struct	s_stack
 {
-	ui				v_size;
-	t_stack_cell	*v_last;
-	void			(*f_destroy)(void *data);
+	ui					v_size;
+	t_stack_cell		*v_last;
+	void				(*f_destroy)(void *data);
 }				t_stack;
 
 # define D_STACK(funct)	f_stack_##funct

@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/25 19:19:43 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/27 16:53:45 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/04 10:06:29 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@
 #include <string/s_string.h>
 #include <f_error/m_error.h>
 #include <stdarg.h>
-#include <unistd.h>
 
 static bool	uf_string_treat_argument_next(t_string *v_this, va_list *ap,
 										  const char **fmt)
@@ -50,7 +49,6 @@ static bool	uf_string_treat_argument_next(t_string *v_this, va_list *ap,
 			return (false);
 	}
 	return (true);
-
 }
 
 static bool	uf_string_treat_argument(t_string *v_this, va_list *ap,

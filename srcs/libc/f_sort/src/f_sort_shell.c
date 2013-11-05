@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/22 13:03:26 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/22 14:22:20 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/04 09:47:35 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@
 */
 
 #include <t_types.h>
-#include <stdio.h>
 
 void	uf_sort_shell(int *begin, ui size)
 {

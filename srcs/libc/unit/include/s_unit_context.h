@@ -6,12 +6,12 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/31 16:19:21 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/31 16:23:08 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/03 23:37:54 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains all s_unit_context structure>
+** <This file contains s_unit_context structure>
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -40,8 +40,8 @@ typedef struct	s_unit_context
 	ui			v_id;
 	t_list		v_test;
 	const char	*v_name;
-	bool		(*f_init)(void *);
-	bool		(*f_destroy)(void *);
+	bool		(*f_init)(void *data);
+	bool		(*f_destroy)(void *data);
 }				t_unit_context;
 
 #endif

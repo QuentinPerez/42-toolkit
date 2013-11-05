@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/23 13:43:18 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/27 17:32:35 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/03 23:49:03 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,5 +99,3 @@ bool				uf_sort_merge(int *ptr, int size)
 	free(tmp);
 	return (true);
 }
-
-

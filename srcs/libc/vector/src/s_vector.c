@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/16 12:10:46 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/27 17:41:36 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/04 21:33:13 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,6 @@ inline void			f_vector_clear(t_vector *v_this)
 	while (size > -1)
 	{
 		v_this->f_delete(v_this->v_data[size]);
-		free(v_this->v_data[size]);
 		size = size - 1;
 	}
 	v_this->v_size = 0;

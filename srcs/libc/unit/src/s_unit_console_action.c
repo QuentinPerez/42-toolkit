@@ -6,12 +6,12 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/01 18:11:51 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/03 16:47:17 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/04 00:04:55 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains all s_unit_console_action function>
+** <This file contains s_unit_console_action function>
 ** < console_run >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **

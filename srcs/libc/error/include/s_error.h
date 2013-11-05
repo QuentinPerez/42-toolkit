@@ -6,12 +6,12 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/13 12:25:09 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/03 17:00:43 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/03 23:27:08 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains all error prototype>
+** <This file contains error prototype>
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.

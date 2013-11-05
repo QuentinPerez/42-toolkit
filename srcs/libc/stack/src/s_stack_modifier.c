@@ -6,12 +6,12 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/27 17:18:23 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/27 17:39:03 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/03 23:59:56 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains s_stack function>
+** <This file contains s_stack_modifier function>
 ** < push, pop >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
@@ -45,7 +45,7 @@ static t_stack_cell	*f_stack_create_cell(void *data)
 	return (cell);
 }
 
-bool	f_stack_push(t_stack *v_this, void *data)
+bool				f_stack_push(t_stack *v_this, void *data)
 {
 	t_stack_cell	*push;
 
@@ -58,7 +58,7 @@ bool	f_stack_push(t_stack *v_this, void *data)
 	return (true);
 }
 
-void	f_stack_pop(t_stack *v_this)
+void				f_stack_pop(t_stack *v_this)
 {
 	t_stack_cell	*del;
 

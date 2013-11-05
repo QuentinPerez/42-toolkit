@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/09 08:25:06 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/28 15:14:19 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/04 09:57:56 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,4 +75,3 @@ ui				f_htable_generate_key(const t_htable *v_this, const char *str)
 	}
 	return (ret % v_this->v_prime);
 }
-

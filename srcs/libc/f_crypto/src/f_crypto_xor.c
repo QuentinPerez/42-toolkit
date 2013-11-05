@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/18 17:21:22 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/20 20:17:43 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/05 23:43:36 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ void	uf_crypto_xor(void *data, const char *key, ui data_size)
 		return ;
 	while (i < data_size)
 	{
-		if (((uc*)data)[i] != key[i % len])
-			((uc*)data)[i] = ((uc*)data)[i] ^ key[i % len];
+		if (((uc *)data)[i] != 0 && ((uc *)data)[i] != key[i % len])
+			((uc *)data)[i] = ((uc *)data)[i] ^ key[i % len];
 		i = i + 1;
 	}
 }

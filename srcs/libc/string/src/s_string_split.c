@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/28 20:37:37 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/03 15:57:49 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/05 23:42:29 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -140,6 +140,8 @@ char		**f_string_split(t_string *v_this, const char *charset)
 	bool	*active;
 	char	**ret;
 
+	if (v_this->v_size == 0)
+		return (NULL);
 	active = uf_string_fill_bool(v_this, charset);
 	if (active == NULL)
 		return (NULL);

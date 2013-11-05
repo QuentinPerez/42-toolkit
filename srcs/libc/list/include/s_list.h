@@ -6,12 +6,12 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/28 20:55:51 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/09 23:14:33 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/04 09:37:56 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains all s_list prototype>
+** <This file contains s_list prototype>
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -33,9 +33,10 @@
 #ifndef S_LIST_H
 # define S_LIST_H
 
+#include <d_bool.h>
+#include <t_types.h>
 #include <list/s_list_cell.h>
 #include <list/s_list_interval.h>
-#include <t_types.h>
 
 typedef struct	s_list
 {

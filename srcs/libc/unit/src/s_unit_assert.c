@@ -6,12 +6,12 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/31 19:00:08 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/01 19:54:28 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/05 23:58:21 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains all s_unit_assert function>
+** <This file contains s_unit_assert function>
 ** < assert >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
@@ -39,7 +39,7 @@ void	mf_unit_assert(t_unit_test *t, bool check, ui line, char *file)
 {
 	t_unit_assert	*assert;
 
-	if (check == false && t->v_tested == false)
+	if (check == false)
 	{
 		assert = malloc(sizeof(*assert));
 		if (assert != NULL)

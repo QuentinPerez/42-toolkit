@@ -1,25 +1,28 @@
-42-toolkit	C Error
+Error
 ==========
 
 ## Function
 
 	- init(t_error *v_this, const char *file)
-	  /* This function init struct t_error */
+	  /* This function initialize t_error */
 
 	- add(t_error *v_this, const char *error, bool ret)
-	  /* This function append to file or if file was NULL print on screen */
+	  /* This function append error to file or if file was NULL print on screen */
 	  /* And return ret */
 
 	- add_v(t_error *v_this, const char *error)
-	  /* This function append to file or if file was NULL print on screen */
+	  /* This function append error to file or if file was NULL print on screen */
+	  /* Return void */
 
 	- destroy(t_error *v_this)
-	  /* This function destroy struct t_error */
+	  /* This function free t_error */
 
-## How to use ?
+===
+### How to use ?
 
-You can see example [here](https://github.com/QuentinPerez/42-toolkit/tree/master/examples/libc/error).
+You can see [example](https://github.com/42School/42-toolkit/tree/master/examples/libc/error).
 
+===
 ## License
 
 42-toolkit is available under the [GNU General Public License, version 3](LICENSE).

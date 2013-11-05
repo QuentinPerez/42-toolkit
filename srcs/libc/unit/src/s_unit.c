@@ -6,12 +6,12 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/31 11:09:02 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/03 15:56:12 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/04 00:04:31 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains all s_unit function>
+** <This file contains s_unit function>
 ** < init, destroy >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **

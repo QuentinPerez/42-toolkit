@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/30 13:26:50 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/03 14:33:01 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/03 23:58:22 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ inline void	*f_queue_front(t_queue *v_this)
 	return (NULL);
 }
 
-void	*f_queue_back(t_queue *v_this)
+void		*f_queue_back(t_queue *v_this)
 {
 	if (v_this->v_tail != NULL)
 		return (v_this->v_tail->v_data);

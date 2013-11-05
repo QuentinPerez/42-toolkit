@@ -3,9 +3,10 @@
 
 ## Tools list
 
-	- libc/		tools in C
-    - Makefile/	template
-    - vim/		tools for vim
+	- libc/		"Lib42 in C"
+    - Makefile/	"Template"
+    - vim/		"Vim plugins"
+===
 
 ## License
 

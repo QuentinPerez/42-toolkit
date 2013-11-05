@@ -6,13 +6,13 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/02 15:23:05 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/27 17:35:18 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/04 09:42:16 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 ** <This file contains s_array_modifier function>
-** < push_back, delete_if >
+** < push_back, delete_if, resize >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -31,10 +31,10 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <array/s_array.h>
-#include <f_memory/f_memory.h>
-#include <f_error/m_error.h>
 #include <stdlib.h>
+#include <array/s_array.h>
+#include <f_error/m_error.h>
+#include <f_memory/f_memory.h>
 
 static bool	f_array_realloc(t_array *v_this, ui size)
 {
@@ -67,7 +67,7 @@ bool		f_array_push_back(t_array *v_this, void *data)
 	if (v_this->v_size + 1 > v_this->v_capacity &&
 		D_ARRAY(realloc)(v_this, new_size) == false)
 		return (false);
-	to = (char*)v_this->v_data;
+	to = (char *)v_this->v_data;
 	to = to + v_this->v_size * v_this->v_type_size;
 	uf_memcpy(to, data, v_this->v_type_size);
 	v_this->v_size = v_this->v_size + 1;
@@ -82,11 +82,11 @@ void		f_array_delete_if(t_array *v_this,
 	char	*ptr;
 
 	i = 0;
-	ptr = (char*)v_this->v_data;
+	ptr = (char *)v_this->v_data;
 	size = v_this->v_size * v_this->v_type_size;
 	while (i < size)
 	{
-		if (ft_cmp((void*)(ptr + i), data) == true)
+		if (ft_cmp((void *)(ptr + i), data) == true)
 		{
 			uf_memcpy(ptr + i, ptr + i + v_this->v_type_size,
 					  size - i - v_this->v_type_size);

@@ -6,12 +6,12 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/31 14:21:14 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/03 16:47:45 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/04 00:03:50 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains all s_unit_console_cmd function>
+** <This file contains s_unit_console_cmd function>
 ** < treat_run, treat_select, treat_list, treat_failure, treat_help >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
@@ -68,7 +68,6 @@ void	uf_unit_console_treat_select(t_unit *v_this)
 	uf_print_str(__func__);
 	(void)v_this;
 }
-
 
 void	uf_unit_console_treat_list(t_unit *v_this)
 {

@@ -6,12 +6,12 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/31 16:10:19 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/03 15:57:19 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/04 00:04:18 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains all s_unit_context function >
+** <This file contains s_unit_context function >
 ** < add_context >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
@@ -42,7 +42,7 @@ static void			uf_unit_destroy_test(void *data)
 {
 	t_unit_test	*test;
 
-	test = (t_unit_test*)data;
+	test = (t_unit_test *)data;
 	D_LIST(destroy)(&test->v_assert);
 	free(data);
 }

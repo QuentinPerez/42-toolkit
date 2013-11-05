@@ -6,12 +6,12 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/26 12:53:04 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/26 13:48:02 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/03 23:46:14 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains all f_memory function>
+** <This file contains f_memory function>
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -38,7 +38,7 @@ void	*uf_memset(void *src, uc c, size_t size)
 {
 	uc	*ptr;
 
-	ptr = (uc*)src;
+	ptr = (uc *)src;
 	while (size > 0)
 	{
 		*ptr = c;
@@ -53,8 +53,8 @@ void	uf_memcpy(void *to, const void *from, size_t size)
 	uc	*p_to;
 	uc	*p_from;
 
-	p_to = (uc*)to;
-	p_from = (uc*)from;
+	p_to = (uc *)to;
+	p_from = (uc *)from;
 	while (size > 0)
 	{
 		*p_to = *p_from;
@@ -69,8 +69,8 @@ bool	uf_memcmp(const void *left, const void *right, size_t size)
 	uc	*p_left;
 	uc	*p_right;
 
-	p_left = (uc*)left;
-	p_right = (uc*)right;
+	p_left = (uc *)left;
+	p_right = (uc *)right;
 	while (size > 0 && *p_right == *p_left)
 	{
 		p_left = p_left + 1;

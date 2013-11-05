@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/18 12:23:14 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/22 14:15:43 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/04 09:46:07 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <d_bool.h>
 #include <t_types.h>
 
 void	uf_sort_bubble(int *begin, ui size)

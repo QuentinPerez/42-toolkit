@@ -6,12 +6,12 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/30 11:02:29 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/18 14:12:06 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/03 23:58:14 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains all s_queue function>
+** <This file contains s_queue function>
 ** < init, destroy, clear >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **

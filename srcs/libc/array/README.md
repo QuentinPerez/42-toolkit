@@ -1,16 +1,16 @@
-42-toolkit	C Array
+Array
 ==========
 
 ## Function
 
 	- init(t_array *v_this, uint (*uf_realloc)(uint size), void (*uf_delete)(void *ptr))
-	  /* This function init structure t_array */
+	  /* This function initialize t_array */
 
 	- clear(t_array *v_this)
 	  /* This function remove all elements */
 
 	- empty(const t_array *v_this)
-	  /* This function return if array is empty */
+	  /* This function return true if array is empty */
 
 	- size(const t_array *v_this)
 	  /* This function return size of array */
@@ -19,13 +19,13 @@
 	  /* This function return capacity of array */
 
 	- push_back(t_array *v_this, void *data)
-	  /* This function push data at the end */
+	  /* This function push element at the end */
 
 	- foreach(t_array *v_this, bool (*funct)(void *ptr))
-	  /* This function apply for lot of elements */
+	  /* This function apply "funct" foreach elements */
 
 	- delete_if(t_array *v_this, bool (*ft_cmp)(void *d1, void *d2), void *data);
-	  /* This function delete element if ft_cmp return true */
+	  /* This function delete element, if ft_cmp return true */
 
 	- resize(t_array *v_this, ui size)
 	  /* This function resize array */
@@ -39,14 +39,15 @@
 	  /* WARNING here you pass typeof struct you can (must) see example */
 
 	- destroy(t_array *v_this)
-	  /* This function destroy t_array */
+	  /* This function free t_array */
 
+===
 
+### How to use ?
 
-## How to use ?
+You can see [example](https://github.com/42School/42-toolkit/tree/master/examples/libc/array).
 
-You can see example [here](https://github.com/QuentinPerez/42-toolkit/tree/master/examples/libc/array).
-
+===
 ## License
 
 42-toolkit is available under the [GNU General Public License, version 3](LICENSE).

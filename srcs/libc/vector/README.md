@@ -1,16 +1,16 @@
-42-toolkit	C Vector
+Vector
 ==========
 
 ## Function
 
 	- init(t_vector *v_this, uint (*uf_realloc)(uint size), void (*uf_delete)(void *ptr))
-	  /* This function init structure t_vector */
+	  /* This function initialize t_vector */
 
 	- clear(t_vector *v_this)
 	  /* This function remove all elements */
 
 	- empty(const t_vector *v_this)
-	  /* This function return if vector is empty */
+	  /* This function return true if vector is empty */
 
 	- size(const t_vector *v_this)
 	  /* This function return size of vector */
@@ -46,13 +46,14 @@
 	  /* This function last element */
 
 	- destroy(t_vector *v_this)
-	  /* This function destroy t_vector */
+	  /* This function free t_vector */
 
-
+===
 ## How to use ?
 
-You can see example [here](https://github.com/QuentinPerez/42-toolkit/tree/master/examples/libc/vector).
+You can see [example](https://github.com/42School/42-toolkit/tree/master/examples/libc/vector).
 
+===
 ## License
 
 42-toolkit is available under the [GNU General Public License, version 3](LICENSE).

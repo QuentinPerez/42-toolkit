@@ -1,12 +1,10 @@
-42-toolkit	C Memory Function
+Memory Function
 ==========
 
 ## Function
 
-f_memory.c:
-
 	- uf_memset(void *src, unsigned char c, size_t size)
-	/* This function write len bytes of value c */
+	/* This function writes len bytes of value c */
 
 	- uf_memcmp(const void *left, const void *right, size_t size)
 	/* This function compare byte string form against byte string to */
@@ -14,20 +12,18 @@ f_memory.c:
 	- uf_memcpy(void *to, const void *from, size_t size)
 	/* This function copies n bytes memory "from" to "to" */
 
-f_print_memory.c:
-
 	- uf_print_memory(const void *to, ui size)
 	/* This function print memory */
-
-f_free.c:
 
 	- uf_free_tab(void **tab)
 	/* This function delete all element of tab and delete tab */
 
-## How to use ?
+===
+### How to use ?
 
-You can see example [here](https://github.com/QuentinPerez/42-toolkit/tree/master/examples/libc/f_memory).
+You can see example [here](https://github.com/42School/42-toolkit/tree/master/examples/libc/f_memory).
 
+===
 ## License
 
 42-toolkit is available under the [GNU General Public License, version 3](LICENSE).

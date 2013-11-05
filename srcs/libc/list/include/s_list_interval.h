@@ -6,12 +6,12 @@
 /*   By: irabeson <irabeson42@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/10 14:30:00 by irabeson          #+#    #+#             */
-/*   Updated: 2013/10/10 19:50:33 by irabeson         ###   ########.fr       */
+/*   Updated: 2013/11/03 23:34:31 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains all s_list_interval prototype>
+** <This file contains s_list_interval prototype>
 ** Copyright (C) <2013>  Iohann Rabeson <irabeson42@gmail.com>
 **
 ** This file is part of 42-toolkit.

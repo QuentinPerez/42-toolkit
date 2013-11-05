@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/22 14:33:19 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/27 17:32:06 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/04 09:46:19 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,4 +102,3 @@ bool		uf_sort_counting(int *tab, ui size)
 	}
 	return (uf_sort_make_counter(tab, size, minmax));
 }
-

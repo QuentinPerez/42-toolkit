@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/25 18:38:40 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/28 14:22:06 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/04 00:01:42 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,3 @@ bool	uf_string_realloc(t_string *v_this, ui add)
 	v_this->v_capacity = new_capacity;
 	return (true);
 }
-
-

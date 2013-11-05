@@ -6,12 +6,12 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/31 13:43:01 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/01 18:09:19 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/04 00:03:58 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains all s_unit_console_print function>
+** <This file contains s_unit_console_print function>
 ** < print_main_console >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **

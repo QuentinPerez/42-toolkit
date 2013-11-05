@@ -6,12 +6,12 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/29 17:30:08 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/30 11:18:01 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/03 23:50:46 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains all f_print function>
+** <This file contains f_print function>
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.

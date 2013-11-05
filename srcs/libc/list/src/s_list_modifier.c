@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/30 17:48:19 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/27 17:38:32 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/05 23:57:56 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+#include <stdlib.h>
 #include <list/s_list.h>
 #include <f_error/m_error.h>
 
@@ -111,6 +112,7 @@ t_list_cell	*f_list_erase(t_list *v_this, t_list_cell *erase, void **data)
 		erase->v_prev->v_next = erase->v_next;
 	if (erase->v_next != NULL)
 		erase->v_next->v_prev = erase->v_prev;
+	free(erase);
 	v_this->v_size = v_this->v_size - 1;
 	return (ret);
 }

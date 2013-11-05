@@ -6,56 +6,58 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/28 16:40:56 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/27 17:25:54 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/04 20:28:57 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <d_bool.h>
 #include <f_error/m_error.h>
 #include <stdio.h>
 
-void	*uf_test_return_function_pointer(void)
-{
-	void	*(*why)();
+/*
+ * This file is a little example errors macros
+ */
 
-	why = &uf_test_return_function_pointer;
-	return (void*)(m_error((size_t)why, "I return function pointer"));
-}
-
-void	*uf_test_return_addr(void)
-{
-	char	c;
-	char	*why;
-
-	why = &c;
-	return (void*)(m_error((size_t)why, "I return addr"));
-}
-
-int		uf_test_return_negative_value(void)
-{
-	return (m_error(-1, "I return -1"));
-}
-
-int		uf_test_return_value(void)
-{
-	return (m_error(1, "I return 1"));
-}
-
-void	uf_test_return_in_function_void(void)
-{
-	return (m_error_v("I m void"));
-}
+/*
+ * Pff he sucks, m_error don't work with me
+ * Have you compile the project with -DD_ERRORS_ON flags ?
+ * ... Sorry
+ */
 
 int		main(int argc, const char **argv)
 {
-	printf("\n== Return with different value ==\n");
-	printf("\nI receive %d\n----\n", uf_test_return_value());
-	printf("\nI receive negative number %d\n----\n", uf_test_return_negative_value());
-	printf("\nI receive addr %p\n----\n", uf_test_return_addr());
-	printf("\nI receive function pointer %p\n", uf_test_return_function_pointer());
-	printf("\n== Return in function void ==\n");
-	uf_test_return_in_function_void();
-	printf("\n\n== Function infos ==\n");
-	m_infos("%d school", 42);
+	char	*foo;
+	void	*bar;
+
+	/*
+	 * Beware this is the best tools !!
+	 * He say with it's his code !!
+	 * ...
+	 * BANGGG !!
+	 */
+	/*
+	 * This function return the first parameter, show error and it's amazing
+	 * We begin with an easy
+	 */
+	m_error(false, "It's nice but not amazing");
+	/*
+	 * Ok Level Up
+	 */
+	m_error(42, "Nice it's an integer YOUHOU");
+	/*
+	 * Next Level
+	 */
+	bar = (void *)0xdeadb0ff;
+	m_error((size_t)bar, "What you want that i return an adress ? Easy it's %p", bar);
+	/*
+	 * WHOOHA Ok it's amazing and you can pass arguments !!
+	 */
+	/*
+	 * Next Level
+	 * No it's not possible what again
+	 */
+	foo = (char *)m_error((size_t)argv[0], "Easy bro %s", argv[0]);
+	(void)foo;
 	(void)argv;
 	(void)argc;
 	return (0);

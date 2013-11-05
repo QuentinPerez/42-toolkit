@@ -6,12 +6,12 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/31 14:27:53 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/31 14:32:02 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/03 23:37:48 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains all s_unit prototype>
+** <This file contains s_unit_console prototype>
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -38,7 +38,7 @@ struct			s_unit;
 typedef struct	s_unit_console_option
 {
 	const char	*v_option;
-	void		(*f_funct)(struct s_unit *);
+	void		(*f_funct)(struct s_unit *unit);
 }				t_unit_console_option;
 
 # define D_UNIT_CONSOLE_OPTION	12

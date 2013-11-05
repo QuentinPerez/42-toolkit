@@ -1,4 +1,4 @@
-42-toolkit	C Htable
+Htable
 ==========
 
 ## Function
@@ -14,7 +14,7 @@
 	  /* This function return element at key */
 
 	- delete(t_htable *v_this, const char *key)
-	  /* This function element at key */
+	  /* This function delete element at key */
 
 	- erase(t_htable *v_this, const char *key)
 	  /* This function remove element to htable and return data */
@@ -23,12 +23,14 @@
 	  /* This function print all element */
 
 	- destroy(t_htable *v_this)
-	  /* This function destroy t_htable */
+	  /* This function free t_htable */
 
-## How to use ?
+===
+### How to use ?
 
-You can see example [here](https://github.com/QuentinPerez/42-toolkit/tree/master/examples/libc/htable).
+You can see [example](https://github.com/42School/42-toolkit/tree/master/examples/libc/htable).
 
+===
 ## License
 
 42-toolkit is available under the [GNU General Public License, version 3](LICENSE).

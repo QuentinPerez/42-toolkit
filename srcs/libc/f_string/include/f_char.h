@@ -6,12 +6,12 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/07 21:03:48 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/21 23:25:43 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/03 23:31:33 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains all f_char function>
+** <This file contains f_char function>
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.

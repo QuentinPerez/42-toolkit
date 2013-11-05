@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/21 23:36:28 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/28 14:34:27 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/04 09:30:27 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <f_math/t_math.h>
+#include <f_math/d_math.h>
 
 double	uf_deg_to_rad(double deg)
 {

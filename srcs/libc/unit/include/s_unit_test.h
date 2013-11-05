@@ -6,12 +6,12 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/31 18:18:43 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/03 16:50:19 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/03 23:38:13 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains all s_unit_test prototype>
+** <This file contains s_unit_test prototype>
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.

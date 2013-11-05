@@ -6,13 +6,13 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/09 08:21:59 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/09 12:01:42 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/04 09:56:37 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 ** <This file contains s_htable_operator function>
-** < erase, delete, remove_if >
+** < erase, delete >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -33,7 +33,6 @@
 
 #include <htable/s_htable.h>
 #include <list/s_list.h>
-#include <stddef.h>
 #include <f_string/f_string.h>
 
 ui		f_htable_generate_key(const t_htable *v_this, const char *str);

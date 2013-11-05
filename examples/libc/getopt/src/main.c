@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/16 12:55:00 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/30 10:54:53 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/04 20:51:46 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,28 @@ void	uf_open_file(const char *file)
 	}
 }
 
+/*
+ * This file is a little example of the t_getopt structure
+ */
+
 int	main(int argc, char const** argv)
 {
 	t_getopt	getopt;
 
 	if (argc < 2)
 		return (uf_usage());
+	/*
+	 * You should pass argc and argv
+	 */
 	D_GETOPT(init)(&getopt, argc, argv, "file:f:h:help");
+	/*
+	 * If option return true, getopt has found an argument
+	 */
 	while (D_GETOPT(option)(&getopt) == true)
 	{
+		/*
+		 * Here you check argument
+		 */
 		if (D_GETOPT(check)(&getopt, "h") == true ||
 			D_GETOPT(check)(&getopt, "help") == true)
 			uf_usage();
@@ -48,6 +61,9 @@ int	main(int argc, char const** argv)
 				 D_GETOPT(check)(&getopt, "file") == true)
 			uf_open_file(D_GETOPT(params)(&getopt));
 	}
+	/*
+	 * And you free memory
+	 */
 	D_GETOPT(destroy)(&getopt);
 	return (0);
 }

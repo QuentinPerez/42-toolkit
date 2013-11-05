@@ -1,4 +1,4 @@
-42-toolkit	C Timer
+Timer
 ==========
 
 ## Function
@@ -24,11 +24,12 @@
 	- is_paused(t_time *v_this)
 	  /* This function return true if timer is paused */
 
+===
+### How to use ?
 
-## How to use ?
+You can see [example](https://github.com/42School/42-toolkit/tree/master/examples/libc/timer).
 
-You can see example [here](https://github.com/QuentinPerez/42-toolkit/tree/master/examples/libc/timer).
-
+===
 ## License
 
 42-toolkit is available under the [GNU General Public License, version 3](LICENSE).

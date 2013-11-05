@@ -6,76 +6,95 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/27 15:48:40 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/09 12:19:58 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/04 20:51:56 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <f_string/f_print.h>
-#include <array/s_array.h>
-#include <stddef.h>
 #include <f_memory/f_memory.h>
+#include <array/s_array.h>
 
 typedef struct	s_point
 {
-	ui	x;
-	ui	y;
-	ui	z;
+	int	x;
+	int	y;
 }				t_point;
 
 bool	uf_print_point(void *data)
 {
-	t_point	*ptr;
+	t_point	*point;
 
-	ptr = (t_point*)data;
-	uf_print_str("Point -> x : ");
-	uf_print_nbr(ptr->x);
-	uf_print_str(" y : ");
-	uf_print_nbr(ptr->y);
-	uf_print_str(" z : ");
-	uf_print_nbr(ptr->z);
-	uf_print_char('\n');
+	point = (t_point *)data;
+	uf_print_variadic("x: %d, y: %d\n", point->x, point->y);
 	return (true);
 }
 
-bool	uf_cmp_point(void *d1, void *d2)
+bool	uf_cmp(void *d1, void *d2)
 {
 	return (uf_memcmp(d1, d2, sizeof(t_point)));
 }
 
+/*
+ * This file is a little example of the t_array structure
+ */
+
 int		main(int argc, char const** argv)
 {
-	ui		i;
 	t_array array;
-	t_point	*ptr;
 	t_point	point;
-	t_point	cmp;
 
-	i = 0;
+	/*
+	 * initialize array with realloc and delete pointer NULL
+	 * and sizeof structure t_point
+	 */
 	D_ARRAY(init)(&array, NULL, NULL, sizeof(t_point));
-	while (i < 10)
-	{
-		point.x = i + 2;
-		point.y = i + 4;
-		point.z = i + 8;
-		D_ARRAY(push_back)(&array, &point);
-		i = i + 1;
-	}
+	/*
+	 * add point to array ! Check return value not as me :| !
+	 */
+	point.x = 1;
+	point.y = 2;
+	uf_print_variadic("Push back x: %d, y: %d\n", point.x, point.y);
+	D_ARRAY(push_back)(&array, &point);
+	/*
+	 * Check if array is empty
+	 */
+	uf_print_variadic("Array is empty ? %d\n", D_ARRAY(empty)(&array));
+	/*
+	 * Get size and capacity
+	 */
+	uf_print_variadic("Capacity %d, Size %d\n", D_ARRAY(capacity)(&array), D_ARRAY(size)(&array));
+	/*
+	 * Change capacity
+	*/
+	D_ARRAY(resize)(&array, 10);
+	uf_print_variadic("Capacity %d, Size %d\n", D_ARRAY(capacity)(&array), D_ARRAY(size)(&array));
+	/*
+	 * Print contents
+	 */
 	D_ARRAY(foreach)(&array, uf_print_point);
-	cmp.x = 5;
-	cmp.y = 7;
-	cmp.z = 11;
-	D_ARRAY(delete_if)(&array, uf_cmp_point, &cmp);
-	uf_print_str("\e[34mWith good type passing to data\e[0m\n");
-	ptr = D_ARRAY(data)(&array, t_point*);
-	i = 0;
-	while (i < D_ARRAY(size)(&array))
-	{
-		uf_print_point(ptr + i);
-		i = i + 1;
-	}
+	/*
+	 * Get first element
+	 */
+	uf_print_point(D_ARRAY(at)(&array, 0, t_point *));
+	/*
+	 * Delete this fucking point !!
+	 */
+	uf_print_variadic("Delete point\n");
+	D_ARRAY(delete_if)(&array, uf_cmp, &point);
+	uf_print_variadic("Capacity %d, Size %d\n", D_ARRAY(capacity)(&array), D_ARRAY(size)(&array));
+	point.x = 3;
+	point.y = 5;
+	D_ARRAY(push_back)(&array, &point);
+	point.x = 5;
+	point.y = 7;
+	D_ARRAY(push_back)(&array, &point);
+	uf_print_variadic("Add two new\n");
+	uf_print_variadic("Capacity %d, Size %d\n", D_ARRAY(capacity)(&array), D_ARRAY(size)(&array));
+	/*
+	 * free memory used by array because we are nice !!
+	 */
 	D_ARRAY(destroy)(&array);
 	(void)argc;
 	(void)argv;
 	return (0);
 }
-

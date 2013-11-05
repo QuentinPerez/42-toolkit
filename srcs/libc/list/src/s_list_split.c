@@ -6,7 +6,7 @@
 /*   By: irabeson <irabeson42@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/07 19:58:18 by irabeson          #+#    #+#             */
-/*   Updated: 2013/10/09 23:39:49 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/04 10:01:55 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@
 */
 
 #include <list/s_list.h>
-#include <t_types.h>
 #include <stdlib.h>
 
 static void	f_list_split_imp(t_list *v_this, t_list *new_list,

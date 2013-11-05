@@ -6,12 +6,12 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/06 21:20:02 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/06 22:11:20 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/03 23:53:05 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains function>
+** <This file contains f_strcpy function>
 ** < uf_strcpy, uf_strncpy, uf_strlcpy >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **

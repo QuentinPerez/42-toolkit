@@ -6,12 +6,12 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/29 17:32:48 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/01 15:36:58 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/04 09:32:07 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains all f_print function>
+** <This file contains f_print function>
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -33,8 +33,8 @@
 #ifndef F_PRINT_H
 # define F_PRINT_H
 
-#include <f_string/f_print_fd.h>
 #include <unistd.h>
+#include <t_types.h>
 
 ssize_t	uf_print_char(char c);
 ssize_t	uf_print_str(const char *str);

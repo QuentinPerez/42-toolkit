@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/30 13:28:54 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/27 17:39:22 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/03 23:58:55 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static t_queue_cell	*f_queue_create_cell(void *data)
 	return (cell);
 }
 
-bool	f_queue_push(t_queue *v_this, void *data)
+bool				f_queue_push(t_queue *v_this, void *data)
 {
 	t_queue_cell	*push;
 
@@ -64,7 +64,7 @@ bool	f_queue_push(t_queue *v_this, void *data)
 	return (true);
 }
 
-void	*f_queue_pop(t_queue *v_this)
+void				*f_queue_pop(t_queue *v_this)
 {
 	t_queue_cell	*del;
 

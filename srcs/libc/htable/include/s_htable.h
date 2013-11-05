@@ -6,12 +6,12 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/08 13:47:03 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/09 12:00:07 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/03 23:33:05 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains all s_array prototype>
+** <This file contains s_array prototype>
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.

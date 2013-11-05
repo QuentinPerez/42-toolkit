@@ -1,13 +1,13 @@
-42-toolkit	C List
+List
 ==========
 
 ## Function
 
 	- init(t_list *v_this, void (*v_funct_destroy)(void *data))
-	  /* This function init structure t_list */
+	  /* This function initialize t_list */
 
 	- empty(const t_list *v_this)
-	  /* This function return if list is empty */
+	  /* This function return true if list is empty */
 
 	- size(const t_list *v_this)
 	  /* This function return size of list */
@@ -24,7 +24,7 @@
 	- get_cell(t_list *list, ui cell_at)
 	  /* This function get one cell specified by his position */
 
-	- erase(t_list *v_this, t_cell *erase)
+	- delete(t_list *v_this, t_list_cell *delete)
 	  /* This function delete cellule and call funct_destroy for data */
 
 	- print_addr(const t_list *v_this)
@@ -67,19 +67,18 @@
 	- delete_if(t_list *v_this, bool (*cmp)(void *data, void *value), void *value)
 	  /* This function delete element if cmp return true */
 
-	- delete(t_list *v_this, t_list_cell *cell)
-	  /* This function delete cell and return next element */
-
 	- clear(t_list *v_this)
 	  /* This function remove all elements */
 
 	- destroy(t_list *v_this)
-	  /* This function destroy list */
+	  /* This function free list */
 
-## How to use ?
+===
+### How to use ?
 
-You can see example [here](https://github.com/QuentinPerez/42-toolkit/tree/master/examples/libc/list).
+You can see [example](https://github.com/42School/42-toolkit/tree/master/examples/libc/list).
 
+===
 ## License
 
 42-toolkit is available under the [GNU General Public License, version 3](LICENSE).

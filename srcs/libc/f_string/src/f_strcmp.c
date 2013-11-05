@@ -6,12 +6,12 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/07 20:14:55 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/28 21:05:16 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/03 23:52:52 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains function>
+** <This file contains f_strcmp function>
 ** < uf_strcmp, uf_strncmp >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **

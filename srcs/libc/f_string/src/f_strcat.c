@@ -6,12 +6,12 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/06 22:29:30 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/06 22:47:18 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/03 23:52:42 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains function>
+** <This file contains f_strcat function>
 ** < uf_strcat, uf_strncat, uf_strlcat >
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 **

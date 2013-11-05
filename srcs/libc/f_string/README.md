@@ -1,9 +1,7 @@
-42-toolkit	C String Function
+String Function
 ==========
 
 ## Function
-
-f_print.c:
 
 	- uf_print_char(char c)
 	/* Print 'c' on stdout */
@@ -20,8 +18,6 @@ f_print.c:
 	- uf_print_addr(void *addr)
 	/* Print address 'addr' on stdout */
 
-f_print_fd.c:
-
 	- uf_print_char_fd(char c, ui fd)
 	/* Print 'c' on out fd */
 
@@ -37,7 +33,11 @@ f_print_fd.c:
 	- uf_print_addr_fd(void *addr)
 	/* Print address 'addr' on out fd */
 
-f_print_spec.c:	/* Experimental function */
+	- uf_print_color(ui color)
+	/* Print color */
+
+	- uf_print_color_fx(ui color, ui fx)
+	/* Print color with effects */
 
 	- uf_print_floating_nbr_fd(double number, ui digit, ui fd)
 	/* Print floating value of 'number' on out fd */
@@ -51,15 +51,11 @@ f_print_spec.c:	/* Experimental function */
 	- uf_print_bits(size_t value, size_t size)
 	/* Print value in bits on stdout */
 
-f_print_variadic.c:
-
 	- uf_print_variadic_fd(ui fd, const char *fmt, ...)
 	  /* Like printf */
 
 	- uf_print_variadic(const char *fmt, ...)
 	  /* Like printf */
-
-f_print_nstr.c:
 
 	- uf_print_nstr_fd(const char *str, ui size, ui fd)
 	  /* Print size bytes of str on out fd */
@@ -67,15 +63,11 @@ f_print_nstr.c:
 	- uf_print_nstr(const char *str, ui size)
 	  /* Print size bytes of str on stdout */
 
-f_str_tools.c:
-
 	- uf_str_len(const char *str)
 	/* Return lenght of string 'str' */
 
 	- uf_print_in_base(char nbr, ui fd)
 	/* Tools for print value in good base */
-
-f_strcat.c:
 
 	- uf_strcat(char *dest, const char *src)
 	/* Append src to dest */
@@ -86,8 +78,6 @@ f_strcat.c:
 	- uf_strlcat(char *dest, const char *src, size_t size)
 	/* man strlcat */
 
-f_strcpy.c:
-
 	- uf_strcpy(char *dest, const char *src)
 	/* Copy src to dest */
 
@@ -97,15 +87,11 @@ f_strcpy.c:
 	- uf_strlcpy(char *dest, const char *src, size_t size)
 	/* man strlcpy */
 
-f_strcmp.c:
-
 	- uf_strcmp(char *dest, const char *src)
 	/* Compare dest with src and return difference */
 
 	- uf_strncmp(char *dest, const char *src, size_t size)
 	/* Like strcmp but you compare length size */
-
-f_strcasecmp.c:
 
 	- uf_str_case_cmp(char *dest, const char *src)
 	/* Like uf_strcmp (case insensitive) */
@@ -113,7 +99,17 @@ f_strcasecmp.c:
 	- uf_str_case_ncmp(char *dest, const char *src, size_t size)
 	/* Like uf_strncmp (case insensitive) */
 
-f_char.c:
+	- uf_itoa(int nbr)
+	/* Convert number to string */
+
+	- uf_itoa_base(int nbr, ui base)
+	/* Convert number to string in base */
+
+	- uf_getstr(ui fd, uc terminate, bool del_term)
+	/* Get string in fd */
+
+	- uf_getline(ui fd, bool del_term)
+	/* Get line in fd */
 
 	- uf_to_lower(const uc c)
 	/* Convert uppercase letter to lowercase */
@@ -127,12 +123,17 @@ f_char.c:
 	- uf_is_upper(const uc c)
 	/* Return true if letter is uppercase */
 
-f_strdup.c:
+	- uf_is_alpha(const uc c)
+	/* Return true if letter is an alphabet's letter */
+
+	- uf_is_printable(const uc c)
+	/* Return true if letter is printable */
+
+	- uf_is_digit(const uc c)
+	/* Return true if letter is numeric */
 
 	- uf_strdup(const char *str)
 	/* Return copy of str */
-
-f_space.c:
 
 	- uf_is_space(const uc c)
 	/* Return true if c is space */
@@ -140,10 +141,12 @@ f_space.c:
 	- uf_skip_space(const char *str)
 	/* Increase str while is space */
 
-## How to use ?
+===
+### How to use ?
 
-You can see example [here](https://github.com/QuentinPerez/42-toolkit/tree/master/examples/libc/f_string).
+You can see [example](https://github.com/42School/42-toolkit/tree/master/examples/libc/f_string).
 
+===
 ## License
 
 42-toolkit is available under the [GNU General Public License, version 3](LICENSE).

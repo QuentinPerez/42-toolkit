@@ -1,0 +1,27 @@
+#!/bin/bash
+
+function usage
+{
+	printf "./release <Version> <New Things>\n\n"
+	printf "example: ./release \"0.0\" \"first releases\"\n"
+}
+
+function	sed_fix
+{
+	local	tmp_file="$(mktemp -t temp.XXXXX)"
+
+	sed "$2$3/$4" $1 > ${tmp_file} && mv ${tmp_file} $1
+	cp $1 ${tmp_file}
+}
+
+if [ "$#" -ne 2 ]; then
+	usage
+else
+	sed_fix RELEASE.md "s/####Current release :.*/" "####Current release : $1" g
+	TMP=$(tail -n+6 RELEASE.md)
+	sed_fix RELEASE.md "6,/" "-End" d
+	printf "\t-V$1 " >> RELEASE.md
+	date +%m-%d-%Y >> RELEASE.md
+	printf "\t\t$2\n" >> RELEASE.md
+	printf "$TMP" >> RELEASE.md
+fi
