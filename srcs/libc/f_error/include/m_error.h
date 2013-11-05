@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/28 12:24:04 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/04 09:29:38 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/06 00:36:20 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,10 @@
 
 #ifndef M_ERROR_H
 # define M_ERROR_H
+
+# ifndef D_ERRORS_ON
+#  warning "Using m_error without D_ERROS_ON compile with -DD_ERRORS_ON"
+# endif
 
 #include <stddef.h>
 
