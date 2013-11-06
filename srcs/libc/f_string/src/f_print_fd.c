@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/28 15:06:45 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/03 23:50:58 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/06 10:18:25 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ void	uf_print_nbr_fd(ssize_t nbr, ui fd)
 void	uf_print_addr_fd(void *addr, ui fd)
 {
 	size_t	nbr;
-	ssize_t	digit;
+	size_t	digit;
 
 	digit = 1;
 	nbr = (size_t)addr;

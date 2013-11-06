@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/25 13:16:21 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/25 18:56:05 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/06 10:16:15 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,5 +90,29 @@ bool		f_string_add_nbr(t_string *v_this, ssize_t nbr)
 
 bool		f_string_add_ptr(t_string *v_this, void *addr)
 {
-	return (D_STRING(add_nbr_base)(v_this, (ssize_t)addr, 16));
+	size_t	nbr;
+	size_t	digit;
+	ui		size;
+
+	size = 1;
+	digit = 1;
+	nbr = (size_t)addr;
+	while ((nbr / digit) >= 16)
+	{
+		digit = digit * 16;
+		size = size + 1;
+	}
+	size = size + 1;
+	if (v_this->v_size + size + 2 > v_this->v_capacity &&
+		uf_string_realloc(v_this, size) == false)
+		return (false);
+	D_STRING(add_str)(v_this, "0x");
+	while (digit > 0)
+	{
+		v_this->v_str[v_this->v_size] = v_this->v_hex[nbr / digit % 16];
+		v_this->v_size = v_this->v_size + 1;
+		digit = digit / 16;
+	}
+	v_this->v_str[v_this->v_size] = '\0';
+	return (true);
 }
