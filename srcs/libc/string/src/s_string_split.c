@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/28 20:37:37 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/05 23:42:29 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/10 17:36:43 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@
 #include <f_memory/f_memory.h>
 #include <f_string/f_str_tools.h>
 #include <f_string/f_string.h>
+#include <f_memory/f_free.h>
 
 static bool	*uf_string_fill_bool(t_string *v_this, const char *charset)
 {
@@ -93,12 +94,7 @@ static bool	uf_string_dump_word(const char *str, char **tab, ui size, ui *word)
 	tab[*word] = malloc(sizeof(*tab[*word]) * (size + 1));
 	if (tab[*word] == NULL)
 	{
-		while (i < *word)
-		{
-			free(tab[i]);
-			i = i + 1;
-		}
-		free(tab);
+		uf_free_tab_fail((void **)tab, *word);
 		return (false);
 	}
 	uf_memcpy(tab[*word], str, size * sizeof(*tab[*word]));

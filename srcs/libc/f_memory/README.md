@@ -18,6 +18,9 @@ Memory Function
 	- uf_free_tab(void **tab)
 	/* This function delete all element of tab and delete tab */
 
+	- uf_free_tab_fail(void **tab, ui current)
+	/* This function delete element of tab and delete tab */
+
 ===
 ### How to use ?
 

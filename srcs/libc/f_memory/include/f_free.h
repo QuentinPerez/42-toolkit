@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/08 11:37:00 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/03 23:30:24 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/10 17:33:26 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,6 @@
 # define F_FREE_H
 
 void	uf_free_tab(void **tab);
+void	uf_free_tab_fail(void **tab, ui current);
 
 #endif
