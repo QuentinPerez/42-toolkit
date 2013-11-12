@@ -33,6 +33,12 @@ String Function
 	- uf_print_addr_fd(void *addr)
 	/* Print address 'addr' on out fd */
 
+	- uf_print_bool_fd(ui color, ui fd)
+	/* Print true or false on fd */
+
+	- uf_print_bool(ui color)
+	/* Print true or false on stdout */
+
 	- uf_print_color(ui color)
 	/* Print color */
 

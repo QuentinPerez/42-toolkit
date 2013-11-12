@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/29 17:32:48 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/04 09:32:07 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/12 16:12:38 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@
 
 #include <unistd.h>
 #include <t_types.h>
+#include <d_bool.h>
 
 ssize_t	uf_print_char(char c);
 ssize_t	uf_print_str(const char *str);
@@ -47,5 +48,6 @@ void	uf_print_floating_nbr(double nbr, ui digit);
 void	uf_print_nbr_base(ssize_t nbr, ssize_t base);
 void	uf_print_variadic(const char *fmt, ...);
 void	uf_print_addr(void *addr);
+void	uf_print_bool(bool value);
 
 #endif

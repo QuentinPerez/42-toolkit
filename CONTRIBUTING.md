@@ -6,7 +6,7 @@ Contributing
 #### Coding style
 
 ===
-Please refer to existing code and try to keep the same coding style as the one currently used.
+Please **refer to existing code** and try to keep the same coding style as the one currently used.
 
 For any questions use the [issues tracker](https://github.com/QuentinPerez/42-toolkit/issues)
 
@@ -55,12 +55,24 @@ You can (**must**) see [norme 42](https://docs.google.com/file/d/0Byas2-wgCXhnMT
 =======
 [A successful Git branching model](http://nvie.com/posts/a-successful-git-branching-model/)
 
-######By following these simple steps:
+####Branch:
+######Master
+-> Releases
+######Develop
+-> New features
+######Bugfix
+-> Bug fix #issues
+######Norme
+-> Bug norme
+######English
+-> Fix mistakes
+
+#####By following these simple steps:
 
 1. [Fork](https://github.com/QuentinPerez/42-toolkit/fork) 42-toolkit's repository
 2. Create your branch (`git checkout -b my-branch-where-I-did-smth`)
 3. Code and commit your changes.
 4. Push to your branch (`git push origin my-branch-where-I-did-smth`).
-5. Create your new Pull Request.
+5. Create your new Pull Request on **Develop**, **Bugfix** or **English** branch.
 
 You've shared your work, thank you!
