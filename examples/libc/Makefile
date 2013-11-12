@@ -49,7 +49,8 @@ LISTDIR	=	array			\
 			string			\
 			timer			\
 			unit			\
-			vector
+			vector			\
+			matrix
 
 LIB42	=	$(DIR42)/lib42.a
 

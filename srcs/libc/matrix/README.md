@@ -10,7 +10,19 @@ Matrix
 	  /* This function free a t_matrix */
 
 	- sum(t_matrix *v_this, t_matrix *m1, t_matrix *m2);
-	  /* This function does the sum of two t_matrix  */
+	  /* This function does the sum of two t_matrix */
+
+	- sub(t_matrix *v_this, t_matrix *m1, t_matrix *m2);
+	  /* This function does the sub of two t_matrix */
+
+	- mul(t_matrix *v_this, t_matrix *m1, t_matrix *m2);
+	  /* This function does the mul of two t_matrix */
+
+	- div(t_matrix *v_this, t_matrix *m1, t_matrix *m2);
+	  /* This function does the div of two t_matrix */
+
+	- print(const t_matrix *v_this, const char *name);
+	  /* This function print matrix */
 
 ===
 ### How to use ?

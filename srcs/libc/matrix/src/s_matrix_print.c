@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s_matrix.c                                         :+:      :+:    :+:   */
+/*   s_matrix_print.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cmuller <clara.muller19@gmail.com>         +#+  +:+       +#+        */
+/*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/11/09 20:57:21 by cmuller           #+#    #+#             */
-/*   Updated: 2013/11/12 18:22:36 by qperez           ###   ########.fr       */
+/*   Created: 2013/11/12 18:00:21 by qperez            #+#    #+#             */
+/*   Updated: 2013/11/12 18:23:19 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains s_matrix function>
-** < init, destroy >
+** <This file contains s_matrix_print function>
+** < print >
 ** Copyright (C) <2013> Clara Muller <clara.muller19@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -32,46 +32,27 @@
 */
 
 #include <matrix/s_matrix.h>
-#include <f_memory/f_free.h>
-#include <stdlib.h>
+#include <f_string/f_print.h>
 
-static bool	uf_matrix_fillcoeff(t_matrix *v_this, ui col, ui row)
+void	f_matrix_print(const t_matrix *v_this, const char *name)
 {
 	ui	i;
+	ui	j;
 
 	i = 0;
-	while (i < row)
+	uf_print_str("Matrix ");
+	if (name != NULL)
+		uf_print_str(name);
+	uf_print_variadic(":\n", name);
+	while (i < v_this->v_rows)
 	{
-		v_this->v_coeff[i] = malloc(sizeof(*(v_this->v_coeff[i])) * col);
-		if (v_this->v_coeff[i] == NULL)
+		j = 0;
+		while (j < v_this->v_columns)
 		{
-			uf_free_tab_fail((void **)v_this->v_coeff, i);
-			return (m_error(false, "Bad alloc"));
+			uf_print_variadic("[%d]", (int)v_this->v_coeff[i][j]);
+			j = j + 1;
 		}
+		uf_print_char('\n');
 		i = i + 1;
 	}
-	v_this->v_coeff[i] = NULL;
-	return (true);
-}
-
-bool		f_matrix_init(t_matrix *v_this, ui c, ui r)
-{
-	uf_memset(v_this, '\0', sizeof(*v_this));
-	if (c == 0 || r == 0)
-		return (m_error(false, "Columns != 0 && Rows != 0"));
-	v_this->v_coeff = malloc(sizeof(*(v_this->v_coeff)) * (r + 1));
-	if (v_this->v_coeff == NULL)
-		return (m_error(false, "Bad alloc"));
-	if (uf_matrix_fillcoeff(v_this, c, r) == false)
-		return (false);
-	v_this->v_columns = c;
-	v_this->v_rows = r;
-	return (true);
-}
-
-void		f_matrix_destroy(t_matrix *v_this)
-{
-	uf_free_tab((void **)v_this->v_coeff);
-	v_this->v_columns = 0;
-	v_this->v_rows = 0;
 }
