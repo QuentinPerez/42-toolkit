@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/06 21:23:29 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/03 23:32:40 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/12 19:00:19 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,8 @@ int		uf_str_case_cmp(const char *left, const char *right);
 int		uf_str_case_ncmp(const char *left, const char *right, size_t count);
 char	*uf_itoa(int nbr);
 char	*uf_itoa_base(int nbr, ui base);
+int		uf_atoi(char *nbr);
+int		uf_atoi_base(char *nbr, ui base);
 char	*uf_strdup(const char *str);
 char	*uf_getstr(ui fd, uc terminate, bool del_terminate);
 char	*uf_getline(ui fd, bool del_terminate);
