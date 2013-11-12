@@ -56,16 +56,15 @@ You can (**must**) see [norme 42](https://docs.google.com/file/d/0Byas2-wgCXhnMT
 [A successful Git branching model](http://nvie.com/posts/a-successful-git-branching-model/)
 
 ####Branch:
-######Master
--> Releases
-######Develop
--> New features
-######Bugfix
--> Bug fix #issues
-######Norme
--> Bug norme
-######English
--> Fix mistakes
+**Master** - Releases
+
+**Develop** - New features
+
+**Bugfix** - Bug fix #issues
+
+**Norme** - Fix norme
+
+**English** - Fix mistakes
 
 #####By following these simple steps:
 
@@ -73,6 +72,7 @@ You can (**must**) see [norme 42](https://docs.google.com/file/d/0Byas2-wgCXhnMT
 2. Create your branch (`git checkout -b my-branch-where-I-did-smth`)
 3. Code and commit your changes.
 4. Push to your branch (`git push origin my-branch-where-I-did-smth`).
-5. Create your new Pull Request on **Develop**, **Bugfix** or **English** branch.
+5. Create your new Pull Request on **Develop**, **Bugfix**, **English** or **Norme** branch.
+6. **NEVER BRANCH MASTER NEVER**
 
 You've shared your work, thank you!
