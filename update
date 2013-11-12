@@ -22,6 +22,6 @@ else
 	sed_fix RELEASE.md "6,/" "-End" d
 	printf "\t-V$1 " >> RELEASE.md
 	date +%m-%d-%Y >> RELEASE.md
-	printf "\t\t$2\n" >> RELEASE.md
+	printf "\t\t$2\n\n" >> RELEASE.md
 	printf "$TMP" >> RELEASE.md
 fi
