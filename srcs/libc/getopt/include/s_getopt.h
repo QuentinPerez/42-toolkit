@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/29 18:08:24 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/30 10:44:50 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/12 16:57:28 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,11 @@ typedef struct	s_getopt
 
 # define D_GETOPT(funct)	f_getopt_##funct
 
-bool	f_getopt_init(t_getopt *v_this, int argc, const char **argv,
-					  const char *opt);
-bool	f_getopt_option(t_getopt *v_this);
-bool	f_getopt_check(t_getopt *v_this, const char *option);
-char	*f_getopt_params(t_getopt *v_this);
-void	f_getopt_destroy(t_getopt *v_this);
+bool		f_getopt_init(t_getopt *v_this, int argc, const char **argv,
+						  const char *opt);
+bool		f_getopt_option(t_getopt *v_this);
+bool		f_getopt_check(const t_getopt *v_this, const char *option);
+const char	*f_getopt_params(const t_getopt *v_this);
+void		f_getopt_destroy(t_getopt *v_this);
 
 #endif

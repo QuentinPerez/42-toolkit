@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/25 11:29:57 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/25 11:39:44 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/12 16:52:49 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,22 +34,27 @@
 #include <string/s_string.h>
 #include <f_string/f_string.h>
 
-inline ui	f_string_size(t_string *v_this)
+inline ui	f_string_size(const t_string *v_this)
 {
 	return (v_this->v_size);
 }
 
-inline ui	f_string_capacity(t_string *v_this)
+inline ui	f_string_capacity(const t_string *v_this)
 {
 	return (v_this->v_capacity);
 }
 
-inline bool	f_string_empty(t_string *v_this)
+inline bool	f_string_empty(const t_string *v_this)
 {
 	return (v_this->v_size == 0);
 }
 
-char		*f_string_dup(t_string *v_this)
+char		*f_string_dup(const t_string *v_this)
 {
 	return (uf_strdup(v_this->v_str));
+}
+
+const char	*f_string_str(const t_string *v_this)
+{
+	return (v_this->v_str);
 }

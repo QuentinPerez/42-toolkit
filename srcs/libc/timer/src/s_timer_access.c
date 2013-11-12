@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/16 12:49:23 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/16 12:54:14 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/12 17:01:33 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,12 @@
 
 #include <timer/s_timer.h>
 
-bool	f_timer_is_paused(t_timer *v_this)
+bool	f_timer_is_paused(const t_timer *v_this)
 {
 	return (v_this->v_paused == true);
 }
 
-bool	f_timer_is_started(t_timer *v_this)
+bool	f_timer_is_started(const t_timer *v_this)
 {
 	return (v_this->v_started == true);
 }

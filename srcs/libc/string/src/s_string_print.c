@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/25 11:05:31 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/27 17:41:14 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/12 16:53:49 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,13 @@
 ** You should have received a copy of the GNU General Public License
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+
 #include <string/s_string.h>
 #include <f_error/m_error.h>
 #include <f_string/f_print_fd.h>
 #include <f_memory/f_memory.h>
 
-void	f_string_print_memory(t_string *v_this, const char *name)
+void	f_string_print_memory(const t_string *v_this, const char *name)
 {
 	if (name != NULL)
 		m_infos(name);
@@ -44,13 +45,13 @@ void	f_string_print_memory(t_string *v_this, const char *name)
 	uf_print_memory(v_this->v_str, v_this->v_capacity);
 }
 
-void	f_string_print_fd(t_string *v_this, ui fd)
+void	f_string_print_fd(const t_string *v_this, ui fd)
 {
 	if (write(fd, v_this->v_str, v_this->v_size) != v_this->v_size)
 		m_error(0, "Write : Fail");
 }
 
-void	f_string_print(t_string *v_this)
+void	f_string_print(const t_string *v_this)
 {
 	f_string_print_fd(v_this, 1);
 }
