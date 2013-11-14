@@ -50,7 +50,8 @@ LISTDIR	=	array			\
 			timer			\
 			unit			\
 			vector			\
-			matrix
+			matrix			\
+			rbtree
 
 LIB42	=	$(DIR42)/lib42.a
 
