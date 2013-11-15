@@ -6,7 +6,7 @@
 /*   By: cmuller <clara.muller19@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/09 19:20:01 by cmuller           #+#    #+#             */
-/*   Updated: 2013/11/12 18:06:08 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/15 22:25:52 by cmuller          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,8 +51,8 @@ typedef struct	s_matrix
 bool	f_matrix_init(t_matrix *v_this, ui c, ui r);
 void	f_matrix_sum(t_matrix *v_this, t_matrix *m1, t_matrix *m2);
 void	f_matrix_sub(t_matrix *v_this, t_matrix *m1, t_matrix *m2);
-void	f_matrix_div(t_matrix *v_this, t_matrix *m1, t_matrix *m2);
 void	f_matrix_mul(t_matrix *v_this, t_matrix *m1, t_matrix *m2);
+void	f_matrix_mulCste(t_matrix *v_this, double l);
 void	f_matrix_print(const t_matrix *v_this, const char *name);
 void	f_matrix_destroy(t_matrix *v_this);
 

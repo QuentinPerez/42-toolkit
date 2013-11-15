@@ -6,7 +6,7 @@
 /*   By: cmuller <clara.muller19@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/09 20:57:21 by cmuller           #+#    #+#             */
-/*   Updated: 2013/11/12 17:59:40 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/15 22:26:59 by cmuller          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,8 @@ void	f_matrix_sub(t_matrix *v_this, t_matrix *m1, t_matrix *m2)
 		j = 0;
 		while (j < m1->v_columns)
 		{
-			v_this->v_coeff[i][j] = m1->v_coeff[i][j] - m2->v_coeff[i][j];
+			v_this->v_coeff[i][j] = 
+				m1->v_coeff[i][j] - m2->v_coeff[i][j];
 			j = j + 1;
 		}
 		i = i + 1;
@@ -77,37 +78,41 @@ void	f_matrix_mul(t_matrix *v_this, t_matrix *m1, t_matrix *m2)
 {
 	ui	i;
 	ui	j;
+	ui	k;
 
 	i = 0;
-	if (m1->v_rows != m2->v_rows || m1->v_columns != m2->v_columns)
+	if (m1->v_columns != m2->v_rows)
 		return ;
 	while (i < m1->v_rows)
 	{
 		j = 0;
 		while (j < m1->v_columns)
 		{
-			v_this->v_coeff[i][j] = m1->v_coeff[i][j] * m2->v_coeff[i][j];
+			k = 0;
+			while (k < m2->v_rows)
+			{
+				v_this->v_coeff[i][j] = 
+					m1->v_coeff[i][k] * m2->v_coeff[k][j];
+				k = k + 1;
+			}
 			j = j + 1;
 		}
 		i = i + 1;
 	}
 }
 
-void	f_matrix_div(t_matrix *v_this, t_matrix *m1, t_matrix *m2)
+void	f_matrix_mulCste(t_matrix *v_this, double l)
 {
 	ui	i;
 	ui	j;
 
 	i = 0;
-	if (m1->v_rows != m2->v_rows || m1->v_columns != m2->v_columns)
-		return ;
-	while (i < m1->v_rows)
+	while (i < v_this->v_rows)
 	{
 		j = 0;
-		while (j < m1->v_columns)
+		while (j < v_this->v_columns)
 		{
-			if (m1->v_coeff[i][j] != 0 && m2->v_coeff[i][j] != 0)
-				v_this->v_coeff[i][j] = m1->v_coeff[i][j] * m2->v_coeff[i][j];
+			v_this->v_coeff[i][j] = v_this->v_coeff[i][j] * l;
 			j = j + 1;
 		}
 		i = i + 1;
