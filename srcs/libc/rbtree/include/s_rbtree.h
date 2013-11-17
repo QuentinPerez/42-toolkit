@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/13 15:01:54 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/13 23:54:25 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/15 11:56:30 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,6 +75,7 @@ bool		mf_inorder(t_rbtree *v_this, t_rbcell *node, void *data,
 bool		mf_pstorder(t_rbtree *v_this, t_rbcell *node, void *data,
 						bool (*funct)(void *node, void *data));
 bool		f_rbtree_insert(t_rbtree *v_this, void *v_data);
+void 		*f_rbtree_erase(t_rbtree *tree, t_rbcell *node);
 void		f_rbtree_destroy(t_rbtree *v_this);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/14 18:00:33 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/14 18:48:12 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/15 13:05:59 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,3 +66,23 @@ void	uf_rotate_right(t_rbtree *v_this, t_rbcell *node)
 	child->v_right = node;
 	node->v_parent = child;
 }
+
+t_rbcell *uf_rb_next(t_rbtree *v_this, t_rbcell *node)
+{
+	t_rbcell	*ret;
+
+	if ((ret = node->v_right) != &v_this->v_nil)
+	{
+		while (ret->v_left != &v_this->v_nil)
+			ret = ret->v_left;
+	}
+	else
+	{
+		for (ret = node->v_parent; node == ret->v_right; ret = ret->v_parent)
+			node = ret;
+		if (ret == &v_this->v_root)
+			ret = &v_this->v_nil;
+	}
+	return (ret);
+}
+

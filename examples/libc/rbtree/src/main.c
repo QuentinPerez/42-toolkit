@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/13 12:58:04 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/14 18:54:47 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/15 11:59:35 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,13 @@ int		main(int argc, char const** argv)
 	/*
 	 * Print all value
 	 */
+	D_RBTREE(erase)(&rbtree, D_RBTREE(find)(&rbtree, (void *)4));
 	D_RBTREE(foreach_in)(&rbtree, uf_print, 0);
+	uf_print_char('\n');
+	D_RBTREE(foreach_pre)(&rbtree, uf_print, 0);
+	uf_print_char('\n');
+	D_RBTREE(foreach_post)(&rbtree, uf_print, 0);
+	uf_print_char('\n');
 	/*
 	 * free memory
 	 */
