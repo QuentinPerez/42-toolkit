@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/06 21:20:02 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/03 23:53:05 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/19 15:09:38 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,9 +59,9 @@ char	*uf_strncpy(char *dest, const char *src, size_t size)
 	{
 		*tmp = *src;
 		if (*src != 0)
-			src++;
-		tmp++;
-		size--;
+			src = src + 1;
+		tmp = tmp + 1;
+		size = size - 1;
 	}
 	return (dest);
 }
