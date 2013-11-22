@@ -45,7 +45,7 @@ You can (**must**) see [norme 42](https://docs.google.com/file/d/0Byas2-wgCXhnMT
 
 #####42Student
 ######Github name
-`FistnameLastname` Why ? ... Because we do not have 10 years.
+`FistnameLastname` Why ? ... Because we are not 10 years old.
 #####Others
 `You are welcome :)`
 
