@@ -16,8 +16,7 @@ Manivelle is a 42School norm checker. It is an syntax analyser who can be used t
 To install Manivelle, please follow these steps:
 1: Add these lines to your ~/.bashrc (or any .shellrc)
 
-    PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/texbin:~/bin
-    export PATH
+    export PATH=$PATH:~/bin
 
 2: Then copy the two files in the ~/bin (create if doesn't exist or copy to any other bin folder)
 
