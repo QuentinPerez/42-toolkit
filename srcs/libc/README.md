@@ -11,6 +11,7 @@ Libc
 	- stack/		"Last-in-First-out container"
 	- queue/		"First-in-First-out container"
 	- htable/		"Hash table"
+	- rbtree/		"Red-Black Tree"
 ### Function
     - f_error/		"Treat return value with more skills"
     - f_string/		"Do you want play with char *?"
@@ -23,6 +24,7 @@ Libc
 	- timer/		"Timer in milliseconds"
 	- getopt/		"Treat argv"
 	- unit/			"42 unit testing"
+	- matrix/
 
 ===
 
