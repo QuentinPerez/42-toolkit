@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/06 22:29:30 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/03 23:52:42 by qperez           ###   ########.fr       */
+/*   Updated: 2013/11/20 14:20:02 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@
 #include <f_string/f_str_tools.h>
 #include <f_memory/f_memory.h>
 
-char	*uf_strcat(char *dest, const char *src)
+char		*uf_strcat(char *dest, const char *src)
 {
 	char	*tmp;
 
@@ -52,7 +52,7 @@ char	*uf_strcat(char *dest, const char *src)
 	return (tmp);
 }
 
-char	*uf_strncat(char *dest, const char *src, size_t size)
+char		*uf_strncat(char *dest, const char *src, size_t size)
 {
 	char	*tmp;
 
@@ -73,20 +73,41 @@ char	*uf_strncat(char *dest, const char *src, size_t size)
 	return (tmp);
 }
 
-size_t	uf_strlcat(char *dest, const char *src, size_t size)
+static char	*uf_goto_end(char *p_dest, size_t tmp)
 {
-	size_t	dest_size;
-	size_t	len;
-	size_t	ret;
+	while (*p_dest != '\0' && tmp != 0)
+	{
+		p_dest = p_dest + 1;
+		tmp = tmp - 1;
+	}
+	return (p_dest);
+}
 
-	dest_size = uf_str_len(dest);
-	len = uf_str_len(src);
-	ret = dest_size + len;
-	dest = dest + dest_size;
-	size = size - dest_size;
-	if (len >= size)
-		len = size - 1;
-	uf_memcpy(dest, src, len);
-	dest[len] = '\0';
-	return (ret);
+size_t		uf_strlcat(char *dest, const char *src, size_t size)
+{
+	char		*p_dest;
+	const char	*p_src;
+	size_t		tmp;
+	size_t		dlen;
+
+	tmp = size;
+	p_src = src;
+	p_dest = dest;
+	p_dest = uf_goto_end(p_dest, tmp);
+	dlen = p_dest - dest;
+	tmp = size - dlen;
+	if (tmp == 0)
+		return (dlen + uf_str_len(p_src));
+	while (*p_src != '\0')
+	{
+		if (tmp != 1)
+		{
+			*p_dest = *p_src;
+			p_dest = p_dest + 1;
+			tmp = tmp - 1;
+		}
+		p_src = p_src + 1;
+	}
+	*p_dest = '\0';
+	return (dlen + (p_src - src));
 }
