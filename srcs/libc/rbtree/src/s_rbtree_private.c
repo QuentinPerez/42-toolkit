@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/14 18:00:33 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/15 13:05:59 by qperez           ###   ########.fr       */
+/*   Updated: 2013/12/17 12:51:29 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,12 @@ t_rbcell *uf_rb_next(t_rbtree *v_this, t_rbcell *node)
 	}
 	else
 	{
-		for (ret = node->v_parent; node == ret->v_right; ret = ret->v_parent)
+		ret = node->v_parent;
+		while (node == ret->v_right)
+		{
 			node = ret;
+			ret = ret->v_parent;
+		}
 		if (ret == &v_this->v_root)
 			ret = &v_this->v_nil;
 	}
