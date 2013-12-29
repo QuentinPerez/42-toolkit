@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/22 14:33:19 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/04 09:46:19 by qperez           ###   ########.fr       */
+/*   Updated: 2013/12/29 15:46:18 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ static bool	uf_sort_make_counter(int *tab, ui size, int minmax[2])
 	size_counter = minmax[1] - minmax[0] + 1;
 	counter = malloc(sizeof(*counter) * (size_counter));
 	if (counter == NULL)
-		return (m_error(false, "Bad alloc"));
+		return (M_ERROR(false, "Bad alloc"));
 	uf_memset(counter, 0, sizeof(*counter) * size_counter);
 	while (i < size)
 	{

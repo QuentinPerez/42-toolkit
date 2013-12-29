@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/23 13:43:18 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/03 23:49:03 by qperez           ###   ########.fr       */
+/*   Updated: 2013/12/29 15:46:56 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,7 @@ bool				uf_sort_merge(int *ptr, int size)
 
 	tmp = malloc(sizeof(*tmp) * size);
 	if (tmp == NULL)
-		return (m_error(false, "Bad alloc"));
+		return (M_ERROR(false, "Bad alloc"));
 	uf_recursive_merge(ptr, tmp, 0, size - 1);
 	free(tmp);
 	return (true);

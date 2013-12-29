@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/29 18:02:55 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/04 09:53:22 by qperez           ###   ########.fr       */
+/*   Updated: 2013/12/29 15:49:17 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,17 +44,17 @@ static bool	uf_getopt_split_posibility(t_getopt *v_this, const char *posibility)
 	t_string	string;
 
 	if (D_STRING(init)(&string, 0) == false)
-		return (m_error(false, "Could not initialize string"));
+		return (M_ERROR(false, "Could not initialize string"));
 	if (D_STRING(add_str)(&string, posibility) == false)
 	{
 		D_STRING(destroy)(&string);
-		return (m_error(false, "Could not add [%s]", posibility));
+		return (M_ERROR(false, "Could not add [%s]", posibility));
 	}
 	v_this->v_posibility = D_STRING(split)(&string, ":");
 	if (v_this->v_posibility == NULL)
 	{
 		D_STRING(destroy)(&string);
-		return (m_error(false, "Could not split [%s]", posibility));
+		return (M_ERROR(false, "Could not split [%s]", posibility));
 	}
 	D_STRING(destroy)(&string);
 	return (true);
@@ -90,7 +90,7 @@ static bool	uf_getopt_init_option(t_getopt *v_this, ui ac, const char **av)
 
 	i = 1;
 	if (D_STRING(init)(&string, 0) == false)
-		return (m_error(false, "Could not initialize string"));
+		return (M_ERROR(false, "Could not initialize string"));
 	while (i < ac)
 	{
 		size = uf_str_len(av[i]);

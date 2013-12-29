@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/02 12:59:24 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/04 09:41:23 by qperez           ###   ########.fr       */
+/*   Updated: 2013/12/29 15:47:39 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ bool				f_array_init(t_array *v_this,
 		v_this->f_delete = uf_array_delete;
 	v_this->v_data = calloc(2, type_size);
 	if (v_this->v_data == NULL)
-		return (m_error(false, "Bad alloc"));
+		return (M_ERROR(false, "Bad alloc"));
 	v_this->v_capacity = 2;
 	v_this->v_type_size = type_size;
 	return (true);

@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/27 17:18:23 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/03 23:59:56 by qperez           ###   ########.fr       */
+/*   Updated: 2013/12/29 15:52:21 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ bool				f_stack_push(t_stack *v_this, void *data)
 
 	push = D_STACK(create_cell)(data);
 	if (push == NULL)
-		return (m_error(false, "Bad alloc"));
+		return (M_ERROR(false, "Bad alloc"));
 	push->v_prev = v_this->v_last;
 	v_this->v_last = push;
 	v_this->v_size = v_this->v_size + 1;

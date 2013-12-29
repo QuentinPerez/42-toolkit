@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/02 15:23:05 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/04 09:42:16 by qperez           ###   ########.fr       */
+/*   Updated: 2013/12/29 15:48:25 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static bool	f_array_realloc(t_array *v_this, ui size)
 	if (v_this->v_data == NULL)
 	{
 		v_this->v_data = tmp;
-		return (m_error(false, "Bad alloc"));
+		return (M_ERROR(false, "Bad alloc"));
 	}
 	v_this->v_capacity = size;
 	return (true);
@@ -54,7 +54,7 @@ static bool	f_array_realloc(t_array *v_this, ui size)
 bool		f_array_resize(t_array *v_this, ui size)
 {
 	if (size < v_this->v_capacity)
-		return (m_error(false, "Size %d is lower than capacity", size));
+		return (M_ERROR(false, "Size %d is lower than capacity", size));
 	return (D_ARRAY(realloc)(v_this, size));
 }
 

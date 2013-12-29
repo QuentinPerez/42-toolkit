@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/13 19:17:19 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/14 18:45:50 by qperez           ###   ########.fr       */
+/*   Updated: 2013/12/29 15:52:00 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ static t_rbcell	*uf_rb_node_exist(t_rbtree *v_this, t_rbcell **parent, void *d)
 	}
 	node = malloc(sizeof(*node));
 	if (node == NULL)
-		return ((t_rbcell *)m_error(0, "Bad alloc"));
+		return ((t_rbcell *)M_ERROR(0, "Bad alloc"));
 	node->v_data = d;
 	node->v_left = node->v_right = &v_this->v_nil;
 	node->v_parent = *parent;

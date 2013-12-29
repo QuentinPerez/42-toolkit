@@ -6,7 +6,7 @@
 /*   By: cmuller <clara.muller19@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/09 20:57:21 by cmuller           #+#    #+#             */
-/*   Updated: 2013/11/12 18:22:36 by qperez           ###   ########.fr       */
+/*   Updated: 2013/12/29 15:50:57 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ static bool	uf_matrix_fillcoeff(t_matrix *v_this, ui col, ui row)
 		if (v_this->v_coeff[i] == NULL)
 		{
 			uf_free_tab_fail((void **)v_this->v_coeff, i);
-			return (m_error(false, "Bad alloc"));
+			return (M_ERROR(false, "Bad alloc"));
 		}
 		i = i + 1;
 	}
@@ -58,10 +58,10 @@ bool		f_matrix_init(t_matrix *v_this, ui c, ui r)
 {
 	uf_memset(v_this, '\0', sizeof(*v_this));
 	if (c == 0 || r == 0)
-		return (m_error(false, "Columns != 0 && Rows != 0"));
+		return (M_ERROR(false, "Columns != 0 && Rows != 0"));
 	v_this->v_coeff = malloc(sizeof(*(v_this->v_coeff)) * (r + 1));
 	if (v_this->v_coeff == NULL)
-		return (m_error(false, "Bad alloc"));
+		return (M_ERROR(false, "Bad alloc"));
 	if (uf_matrix_fillcoeff(v_this, c, r) == false)
 		return (false);
 	v_this->v_columns = c;

@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/13 15:09:23 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/14 18:46:10 by qperez           ###   ########.fr       */
+/*   Updated: 2013/12/29 15:51:40 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ bool		f_rbtree_init(t_rbtree *v_this, int (*f_cmp)(void *d1, void *d2),
 {
 	uf_memset(v_this, 0, sizeof(*v_this));
 	if (f_cmp == NULL)
-		return (m_error(false, "f_cmp couldn't NULL"));
+		return (M_ERROR(false, "f_cmp couldn't NULL"));
 	v_this->f_delete = uf_rbtree_delete;
 	if (f_del != NULL)
 		v_this->f_delete = f_del;

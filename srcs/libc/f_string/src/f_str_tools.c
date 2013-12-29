@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/28 15:09:03 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/04 09:50:31 by qperez           ###   ########.fr       */
+/*   Updated: 2013/12/29 15:47:16 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ size_t	uf_str_len(const char *str)
 
 	len = 0;
 	if (str == NULL)
-		m_infos("Pointer NULL");
+		M_INFOS("Pointer NULL");
 	while (str[len] != '\0')
 		len = len + 1;
 	return (len);
