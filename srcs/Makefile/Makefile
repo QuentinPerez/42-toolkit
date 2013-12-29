@@ -28,7 +28,7 @@ LISTDIR	=	src
 
 DIRSRC	=	src
 
-EXEC	=	a.out
+NAME	=	a.out
 
 SRC		=	$(DIRSRC)/main.c
 
@@ -40,17 +40,17 @@ $(addprefix $(OBJDIR)/, %.o)	:	%.c
 								$(CC) $(CFLAGS) -o $@ -c $<
 								printf '\033[0;32mBuilding C Object $@\n\033[0m' "Building C Object $@"
 
-$(EXEC)	:	$(OBJDIR) $(OBJ)
-		$(CC) $(CFLAGS) -o $(EXEC) $(OBJ) $(LDFLAGS)
-		printf '\033[1;31m%s \033[1;35m%s \033[1;33m%s\n\033[0m' "Linking C executable" "$(EXEC)" "$(CC)"
+$(NAME)	:	$(OBJDIR) $(OBJ)
+		$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LDFLAGS)
+		printf '\033[1;31m%s \033[1;35m%s \033[1;33m%s\n\033[0m' "Linking C executable" "$(NAME)" "$(CC)"
 
 clean	:
 		/bin/rm	-fr $(OBJDIR)
-		printf '\033[1;34m%s\n\033[0m' "Clean project $(EXEC)"
+		printf '\033[1;34m%s\n\033[0m' "Clean project $(NAME)"
 
 fclean	:	clean
-		/bin/rm -fr $(EXEC)
-		printf '\033[1;34m%s\n\033[0m' "Fclean project $(EXEC)"
+		/bin/rm -fr $(NAME)
+		printf '\033[1;34m%s\n\033[0m' "Fclean project $(NAME)"
 
 re		:	fclean all
 
@@ -65,7 +65,7 @@ every	:	CFLAGS += -Weverything
 every	:	re
 		printf '\033[1;33m%s\n\033[0m' "Good job !"
 
-all		:	$(EXEC)
+all		:	$(NAME)
 
 $(OBJDIR)	:
 		/bin/mkdir $(OBJDIR);			\
