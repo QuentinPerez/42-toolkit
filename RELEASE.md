@@ -3,6 +3,9 @@ LIB42 RELEASES
 
 ####Current release : 0.1.3
 
+	-V0.1.4 08-01-2014
+		fix norme
+
 	-V0.1.3 12-02-2013
 		some fix
 
