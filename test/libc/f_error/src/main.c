@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/27 15:48:40 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/05 13:58:08 by qperez           ###   ########.fr       */
+/*   Updated: 2013/12/29 16:27:17 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 
 void	D_UNIT_FUNCT(ret_val)
 {
-	D_UNIT(assert)(m_error(false, "") == false);
-	D_UNIT(assert)(m_error(true, "") == true);
-	D_UNIT(assert)(m_error(1, "") == 1);
-	D_UNIT(assert)(m_error(-1, "") == (size_t)-1);
+	D_UNIT(assert)(M_ERROR(false, "") == false);
+	D_UNIT(assert)(M_ERROR(true, "") == true);
+	D_UNIT(assert)(M_ERROR(1, "") == 1);
+	D_UNIT(assert)(M_ERROR(-1, "") == (size_t)-1);
 }
 
 int		main(int argc, char const** argv)

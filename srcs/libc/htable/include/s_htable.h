@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/08 13:47:03 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/03 23:33:05 by qperez           ###   ########.fr       */
+/*   Updated: 2014/01/08 12:27:04 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@
 #ifndef S_HTABLE_H
 # define S_HTABLE_H
 
-#include <array/s_array.h>
+# include <array/s_array.h>
 
 typedef struct	s_htable_cell
 {

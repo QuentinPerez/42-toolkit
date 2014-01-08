@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/06 21:23:29 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/12 19:00:19 by qperez           ###   ########.fr       */
+/*   Updated: 2014/01/08 12:26:43 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@
 #ifndef F_STRING_H
 # define F_STRING_H
 
-#include <stddef.h>
-#include <d_bool.h>
-#include <t_types.h>
+# include <stddef.h>
+# include <stdbool.h>
+# include <t_types.h>
 
 char	*uf_strcpy(char *dest, const char *src);
 char	*uf_strncpy(char *dest, const char *src, size_t size);

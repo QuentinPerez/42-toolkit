@@ -6,7 +6,7 @@
 /*   By: irabeson <irabeson42@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/07 04:18:37 by irabeson          #+#    #+#             */
-/*   Updated: 2013/11/03 19:36:23 by qperez           ###   ########.fr       */
+/*   Updated: 2014/01/08 17:56:56 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@
 #include <f_error/m_error.h>
 
 static void	f_list_pick_cells_imp(t_list *const v_this,
-								  t_list_cell *const begin,
-								  t_list_cell *const end)
+								t_list_cell *const begin,
+								t_list_cell *const end)
 {
 	t_list_cell	*cell_before;
 	t_list_cell	*cell_after;
@@ -63,7 +63,7 @@ static void	f_list_pick_cells_imp(t_list *const v_this,
 }
 
 static ui	f_list_pick_cells(t_list *const v_this, t_list_cell *const begin,
-							  t_list_cell *end)
+							t_list_cell *end)
 {
 	ui	cell_count;
 
@@ -80,8 +80,8 @@ static ui	f_list_pick_cells(t_list *const v_this, t_list_cell *const begin,
 }
 
 static void	f_list_splice_imp(t_list *const v_this, t_list_cell *const position,
-							  t_list_cell *const other_begin,
-							  t_list_cell *const other_end)
+							t_list_cell *const other_begin,
+							t_list_cell *const other_end)
 {
 	t_list_cell	*before;
 
@@ -101,7 +101,7 @@ static void	f_list_splice_imp(t_list *const v_this, t_list_cell *const position,
 }
 
 void		f_list_splice(t_list *v_this, t_list_cell *position,
-						  t_list *other_list, t_list_interval *other_interval)
+						t_list *other_list, t_list_interval *other_interval)
 {
 	ui	cell_count;
 
@@ -125,7 +125,7 @@ void		f_list_splice(t_list *v_this, t_list_cell *position,
 	}
 	else
 		D_LIST(splice_imp)(v_this, position,
-						   D_LIST_INTERVAL(begin)(other_interval),
-						   D_LIST_INTERVAL(end)(other_interval));
+						D_LIST_INTERVAL(begin)(other_interval),
+						D_LIST_INTERVAL(end)(other_interval));
 	v_this->v_size = D_LIST(size)(v_this) + cell_count;
 }

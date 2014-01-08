@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/25 19:19:43 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/04 10:06:29 by qperez           ###   ########.fr       */
+/*   Updated: 2014/01/08 18:39:19 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@
 #include <stdarg.h>
 
 static bool	uf_string_treat_argument_next(t_string *v_this, va_list *ap,
-										  const char **fmt)
+										const char **fmt)
 {
 	if (**fmt == 's')
 	{
@@ -52,7 +52,7 @@ static bool	uf_string_treat_argument_next(t_string *v_this, va_list *ap,
 }
 
 static bool	uf_string_treat_argument(t_string *v_this, va_list *ap,
-									 const char **fmt)
+									const char **fmt)
 {
 	*fmt = *fmt + 1;
 	if (**fmt == 'd' || **fmt == 'i')
@@ -88,8 +88,8 @@ bool		f_string_variadic(t_string *v_this, const char *fmt, ...)
 	{
 		if (*fmt == '%')
 		{
-			if (D_STRING(add_nstr)(v_this, tmp, fmt - tmp) == false ||
-				uf_string_treat_argument(v_this, &ap, &fmt) == false)
+			if (D_STRING(add_nstr)(v_this, tmp, fmt - tmp) == false
+				|| uf_string_treat_argument(v_this, &ap, &fmt) == false)
 				error = true;
 			fmt = fmt + 1;
 			tmp = fmt;
@@ -97,15 +97,15 @@ bool		f_string_variadic(t_string *v_this, const char *fmt, ...)
 		else
 			fmt = fmt + 1;
 	}
-	if (error == false && tmp != fmt &&
-		D_STRING(add_nstr)(v_this, tmp, fmt - tmp) == false)
+	if (error == false && tmp != fmt
+		&& D_STRING(add_nstr)(v_this, tmp, fmt - tmp) == false)
 		error = true;
 	va_end(ap);
 	return (error);
 }
 
 bool		f_string_variadic_list(t_string *v_this, const char *fmt,
-								   va_list *ap)
+								va_list *ap)
 {
 	const char	*tmp;
 	bool		error;
@@ -116,8 +116,8 @@ bool		f_string_variadic_list(t_string *v_this, const char *fmt,
 	{
 		if (*fmt == '%')
 		{
-			if (D_STRING(add_nstr)(v_this, tmp, fmt - tmp) == false ||
-				uf_string_treat_argument(v_this, ap, &fmt) == false)
+			if (D_STRING(add_nstr)(v_this, tmp, fmt - tmp) == false
+				|| uf_string_treat_argument(v_this, ap, &fmt) == false)
 				error = true;
 			fmt = fmt + 1;
 			tmp = fmt;
@@ -125,8 +125,8 @@ bool		f_string_variadic_list(t_string *v_this, const char *fmt,
 		else
 			fmt = fmt + 1;
 	}
-	if (error == false && tmp != fmt &&
-		D_STRING(add_nstr)(v_this, tmp, fmt - tmp) == false)
+	if (error == false && tmp != fmt
+		&& D_STRING(add_nstr)(v_this, tmp, fmt - tmp) == false)
 		error = true;
 	return (error);
 }

@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/31 16:10:19 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/04 00:04:18 by qperez           ###   ########.fr       */
+/*   Updated: 2014/01/08 18:28:39 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static t_unit_test	*uf_unit_alloc_test(const char *name,
 
 	t = malloc(sizeof(*t));
 	if (t == NULL)
-		return ((t_unit_test*)m_error((size_t)NULL, "Bad alloc"));
+		return ((t_unit_test*)M_ERROR((size_t)NULL, "Bad alloc"));
 	t->v_name = name;
 	t->f_func = test;
 	t->v_failed = false;
@@ -65,14 +65,14 @@ static t_unit_test	*uf_unit_alloc_test(const char *name,
 }
 
 bool				f_unit_add_context(t_unit *v_this, const char *name,
-									   bool (*init)(void *),
-									   bool (*destroy)(void *))
+									bool (*init)(void *),
+									bool (*destroy)(void *))
 {
 	t_unit_context	*context;
 
 	context = malloc(sizeof(*context));
 	if (context == NULL)
-		return (m_error(false, "Bad alloc"));
+		return (M_ERROR(false, "Bad alloc"));
 	context->v_name = name;
 	context->f_init = init;
 	context->f_destroy = destroy;
@@ -87,8 +87,8 @@ bool				f_unit_add_context(t_unit *v_this, const char *name,
 }
 
 bool				mf_unit_add_test(t_unit *v_this, const char *context,
-									 const char *name,
-									 void (*test)(t_unit_test *))
+									const char *name,
+									void (*test)(t_unit_test *))
 {
 	t_list_cell	*cell;
 	t_unit_test	*t;
@@ -101,7 +101,7 @@ bool				mf_unit_add_test(t_unit *v_this, const char *context,
 		cell = cell->v_next;
 	}
 	if (cell == NULL)
-		return (m_error(false, "Could not find %s context", context));
+		return (M_ERROR(false, "Could not find %s context", context));
 	t = uf_unit_alloc_test(name, test);
 	if (t == NULL)
 		return (false);

@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/07 23:41:00 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/08 14:12:37 by qperez           ###   ########.fr       */
+/*   Updated: 2014/01/08 18:38:36 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,13 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <d_bool.h>
+#include <stdbool.h>
 #include <t_types.h>
 
 bool	uf_is_space(const uc c)
 {
-	return (c == '\t' || c == ' ' || c == '\r' ||
-			c == '\f' || c == '\v' || c == '\n');
+	return (c == '\t' || c == ' ' || c == '\r'
+			|| c == '\f' || c == '\v' || c == '\n');
 }
 
 char	*uf_skip_space(const char *str)

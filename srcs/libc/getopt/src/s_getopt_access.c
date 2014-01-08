@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/29 23:09:01 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/12 16:57:19 by qperez           ###   ########.fr       */
+/*   Updated: 2014/01/08 18:31:26 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,11 @@ bool		f_getopt_option(t_getopt *v_this)
 	{
 		av = v_this->v_argv[v_this->v_current_argc];
 		size = uf_str_len(av);
-		if (size == 2 && av[0] == '-' && av[1] != '-' &&
-			uf_getopt_check_option(v_this, av + 1) == true)
+		if (size == 2 && av[0] == '-' && av[1] != '-'
+			&& uf_getopt_check_option(v_this, av + 1) == true)
 			return (true);;
-		if (size > 3 && av[0] == '-' && av[1] == '-' && av[2] != '-' &&
-			uf_getopt_check_option(v_this, av + 2) == true)
+		if (size > 3 && av[0] == '-' && av[1] == '-' && av[2] != '-'
+			&& uf_getopt_check_option(v_this, av + 2) == true)
 			return (true); ;
 		v_this->v_current_argc = v_this->v_current_argc + 1;
 	}

@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/30 22:50:59 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/28 15:14:40 by qperez           ###   ########.fr       */
+/*   Updated: 2014/01/08 17:55:59 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ void		f_list_reverse(t_list *v_this)
 		begin->v_data = end->v_data;
 		end->v_data = tmp;
 		if (end->v_prev == begin)
-			break;
+			break ;
 		begin = begin->v_next;
 		end = end->v_prev;
 	}
@@ -76,12 +76,11 @@ t_list_cell	*f_list_delete(t_list *v_this, t_list_cell *mb_del)
 
 	ret = D_LIST(erase)(v_this, mb_del, &del);
 	v_this->f_destroy(del);
-	free(mb_del);
 	return (ret);
 }
 
 void		f_list_delete_if(t_list *v_this,
-							 bool (*cmp)(void *data, void *value), void *value)
+							bool (*cmp)(void *data, void *value), void *value)
 {
 	t_list_cell	*cur;
 

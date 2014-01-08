@@ -6,7 +6,7 @@
 /*   By: irabeson <irabeson42@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/10 14:30:00 by irabeson          #+#    #+#             */
-/*   Updated: 2013/11/03 23:34:31 by qperez           ###   ########.fr       */
+/*   Updated: 2014/01/08 12:27:41 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@
 #ifndef S_LIST_INTERVAL
 # define S_LIST_INTERVAL
 
-#include <list/s_list_cell.h>
+# include <list/s_list_cell.h>
 
 typedef struct		s_list_interval
 {

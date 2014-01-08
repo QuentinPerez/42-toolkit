@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/31 11:39:40 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/04 10:08:02 by qperez           ###   ########.fr       */
+/*   Updated: 2014/01/08 18:25:33 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void		uf_unit_console_treat_list(t_unit *v_this);
 void		uf_unit_console_treat_run(t_unit *v_this);
 void		uf_unit_console_treat_select(t_unit *v_this);
 void		uf_unit_print_console(t_unit *v_this, const char *info,
-								  bool menu, char c);
+								bool menu, char c);
 
 static void	uf_treat_line(t_unit *v_this, t_unit_console_option *opt, char *str)
 {
@@ -65,7 +65,7 @@ static void	uf_treat_line(t_unit *v_this, t_unit_console_option *opt, char *str)
 }
 
 static void	uf_unit_add_option(t_unit_console_option *option, const char *full,
-							   const char *shortcut, void (*funct)(t_unit *))
+							const char *shortcut, void (*funct)(t_unit *))
 {
 	static ui	i = 0;
 

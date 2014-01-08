@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/22 14:33:19 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/04 09:46:19 by qperez           ###   ########.fr       */
+/*   Updated: 2014/01/08 18:00:41 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
  ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <d_bool.h>
+#include <stdbool.h>
 #include <t_types.h>
 #include <stdlib.h>
 #include <f_error/m_error.h>
@@ -62,14 +62,14 @@ static void	uf_sort_tab(int *tab, int *counter, int minmax[2])
 static bool	uf_sort_make_counter(int *tab, ui size, int minmax[2])
 {
 	ui	i;
-	int *counter;
+	int	*counter;
 	ui	size_counter;
 
 	i = 0;
 	size_counter = minmax[1] - minmax[0] + 1;
 	counter = malloc(sizeof(*counter) * (size_counter));
 	if (counter == NULL)
-		return (m_error(false, "Bad alloc"));
+		return (M_ERROR(false, "Bad alloc"));
 	uf_memset(counter, 0, sizeof(*counter) * size_counter);
 	while (i < size)
 	{
@@ -84,7 +84,7 @@ static bool	uf_sort_make_counter(int *tab, ui size, int minmax[2])
 bool		uf_sort_counting(int *tab, ui size)
 {
 	ui	i;
-	int minmax[2];
+	int	minmax[2];
 
 	i = 1;
 	if (size > 0)

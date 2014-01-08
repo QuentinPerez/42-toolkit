@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/25 18:44:48 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/04 10:04:12 by qperez           ###   ########.fr       */
+/*   Updated: 2014/01/08 18:35:01 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ bool	f_string_add_str(t_string *v_this, const char *str)
 	if (size == 0)
 		return (true);
 	size = size + 1;
-	if (v_this->v_size + size > v_this->v_capacity &&
-		uf_string_realloc(v_this, size) == false)
+	if (v_this->v_size + size > v_this->v_capacity
+		&& uf_string_realloc(v_this, size) == false)
 		return (false);
 	uf_strcat(v_this->v_str + v_this->v_size, str);
 	v_this->v_size = v_this->v_size + size - 1;
@@ -55,8 +55,8 @@ bool	f_string_add_str(t_string *v_this, const char *str)
 
 bool	f_string_add_char(t_string *v_this, uc c)
 {
-	if (v_this->v_size + 2 > v_this->v_capacity &&
-		uf_string_realloc(v_this, 2) == false)
+	if (v_this->v_size + 2 > v_this->v_capacity
+		&& uf_string_realloc(v_this, 2) == false)
 		return (false);
 	v_this->v_str[v_this->v_size] = c;
 	v_this->v_size = v_this->v_size + 1;
@@ -68,8 +68,8 @@ bool	f_string_add_nstr(t_string *v_this, const char *str, ui size)
 {
 	if (size == 0)
 		return (true);
-	if (v_this->v_size + size + 1 > v_this->v_capacity &&
-		uf_string_realloc(v_this, size + 1) == false)
+	if (v_this->v_size + size + 1 > v_this->v_capacity
+		&& uf_string_realloc(v_this, size + 1) == false)
 		return (false);
 	uf_strncat(v_this->v_str + v_this->v_size, str, size);
 	v_this->v_size = v_this->v_size + size;

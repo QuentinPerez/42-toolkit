@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/28 13:28:29 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/04 00:01:20 by qperez           ###   ########.fr       */
+/*   Updated: 2014/01/08 18:35:19 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,11 @@ bool	f_string_insert(t_string *v_this, const char *insert, ui at)
 	size = uf_str_len(insert);
 	if (size == 0)
 		return (true);
-	if (v_this->v_size + size + 1 > v_this->v_capacity &&
-		uf_string_realloc(v_this, size + 1) == false)
+	if (v_this->v_size + size + 1 > v_this->v_capacity
+		&& uf_string_realloc(v_this, size + 1) == false)
 		return (false);
 	uf_memcpy(v_this->v_str + at + size, v_this->v_str + at,
-			  v_this->v_size - at);
+			v_this->v_size - at);
 	uf_memcpy(v_this->v_str + at, insert, size);
 	v_this->v_size = v_this->v_size + size;
 	return (true);

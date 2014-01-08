@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/16 20:15:12 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/05 23:57:03 by qperez           ###   ########.fr       */
+/*   Updated: 2013/12/29 15:55:56 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ bool	f_vector_delete(t_vector *v_this, void *ptr)
 
 	erase = D_VECTOR(erase)(v_this, ptr);
 	if (erase == NULL)
-		return (m_error(false, "Couldn't find pointer"));
+		return (M_ERROR(false, "Couldn't find pointer"));
 	v_this->f_delete(erase);
 	return (true);
 }

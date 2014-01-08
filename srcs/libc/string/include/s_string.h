@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/22 12:13:53 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/12 16:53:21 by qperez           ###   ########.fr       */
+/*   Updated: 2014/01/08 12:32:52 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@
 #ifndef S_STRING_H
 # define S_STRING_H
 
-#include <d_bool.h>
-#include <t_types.h>
-#include <unistd.h>
-#include <stdarg.h>
+# include <stdbool.h>
+# include <t_types.h>
+# include <unistd.h>
+# include <stdarg.h>
 
 typedef struct	s_string
 {

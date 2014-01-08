@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/26 12:53:04 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/03 23:46:14 by qperez           ###   ########.fr       */
+/*   Updated: 2014/01/08 12:31:11 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <d_bool.h>
+#include <stdbool.h>
 #include <stddef.h>
 #include <t_types.h>
 

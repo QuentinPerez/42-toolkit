@@ -67,7 +67,7 @@ all	:	$(DIR42) $(LIB42) $(EXELIST)
 
 
 $(LIB42)	:	force
-			make -j$(NB_CORE) -C $(DIR42)
+			make -C $(DIR42)
 
 clean	:
 		/bin/rm	-fr $(DIR42) $(EXELIST)
@@ -85,7 +85,7 @@ r		:
 re		:	clean all
 
 relib	:
-		make re -j$(NB_CORE) -C $(DIR42)
+		make re -C $(DIR42)
 
 $(DIR42)	:
 			./configure

@@ -1,4 +1,4 @@
-﻿/* ************************************************************************** */
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   s_list_split.c                                     :+:      :+:    :+:   */
@@ -6,7 +6,7 @@
 /*   By: irabeson <irabeson42@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/07 19:58:18 by irabeson          #+#    #+#             */
-/*   Updated: 2013/11/04 10:01:55 by qperez           ###   ########.fr       */
+/*   Updated: 2014/01/08 17:57:27 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@
 #include <stdlib.h>
 
 static void	f_list_split_imp(t_list *v_this, t_list *new_list,
-							 t_list_cell *split_at)
+							t_list_cell *split_at)
 {
 	new_list->v_begin = split_at;
 	new_list->v_end = D_LIST(end)(v_this);
@@ -48,7 +48,7 @@ static void	f_list_split_imp(t_list *v_this, t_list *new_list,
 }
 
 void		f_list_split(t_list *v_this, t_list_cell *split_at,
-						 t_list *new_list)
+						t_list *new_list)
 {
 	if (new_list != NULL && split_at != NULL)
 	{

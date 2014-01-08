@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/31 17:58:49 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/12 19:06:10 by qperez           ###   ########.fr       */
+/*   Updated: 2014/01/08 18:01:02 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ char		*uf_itoa_base(int nbr, ui base)
 	t_string	str;
 
 	ret = NULL;
-	if (D_STRING(init)(&str, 0) == true &&
-		D_STRING(add_nbr_base)(&str, nbr, base) == true)
+	if (D_STRING(init)(&str, 0) == true
+		&& D_STRING(add_nbr_base)(&str, nbr, base) == true)
 		ret = D_STRING(dup)(&str);
 	D_STRING(destroy)(&str);
 	return (ret);

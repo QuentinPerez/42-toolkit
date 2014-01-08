@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/16 12:11:43 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/03 23:38:25 by qperez           ###   ########.fr       */
+/*   Updated: 2014/01/08 12:29:56 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@
 #ifndef S_VECTOR_H
 # define S_VECTOR_H
 
-#include <t_types.h>
-#include <d_bool.h>
+# include <t_types.h>
+# include <stdbool.h>
 
 typedef struct	s_vector
 {

@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/02 12:59:24 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/04 09:41:23 by qperez           ###   ########.fr       */
+/*   Updated: 2014/01/08 17:52:34 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,9 +47,8 @@ static inline ui	uf_array_realloc(ui size)
 }
 
 bool				f_array_init(t_array *v_this,
-								 ui (*uf_realloc)(ui size),
-								 void (*uf_delete)(void *ptr),
-								 ui type_size)
+							ui (*uf_realloc)(ui size),
+							void (*uf_delete)(void *ptr), ui type_size)
 {
 	v_this->v_size = 0;
 	v_this->v_capacity = 0;
@@ -61,7 +60,7 @@ bool				f_array_init(t_array *v_this,
 		v_this->f_delete = uf_array_delete;
 	v_this->v_data = calloc(2, type_size);
 	if (v_this->v_data == NULL)
-		return (m_error(false, "Bad alloc"));
+		return (M_ERROR(false, "Bad alloc"));
 	v_this->v_capacity = 2;
 	v_this->v_type_size = type_size;
 	return (true);

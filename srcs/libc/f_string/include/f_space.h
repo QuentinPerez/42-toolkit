@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/07 23:42:21 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/03 23:32:06 by qperez           ###   ########.fr       */
+/*   Updated: 2014/01/08 12:26:31 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@
 #ifndef F_SPACE_H
 # define F_SPACE_H
 
-#include <d_bool.h>
-#include <t_types.h>
+# include <stdbool.h>
+# include <t_types.h>
 
 bool	uf_is_space(const uc c);
 char	*uf_skip_space(const char *str);

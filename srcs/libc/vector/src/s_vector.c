@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/16 12:10:46 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/04 21:33:13 by qperez           ###   ########.fr       */
+/*   Updated: 2014/01/08 18:28:58 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ static inline ui	uf_vector_realloc(ui size)
 }
 
 bool				f_vector_init(t_vector *v_this,
-								  ui (*uf_realloc)(ui size),
-								  void (*uf_delete)(void *ptr))
+								ui (*uf_realloc)(ui size),
+								void (*uf_delete)(void *ptr))
 {
 	v_this->v_size = 0;
 	v_this->v_capacity = 0;
@@ -60,7 +60,7 @@ bool				f_vector_init(t_vector *v_this,
 		v_this->f_delete = uf_vector_delete;
 	v_this->v_data = calloc(2, sizeof(*v_this->v_data));
 	if (v_this->v_data == NULL)
-		return (m_error(false, "Bad alloc"));
+		return (M_ERROR(false, "Bad alloc"));
 	v_this->v_capacity = 2;
 	return (true);
 }

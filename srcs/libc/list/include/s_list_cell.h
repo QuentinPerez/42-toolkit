@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/28 20:58:10 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/04 09:38:07 by qperez           ###   ########.fr       */
+/*   Updated: 2014/01/08 12:27:37 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@
 #ifndef S_LIST_CELL_H
 # define S_LIST_CELL_H
 
-#include <t_types.h>
+# include <t_types.h>
 
 typedef struct	s_list_cell
 {

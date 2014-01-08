@@ -20,7 +20,7 @@
 
 CC			=		clang
 DIR42		=		lib42
-CFLAGS		+=		-Wextra -Wall -Werror -I./$(DIR42)/include
+CFLAGS		+=		-Wextra -Wall -Werror -I./$(DIR42)/include -DD_ERRORS_ON
 LDFLAGS		+=		-L./$(DIR42) -l42
 DEBUG		=		-g3 -fno-inline -DD_ERRORS_ON
 
@@ -56,7 +56,7 @@ $(EXEC)			:	$(DIR42) $(OBJDIR) $(LIB42) $(OBJ)
 				printf '\033[1;31m%s \033[1;35m%s \033[1;33m%s\n\033[0m' "Linking C executable" "$(EXEC)" "$(CC)"
 
 $(LIB42)		:	force
-				make -j$(NB_CORE) -C $(DIR42)
+				make -C $(DIR42)
 
 clean			:
 				/bin/rm        -fr $(OBJDIR) $(DIR42)
@@ -83,7 +83,7 @@ every			:	re
 				printf '\033[1;33m%s\n\033[0m' "Good job !"
 
 relib			:
-				make re -j$(NB_CORE) -C $(DIR42)
+				make re -C $(DIR42)
 
 all				:	$(EXEC)
 

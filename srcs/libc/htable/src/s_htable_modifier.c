@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/08 19:25:06 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/27 17:36:04 by qperez           ###   ########.fr       */
+/*   Updated: 2014/01/08 17:54:31 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,9 @@
 #include <f_error/m_error.h>
 
 ui				f_htable_generate_key(const t_htable *v_this, const char *str);
+
 t_htable_cell	*f_htable_create_cell(const char *key, void *data,
-									  void (*f_delete)(void *data));
+									void (*f_delete)(void *data));
 
 bool			f_htable_add(t_htable *v_this, const char *str, void *data)
 {
@@ -50,7 +51,7 @@ bool			f_htable_add(t_htable *v_this, const char *str, void *data)
 	element = D_ARRAY(at)(&v_this->v_array, key, t_list *);
 	cell = D_HTABLE(create_cell)(str, data, v_this->f_delete);
 	if (cell == NULL)
-		return (m_error(false, "Bad alloc"));
+		return (M_ERROR(false, "Bad alloc"));
 	return (D_LIST(push_back)(element, cell));
 }
 
@@ -62,7 +63,7 @@ void			*f_htable_get(t_htable *v_this, const char *str)
 
 	ret = NULL;
 	list = D_ARRAY(at)(&v_this->v_array,
-					   D_HTABLE(generate_key)(v_this, str), t_list *);
+					D_HTABLE(generate_key)(v_this, str), t_list *);
 	cell = D_LIST(begin)(list);
 	while (cell != NULL && ret == NULL)
 	{

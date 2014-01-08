@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/07 20:56:15 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/07 21:13:01 by qperez           ###   ########.fr       */
+/*   Updated: 2014/01/08 12:30:49 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@
 */
 
 #include <t_types.h>
-#include <d_bool.h>
+#include <stdbool.h>
 
 bool	uf_is_upper(const uc c)
 {

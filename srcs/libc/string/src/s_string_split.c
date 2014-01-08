@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/28 20:37:37 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/10 17:36:43 by qperez           ###   ########.fr       */
+/*   Updated: 2013/12/29 15:53:54 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ static bool	*uf_string_fill_bool(t_string *v_this, const char *charset)
 	i = 0;
 	active = malloc(v_this->v_size * sizeof(*active));
 	if (active == NULL)
-		return ((bool *)m_error((size_t)NULL, "Bad alloc"));
+		return ((bool *)M_ERROR((size_t)NULL, "Bad alloc"));
 	uf_memset(active, false, v_this->v_size * sizeof(*active));
 	size = uf_str_len(charset);
 	if (size == 0)

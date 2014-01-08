@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/31 18:18:43 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/03 23:38:13 by qperez           ###   ########.fr       */
+/*   Updated: 2014/01/08 12:29:43 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@
 #ifndef S_UNIT_TEST_H
 # define S_UNIT_TEST_H
 
-#include <d_bool.h>
-#include <t_types.h>
-#include <list/s_list.h>
+# include <stdbool.h>
+# include <t_types.h>
+# include <list/s_list.h>
 
 typedef struct	s_unit_assert
 {

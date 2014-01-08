@@ -6,7 +6,7 @@
 /*   By: cmuller <clara.muller19@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/09 19:20:01 by cmuller           #+#    #+#             */
-/*   Updated: 2013/11/12 18:06:08 by qperez           ###   ########.fr       */
+/*   Updated: 2014/01/08 12:27:56 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@
 #ifndef S_MATRIX_H
 # define S_MATRIX_H
 
-#include <d_bool.h>
-#include <f_memory/f_memory.h>
-#include <f_error/m_error.h>
-#include <t_types.h>
+# include <stdbool.h>
+# include <f_memory/f_memory.h>
+# include <f_error/m_error.h>
+# include <t_types.h>
 
 typedef struct	s_matrix
 {

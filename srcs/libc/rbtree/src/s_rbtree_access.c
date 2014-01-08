@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/13 18:33:52 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/13 18:48:00 by qperez           ###   ########.fr       */
+/*   Updated: 2014/01/08 18:31:45 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,6 @@ t_rbcell	*f_rbtree_root(t_rbtree *v_this)
 
 bool		f_rbtree_empty(const t_rbtree *v_this)
 {
-	return (v_this->v_root.v_left == &v_this->v_nil &&
-			v_this->v_root.v_right == &v_this->v_nil);
+	return (v_this->v_root.v_left == &v_this->v_nil
+			&& v_this->v_root.v_right == &v_this->v_nil);
 }

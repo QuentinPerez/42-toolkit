@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/25 18:38:40 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/04 00:01:42 by qperez           ###   ########.fr       */
+/*   Updated: 2014/01/08 17:59:31 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,11 @@ bool	uf_string_realloc(t_string *v_this, ui add)
 	{
 		free(v_this->v_str);
 		uf_memset(v_this, 0, sizeof(*v_this));
-		return (m_error(false, "Bad alloc"));
+		return (M_ERROR(false, "Bad alloc"));
 	}
 	v_this->v_str = tmp;
 	uf_memset(v_this->v_str + v_this->v_capacity, '\0',
-			  new_capacity - v_this->v_capacity);
+			new_capacity - v_this->v_capacity);
 	v_this->v_capacity = new_capacity;
 	return (true);
 }

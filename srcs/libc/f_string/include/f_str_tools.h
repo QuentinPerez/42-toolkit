@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/28 15:12:43 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/03 23:32:17 by qperez           ###   ########.fr       */
+/*   Updated: 2014/01/08 12:26:37 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@
 #ifndef F_STR_TOOLS_H
 # define F_STR_TOOLS_H
 
-#include <stddef.h>
+# include <stddef.h>
 
 size_t	uf_str_len(const char *str);
 void	uf_print_in_base(char nbr, int fd);

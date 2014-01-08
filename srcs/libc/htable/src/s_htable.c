@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/08 13:53:57 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/04 09:54:40 by qperez           ###   ########.fr       */
+/*   Updated: 2014/01/08 17:54:02 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,8 @@ bool	f_htable_init(t_htable *v_this, ui prime, void (*f_delete)(void *ptr))
 
 	i = 0;
 	if (D_ARRAY(init)(&v_this->v_array, NULL, (void (*)(void *))D_LIST(destroy),
-					  sizeof(t_list)) == false)
-		return (m_error(false, "Could not initialize array"));
+					sizeof(t_list)) == false)
+		return (M_ERROR(false, "Could not initialize array"));
 	D_LIST(init)(&list, D_HTABLE(delete_cell));
 	while (i < prime)
 	{

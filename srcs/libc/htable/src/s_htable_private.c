@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/09 08:25:06 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/04 09:57:56 by qperez           ###   ########.fr       */
+/*   Updated: 2014/01/08 17:55:13 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void		uf_cell_delete(void *data)
 }
 
 t_htable_cell	*f_htable_create_cell(const char *key, void *data,
-									  void (*f_delete)(void *data))
+									void (*f_delete)(void *data))
 {
 	t_htable_cell	*cell;
 

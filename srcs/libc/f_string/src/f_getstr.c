@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/30 13:45:49 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/03 23:50:14 by qperez           ###   ########.fr       */
+/*   Updated: 2013/12/29 15:45:28 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ char		*uf_getstr(ui fd, uc terminate, bool del)
 
 	ret = NULL;
 	if (D_STRING(init)(&string, 0) == false)
-		return ((char *)m_error((ssize_t)NULL, "Could not initialize string"));
+		return ((char *)M_ERROR((ssize_t)NULL, "Could not initialize string"));
 	if (uf_get_data(&string, fd, terminate, del) == true)
 		ret = D_STRING(dup)(&string);
 	D_STRING(destroy)(&string);
