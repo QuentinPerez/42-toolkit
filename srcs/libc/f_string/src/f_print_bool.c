@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/12 16:08:13 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/12 16:12:49 by qperez           ###   ########.fr       */
+/*   Updated: 2014/01/08 12:31:31 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@
 
 #include <unistd.h>
 #include <t_types.h>
-#include <d_bool.h>
+#include <stdbool.h>
 
 void	uf_print_bool_fd(bool value, ui fd)
 {

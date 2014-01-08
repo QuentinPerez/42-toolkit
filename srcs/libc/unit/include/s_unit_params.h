@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/31 12:06:36 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/03 23:38:03 by qperez           ###   ########.fr       */
+/*   Updated: 2014/01/08 12:29:35 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@
 #ifndef S_UNIT_PARAMS_H
 # define S_UNIT_PARAMS_H
 
-#include <t_types.h>
-#include <d_bool.h>
+# include <t_types.h>
+# include <stdbool.h>
 
 typedef struct	s_unit_params
 {

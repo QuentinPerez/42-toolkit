@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/21 23:06:57 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/21 23:26:52 by qperez           ###   ########.fr       */
+/*   Updated: 2014/01/08 12:30:57 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@
 */
 
 #include <t_types.h>
-#include <d_bool.h>
+#include <stdbool.h>
 
 extern inline bool	uf_is_alpha(const uc c)
 {

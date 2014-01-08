@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/16 12:55:00 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/04 20:40:28 by qperez           ###   ########.fr       */
+/*   Updated: 2014/01/08 12:42:30 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ void	tf_launch(const char *name, void (*sort)(int *, ui))
 	t_timer	timer;
 	int		ptr_int[SIZE_TAB];
 
-	m_infos(name);
+	M_INFOS(name);
 	uf_init(ptr_int);
 	D_TIMER(start)(&timer);
 	sort(ptr_int, SIZE_TAB);

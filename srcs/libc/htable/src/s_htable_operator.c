@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/09 08:21:59 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/04 09:56:37 by qperez           ###   ########.fr       */
+/*   Updated: 2014/01/08 17:54:57 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	*f_htable_erase(t_htable *v_this, const char *key)
 
 	ret = NULL;
 	list = D_ARRAY(at)(&v_this->v_array,
-					   D_HTABLE(generate_key)(v_this, key), t_list *);
+					D_HTABLE(generate_key)(v_this, key), t_list *);
 	cell = D_LIST(begin)(list);
 	while (cell != NULL && ret == NULL)
 	{
@@ -65,7 +65,7 @@ void	f_htable_delete(t_htable *v_this, const char *key)
 	t_list_cell	*cell;
 
 	list = D_ARRAY(at)(&v_this->v_array,
-					   D_HTABLE(generate_key)(v_this, key), t_list *);
+					D_HTABLE(generate_key)(v_this, key), t_list *);
 	cell = D_LIST(begin)(list);
 	while (cell != NULL)
 	{

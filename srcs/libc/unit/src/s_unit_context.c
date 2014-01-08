@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/31 16:10:19 by qperez            #+#    #+#             */
-/*   Updated: 2013/12/29 15:54:46 by qperez           ###   ########.fr       */
+/*   Updated: 2014/01/08 18:28:39 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,8 @@ static t_unit_test	*uf_unit_alloc_test(const char *name,
 }
 
 bool				f_unit_add_context(t_unit *v_this, const char *name,
-									   bool (*init)(void *),
-									   bool (*destroy)(void *))
+									bool (*init)(void *),
+									bool (*destroy)(void *))
 {
 	t_unit_context	*context;
 
@@ -87,8 +87,8 @@ bool				f_unit_add_context(t_unit *v_this, const char *name,
 }
 
 bool				mf_unit_add_test(t_unit *v_this, const char *context,
-									 const char *name,
-									 void (*test)(t_unit_test *))
+									const char *name,
+									void (*test)(t_unit_test *))
 {
 	t_list_cell	*cell;
 	t_unit_test	*t;

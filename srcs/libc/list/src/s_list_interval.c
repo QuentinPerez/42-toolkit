@@ -6,7 +6,7 @@
 /*   By: irabeson <irabeson42@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/10 14:30:45 by irabeson          #+#    #+#             */
-/*   Updated: 2013/10/10 20:02:33 by irabeson         ###   ########.fr       */
+/*   Updated: 2014/01/08 17:55:50 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@
 #include <list/s_list_interval.h>
 
 void		f_list_interval_init(t_list_interval *v_this, t_list_cell *begin,
-								 t_list_cell *end)
+								t_list_cell *end)
 {
 	v_this->v_begin = begin;
 	v_this->v_end = end;

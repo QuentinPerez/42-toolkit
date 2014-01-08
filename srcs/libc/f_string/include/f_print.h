@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/29 17:32:48 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/12 16:12:38 by qperez           ###   ########.fr       */
+/*   Updated: 2014/01/08 12:26:17 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@
 #ifndef F_PRINT_H
 # define F_PRINT_H
 
-#include <unistd.h>
-#include <t_types.h>
-#include <d_bool.h>
+# include <unistd.h>
+# include <t_types.h>
+# include <stdbool.h>
 
 ssize_t	uf_print_char(char c);
 ssize_t	uf_print_str(const char *str);

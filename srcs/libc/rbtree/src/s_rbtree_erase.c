@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/15 11:36:38 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/17 21:38:31 by qperez           ###   ########.fr       */
+/*   Updated: 2014/01/08 18:32:12 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,10 @@
 
 void			uf_rotate_right(t_rbtree *v_this, t_rbcell *node);
 void			uf_rotate_left(t_rbtree *v_this, t_rbcell *node);
-t_rbcell 		*uf_rb_next(t_rbtree *v_this, t_rbcell *node);
+t_rbcell		*uf_rb_next(t_rbtree *v_this, t_rbcell *node);
 
 static bool		uf_rb_change_node(t_rbtree *v_this, t_rbcell **node,
-								  t_rbcell **tmp, bool right)
+								t_rbcell **tmp, bool right)
 {
 	if (right == true)
 		*tmp = (*node)->v_parent->v_right;
@@ -55,8 +55,8 @@ static bool		uf_rb_change_node(t_rbtree *v_this, t_rbcell **node,
 			uf_rotate_right(v_this, (*node)->v_parent);
 		*tmp = (*node)->v_parent->v_right;
 	}
-	if ((*tmp)->v_right->v_color == e_black &&
-		(*tmp)->v_left->v_color == e_black)
+	if ((*tmp)->v_right->v_color == e_black
+		&& (*tmp)->v_left->v_color == e_black)
 	{
 		(*node) = (*node)->v_parent;
 		(*tmp)->v_color = e_red;
@@ -66,7 +66,7 @@ static bool		uf_rb_change_node(t_rbtree *v_this, t_rbcell **node,
 }
 
 static t_rbcell	*uf_rb_fix_color(t_rbtree *v_this, t_rbcell *node,
-								 t_rbcell *tmp, bool right)
+								t_rbcell *tmp, bool right)
 {
 	if (tmp->v_right->v_color == e_black)
 	{
@@ -131,7 +131,7 @@ static void	uf_rb_init_node(t_rbtree *v_this, t_rbcell *node,
 	}
 }
 
-void		 *f_rbtree_erase(t_rbtree *v_this, t_rbcell *node)
+void		*f_rbtree_erase(t_rbtree *v_this, t_rbcell *node)
 {
 	t_rbcell	*j;
 	t_rbcell	*i;

@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/13 15:01:54 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/17 21:49:27 by qperez           ###   ########.fr       */
+/*   Updated: 2014/01/08 12:28:21 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@
 #ifndef S_RBTREE_H
 # define S_RBTREE_H
 
-#include <d_bool.h>
+# include <stdbool.h>
 
 enum	e_rbcolor
 {

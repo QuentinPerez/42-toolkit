@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/07 21:03:48 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/03 23:31:33 by qperez           ###   ########.fr       */
+/*   Updated: 2014/01/08 12:26:09 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@
 #ifndef F_CHAR_H
 # define F_CHAR_H
 
-#include <d_bool.h>
-#include <t_types.h>
+# include <stdbool.h>
+# include <t_types.h>
 
 bool	uf_is_upper(const uc c);
 bool	uf_is_lower(const uc c);

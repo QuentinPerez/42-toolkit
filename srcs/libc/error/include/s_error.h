@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/13 12:25:09 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/03 23:27:08 by qperez           ###   ########.fr       */
+/*   Updated: 2014/01/08 12:24:01 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@
 #ifndef S_ERROR_H
 # define S_ERROR_H
 
-#include <d_bool.h>
+# include <stdbool.h>
 
 typedef struct	s_error
 {

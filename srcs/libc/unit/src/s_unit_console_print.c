@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/31 13:43:01 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/04 00:03:58 by qperez           ###   ########.fr       */
+/*   Updated: 2014/01/08 18:27:52 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	uf_unit_print_nchar(ui size, char c)
 }
 
 void	uf_unit_print_console(t_unit *v_this, const char *info,
-							  bool menu, char c)
+							bool menu, char c)
 {
 	ui	tmp;
 
@@ -61,9 +61,9 @@ void	uf_unit_print_console(t_unit *v_this, const char *info,
 	uf_print_char('\n');
 	if (menu == true)
 		uf_print_variadic("  (%eR%e)un       (%eS%e)elect       (%eL%e)ist     "
-						  "  (%eF%e)ailures       (%eH%e)elp       (%eQ%e)uit"
-						  "\n\n%e↳%e ",
-						  34, 0, 34, 0, 34, 0, 34, 0, 34, 0, 34, 0, 35, 0);
+						"  (%eF%e)ailures       (%eH%e)elp       (%eQ%e)uit"
+						"\n\n%e↳%e ",
+						34, 0, 34, 0, 34, 0, 34, 0, 34, 0, 34, 0, 35, 0);
 }
 
 bool	uf_unit_print_context(void *data)

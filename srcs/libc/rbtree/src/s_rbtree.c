@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/13 15:09:23 by qperez            #+#    #+#             */
-/*   Updated: 2013/12/29 15:51:40 by qperez           ###   ########.fr       */
+/*   Updated: 2014/01/08 17:57:49 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static void	uf_rbtree_delete(void *data)
 }
 
 bool		f_rbtree_init(t_rbtree *v_this, int (*f_cmp)(void *d1, void *d2),
-						  void (*f_del)(void *data))
+						void (*f_del)(void *data))
 {
 	uf_memset(v_this, 0, sizeof(*v_this));
 	if (f_cmp == NULL)

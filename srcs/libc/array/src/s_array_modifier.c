@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/02 15:23:05 by qperez            #+#    #+#             */
-/*   Updated: 2013/12/29 15:48:25 by qperez           ###   ########.fr       */
+/*   Updated: 2014/01/08 18:01:18 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,8 @@ bool		f_array_push_back(t_array *v_this, void *data)
 	ui		new_size;
 
 	new_size = v_this->f_realloc(v_this->v_capacity);
-	if (v_this->v_size + 1 > v_this->v_capacity &&
-		D_ARRAY(realloc)(v_this, new_size) == false)
+	if (v_this->v_size + 1 > v_this->v_capacity
+		&& D_ARRAY(realloc)(v_this, new_size) == false)
 		return (false);
 	to = (char *)v_this->v_data;
 	to = to + v_this->v_size * v_this->v_type_size;
@@ -75,7 +75,7 @@ bool		f_array_push_back(t_array *v_this, void *data)
 }
 
 void		f_array_delete_if(t_array *v_this,
-							  bool (*ft_cmp)(void *d1, void *d2), void *data)
+							bool (*ft_cmp)(void *d1, void *d2), void *data)
 {
 	ui		i;
 	ui		size;
@@ -89,7 +89,7 @@ void		f_array_delete_if(t_array *v_this,
 		if (ft_cmp((void *)(ptr + i), data) == true)
 		{
 			uf_memcpy(ptr + i, ptr + i + v_this->v_type_size,
-					  size - i - v_this->v_type_size);
+					size - i - v_this->v_type_size);
 			uf_memset(ptr + size - v_this->v_type_size, 0, v_this->v_type_size);
 			v_this->v_size = v_this->v_size - 1;
 			size = v_this->v_size * v_this->v_type_size;

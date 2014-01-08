@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/28 20:55:51 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/04 09:37:56 by qperez           ###   ########.fr       */
+/*   Updated: 2014/01/08 12:27:31 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,10 @@
 #ifndef S_LIST_H
 # define S_LIST_H
 
-#include <d_bool.h>
-#include <t_types.h>
-#include <list/s_list_cell.h>
-#include <list/s_list_interval.h>
+# include <stdbool.h>
+# include <t_types.h>
+# include <list/s_list_cell.h>
+# include <list/s_list_interval.h>
 
 typedef struct	s_list
 {

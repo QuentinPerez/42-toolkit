@@ -1,14 +1,8 @@
 #! /bin/bash
 
-if [ ! -d $HOME/.vim ]; then
-	/bin/mkdir $HOME/.vim
-	if [ ! -d $HOME/.vim/plugin ]; then
-		/bin/mkdir $HOME/.vim/plugin
-	fi
-	if [ ! -d $HOME/.vim/syntax ]; then
-		/bin/mkdir $HOME/.vim/syntax
-	fi
-fi
+
+/bin/mkdir -p $HOME/.vim/plugin
+/bin/mkdir -p $HOME/.vim/syntax
 
 DIR_FILE=("syntax" "header" "speed_open" "generator-h")
 VIM_FILE="c.vim make_header.vim speed_open.vim generator_h.vim"

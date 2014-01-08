@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/13 18:07:40 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/14 17:59:40 by qperez           ###   ########.fr       */
+/*   Updated: 2014/01/08 18:25:03 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ bool		mf_preorder(t_rbtree *v_this, t_rbcell *node, void *data,
 }
 
 bool		mf_inorder(t_rbtree *v_this, t_rbcell *node, void *data,
-					   bool (*funct)(void *node, void *data))
+					bool (*funct)(void *node, void *data))
 {
 	if (node != &v_this->v_nil)
 	{

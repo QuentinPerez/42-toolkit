@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/26 12:48:37 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/03 23:30:30 by qperez           ###   ########.fr       */
+/*   Updated: 2014/01/08 12:25:43 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@
 #ifndef F_MEMORY_H
 # define F_MEMORY_H
 
-#include <stddef.h>
-#include <t_types.h>
-#include <d_bool.h>
+# include <stddef.h>
+# include <t_types.h>
+# include <stdbool.h>
 
 void	*uf_memset(void *src, uc c, size_t size);
 void	uf_memcpy(void *to, const void *from, size_t size);

@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/30 11:02:36 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/04 11:40:25 by qperez           ###   ########.fr       */
+/*   Updated: 2014/01/08 12:28:09 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@
 #ifndef S_QUEUE_H
 # define S_QUEUE_H
 
-#include <t_types.h>
-#include <d_bool.h>
+# include <t_types.h>
+# include <stdbool.h>
 
 typedef struct	s_queue_cell
 {

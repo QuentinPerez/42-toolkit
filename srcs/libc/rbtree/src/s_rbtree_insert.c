@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/13 19:17:19 by qperez            #+#    #+#             */
-/*   Updated: 2013/12/29 15:52:00 by qperez           ###   ########.fr       */
+/*   Updated: 2014/01/08 17:58:31 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void			uf_rotate_right(t_rbtree *v_this, t_rbcell *node);
 void			uf_rotate_left(t_rbtree *v_this, t_rbcell *node);
 
 static t_rbcell	*uf_rb_balance_rot(t_rbtree *v_this, t_rbcell *node,
-								   bool check, bool right)
+								bool check, bool right)
 {
 	if (check == true)
 	{
@@ -59,7 +59,7 @@ static t_rbcell	*uf_rb_balance_rot(t_rbtree *v_this, t_rbcell *node,
 }
 
 static t_rbcell	*uf_rb_balance(t_rbtree *v_this, t_rbcell *node,
-							   bool check, bool right)
+							bool check, bool right)
 {
 	t_rbcell *uncle;
 

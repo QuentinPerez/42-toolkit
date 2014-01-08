@@ -6,7 +6,7 @@
 /*   By: irabeson <irabeson42@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/07 19:58:18 by irabeson          #+#    #+#             */
-/*   Updated: 2013/10/09 23:38:09 by qperez           ###   ########.fr       */
+/*   Updated: 2014/01/08 18:23:50 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@
 #include <stddef.h>
 
 ui	f_list_cell_count(const t_list_cell *other_begin,
-					  const t_list_cell *other_end)
+					const t_list_cell *other_end)
 {
 	ui	count;
 
@@ -47,7 +47,7 @@ ui	f_list_cell_count(const t_list_cell *other_begin,
 			if (other_begin == other_end)
 			{
 				count = count + 1;
-				break;
+				break ;
 			}
 			count = count + 1;
 			other_begin = other_begin->v_next;

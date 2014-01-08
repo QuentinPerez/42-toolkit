@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/29 18:02:55 by qperez            #+#    #+#             */
-/*   Updated: 2013/12/29 15:49:17 by qperez           ###   ########.fr       */
+/*   Updated: 2014/01/08 18:38:56 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ static bool	uf_getopt_split_posibility(t_getopt *v_this, const char *posibility)
 }
 
 static bool	uf_fmt_av(t_getopt *v_this, t_string *string,
-					  bool value, const char *add)
+					bool value, const char *add)
 {
 	ui	i;
 
@@ -72,8 +72,8 @@ static bool	uf_fmt_av(t_getopt *v_this, t_string *string,
 		{
 			if (uf_strcmp(v_this->v_posibility[i], add) == 0)
 			{
-				if (D_STRING(add_str)(string, add) == false ||
-					D_STRING(add_char)(string, ' ') == false)
+				if (D_STRING(add_str)(string, add) == false
+					|| D_STRING(add_char)(string, ' ') == false)
 					return (false);
 			}
 			i = i + 1;
@@ -94,11 +94,11 @@ static bool	uf_getopt_init_option(t_getopt *v_this, ui ac, const char **av)
 	while (i < ac)
 	{
 		size = uf_str_len(av[i]);
-		if (uf_fmt_av(v_this, &string, size == 2 && av[i][0] == '-' &&
-					  av[i][1] != '-', av[i] + 1) == false ||
-			uf_fmt_av(v_this, &string, size > 3 && av[i][0] == '-' &&
-				 	  av[i][1] == '-' && av[i][2] != '-', av[i] + 2) == false)
-			break;
+		if (uf_fmt_av(v_this, &string, size == 2 && av[i][0] == '-'
+			&& av[i][1] != '-', av[i] + 1) == false
+			|| uf_fmt_av(v_this, &string, size > 3 && av[i][0] == '-'
+			&& av[i][1] == '-' && av[i][2] != '-', av[i] + 2) == false)
+			break ;
 		i = i + 1;
 	}
 	if (i == ac)
@@ -112,7 +112,7 @@ static bool	uf_getopt_init_option(t_getopt *v_this, ui ac, const char **av)
 }
 
 bool		f_getopt_init(t_getopt *v_this, int argc,
-						  const char **argv, const char *opt)
+						const char **argv, const char *opt)
 {
 	uf_memset(v_this, 0, sizeof(*v_this));
 	if (argc < 2)

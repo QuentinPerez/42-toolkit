@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/31 14:21:14 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/04 00:03:50 by qperez           ###   ########.fr       */
+/*   Updated: 2014/01/08 18:27:32 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ bool	uf_unit_print_context(void *data);
 void	uf_unit_console_run(t_list *list);
 void	uf_unit_console_failure(t_list *list);
 void	uf_unit_print_console(t_unit *v_this, const char *info,
-							  bool menu, char c);
+							bool menu, char c);
 
 void	uf_unit_console_treat_run(t_unit *v_this)
 {
@@ -55,7 +55,7 @@ void	uf_unit_console_treat_run(t_unit *v_this)
 		if (D_LIST(empty)(&ctxt->v_test) == false)
 		{
 			uf_print_variadic("\nrunning context: %e%s%e\n",
-							  35, ctxt->v_name, 0);
+							35, ctxt->v_name, 0);
 			uf_unit_console_run(&ctxt->v_test);
 		}
 		cell = cell->v_next;
@@ -92,7 +92,7 @@ void	uf_unit_console_treat_failure(t_unit *v_this)
 		if (D_LIST(empty)(&ctxt->v_test) == false)
 		{
 			uf_print_variadic("\ncontext: %e%s%e\n",
-							  35, ctxt->v_name, 0);
+							35, ctxt->v_name, 0);
 			uf_unit_console_failure(&ctxt->v_test);
 		}
 		cell = cell->v_next;
@@ -104,11 +104,11 @@ void	uf_unit_console_treat_help(t_unit *v_this)
 {
 	uf_unit_print_console(v_this, "Help", false, '-');
 	uf_print_variadic("\n\t%eR%e - Run all tests in all contexts"
-					  "\n\t%eS%e - Select context to run"
-					  "\n\t%eL%e - Show all context"
-					  "\n\t%eF%e - Show failure from last test"
-					  "\n\t%eH%e - Show command"
-					  "\n\t%eQ%e - Quit the program\n",
-					  34, 0, 34, 0, 34, 0, 34, 0, 34, 0, 34, 0);
+					"\n\t%eS%e - Select context to run"
+					"\n\t%eL%e - Show all context"
+					"\n\t%eF%e - Show failure from last test"
+					"\n\t%eH%e - Show command"
+					"\n\t%eQ%e - Quit the program\n",
+					34, 0, 34, 0, 34, 0, 34, 0, 34, 0, 34, 0);
 	uf_unit_print_console(v_this, "-", false, '-');
 }

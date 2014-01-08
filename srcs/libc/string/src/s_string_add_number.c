@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/25 13:16:21 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/06 10:16:15 by qperez           ###   ########.fr       */
+/*   Updated: 2014/01/08 18:34:03 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,8 +64,8 @@ bool		f_string_add_nbr_base(t_string *v_this, ssize_t nbr, ui base)
 	digit = uf_string_get_digit(nbr, base, &size);
 	if (base == 16 && D_STRING(add_str)(v_this, "0x") == false)
 		return (false);
-	if (v_this->v_size + size > v_this->v_capacity &&
-		uf_string_realloc(v_this, size) == false)
+	if (v_this->v_size + size > v_this->v_capacity
+		&& uf_string_realloc(v_this, size) == false)
 		return (false);
 	if (nbr < 0)
 	{
@@ -103,8 +103,8 @@ bool		f_string_add_ptr(t_string *v_this, void *addr)
 		size = size + 1;
 	}
 	size = size + 1;
-	if (v_this->v_size + size + 2 > v_this->v_capacity &&
-		uf_string_realloc(v_this, size) == false)
+	if (v_this->v_size + size + 2 > v_this->v_capacity
+		&& uf_string_realloc(v_this, size) == false)
 		return (false);
 	D_STRING(add_str)(v_this, "0x");
 	while (digit > 0)

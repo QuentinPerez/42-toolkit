@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/16 15:17:58 by qperez            #+#    #+#             */
-/*   Updated: 2013/12/29 15:55:42 by qperez           ###   ########.fr       */
+/*   Updated: 2014/01/08 18:37:02 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,8 +70,8 @@ bool				f_vector_push_back(t_vector *v_this, void *data)
 	if (data == NULL)
 		M_INFOS(false, "Null pointer");
 	new_size = v_this->f_realloc(v_this->v_size);
-	if (v_this->v_size + 1 > v_this->v_capacity &&
-		D_VECTOR(realloc)(v_this, new_size) == false)
+	if (v_this->v_size + 1 > v_this->v_capacity
+		&& D_VECTOR(realloc)(v_this, new_size) == false)
 		return (false);
 	v_this->v_data[v_this->v_size] = data;
 	v_this->v_size = v_this->v_size + 1;
@@ -87,7 +87,7 @@ void				*f_vector_erase(t_vector *v_this, void *erase)
 	while (i < v_this->v_size)
 	{
 		if (v_this->v_data[i] == erase)
-			break;
+			break ;
 		i = i + 1;
 	}
 	if (i == v_this->v_size || v_this->v_data[i] == NULL)

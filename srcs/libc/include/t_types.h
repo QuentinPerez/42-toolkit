@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/29 10:39:17 by qperez            #+#    #+#             */
-/*   Updated: 2013/09/26 12:55:29 by qperez           ###   ########.fr       */
+/*   Updated: 2014/01/08 12:23:09 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,7 @@
 typedef unsigned char	uc;
 typedef unsigned int	ui;
 typedef unsigned long	ul;
+
+# define M_V(value)	__attibute__((unused))(value)
 
 #endif

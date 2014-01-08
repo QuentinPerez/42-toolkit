@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/01 18:11:51 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/04 00:04:55 by qperez           ###   ########.fr       */
+/*   Updated: 2014/01/08 18:30:11 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,18 +65,18 @@ static void	uf_unit_console_failure_print_info(t_unit_test *t)
 		cell = D_LIST(begin)(&t->v_assert);
 		if (cell == NULL)
 			uf_print_variadic("\ttest: %e%s%e\t\t   V%e\n",
-							  37, t->v_name, 32, 0);
+							37, t->v_name, 32, 0);
 		while (cell != NULL)
 		{
 			ass = (t_unit_assert *)cell->v_data;
 			uf_print_variadic("\ttest: %e%s\t\t   %eX\033[0m\t   %s\t\t %d\n",
-							  37, t->v_name, 31, ass->v_file, ass->v_line);
+							37, t->v_name, 31, ass->v_file, ass->v_line);
 			cell = cell->v_next;
 		}
 	}
 	else
 		uf_print_variadic("\ttest: %e%s%e\t\tUntested%e\n",
-						  37, t->v_name, 31, 0);
+						37, t->v_name, 31, 0);
 }
 
 void		uf_unit_console_failure(t_list *list)

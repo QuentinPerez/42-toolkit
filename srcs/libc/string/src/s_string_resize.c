@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/25 18:38:40 by qperez            #+#    #+#             */
-/*   Updated: 2013/12/29 15:53:28 by qperez           ###   ########.fr       */
+/*   Updated: 2014/01/08 17:59:31 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ bool	uf_string_realloc(t_string *v_this, ui add)
 	}
 	v_this->v_str = tmp;
 	uf_memset(v_this->v_str + v_this->v_capacity, '\0',
-			  new_capacity - v_this->v_capacity);
+			new_capacity - v_this->v_capacity);
 	v_this->v_capacity = new_capacity;
 	return (true);
 }
