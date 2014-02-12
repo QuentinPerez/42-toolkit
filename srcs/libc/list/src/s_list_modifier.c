@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/30 17:48:19 by qperez            #+#    #+#             */
-/*   Updated: 2013/12/29 15:50:29 by qperez           ###   ########.fr       */
+/*   Updated: 2014/02/12 14:05:45 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ void		f_list_pop_back(t_list *v_this)
 	if (v_this->v_end != NULL)
 	{
 		v_this->f_destroy(v_this->v_end->v_data);
+		free(v_this->v_end);
 		v_this->v_end = v_this->v_end->v_prev;
 		v_this->v_size = v_this->v_size - 1;
 		if (v_this->v_end != NULL)
@@ -88,6 +89,7 @@ void		f_list_pop_front(t_list *v_this)
 	if (v_this->v_begin != NULL)
 	{
 		v_this->f_destroy(v_this->v_begin->v_data);
+		free(v_this->v_begin);
 		v_this->v_begin = v_this->v_begin->v_next;
 		v_this->v_size = v_this->v_size - 1;
 		if (v_this->v_begin != NULL)
