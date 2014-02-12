@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/08 19:59:30 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/08 20:56:08 by qperez           ###   ########.fr       */
+/*   Updated: 2014/02/12 19:46:09 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@
 
 void	f_htable_print(t_htable *v_this, bool (*uf_print)(t_htable_cell *data))
 {
-	ui		i;
+	t_ui	i;
 	t_list	*list;
 
 	i = 0;

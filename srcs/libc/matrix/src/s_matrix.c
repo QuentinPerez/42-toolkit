@@ -6,7 +6,7 @@
 /*   By: cmuller <clara.muller19@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/09 20:57:21 by cmuller           #+#    #+#             */
-/*   Updated: 2013/12/29 15:50:57 by qperez           ###   ########.fr       */
+/*   Updated: 2014/02/12 19:48:03 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@
 #include <f_memory/f_free.h>
 #include <stdlib.h>
 
-static bool	uf_matrix_fillcoeff(t_matrix *v_this, ui col, ui row)
+static bool	uf_matrix_fillcoeff(t_matrix *v_this, t_ui col, t_ui row)
 {
-	ui	i;
+	t_ui	i;
 
 	i = 0;
 	while (i < row)
@@ -54,7 +54,7 @@ static bool	uf_matrix_fillcoeff(t_matrix *v_this, ui col, ui row)
 	return (true);
 }
 
-bool		f_matrix_init(t_matrix *v_this, ui c, ui r)
+bool		f_matrix_init(t_matrix *v_this, t_ui c, t_ui r)
 {
 	uf_memset(v_this, '\0', sizeof(*v_this));
 	if (c == 0 || r == 0)

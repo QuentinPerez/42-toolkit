@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/31 13:43:01 by qperez            #+#    #+#             */
-/*   Updated: 2014/01/08 18:27:52 by qperez           ###   ########.fr       */
+/*   Updated: 2014/02/12 19:55:33 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@
 #include <f_string/f_str_tools.h>
 #include <f_string/f_print.h>
 
-void	uf_unit_print_nchar(ui size, char c)
+void	uf_unit_print_nchar(t_ui size, char c)
 {
-	ui	i;
+	t_ui	i;
 
 	i = 0;
 	while (i < size)
@@ -51,7 +51,7 @@ void	uf_unit_print_nchar(ui size, char c)
 void	uf_unit_print_console(t_unit *v_this, const char *info,
 							bool menu, char c)
 {
-	ui	tmp;
+	t_ui	tmp;
 
 	uf_print_char('\n');
 	tmp = (v_this->v_params.v_width >> 1) - (uf_str_len(info) >> 1) - 1;

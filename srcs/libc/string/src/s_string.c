@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/22 12:13:42 by qperez            #+#    #+#             */
-/*   Updated: 2013/12/29 15:52:39 by qperez           ###   ########.fr       */
+/*   Updated: 2014/02/12 19:50:40 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,15 @@
 #include <f_error/m_error.h>
 #include <f_memory/f_memory.h>
 
-static inline ui	uf_string_realloc(ui size)
+static inline t_ui	uf_string_realloc(t_ui size)
 {
 	return (size << 1);
 }
 
-bool				f_string_init(t_string *v_this, ui (*uf_realloc)(ui size))
+bool				f_string_init(t_string *v_this,
+								t_ui (*uf_realloc)(t_ui size))
 {
-	ui	size;
+	t_ui	size;
 
 	size = 2;
 	v_this->v_size = 0;
@@ -61,7 +62,7 @@ bool				f_string_init(t_string *v_this, ui (*uf_realloc)(ui size))
 
 void				f_string_clear(t_string *v_this)
 {
-	ui	size;
+	t_ui	size;
 
 	size = v_this->v_capacity;
 	while (size > 0)

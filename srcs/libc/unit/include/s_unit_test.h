@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/31 18:18:43 by qperez            #+#    #+#             */
-/*   Updated: 2014/01/08 12:29:43 by qperez           ###   ########.fr       */
+/*   Updated: 2014/02/12 19:54:30 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@
 
 typedef struct	s_unit_assert
 {
-	ui			v_line;
+	t_ui		v_line;
 	const char	*v_file;
 }				t_unit_assert;
 

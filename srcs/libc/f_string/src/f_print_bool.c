@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/12 16:08:13 by qperez            #+#    #+#             */
-/*   Updated: 2014/01/08 12:31:31 by qperez           ###   ########.fr       */
+/*   Updated: 2014/02/12 19:37:30 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@
 #include <t_types.h>
 #include <stdbool.h>
 
-void	uf_print_bool_fd(bool value, ui fd)
+void	uf_print_bool_fd(bool value, t_ui fd)
 {
 	if (value == true)
 		write(fd, "true", 4);

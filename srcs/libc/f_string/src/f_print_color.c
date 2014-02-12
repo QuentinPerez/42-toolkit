@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/01 15:29:06 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/03 23:50:51 by qperez           ###   ########.fr       */
+/*   Updated: 2014/02/12 19:37:45 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@
 
 #include <f_string/f_print.h>
 
-void	uf_print_color_fx(ui color, ui params)
+void	uf_print_color_fx(t_ui color, t_ui params)
 {
 	uf_print_str("\033[");
 	if (params > 0)
@@ -44,7 +44,7 @@ void	uf_print_color_fx(ui color, ui params)
 	uf_print_char('m');
 }
 
-void	uf_print_color(ui color)
+void	uf_print_color(t_ui color)
 {
 	uf_print_color_fx(color, 0);
 }

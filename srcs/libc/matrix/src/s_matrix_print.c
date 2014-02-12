@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/12 18:00:21 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/12 18:23:19 by qperez           ###   ########.fr       */
+/*   Updated: 2014/02/12 19:49:21 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@
 
 void	f_matrix_print(const t_matrix *v_this, const char *name)
 {
-	ui	i;
-	ui	j;
+	t_ui	i;
+	t_ui	j;
 
 	i = 0;
 	uf_print_str("Matrix ");

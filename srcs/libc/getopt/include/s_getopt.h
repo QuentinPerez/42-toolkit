@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/29 18:08:24 by qperez            #+#    #+#             */
-/*   Updated: 2014/01/08 12:26:57 by qperez           ###   ########.fr       */
+/*   Updated: 2014/02/12 19:43:52 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,10 @@ typedef struct	s_getopt
 	char	**v_option;
 	char	**v_posibility;
 	char	*v_current_argv;
-	ui		v_current_argc;
+	t_ui	v_current_argc;
 	char	*v_next_argv;
 	char	**v_argv;
-	ui		v_argc;
+	t_ui	v_argc;
 }				t_getopt;
 
 # define D_GETOPT(funct)	f_getopt_##funct

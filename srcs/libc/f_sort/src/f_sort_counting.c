@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/22 14:33:19 by qperez            #+#    #+#             */
-/*   Updated: 2014/01/08 18:00:41 by qperez           ###   ########.fr       */
+/*   Updated: 2014/02/12 19:39:32 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,13 @@
 
 static void	uf_sort_tab(int *tab, int *counter, int minmax[2])
 {
-	ui	i;
-	int	j;
-	int	index;
+	t_ui	i;
+	int		j;
+	int		index;
 
 	index = 0;
 	i = minmax[0];
-	while (i <= (ui)minmax[1])
+	while (i <= (t_ui)minmax[1])
 	{
 		j = 0;
 		while (j < counter[i - minmax[0]])
@@ -59,11 +59,11 @@ static void	uf_sort_tab(int *tab, int *counter, int minmax[2])
 	}
 }
 
-static bool	uf_sort_make_counter(int *tab, ui size, int minmax[2])
+static bool	uf_sort_make_counter(int *tab, t_ui size, int minmax[2])
 {
-	ui	i;
-	int	*counter;
-	ui	size_counter;
+	t_ui	i;
+	int		*counter;
+	t_ui	size_counter;
 
 	i = 0;
 	size_counter = minmax[1] - minmax[0] + 1;
@@ -81,10 +81,10 @@ static bool	uf_sort_make_counter(int *tab, ui size, int minmax[2])
 	return (true);
 }
 
-bool		uf_sort_counting(int *tab, ui size)
+bool		uf_sort_counting(int *tab, t_ui size)
 {
-	ui	i;
-	int	minmax[2];
+	t_ui	i;
+	int		minmax[2];
 
 	i = 1;
 	if (size > 0)

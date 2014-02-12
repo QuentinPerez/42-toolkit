@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/18 12:23:14 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/04 09:46:07 by qperez           ###   ########.fr       */
+/*   Updated: 2014/02/12 19:38:55 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,11 @@
 
 #include <t_types.h>
 
-void	uf_sort_bubble(int *begin, ui size)
+void	uf_sort_bubble(int *begin, t_ui size)
 {
-	ui	x;
-	ui	y;
-	int	tmp;
+	t_ui	x;
+	t_ui	y;
+	int		tmp;
 
 	x = 0;
 	while (x < size)

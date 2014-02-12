@@ -6,7 +6,7 @@
 /*   By: irabeson <irabeson42@gmail.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/07 04:18:37 by irabeson          #+#    #+#             */
-/*   Updated: 2014/01/08 17:56:56 by qperez           ###   ########.fr       */
+/*   Updated: 2014/02/12 19:47:48 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,10 @@ static void	f_list_pick_cells_imp(t_list *const v_this,
 		cell_after->v_prev = cell_before;
 }
 
-static ui	f_list_pick_cells(t_list *const v_this, t_list_cell *const begin,
+static t_ui	f_list_pick_cells(t_list *const v_this, t_list_cell *const begin,
 							t_list_cell *end)
 {
-	ui	cell_count;
+	t_ui	cell_count;
 
 	if (D_LIST(empty)(v_this) == true)
 		return (0);
@@ -103,7 +103,7 @@ static void	f_list_splice_imp(t_list *const v_this, t_list_cell *const position,
 void		f_list_splice(t_list *v_this, t_list_cell *position,
 						t_list *other_list, t_list_interval *other_interval)
 {
-	ui	cell_count;
+	t_ui	cell_count;
 
 	cell_count = D_LIST(pick_cells)(other_list,
 									D_LIST_INTERVAL(begin)(other_interval),

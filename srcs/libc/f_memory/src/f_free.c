@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/08 11:37:57 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/10 17:32:27 by qperez           ###   ########.fr       */
+/*   Updated: 2014/02/12 19:33:17 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@
 
 void	uf_free_tab(void **tab)
 {
-	ui	i;
+	t_ui	i;
 
 	i = 0;
 	while (tab[i] != NULL)
@@ -46,9 +46,9 @@ void	uf_free_tab(void **tab)
 	free(tab);
 }
 
-void	uf_free_tab_fail(void **tab, ui current)
+void	uf_free_tab_fail(void **tab, t_ui current)
 {
-	ui	i;
+	t_ui	i;
 
 	i = 0;
 	while (i < current)

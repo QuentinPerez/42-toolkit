@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/28 15:06:45 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/06 10:18:25 by qperez           ###   ########.fr       */
+/*   Updated: 2014/02/12 19:38:02 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,17 +33,17 @@
 #include <f_string/f_print_fd.h>
 #include <f_string/f_str_tools.h>
 
-ssize_t	uf_print_char_fd(char c, ui fd)
+ssize_t	uf_print_char_fd(char c, t_ui fd)
 {
 	return (write(fd, &c, 1));
 }
 
-ssize_t	uf_print_str_fd(const char *str, ui fd)
+ssize_t	uf_print_str_fd(const char *str, t_ui fd)
 {
 	return (write(fd, str, uf_str_len(str)));
 }
 
-void	uf_print_nbr_base_fd(ssize_t nbr, ssize_t base, ui fd)
+void	uf_print_nbr_base_fd(ssize_t nbr, ssize_t base, t_ui fd)
 {
 	ssize_t	digit;
 
@@ -62,12 +62,12 @@ void	uf_print_nbr_base_fd(ssize_t nbr, ssize_t base, ui fd)
 	}
 }
 
-void	uf_print_nbr_fd(ssize_t nbr, ui fd)
+void	uf_print_nbr_fd(ssize_t nbr, t_ui fd)
 {
 	uf_print_nbr_base_fd(nbr, 10, fd);
 }
 
-void	uf_print_addr_fd(void *addr, ui fd)
+void	uf_print_addr_fd(void *addr, t_ui fd)
 {
 	size_t	nbr;
 	size_t	digit;

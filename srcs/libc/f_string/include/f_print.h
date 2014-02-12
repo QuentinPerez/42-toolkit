@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/29 17:32:48 by qperez            #+#    #+#             */
-/*   Updated: 2014/01/08 12:26:17 by qperez           ###   ########.fr       */
+/*   Updated: 2014/02/12 19:36:31 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,12 +39,12 @@
 
 ssize_t	uf_print_char(char c);
 ssize_t	uf_print_str(const char *str);
-void	uf_print_nstr(const char *str, ui size);
+void	uf_print_nstr(const char *str, t_ui size);
 void	uf_print_nbr(ssize_t nb);
-void	uf_print_color(ui color);
-void	uf_print_color_fx(ui color, ui fx);
+void	uf_print_color(t_ui color);
+void	uf_print_color_fx(t_ui color, t_ui fx);
 void	uf_print_bits(size_t value, size_t size);
-void	uf_print_floating_nbr(double nbr, ui digit);
+void	uf_print_floating_nbr(double nbr, t_ui digit);
 void	uf_print_nbr_base(ssize_t nbr, ssize_t base);
 void	uf_print_variadic(const char *fmt, ...);
 void	uf_print_addr(void *addr);

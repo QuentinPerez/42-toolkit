@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/08 19:25:06 by qperez            #+#    #+#             */
-/*   Updated: 2014/01/08 17:54:31 by qperez           ###   ########.fr       */
+/*   Updated: 2014/02/12 19:45:49 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,14 @@
 #include <list/s_list.h>
 #include <f_error/m_error.h>
 
-ui				f_htable_generate_key(const t_htable *v_this, const char *str);
+t_ui			f_htable_generate_key(const t_htable *v_this, const char *str);
 
 t_htable_cell	*f_htable_create_cell(const char *key, void *data,
 									void (*f_delete)(void *data));
 
 bool			f_htable_add(t_htable *v_this, const char *str, void *data)
 {
-	ui				key;
+	t_ui			key;
 	t_list			*element;
 	t_htable_cell	*cell;
 

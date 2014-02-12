@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/21 23:06:57 by qperez            #+#    #+#             */
-/*   Updated: 2014/01/08 12:30:57 by qperez           ###   ########.fr       */
+/*   Updated: 2014/02/12 19:32:16 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,17 +34,17 @@
 #include <t_types.h>
 #include <stdbool.h>
 
-extern inline bool	uf_is_alpha(const uc c)
+extern inline bool	uf_is_alpha(const t_uc c)
 {
 	return ((c > 96 && c < 123) || (c > 64 && c < 91));
 }
 
-extern inline bool	uf_is_digit(const uc c)
+extern inline bool	uf_is_digit(const t_uc c)
 {
 	return (c > 47 && c < 58);
 }
 
-extern inline bool	uf_is_printable(const uc c)
+extern inline bool	uf_is_printable(const t_uc c)
 {
 	return (c > 31 && c < 127);
 }

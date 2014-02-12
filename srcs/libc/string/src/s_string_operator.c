@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/28 13:28:29 by qperez            #+#    #+#             */
-/*   Updated: 2014/01/08 18:35:19 by qperez           ###   ########.fr       */
+/*   Updated: 2014/02/12 19:52:19 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,11 @@
 #include <f_memory/f_memory.h>
 #include <f_string/f_str_tools.h>
 
-bool	uf_string_realloc(t_string *v_this, ui add);
+bool	uf_string_realloc(t_string *v_this, t_ui add);
 
-void	f_string_erase(t_string *v_this, ui from, ui to)
+void	f_string_erase(t_string *v_this, t_ui from, t_ui to)
 {
-	ui	size;
+	t_ui	size;
 
 	if (from >= to || to >= v_this->v_size)
 		return ;
@@ -49,9 +49,9 @@ void	f_string_erase(t_string *v_this, ui from, ui to)
 	v_this->v_size = v_this->v_size - (to - from);
 }
 
-bool	f_string_insert(t_string *v_this, const char *insert, ui at)
+bool	f_string_insert(t_string *v_this, const char *insert, t_ui at)
 {
-	ui	size;
+	t_ui	size;
 
 	if (at >= v_this->v_size)
 		return (D_STRING(add_str)(v_this, insert));

@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/29 10:39:17 by qperez            #+#    #+#             */
-/*   Updated: 2014/01/08 12:23:09 by qperez           ###   ########.fr       */
+/*   Updated: 2014/02/12 19:29:57 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@
 #ifndef T_TYPES_H
 # define T_TYPES_H
 
-typedef unsigned char	uc;
-typedef unsigned int	ui;
-typedef unsigned long	ul;
+typedef unsigned char	t_uc;
+typedef unsigned int	t_ui;
+typedef unsigned long	t_ul;
 
 # define M_V(value)	__attibute__((unused))(value)
 

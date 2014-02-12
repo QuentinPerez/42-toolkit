@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/08 00:22:04 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/03 23:46:39 by qperez           ###   ########.fr       */
+/*   Updated: 2014/02/12 19:36:57 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@
 #include <t_types.h>
 #include <f_string/f_print.h>
 
-static void	uf_print_content(uc *data, ui size)
+static void	uf_print_content(t_uc *data, t_ui size)
 {
-	ui	i;
+	t_ui	i;
 
 	i = 0;
 	uf_print_char(' ');
@@ -57,9 +57,9 @@ static void	uf_print_hex(char c)
 	uf_print_nbr_base(c, 16);
 }
 
-static uc	*uf_print_data(uc *data, ui size)
+static t_uc	*uf_print_data(t_uc *data, t_ui size)
 {
-	ui	i;
+	t_ui	i;
 
 	i = 0;
 	uf_print_addr(data);
@@ -83,11 +83,11 @@ static uc	*uf_print_data(uc *data, ui size)
 	return (data);
 }
 
-void		*uf_print_memory(const void *addr, ui size)
+void		*uf_print_memory(const void *addr, t_ui size)
 {
-	uc	*data;
+	t_uc	*data;
 
-	data = (uc *)addr;
+	data = (t_uc *)addr;
 	while (size > 16)
 	{
 		data = uf_print_data(data, 16);

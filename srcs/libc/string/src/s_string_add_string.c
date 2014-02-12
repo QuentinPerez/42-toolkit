@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/25 18:44:48 by qperez            #+#    #+#             */
-/*   Updated: 2014/01/08 18:35:01 by qperez           ###   ########.fr       */
+/*   Updated: 2014/02/12 19:52:09 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,11 +35,11 @@
 #include <f_string/f_str_tools.h>
 #include <f_string/f_string.h>
 
-ui		uf_string_realloc(t_string *v_this, ui add);
+t_ui	uf_string_realloc(t_string *v_this, t_ui add);
 
 bool	f_string_add_str(t_string *v_this, const char *str)
 {
-	ui	size;
+	t_ui	size;
 
 	size = uf_str_len(str);
 	if (size == 0)
@@ -53,7 +53,7 @@ bool	f_string_add_str(t_string *v_this, const char *str)
 	return (true);
 }
 
-bool	f_string_add_char(t_string *v_this, uc c)
+bool	f_string_add_char(t_string *v_this, t_uc c)
 {
 	if (v_this->v_size + 2 > v_this->v_capacity
 		&& uf_string_realloc(v_this, 2) == false)
@@ -64,7 +64,7 @@ bool	f_string_add_char(t_string *v_this, uc c)
 	return (true);
 }
 
-bool	f_string_add_nstr(t_string *v_this, const char *str, ui size)
+bool	f_string_add_nstr(t_string *v_this, const char *str, t_ui size)
 {
 	if (size == 0)
 		return (true);

@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/31 11:39:40 by qperez            #+#    #+#             */
-/*   Updated: 2014/01/08 18:25:33 by qperez           ###   ########.fr       */
+/*   Updated: 2014/02/12 19:55:15 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void		uf_unit_print_console(t_unit *v_this, const char *info,
 
 static void	uf_treat_line(t_unit *v_this, t_unit_console_option *opt, char *str)
 {
-	ui	i;
+	t_ui	i;
 
 	i = 0;
 	while (i < D_UNIT_CONSOLE_OPTION)
@@ -67,7 +67,7 @@ static void	uf_treat_line(t_unit *v_this, t_unit_console_option *opt, char *str)
 static void	uf_unit_add_option(t_unit_console_option *option, const char *full,
 							const char *shortcut, void (*funct)(t_unit *))
 {
-	static ui	i = 0;
+	static t_ui	i = 0;
 
 	option[i].v_option = full;
 	option[i].f_funct = funct;

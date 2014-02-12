@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/02 15:23:05 by qperez            #+#    #+#             */
-/*   Updated: 2014/01/08 18:01:18 by qperez           ###   ########.fr       */
+/*   Updated: 2014/02/12 19:42:48 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@
 #include <f_error/m_error.h>
 #include <f_memory/f_memory.h>
 
-static bool	f_array_realloc(t_array *v_this, ui size)
+static bool	f_array_realloc(t_array *v_this, t_ui size)
 {
 	void	*tmp;
 
@@ -51,7 +51,7 @@ static bool	f_array_realloc(t_array *v_this, ui size)
 	return (true);
 }
 
-bool		f_array_resize(t_array *v_this, ui size)
+bool		f_array_resize(t_array *v_this, t_ui size)
 {
 	if (size < v_this->v_capacity)
 		return (M_ERROR(false, "Size %d is lower than capacity", size));
@@ -61,7 +61,7 @@ bool		f_array_resize(t_array *v_this, ui size)
 bool		f_array_push_back(t_array *v_this, void *data)
 {
 	char	*to;
-	ui		new_size;
+	t_ui	new_size;
 
 	new_size = v_this->f_realloc(v_this->v_capacity);
 	if (v_this->v_size + 1 > v_this->v_capacity
@@ -77,8 +77,8 @@ bool		f_array_push_back(t_array *v_this, void *data)
 void		f_array_delete_if(t_array *v_this,
 							bool (*ft_cmp)(void *d1, void *d2), void *data)
 {
-	ui		i;
-	ui		size;
+	t_ui	i;
+	t_ui	size;
 	char	*ptr;
 
 	i = 0;

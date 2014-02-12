@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/18 17:27:57 by qperez            #+#    #+#             */
-/*   Updated: 2014/01/08 12:24:16 by qperez           ###   ########.fr       */
+/*   Updated: 2014/02/12 19:33:01 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@
 
 # include <t_types.h>
 
-void	uf_crypto_xor(void *data, const char *key, ui data_size);
+void	uf_crypto_xor(void *data, const char *key, t_ui data_size);
 void	uf_crypto_rot5(char *str);
 void	uf_crypto_rot13(char *str);
 void	uf_crypto_rot18(char *str);

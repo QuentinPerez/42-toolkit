@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/28 15:11:46 by qperez            #+#    #+#             */
-/*   Updated: 2014/01/08 12:26:25 by qperez           ###   ########.fr       */
+/*   Updated: 2014/02/12 19:37:10 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,15 +37,15 @@
 # include <t_types.h>
 # include <stdbool.h>
 
-ssize_t	uf_print_char_fd(char c, ui fd);
-ssize_t	uf_print_str_fd(const char *str, ui fd);
-ssize_t	uf_print_nstr_fd(const char *str, ui size, ui fd);
-void	uf_print_nbr_fd(ssize_t nb, ui fd);
-void	uf_print_bits_fd(size_t value, size_t size, ui fd);
-void	uf_print_floating_nbr_fd(double nbr, ui digit, ui fd);
-void	uf_print_nbr_base_fd(ssize_t nbr, ssize_t base, ui fd);
-void	uf_print_variadic_fd(ui fd, const char *fmt, ...);
-void	uf_print_addr_fd(void *addr, ui fd);
-void	uf_print_bool_fd(bool value, ui fd);
+ssize_t	uf_print_char_fd(char c, t_ui fd);
+ssize_t	uf_print_str_fd(const char *str, t_ui fd);
+ssize_t	uf_print_nstr_fd(const char *str, t_ui size, t_ui fd);
+void	uf_print_nbr_fd(ssize_t nb, t_ui fd);
+void	uf_print_bits_fd(size_t value, size_t size, t_ui fd);
+void	uf_print_floating_nbr_fd(double nbr, t_ui digit, t_ui fd);
+void	uf_print_nbr_base_fd(ssize_t nbr, ssize_t base, t_ui fd);
+void	uf_print_variadic_fd(t_ui fd, const char *fmt, ...);
+void	uf_print_addr_fd(void *addr, t_ui fd);
+void	uf_print_bool_fd(bool value, t_ui fd);
 
 #endif

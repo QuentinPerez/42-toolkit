@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/29 18:02:55 by qperez            #+#    #+#             */
-/*   Updated: 2014/01/08 18:38:56 by qperez           ###   ########.fr       */
+/*   Updated: 2014/02/12 19:43:28 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ static bool	uf_getopt_split_posibility(t_getopt *v_this, const char *posibility)
 static bool	uf_fmt_av(t_getopt *v_this, t_string *string,
 					bool value, const char *add)
 {
-	ui	i;
+	t_ui	i;
 
 	i = 0;
 	if (value == true)
@@ -82,10 +82,10 @@ static bool	uf_fmt_av(t_getopt *v_this, t_string *string,
 	return (true);
 }
 
-static bool	uf_getopt_init_option(t_getopt *v_this, ui ac, const char **av)
+static bool	uf_getopt_init_option(t_getopt *v_this, t_ui ac, const char **av)
 {
-	ui			i;
-	ui			size;
+	t_ui		i;
+	t_ui		size;
 	t_string	string;
 
 	i = 1;

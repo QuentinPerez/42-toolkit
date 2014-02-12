@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/31 17:58:49 by qperez            #+#    #+#             */
-/*   Updated: 2014/01/08 18:01:02 by qperez           ###   ########.fr       */
+/*   Updated: 2014/02/12 19:35:49 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@
 #include <f_string/f_char.h>
 #include <f_string/f_space.h>
 
-char		*uf_itoa_base(int nbr, ui base)
+char		*uf_itoa_base(int nbr, t_ui base)
 {
 	char		*ret;
 	t_string	str;
@@ -54,7 +54,7 @@ char		*uf_itoa(int nbr)
 	return (uf_itoa_base(nbr, 10));
 }
 
-static char	*uf_atoi_check_base(const char *nbr, bool *neg, char *c, ui base)
+static char	*uf_atoi_check_base(const char *nbr, bool *neg, char *c, t_ui base)
 {
 	*neg = false;
 	*c = *nbr;
@@ -79,7 +79,7 @@ static char	*uf_atoi_check_base(const char *nbr, bool *neg, char *c, ui base)
 	return ((char *)nbr);
 }
 
-int			uf_atoi_base(const char *nbr, ui base)
+int			uf_atoi_base(const char *nbr, t_ui base)
 {
 	char	c;
 	bool	neg;
@@ -95,7 +95,7 @@ int			uf_atoi_base(const char *nbr, ui base)
 			c = c - (uf_is_upper(c) == true ? 'A' - 10 : 'a' - 10);
 		else
 			break ;
-		if ((ui)c >= base)
+		if ((t_ui)c >= base)
 			break ;
 		ret = ret * base;
 		ret = ret + c;
@@ -107,7 +107,7 @@ int			uf_atoi_base(const char *nbr, ui base)
 	return (ret);
 }
 
-int		uf_atoi(const char *nbr)
+int			uf_atoi(const char *nbr)
 {
 	return (uf_atoi_base(nbr, 10));
 }

@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/01 17:49:08 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/01 17:53:11 by qperez           ###   ########.fr       */
+/*   Updated: 2014/02/12 19:50:58 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@
 
 #include <string/s_string.h>
 
-bool	f_string_add_color(t_string *v_this, ui color, ui fx)
+bool	f_string_add_color(t_string *v_this, t_ui color, t_ui fx)
 {
 	if (D_STRING(add_str)(v_this, "\033[") == false)
 		return (false);

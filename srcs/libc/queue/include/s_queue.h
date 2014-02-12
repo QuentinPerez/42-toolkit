@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/30 11:02:36 by qperez            #+#    #+#             */
-/*   Updated: 2014/01/08 12:28:09 by qperez           ###   ########.fr       */
+/*   Updated: 2014/02/12 19:49:37 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ typedef struct	s_queue_cell
 
 typedef struct	s_queue
 {
-	ui					v_size;
+	t_ui				v_size;
 	t_queue_cell		*v_head;
 	t_queue_cell		*v_tail;
 	void				(*f_destroy)(void *data);
@@ -56,7 +56,7 @@ void	f_queue_init(t_queue *v_this, void (*funct_destroy)(void *data));
 void	f_queue_clear(t_queue *v_this);
 void	f_queue_destroy(t_queue *v_this);
 bool	f_queue_empty(const t_queue *v_this);
-ui		f_queue_size(const t_queue *v_this);
+t_ui	f_queue_size(const t_queue *v_this);
 bool	f_queue_push(t_queue *v_this, void *data);
 void	*f_queue_pop(t_queue *v_this);
 void	*f_queue_front(t_queue *v_this);

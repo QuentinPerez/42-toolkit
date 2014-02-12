@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/25 15:16:37 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/30 11:35:38 by qperez           ###   ########.fr       */
+/*   Updated: 2014/02/12 19:38:19 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@
 
 #include <f_string/f_print_fd.h>
 
-void	uf_print_floating_nbr_fd(double nbr, ui digit, ui fd)
+void	uf_print_floating_nbr_fd(double nbr, t_ui digit, t_ui fd)
 {
 	uf_print_nbr_fd((ssize_t)nbr, fd);
 	uf_print_char_fd('.', fd);
@@ -45,12 +45,12 @@ void	uf_print_floating_nbr_fd(double nbr, ui digit, ui fd)
 	}
 }
 
-void	uf_print_floating_nbr(double nbr, ui digit)
+void	uf_print_floating_nbr(double nbr, t_ui digit)
 {
 	uf_print_floating_nbr_fd(nbr, digit, 1);
 }
 
-void	uf_print_bits_fd(size_t value, size_t size, ui fd)
+void	uf_print_bits_fd(size_t value, size_t size, t_ui fd)
 {
 	size_t	max;
 

@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/28 20:37:37 by qperez            #+#    #+#             */
-/*   Updated: 2013/12/29 15:53:54 by qperez           ###   ########.fr       */
+/*   Updated: 2014/02/12 19:53:05 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,8 @@
 
 static bool	*uf_string_fill_bool(t_string *v_this, const char *charset)
 {
-	ui		i;
-	ui		size;
+	t_ui	i;
+	t_ui	size;
 	bool	*active;
 
 	i = 0;
@@ -66,10 +66,10 @@ static bool	*uf_string_fill_bool(t_string *v_this, const char *charset)
 	return (active);
 }
 
-static ui	uf_string_count_word(t_string *v_this, bool *active)
+static t_ui	uf_string_count_word(t_string *v_this, bool *active)
 {
-	ui	i;
-	ui	word;
+	t_ui	i;
+	t_ui	word;
 
 	i = 0;
 	word = 0;
@@ -86,9 +86,10 @@ static ui	uf_string_count_word(t_string *v_this, bool *active)
 	return (word + 1);
 }
 
-static bool	uf_string_dump_word(const char *str, char **tab, ui size, ui *word)
+static bool	uf_string_dump_word(const char *str, char **tab,
+								t_ui size, t_ui *word)
 {
-	ui	i;
+	t_ui	i;
 
 	i = 0;
 	tab[*word] = malloc(sizeof(*tab[*word]) * (size + 1));
@@ -106,9 +107,9 @@ static bool	uf_string_dump_word(const char *str, char **tab, ui size, ui *word)
 
 static bool	uf_string_fill_tab(t_string *v_this, char **tab, bool *active)
 {
-	ui	i;
-	ui	size;
-	ui	word;
+	t_ui	i;
+	t_ui	size;
+	t_ui	word;
 
 	i = 0;
 	word = 0;

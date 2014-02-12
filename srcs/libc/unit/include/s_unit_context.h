@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/31 16:19:21 by qperez            #+#    #+#             */
-/*   Updated: 2014/01/08 12:29:27 by qperez           ###   ########.fr       */
+/*   Updated: 2014/02/12 19:54:20 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@
 
 typedef struct	s_unit_context
 {
-	ui			v_id;
+	t_ui		v_id;
 	t_list		v_test;
 	const char	*v_name;
 	bool		(*f_init)(void *data);

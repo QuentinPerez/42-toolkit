@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/26 12:53:04 by qperez            #+#    #+#             */
-/*   Updated: 2014/01/08 12:31:11 by qperez           ###   ########.fr       */
+/*   Updated: 2014/02/12 19:36:09 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,11 @@
 #include <stddef.h>
 #include <t_types.h>
 
-void	*uf_memset(void *src, uc c, size_t size)
+void	*uf_memset(void *src, t_uc c, size_t size)
 {
-	uc	*ptr;
+	t_uc	*ptr;
 
-	ptr = (uc *)src;
+	ptr = (t_uc *)src;
 	while (size > 0)
 	{
 		*ptr = c;
@@ -50,11 +50,11 @@ void	*uf_memset(void *src, uc c, size_t size)
 
 void	uf_memcpy(void *to, const void *from, size_t size)
 {
-	uc	*p_to;
-	uc	*p_from;
+	t_uc	*p_to;
+	t_uc	*p_from;
 
-	p_to = (uc *)to;
-	p_from = (uc *)from;
+	p_to = (t_uc *)to;
+	p_from = (t_uc *)from;
 	while (size > 0)
 	{
 		*p_to = *p_from;
@@ -66,11 +66,11 @@ void	uf_memcpy(void *to, const void *from, size_t size)
 
 bool	uf_memcmp(const void *left, const void *right, size_t size)
 {
-	uc	*p_left;
-	uc	*p_right;
+	t_uc	*p_left;
+	t_uc	*p_right;
 
-	p_left = (uc *)left;
-	p_right = (uc *)right;
+	p_left = (t_uc *)left;
+	p_right = (t_uc *)right;
 	while (size > 0 && *p_right == *p_left)
 	{
 		p_left = p_left + 1;

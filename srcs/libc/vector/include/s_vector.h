@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/16 12:11:43 by qperez            #+#    #+#             */
-/*   Updated: 2014/01/08 12:29:56 by qperez           ###   ########.fr       */
+/*   Updated: 2014/02/12 19:55:50 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,27 +38,27 @@
 
 typedef struct	s_vector
 {
-	ui		v_size;
-	ui		v_capacity;
+	t_ui	v_size;
+	t_ui	v_capacity;
 	void	**v_data;
-	ui		(*f_realloc)(ui size);
+	t_ui	(*f_realloc)(t_ui size);
 	void	(*f_delete)(void *ptr);
 }				t_vector;
 
 # define D_VECTOR(funct)	f_vector_##funct
 
-bool	f_vector_init(t_vector *v_this, ui (*uf_realloc)(ui size),
+bool	f_vector_init(t_vector *v_this, t_ui (*uf_realloc)(t_ui size),
 					  void (*uf_delete)(void *ptr));
 void	f_vector_clear(t_vector *v_this);
 bool	f_vector_empty(const t_vector *v_this);
-ui		f_vector_size(const t_vector *v_this);
-ui		f_vector_capacity(const t_vector *v_this);
+t_ui	f_vector_size(const t_vector *v_this);
+t_ui	f_vector_capacity(const t_vector *v_this);
 bool	f_vector_push_back(t_vector *v_this, void *data);
 void	*f_vector_erase(t_vector *v_this, void *erase);
 bool	f_vector_delete(t_vector *v_this, void *mb_del);
 bool	f_vector_foreach(t_vector *v_this, bool (*funct)(void *ptr));
-bool	f_vector_reserve(t_vector *v_this, ui new_size);
-void	*f_vector_at(t_vector *v_this, ui index);
+bool	f_vector_reserve(t_vector *v_this, t_ui new_size);
+void	*f_vector_at(t_vector *v_this, t_ui index);
 void	**f_vector_data(t_vector *v_this);
 void	*f_vector_front(t_vector *v_this);
 void	*f_vector_back(t_vector *v_this);

@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/16 12:39:48 by qperez            #+#    #+#             */
-/*   Updated: 2014/01/08 12:28:58 by qperez           ###   ########.fr       */
+/*   Updated: 2014/02/12 19:53:28 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ void	f_timer_start(t_timer *v_this);
 void	f_timer_stop(t_timer *v_this);
 void	f_timer_pause(t_timer *v_this);
 void	f_timer_unpause(t_timer *v_this);
-ui		f_timer_get_ticks(t_timer *v_this);
+t_ui	f_timer_get_ticks(t_timer *v_this);
 bool	f_timer_is_started(const t_timer *v_this);
 bool	f_timer_is_paused(const t_timer *v_this);
 

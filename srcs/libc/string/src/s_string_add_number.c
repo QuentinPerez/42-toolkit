@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/25 13:16:21 by qperez            #+#    #+#             */
-/*   Updated: 2014/01/08 18:34:03 by qperez           ###   ########.fr       */
+/*   Updated: 2014/02/12 19:51:22 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,11 @@
 
 #include <string/s_string.h>
 
-ui			uf_string_realloc(t_string *v_this, ui add);
+t_ui		uf_string_realloc(t_string *v_this, t_ui add);
 
-static ui	uf_string_get_digit(ssize_t nbr, ui base, ui *alloc)
+static t_ui	uf_string_get_digit(ssize_t nbr, t_ui base, t_ui *alloc)
 {
-	ui	digit;
+	t_ui	digit;
 
 	digit = 1;
 	*alloc = 1;
@@ -56,10 +56,10 @@ static ui	uf_string_get_digit(ssize_t nbr, ui base, ui *alloc)
 }
 
 
-bool		f_string_add_nbr_base(t_string *v_this, ssize_t nbr, ui base)
+bool		f_string_add_nbr_base(t_string *v_this, ssize_t nbr, t_ui base)
 {
-	ui	size;
-	ui	digit;
+	t_ui	size;
+	t_ui	digit;
 
 	digit = uf_string_get_digit(nbr, base, &size);
 	if (base == 16 && D_STRING(add_str)(v_this, "0x") == false)
@@ -90,9 +90,9 @@ bool		f_string_add_nbr(t_string *v_this, ssize_t nbr)
 
 bool		f_string_add_ptr(t_string *v_this, void *addr)
 {
-	size_t	nbr;
-	size_t	digit;
-	ui		size;
+	size_t		nbr;
+	size_t		digit;
+	t_ui		size;
 
 	size = 1;
 	digit = 1;

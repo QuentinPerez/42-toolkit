@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/02 15:46:25 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/04 09:42:28 by qperez           ###   ########.fr       */
+/*   Updated: 2014/02/12 19:43:03 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,8 @@
 
 bool	f_array_foreach(t_array *v_this, bool (*funct)(void *data))
 {
-	ui		i;
-	ui		size;
+	t_ui	i;
+	t_ui	size;
 	char	*ptr;
 
 	i = 0;

@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/18 17:21:22 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/05 23:43:36 by qperez           ###   ########.fr       */
+/*   Updated: 2014/02/12 19:32:49 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@
 #include <t_types.h>
 #include <f_string/f_str_tools.h>
 
-void	uf_crypto_xor(void *data, const char *key, ui data_size)
+void	uf_crypto_xor(void *data, const char *key, t_ui data_size)
 {
-	ui	i;
-	ui	len;
+	t_ui	i;
+	t_ui	len;
 
 	i = 0;
 	len = uf_str_len(key);
@@ -45,8 +45,8 @@ void	uf_crypto_xor(void *data, const char *key, ui data_size)
 		return ;
 	while (i < data_size)
 	{
-		if (((uc *)data)[i] != 0 && ((uc *)data)[i] != key[i % len])
-			((uc *)data)[i] = ((uc *)data)[i] ^ key[i % len];
+		if (((t_uc *)data)[i] != 0 && ((t_uc *)data)[i] != key[i % len])
+			((t_uc *)data)[i] = ((t_uc *)data)[i] ^ key[i % len];
 		i = i + 1;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/30 11:05:34 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/05 23:42:57 by qperez           ###   ########.fr       */
+/*   Updated: 2014/02/12 19:38:32 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@
 #include <f_string/f_print.h>
 #include <f_string/f_print_fd.h>
 
-static void	uf_print_treat_argument(va_list *ap, const char **fmt, ui fd)
+static void	uf_print_treat_argument(va_list *ap, const char **fmt, t_ui fd)
 {
 	*fmt = *fmt + 1;
 	if (**fmt == 'd' || **fmt == 'i')
@@ -53,7 +53,7 @@ static void	uf_print_treat_argument(va_list *ap, const char **fmt, ui fd)
 		uf_print_color_fx(va_arg(*ap, int), 1);
 }
 
-void		uf_print_variadic_fd(ui fd, const char *fmt, ...)
+void		uf_print_variadic_fd(t_ui fd, const char *fmt, ...)
 {
 	va_list		ap;
 	const char	*tmp;

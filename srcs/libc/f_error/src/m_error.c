@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/28 12:30:46 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/05 23:59:37 by qperez           ###   ########.fr       */
+/*   Updated: 2014/02/12 19:30:29 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@
 
 char	mf_print_infos(const char *file, int line, const char *fct)
 {
-#ifdef	D_ERRORS_ON
 	uf_print_str_fd("\033[0;37m", 2);
 	uf_print_str_fd(file, 2);
 	uf_print_str_fd(", line \033[1;33m", 2);
@@ -43,7 +42,6 @@ char	mf_print_infos(const char *file, int line, const char *fct)
 	uf_print_str_fd(": \033[1;37m", 2);
 	uf_print_str_fd(fct, 2);
 	uf_print_str_fd("()\n\033[1;31m→\t", 2);
-#endif
 	(void)file;
 	(void)line;
 	(void)fct;
@@ -52,7 +50,6 @@ char	mf_print_infos(const char *file, int line, const char *fct)
 
 size_t	mf_error(char nothing, size_t ret, const char *fmt, ...)
 {
-#ifdef	D_ERRORS_ON
 	va_list		ap;
 	t_string	str;
 
@@ -68,7 +65,6 @@ size_t	mf_error(char nothing, size_t ret, const char *fmt, ...)
 	D_STRING(print_fd)(&str, 2);
 	D_STRING(destroy)(&str);
 	va_end(ap);
-#endif
 	(void)nothing;
 	(void)fmt;
 	return (ret);
@@ -76,16 +72,13 @@ size_t	mf_error(char nothing, size_t ret, const char *fmt, ...)
 
 void	mf_error_v(char nothing, const char *fmt, ...)
 {
-#ifdef	D_ERRORS_ON
 	mf_error(0, 0, fmt);
-#endif
 	(void)nothing;
 	(void)fmt;
 }
 
 void	mf_infos(const char *funct, const char *infos, ...)
 {
-#ifdef	D_ERRORS_ON
 	va_list		ap;
 	t_string	str;
 
@@ -102,7 +95,6 @@ void	mf_infos(const char *funct, const char *infos, ...)
 	D_STRING(print_fd)(&str, 2);
 	D_STRING(destroy)(&str);
 	va_end(ap);
-#endif
 	(void)funct;
 	(void)infos;
 }

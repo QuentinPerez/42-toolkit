@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/03 13:26:16 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/03 15:56:29 by qperez           ###   ########.fr       */
+/*   Updated: 2014/02/12 19:42:31 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,12 +38,12 @@ inline bool	f_array_empty(const t_array *v_this)
 	return (v_this->v_size == 0);
 }
 
-inline ui	f_array_capacity(const t_array *v_this)
+inline t_ui	f_array_capacity(const t_array *v_this)
 {
 	return (v_this->v_capacity);
 }
 
-inline ui	f_array_size(const t_array *v_this)
+inline t_ui	f_array_size(const t_array *v_this)
 {
 	return (v_this->v_size);
 }

@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/25 18:38:40 by qperez            #+#    #+#             */
-/*   Updated: 2014/01/08 17:59:31 by qperez           ###   ########.fr       */
+/*   Updated: 2014/02/12 19:52:41 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,10 @@
 #include <f_error/m_error.h>
 #include <stdlib.h>
 
-bool	uf_string_realloc(t_string *v_this, ui add)
+bool	uf_string_realloc(t_string *v_this, t_ui add)
 {
 	char	*tmp;
-	ui		new_capacity;
+	t_ui	new_capacity;
 
 	new_capacity = v_this->v_capacity;
 	while (v_this->v_size + add > new_capacity)

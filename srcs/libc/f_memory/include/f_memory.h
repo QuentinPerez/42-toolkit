@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/26 12:48:37 by qperez            #+#    #+#             */
-/*   Updated: 2014/01/08 12:25:43 by qperez           ###   ########.fr       */
+/*   Updated: 2014/02/12 19:39:10 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,9 @@
 # include <t_types.h>
 # include <stdbool.h>
 
-void	*uf_memset(void *src, uc c, size_t size);
+void	*uf_memset(void *src, t_uc c, size_t size);
 void	uf_memcpy(void *to, const void *from, size_t size);
 bool	uf_memcmp(const void *left, void *right, size_t size);
-void	*uf_print_memory(const void *addr, ui size);
+void	*uf_print_memory(const void *addr, t_ui size);
 
 #endif

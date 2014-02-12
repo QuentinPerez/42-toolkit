@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/22 13:03:26 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/04 09:47:35 by qperez           ###   ########.fr       */
+/*   Updated: 2014/02/12 19:40:07 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,12 +33,12 @@
 
 #include <t_types.h>
 
-void	uf_sort_shell(int *begin, ui size)
+void	uf_sort_shell(int *begin, t_ui size)
 {
-	ui	h;
-	ui	i;
-	ui	j;
-	int	tmp;
+	t_ui	h;
+	t_ui	i;
+	t_ui	j;
+	int		tmp;
 
 	h = size >> 1;
 	while (h > 0)

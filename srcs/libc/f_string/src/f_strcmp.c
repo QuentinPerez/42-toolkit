@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/07 20:14:55 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/03 23:52:52 by qperez           ###   ########.fr       */
+/*   Updated: 2014/02/12 19:40:43 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ int	uf_strcmp(const char *left, const char *right)
 		left = left + 1;
 		right = right + 1;
 	}
-	return ((int)((uc)*left - (uc)*right));
+	return ((int)((t_uc)*left - (t_uc)*right));
 }
 
 int	uf_strncmp(const char *left, const char *right, size_t count)
@@ -56,5 +56,5 @@ int	uf_strncmp(const char *left, const char *right, size_t count)
 		left = left + 1;
 		right = right + 1;
 	}
-	return ((int)((uc)*left - (uc)*right));
+	return ((int)((t_uc)*left - (t_uc)*right));
 }

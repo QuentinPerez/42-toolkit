@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/23 13:04:55 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/23 13:21:54 by qperez           ###   ########.fr       */
+/*   Updated: 2014/02/12 19:39:55 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ static inline void	uf_sort_quick_swap(int **left, int **right)
 	*left = *left + 1;
 }
 
-void				uf_sort_quick(int *ptr, ui size)
+void				uf_sort_quick(int *ptr, t_ui size)
 {
 	int	pivot;
 	int	*left;

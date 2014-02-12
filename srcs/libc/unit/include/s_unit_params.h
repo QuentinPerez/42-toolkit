@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/31 12:06:36 by qperez            #+#    #+#             */
-/*   Updated: 2014/01/08 12:29:35 by qperez           ###   ########.fr       */
+/*   Updated: 2014/02/12 19:53:50 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@
 
 typedef struct	s_unit_params
 {
-	ui		v_width;
+	t_ui	v_width;
 	bool	v_run;
 }				t_unit_params;
 

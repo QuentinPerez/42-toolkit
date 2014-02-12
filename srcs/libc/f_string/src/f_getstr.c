@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/30 13:45:49 by qperez            #+#    #+#             */
-/*   Updated: 2013/12/29 15:45:28 by qperez           ###   ########.fr       */
+/*   Updated: 2014/02/12 19:35:01 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@
 #include <string/s_string.h>
 #include <f_error/m_error.h>
 
-static bool	uf_get_data(t_string *string, ui fd, uc terminate, bool del)
+static bool	uf_get_data(t_string *string, t_ui fd, t_uc terminate, bool del)
 {
 	char	c;
-	ui		nb_read;
+	t_ui	nb_read;
 
 	nb_read = read(fd, &c, 1);
 	while (nb_read == 1)
@@ -55,7 +55,7 @@ static bool	uf_get_data(t_string *string, ui fd, uc terminate, bool del)
 	return (true);
 }
 
-char		*uf_getstr(ui fd, uc terminate, bool del)
+char		*uf_getstr(t_ui fd, t_uc terminate, bool del)
 {
 	t_string	string;
 	char		*ret;
@@ -69,7 +69,7 @@ char		*uf_getstr(ui fd, uc terminate, bool del)
 	return (ret);
 }
 
-char		*uf_getline(ui fd, bool del)
+char		*uf_getline(t_ui fd, bool del)
 {
 	return (uf_getstr(fd, '\n', del));
 }

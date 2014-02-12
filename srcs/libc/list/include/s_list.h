@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/28 20:55:51 by qperez            #+#    #+#             */
-/*   Updated: 2014/02/10 14:12:03 by qperez           ###   ########.fr       */
+/*   Updated: 2014/02/12 19:44:57 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ typedef struct	s_list
 {
 	t_list_cell	*v_begin;
 	t_list_cell	*v_end;
-	ui			v_size;
+	t_ui		v_size;
 	void		(*f_destroy)(void *data);
 }				t_list;
 
@@ -50,11 +50,11 @@ typedef struct	s_list
 
 void		f_list_init(t_list *v_this, void (*v_funct_destroy)(void *data));
 bool		f_list_empty(const t_list *v_this);
-ui			f_list_size(const t_list *v_this);
+t_ui		f_list_size(const t_list *v_this);
 t_list_cell	*f_list_begin(const t_list *v_this);
 t_list_cell	*f_list_end(const t_list *v_this);
 t_list_cell	*f_list_erase(t_list *v_this, t_list_cell *erase, void **data);
-t_list_cell	*f_list_get_cell(t_list *list, ui cell_at);
+t_list_cell	*f_list_get_cell(t_list *list, t_ui cell_at);
 void		f_list_print_addr(const t_list *v_this);
 bool		f_list_push_back(t_list *v_this, void *data);
 void		f_list_pop_back(t_list *v_this);

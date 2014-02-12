@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/16 15:17:58 by qperez            #+#    #+#             */
-/*   Updated: 2014/01/08 18:37:02 by qperez           ###   ########.fr       */
+/*   Updated: 2014/02/12 19:56:43 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@
 #include <stdlib.h>
 #include <f_error/m_error.h>
 
-static bool			f_vector_realloc(t_vector *v_this, ui size)
+static bool			f_vector_realloc(t_vector *v_this, t_ui size)
 {
 	void	**tmp;
 
@@ -50,9 +50,9 @@ static bool			f_vector_realloc(t_vector *v_this, ui size)
 	return (true);
 }
 
-static inline void	f_vector_decal(t_vector *v_this, ui start)
+static inline void	f_vector_decal(t_vector *v_this, t_ui start)
 {
-	ui	end;
+	t_ui	end;
 
 	end = v_this->v_size - 1;
 	while (start < end)
@@ -65,7 +65,7 @@ static inline void	f_vector_decal(t_vector *v_this, ui start)
 
 bool				f_vector_push_back(t_vector *v_this, void *data)
 {
-	ui	new_size;
+	t_ui	new_size;
 
 	if (data == NULL)
 		M_INFOS(false, "Null pointer");
@@ -80,7 +80,7 @@ bool				f_vector_push_back(t_vector *v_this, void *data)
 
 void				*f_vector_erase(t_vector *v_this, void *erase)
 {
-	ui		i;
+	t_ui	i;
 	void	*ret;
 
 	i = 0;
@@ -99,7 +99,7 @@ void				*f_vector_erase(t_vector *v_this, void *erase)
 	return (ret);
 }
 
-bool				f_vector_reserve(t_vector *v_this, ui size)
+bool				f_vector_reserve(t_vector *v_this, t_ui size)
 {
 	if (size <= v_this->v_capacity)
 		return (false);

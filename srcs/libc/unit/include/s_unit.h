@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/31 11:09:07 by qperez            #+#    #+#             */
-/*   Updated: 2014/01/08 12:29:14 by qperez           ###   ########.fr       */
+/*   Updated: 2014/02/12 19:54:07 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ bool	f_unit_add_context(t_unit *v_this, const char *name,
 						   bool (*destroy)(void *data));
 bool	mf_unit_add_test(t_unit *v_this, const char *context,
 						 const char *name, void (*test)(struct s_unit_test *));
-void	mf_unit_assert(struct s_unit_test *t, bool check, ui line, char *file);
+void	mf_unit_assert(struct s_unit_test *t, bool check, t_ui lin, char *file);
 void	f_unit_console_run(t_unit *v_this);
 void	f_unit_destroy(t_unit *v_this);
 

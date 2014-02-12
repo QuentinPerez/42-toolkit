@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/08 20:33:45 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/03 23:53:11 by qperez           ###   ########.fr       */
+/*   Updated: 2014/02/12 19:41:21 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@
 
 char	*uf_strdup(const char *str)
 {
-	ui		size;
+	t_ui	size;
 	char	*ret;
 
 	size = uf_str_len(str);

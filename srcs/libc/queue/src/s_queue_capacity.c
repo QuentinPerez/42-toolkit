@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/03 14:30:28 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/03 23:58:30 by qperez           ###   ########.fr       */
+/*   Updated: 2014/02/12 19:49:52 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ inline bool	f_queue_empty(const t_queue *v_this)
 	return (v_this->v_size == 0);
 }
 
-inline ui	f_queue_size(const t_queue *v_this)
+inline t_ui	f_queue_size(const t_queue *v_this)
 {
 	return (v_this->v_size);
 }

@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/31 19:00:08 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/05 23:58:21 by qperez           ###   ########.fr       */
+/*   Updated: 2014/02/12 19:54:47 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@
 #include <list/s_list.h>
 #include <unit/s_unit_test.h>
 
-void	mf_unit_assert(t_unit_test *t, bool check, ui line, char *file)
+void	mf_unit_assert(t_unit_test *t, bool check, t_ui line, char *file)
 {
 	t_unit_assert	*assert;
 

@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/27 15:34:52 by qperez            #+#    #+#             */
-/*   Updated: 2014/01/08 12:28:45 by qperez           ###   ########.fr       */
+/*   Updated: 2014/02/12 19:50:07 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ typedef struct	s_stack_cell
 
 typedef struct	s_stack
 {
-	ui					v_size;
+	t_ui				v_size;
 	t_stack_cell		*v_last;
 	void				(*f_destroy)(void *data);
 }				t_stack;
@@ -58,7 +58,7 @@ void	f_stack_pop(t_stack *v_this);
 void	f_stack_clear(t_stack *v_this);
 void	*f_stack_top(t_stack *v_this);
 bool	f_stack_empty(const t_stack *v_this);
-ui		f_stack_size(const t_stack *v_this);
+t_ui	f_stack_size(const t_stack *v_this);
 bool	f_stack_foreach(t_stack *v_this, bool (*funct)(void *data));
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/16 12:38:55 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/22 22:59:20 by qperez           ###   ########.fr       */
+/*   Updated: 2014/02/12 19:53:18 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ void	f_timer_unpause(t_timer *v_this)
 	}
 }
 
-ui		f_timer_get_ticks(t_timer *v_this)
+t_ui	f_timer_get_ticks(t_timer *v_this)
 {
 	struct timeval	tmp;
 

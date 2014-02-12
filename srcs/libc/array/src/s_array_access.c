@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/03 13:59:04 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/03 17:00:04 by qperez           ###   ########.fr       */
+/*   Updated: 2014/02/12 19:42:21 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ inline void	*mf_array_data(t_array *v_this)
 	return (v_this->v_data);
 }
 
-inline void	*mf_array_at(t_array *v_this, ui index)
+inline void	*mf_array_at(t_array *v_this, t_ui index)
 {
 	return (v_this->v_data + index * v_this->v_type_size);
 }

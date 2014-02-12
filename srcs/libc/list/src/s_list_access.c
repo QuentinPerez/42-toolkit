@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/02 22:27:02 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/04 09:59:05 by qperez           ###   ########.fr       */
+/*   Updated: 2014/02/12 19:46:54 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,9 +58,9 @@ inline t_list_cell	*f_list_end(const t_list *v_this)
 	return (v_this->v_end);
 }
 
-t_list_cell			*f_list_get_cell(t_list *list, ui cell_at)
+t_list_cell			*f_list_get_cell(t_list *list, t_ui cell_at)
 {
-	ui			i;
+	t_ui		i;
 	t_list_cell	*cur;
 
 	i = 0;
