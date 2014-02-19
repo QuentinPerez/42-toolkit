@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/07 23:03:19 by qperez            #+#    #+#             */
-/*   Updated: 2014/02/12 19:40:33 by qperez           ###   ########.fr       */
+/*   Updated: 2014/02/19 19:31:16 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,6 @@ int	uf_str_case_cmp(const char *left, const char *right)
 		right = right + 1;
 		left = left + 1;
 	}
-	left_letter = uf_to_lower(*left);
-	right_letter = uf_to_lower(*right);
 	return (left_letter - right_letter);
 }
 
@@ -73,7 +71,5 @@ int	uf_str_case_ncmp(const char *left, const char *right, size_t count)
 		right = right + 1;
 		left = left + 1;
 	}
-	left_letter = uf_to_lower(*left);
-	right_letter = uf_to_lower(*right);
 	return (left_letter - right_letter);
 }
