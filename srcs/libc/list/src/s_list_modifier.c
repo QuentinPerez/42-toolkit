@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/30 17:48:19 by qperez            #+#    #+#             */
-/*   Updated: 2014/02/12 14:05:45 by qperez           ###   ########.fr       */
+/*   Updated: 2014/02/23 20:32:10 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,5 +116,10 @@ t_list_cell	*f_list_erase(t_list *v_this, t_list_cell *erase, void **data)
 		erase->v_next->v_prev = erase->v_prev;
 	free(erase);
 	v_this->v_size = v_this->v_size - 1;
+	if (v_this->v_size == 0)
+	{
+		v_this->v_begin = NULL;
+		v_this->v_end = NULL;
+	}
 	return (ret);
 }
