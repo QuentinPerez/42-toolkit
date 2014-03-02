@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/16 15:17:58 by qperez            #+#    #+#             */
-/*   Updated: 2014/02/12 19:56:43 by qperez           ###   ########.fr       */
+/*   Updated: 2014/03/02 14:27:14 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ bool				f_vector_push_back(t_vector *v_this, void *data)
 	t_ui	new_size;
 
 	if (data == NULL)
-		M_INFOS(false, "Null pointer");
+		M_INFOS("Null pointer");
 	new_size = v_this->f_realloc(v_this->v_size);
 	if (v_this->v_size + 1 > v_this->v_capacity
 		&& D_VECTOR(realloc)(v_this, new_size) == false)
