@@ -1,7 +1,12 @@
 LIB42 RELEASES
 ===
 
-####Current release : 0.1.3
+####Current release : 0.1.5
+
+	-V0.1.5 02-03-2014
+		fix list
+		fix norme
+		fix f_string
 
 	-V0.1.4 08-01-2014
 		fix norme
