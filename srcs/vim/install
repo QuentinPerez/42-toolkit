@@ -12,21 +12,8 @@ INDEX=0
 for FILE in $VIM_FILE
 do
 	if [ ! -f $HOME/.vim/${DIRECTORY[$INDEX]}/$FILE ]; then
-		printf "Do you want install \e[34m$FILE\e[0m to $HOME/.vim/${DIRECTORY[$INDEX]} (y/n) ? : "
-		read ANSWER
-		if [ $ANSWER == "y" ]; then
-			cp ${DIR_FILE[$INDEX]}/$FILE $HOME/.vim/${DIRECTORY[$INDEX]}
-			printf "Plugin $FILE \e[32minstalled.\e[0m\n"
-		else
-			printf "Plugin $FILE \e[31mnot installed.\e[0m\n"
-		fi
-	else
-		printf "Do you want \e[35mupdate\e[0m your \e[34m$FILE\e[0m (y/n) ? : "
-		read ANSWER
-		if [ $ANSWER == "y" ]; then
-			cp ${DIR_FILE[$INDEX]}/$FILE $HOME/.vim/${DIRECTORY[$INDEX]}
-			printf "\e[32mUpdated\e[0m $FILE\n"
-		fi
+		cp ${DIR_FILE[$INDEX]}/$FILE $HOME/.vim/${DIRECTORY[$INDEX]}
+		printf "Plugin $FILE \e[32minstalled.\e[0m\n"
 	fi
 	INDEX=$((INDEX + 1))
 done

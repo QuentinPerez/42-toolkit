@@ -29,7 +29,6 @@ function! Generate_h_42()
 	let l:newname = substitute(l:newname, "\\n", "", "g")
 	exe ":normal A" . "#ifndef " . l:newname . "\n# define " . l:newname . "\n\n\n\n#endif"
 	if exists("*Insert_header_42")
-		call Insert_header_42()
 		exe ":16"
 	else
 		exe ":4"
