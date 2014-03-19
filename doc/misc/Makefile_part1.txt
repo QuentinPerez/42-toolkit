@@ -20,7 +20,7 @@
 
 CC		=	clang
 CFLAGS	+=	-Wextra -Wall -Werror -DD_ERRORS_ON -I./include
-LDFLAGS	+=
+LDFLAGS	+=	-lpthread
 DEBUG	=	-g3 -fno-inline
 
 OBJDIR	=	.objs
