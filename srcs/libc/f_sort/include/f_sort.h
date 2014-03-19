@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/18 12:23:30 by qperez            #+#    #+#             */
-/*   Updated: 2014/01/08 12:25:53 by qperez           ###   ########.fr       */
+/*   Updated: 2014/03/19 15:10:20 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,10 +35,10 @@
 
 # include <t_types.h>
 
-void	uf_sort_bubble(int *ptr, ui size);
-void	uf_sort_shell(int *ptr, ui size);
-void	uf_sort_quick(int *ptr, ui size);
+void	uf_sort_bubble(int *ptr, t_ui size);
+void	uf_sort_shell(int *ptr, t_ui size);
+void	uf_sort_quick(int *ptr, t_ui size);
 bool	uf_sort_merge(int *ptr, int size);
-bool	uf_sort_counting(int *ptr, ui size);
+bool	uf_sort_counting(int *ptr, t_ui size);
 
 #endif

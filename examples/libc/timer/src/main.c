@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/16 12:55:00 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/04 21:20:05 by qperez           ###   ########.fr       */
+/*   Updated: 2014/03/19 15:12:00 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@
 
 int	main(int argc, char const** argv)
 {
-	ui		i;
-	ui		j;
+	t_ui	i;
+	t_ui	j;
 	t_timer	timer;
 
 	i = 0;

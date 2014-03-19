@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/05 15:08:40 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/04 21:33:42 by qperez           ###   ########.fr       */
+/*   Updated: 2014/03/19 15:12:11 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static bool	uf_print(void *ptr)
 
 int	main(int argc, char const** argv)
 {
-	ui			i;
+	t_ui		i;
 	t_vector	vector;
 
 	/*

@@ -51,6 +51,7 @@ LISTDIR	=	array			\
 			unit			\
 			vector			\
 			matrix			\
+			lock			\
 			rbtree
 
 LIB42	=	$(DIR42)/lib42.a
