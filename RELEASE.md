@@ -1,7 +1,11 @@
 LIB42 RELEASES
 ===
 
-####Current release : 0.1.5
+####Current release : 0.1.6
+
+	-V0.1.6 19-03-2014
+		add lock
+		fix examples compile
 
 	-V0.1.5 02-03-2014
 		fix list
