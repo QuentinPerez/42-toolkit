@@ -8,7 +8,7 @@
 # 42School
 ===
 
-####Demonstration:
+#### Demonstration:
 42's priority is P2P so I started a open source project for me and my colleagues.
 This project contains basic tools that allow us to work faster and more efficiently.
 This code will prevent wasting time on rewriting the same function several times
@@ -24,7 +24,6 @@ Abraham Lincoln.
 ===
 ## Contributing
 
-
 #### I've found a bug!
 
 We're glad you did, and certainly would like to know more! Please use the [issues tracker](https://github.com/42School/42-toolkit/issues) to report it.
@@ -35,14 +34,13 @@ You can share your thoughts, requests, feedback on that same [tracker](https://g
 
 Welcome, First just take a look at [these guidelines](CONTRIBUTING.md)
 
+#### How to thank us ?
+
+Just click on star button :)
+
 ===
 
 ## Who's behind it?
-
-### 42Student Team
-* [Clara Muller](https://github.com/ClaraMuller)
-* [Iohann Rabeson](https://github.com/IohannRabeson)
-* [Edmond-Xavier Collot](https://github.com/Edmond-XavierCollot)
 
 ### Owner
 * [Quentin Perez](https://github.com/QuentinPerez)
