@@ -27,7 +27,7 @@ You can (**must**) see [norme 42](https://docs.google.com/file/d/0Byas2-wgCXhnMT
 	- if (test() == false)	/* RIGHT */
 
 	- uf_function			/* undefined function it does not belong to the library */
-	- tf_funtion			/* function for the unit test */
+	- tf_function			/* function for the unit test */
 	- f_struct_function		/* function that is part of the library *
 
 ===
