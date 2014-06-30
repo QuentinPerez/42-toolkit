@@ -24,16 +24,8 @@ CFLAGS	+=	-Wextra -Wall -Werror -I./$(DIR42)/include -DD_ERRORS_ON
 LDFLAGS	+=	-L./$(DIR42) -l42
 DEBUG	=	-g3 -fno-inline -DD_ERRORS_ON
 
-NB_CORE =	1
-UNAME	:=	$(shell uname -s)
-ifeq ($(UNAME), Linux)
-	NB_CORE	:=	$(shell grep -c ^processor /proc/cpuinfo)
-endif
-ifeq ($(UNAME), Darwin)
-	NB_CORE	:=	$(shell sysctl -n hw.ncpu)
-endif
-
 LISTDIR	=	array			\
+			arqueue			\
 			error			\
 			f_crypto		\
 			f_error			\
