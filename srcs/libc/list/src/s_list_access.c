@@ -48,19 +48,19 @@ void				*f_list_front(t_list *v_this)
 	return (NULL);
 }
 
-inline t_list_cell	*f_list_begin(const t_list *v_this)
+t_list_cell			*f_list_begin(const t_list *v_this)
 {
 	return (v_this->v_begin);
 }
 
-inline t_list_cell	*f_list_end(const t_list *v_this)
+t_list_cell			*f_list_end(const t_list *v_this)
 {
 	return (v_this->v_end);
 }
 
-t_list_cell			*f_list_get_cell(t_list *list, t_ui cell_at)
+t_list_cell			*f_list_get_cell(t_list *list, size_t cell_at)
 {
-	t_ui		i;
+	size_t		i;
 	t_list_cell	*cur;
 
 	i = 0;

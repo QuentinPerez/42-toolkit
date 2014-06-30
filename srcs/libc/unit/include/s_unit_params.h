@@ -33,12 +33,12 @@
 #ifndef S_UNIT_PARAMS_H
 # define S_UNIT_PARAMS_H
 
-# include <t_types.h>
+# include <stddef.h>
 # include <stdbool.h>
 
 typedef struct	s_unit_params
 {
-	t_ui	v_width;
+	size_t	v_width;
 	bool	v_run;
 }				t_unit_params;
 

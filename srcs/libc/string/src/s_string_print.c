@@ -45,10 +45,9 @@ void	f_string_print_memory(const t_string *v_this, const char *name)
 	uf_print_memory(v_this->v_str, v_this->v_capacity);
 }
 
-void	f_string_print_fd(const t_string *v_this, t_ui fd)
+void	f_string_print_fd(const t_string *v_this, size_t fd)
 {
-	if (write(fd, v_this->v_str, v_this->v_size) != v_this->v_size)
-		M_ERROR(0, "Write : Fail");
+	write(fd, v_this->v_str, v_this->v_size);
 }
 
 void	f_string_print(const t_string *v_this)

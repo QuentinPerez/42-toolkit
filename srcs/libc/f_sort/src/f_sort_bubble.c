@@ -31,12 +31,12 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <t_types.h>
+#include <stddef.h>
 
-void	uf_sort_bubble(int *begin, t_ui size)
+void	uf_sort_bubble(int *begin, size_t size)
 {
-	t_ui	x;
-	t_ui	y;
+	size_t	x;
+	size_t	y;
 	int		tmp;
 
 	x = 0;

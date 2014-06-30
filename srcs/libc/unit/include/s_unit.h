@@ -56,7 +56,7 @@ bool	f_unit_add_context(t_unit *v_this, const char *name,
 						   bool (*destroy)(void *data));
 bool	mf_unit_add_test(t_unit *v_this, const char *context,
 						 const char *name, void (*test)(struct s_unit_test *));
-void	mf_unit_assert(struct s_unit_test *t, bool check, t_ui lin, char *file);
+void	mf_unit_assert(struct s_unit_test *t, bool check, size_t lin, char *file);
 void	f_unit_console_run(t_unit *v_this);
 void	f_unit_destroy(t_unit *v_this);
 

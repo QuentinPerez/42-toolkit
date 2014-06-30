@@ -34,7 +34,7 @@
 # define S_TIMER_H
 
 # include <stdbool.h>
-# include <t_types.h>
+# include <stddef.h>
 # include <sys/time.h>
 
 typedef struct	s_timer
@@ -51,7 +51,7 @@ void	f_timer_start(t_timer *v_this);
 void	f_timer_stop(t_timer *v_this);
 void	f_timer_pause(t_timer *v_this);
 void	f_timer_unpause(t_timer *v_this);
-t_ui	f_timer_get_ticks(t_timer *v_this);
+size_t	f_timer_get_ticks(t_timer *v_this);
 bool	f_timer_is_started(const t_timer *v_this);
 bool	f_timer_is_paused(const t_timer *v_this);
 

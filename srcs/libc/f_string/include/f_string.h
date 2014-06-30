@@ -35,7 +35,6 @@
 
 # include <stddef.h>
 # include <stdbool.h>
-# include <t_types.h>
 
 char	*uf_strcpy(char *dest, const char *src);
 char	*uf_strncpy(char *dest, const char *src, size_t size);
@@ -48,11 +47,11 @@ int		uf_strncmp(const char *left, const char *right, size_t count);
 int		uf_str_case_cmp(const char *left, const char *right);
 int		uf_str_case_ncmp(const char *left, const char *right, size_t count);
 char	*uf_itoa(int nbr);
-char	*uf_itoa_base(int nbr, t_ui base);
+char	*uf_itoa_base(int nbr, size_t base);
 int		uf_atoi(char *nbr);
-int		uf_atoi_base(char *nbr, t_ui base);
+int		uf_atoi_base(char *nbr, size_t base);
 char	*uf_strdup(const char *str);
-char	*uf_getstr(t_ui fd, t_uc terminate, bool del_terminate);
-char	*uf_getline(t_ui fd, bool del_terminate);
+char	*uf_getstr(size_t fd, unsigned char terminate, bool del_terminate);
+char	*uf_getline(size_t fd, bool del_terminate);
 
 #endif

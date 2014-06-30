@@ -35,7 +35,7 @@
 #include <list/s_list.h>
 #include <f_string/f_string.h>
 
-t_ui	f_htable_generate_key(const t_htable *v_this, const char *str);
+size_t	f_htable_generate_key(const t_htable *v_this, const char *str);
 
 void	*f_htable_erase(t_htable *v_this, const char *key)
 {

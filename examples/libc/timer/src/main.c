@@ -24,8 +24,8 @@
 
 int	main(int argc, char const** argv)
 {
-	t_ui	i;
-	t_ui	j;
+	size_t	i;
+	size_t	j;
 	t_timer	timer;
 
 	i = 0;

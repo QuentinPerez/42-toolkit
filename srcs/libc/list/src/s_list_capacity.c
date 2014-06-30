@@ -33,12 +33,12 @@
 
 #include <list/s_list.h>
 
-inline bool	f_list_empty(const t_list *v_this)
+bool			f_list_empty(const t_list *v_this)
 {
 	return (v_this->v_size == 0);
 }
 
-inline t_ui	f_list_size(const t_list *v_this)
+size_t			f_list_size(const t_list *v_this)
 {
 	return (v_this->v_size);
 }

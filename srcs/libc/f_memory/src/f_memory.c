@@ -32,13 +32,12 @@
 
 #include <stdbool.h>
 #include <stddef.h>
-#include <t_types.h>
 
-void	*uf_memset(void *src, t_uc c, size_t size)
+void	*uf_memset(void *src, unsigned char c, size_t size)
 {
-	t_uc	*ptr;
+	unsigned char	*ptr;
 
-	ptr = (t_uc *)src;
+	ptr = (unsigned char *)src;
 	while (size > 0)
 	{
 		*ptr = c;
@@ -50,11 +49,11 @@ void	*uf_memset(void *src, t_uc c, size_t size)
 
 void	uf_memcpy(void *to, const void *from, size_t size)
 {
-	t_uc	*p_to;
-	t_uc	*p_from;
+	unsigned char	*p_to;
+	unsigned char	*p_from;
 
-	p_to = (t_uc *)to;
-	p_from = (t_uc *)from;
+	p_to = (unsigned char *)to;
+	p_from = (unsigned char *)from;
 	while (size > 0)
 	{
 		*p_to = *p_from;
@@ -66,11 +65,11 @@ void	uf_memcpy(void *to, const void *from, size_t size)
 
 bool	uf_memcmp(const void *left, const void *right, size_t size)
 {
-	t_uc	*p_left;
-	t_uc	*p_right;
+	unsigned char	*p_left;
+	unsigned char	*p_right;
 
-	p_left = (t_uc *)left;
-	p_right = (t_uc *)right;
+	p_left = (unsigned char *)left;
+	p_right = (unsigned char *)right;
 	while (size > 0 && *p_right == *p_left)
 	{
 		p_left = p_left + 1;

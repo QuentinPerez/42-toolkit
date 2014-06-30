@@ -36,15 +36,15 @@
 #include <f_error/m_error.h>
 #include <f_memory/f_memory.h>
 
-static inline t_ui	uf_string_realloc(t_ui size)
+static inline size_t	uf_string_realloc(size_t size)
 {
 	return (size << 1);
 }
 
 bool				f_string_init(t_string *v_this,
-								t_ui (*uf_realloc)(t_ui size))
+								size_t (*uf_realloc)(size_t size))
 {
-	t_ui	size;
+	size_t	size;
 
 	size = 2;
 	v_this->v_size = 0;
@@ -62,7 +62,7 @@ bool				f_string_init(t_string *v_this,
 
 void				f_string_clear(t_string *v_this)
 {
-	t_ui	size;
+	size_t	size;
 
 	size = v_this->v_capacity;
 	while (size > 0)

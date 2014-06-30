@@ -33,9 +33,9 @@
 #ifndef F_CRYPTO_H
 # define F_CRYPTO_H
 
-# include <t_types.h>
+#include <stddef.h>
 
-void	uf_crypto_xor(void *data, const char *key, t_ui data_size);
+void	uf_crypto_xor(void *data, const char *key, size_t data_size);
 void	uf_crypto_rot5(char *str);
 void	uf_crypto_rot13(char *str);
 void	uf_crypto_rot18(char *str);

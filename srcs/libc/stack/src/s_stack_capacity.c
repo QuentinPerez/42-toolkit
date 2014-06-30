@@ -38,7 +38,7 @@ inline bool	f_stack_empty(const t_stack *v_this)
 	return (v_this->v_size == 0);
 }
 
-inline t_ui	f_stack_size(const t_stack *v_this)
+inline size_t	f_stack_size(const t_stack *v_this)
 {
 	return (v_this->v_size);
 }

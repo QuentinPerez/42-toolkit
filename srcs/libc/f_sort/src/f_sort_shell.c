@@ -31,13 +31,13 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <t_types.h>
+#include <stddef.h>
 
-void	uf_sort_shell(int *begin, t_ui size)
+void	uf_sort_shell(int *begin, size_t size)
 {
-	t_ui	h;
-	t_ui	i;
-	t_ui	j;
+	size_t	h;
+	size_t	i;
+	size_t	j;
 	int		tmp;
 
 	h = size >> 1;

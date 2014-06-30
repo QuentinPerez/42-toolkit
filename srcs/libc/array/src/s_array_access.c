@@ -33,12 +33,12 @@
 
 #include <array/s_array.h>
 
-inline void	*mf_array_data(t_array *v_this)
+void	*mf_array_data(t_array *v_this)
 {
 	return (v_this->v_data);
 }
 
-inline void	*mf_array_at(t_array *v_this, t_ui index)
+void	*mf_array_at(t_array *v_this, size_t index)
 {
 	return (v_this->v_data + index * v_this->v_type_size);
 }

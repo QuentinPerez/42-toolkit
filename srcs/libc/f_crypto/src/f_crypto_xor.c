@@ -31,13 +31,12 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <t_types.h>
 #include <f_string/f_str_tools.h>
 
-void	uf_crypto_xor(void *data, const char *key, t_ui data_size)
+void	uf_crypto_xor(void *data, const char *key, size_t data_size)
 {
-	t_ui	i;
-	t_ui	len;
+	size_t	i;
+	size_t	len;
 
 	i = 0;
 	len = uf_str_len(key);
@@ -45,8 +44,10 @@ void	uf_crypto_xor(void *data, const char *key, t_ui data_size)
 		return ;
 	while (i < data_size)
 	{
-		if (((t_uc *)data)[i] != 0 && ((t_uc *)data)[i] != key[i % len])
-			((t_uc *)data)[i] = ((t_uc *)data)[i] ^ key[i % len];
+		if (((unsigned char *)data)[i] != 0
+			&& ((unsigned char *)data)[i] != key[i % len])
+			((unsigned char *)data)[i] = ((unsigned char *)data)[i]
+																^ key[i % len];
 		i = i + 1;
 	}
 }

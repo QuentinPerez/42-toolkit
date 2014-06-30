@@ -31,27 +31,26 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <t_types.h>
 #include <stdbool.h>
 
-bool	uf_is_upper(const t_uc c)
+bool	uf_is_upper(const unsigned char c)
 {
 	return (c > '@' && c < '[');
 }
 
-bool	uf_is_lower(const t_uc c)
+bool	uf_is_lower(const unsigned char c)
 {
 	return (c > '`' && c < '{');
 }
 
-t_uc	uf_to_lower(const t_uc c)
+unsigned char	uf_to_lower(const unsigned char c)
 {
 	if (uf_is_upper(c) == true)
 		return (c + 32);
 	return (c);
 }
 
-t_uc	uf_to_upper(const t_uc c)
+unsigned char	uf_to_upper(const unsigned char c)
 {
 	if (uf_is_lower(c) == true)
 		return (c - 32);

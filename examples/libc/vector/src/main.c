@@ -33,7 +33,7 @@ static bool	uf_print(void *ptr)
 
 int	main(int argc, char const** argv)
 {
-	t_ui		i;
+	size_t		i;
 	t_vector	vector;
 
 	/*

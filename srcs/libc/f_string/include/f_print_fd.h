@@ -34,18 +34,18 @@
 # define F_PRINT_FD_H
 
 # include <unistd.h>
-# include <t_types.h>
+# include <stddef.h>
 # include <stdbool.h>
 
-ssize_t	uf_print_char_fd(char c, t_ui fd);
-ssize_t	uf_print_str_fd(const char *str, t_ui fd);
-ssize_t	uf_print_nstr_fd(const char *str, t_ui size, t_ui fd);
-void	uf_print_nbr_fd(ssize_t nb, t_ui fd);
-void	uf_print_bits_fd(size_t value, size_t size, t_ui fd);
-void	uf_print_floating_nbr_fd(double nbr, t_ui digit, t_ui fd);
-void	uf_print_nbr_base_fd(ssize_t nbr, ssize_t base, t_ui fd);
-void	uf_print_variadic_fd(t_ui fd, const char *fmt, ...);
-void	uf_print_addr_fd(void *addr, t_ui fd);
-void	uf_print_bool_fd(bool value, t_ui fd);
+ssize_t	uf_print_char_fd(char c, size_t fd);
+ssize_t	uf_print_str_fd(const char *str, size_t fd);
+ssize_t	uf_print_nstr_fd(const char *str, size_t size, size_t fd);
+void	uf_print_nbr_fd(ssize_t nb, size_t fd);
+void	uf_print_bits_fd(size_t value, size_t size, size_t fd);
+void	uf_print_floating_nbr_fd(double nbr, size_t digit, size_t fd);
+void	uf_print_nbr_base_fd(ssize_t nbr, ssize_t base, size_t fd);
+void	uf_print_variadic_fd(size_t fd, const char *fmt, ...);
+void	uf_print_addr_fd(void *addr, size_t fd);
+void	uf_print_bool_fd(bool value, size_t fd);
 
 #endif

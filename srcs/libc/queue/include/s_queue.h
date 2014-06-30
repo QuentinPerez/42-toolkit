@@ -33,7 +33,7 @@
 #ifndef S_QUEUE_H
 # define S_QUEUE_H
 
-# include <t_types.h>
+# include <stddef.h>
 # include <stdbool.h>
 
 typedef struct	s_queue_cell
@@ -44,7 +44,7 @@ typedef struct	s_queue_cell
 
 typedef struct	s_queue
 {
-	t_ui				v_size;
+	size_t				v_size;
 	t_queue_cell		*v_head;
 	t_queue_cell		*v_tail;
 	void				(*f_destroy)(void *data);
@@ -56,7 +56,7 @@ void	f_queue_init(t_queue *v_this, void (*funct_destroy)(void *data));
 void	f_queue_clear(t_queue *v_this);
 void	f_queue_destroy(t_queue *v_this);
 bool	f_queue_empty(const t_queue *v_this);
-t_ui	f_queue_size(const t_queue *v_this);
+size_t	f_queue_size(const t_queue *v_this);
 bool	f_queue_push(t_queue *v_this, void *data);
 void	*f_queue_pop(t_queue *v_this);
 void	*f_queue_front(t_queue *v_this);

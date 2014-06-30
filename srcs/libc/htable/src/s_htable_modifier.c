@@ -36,14 +36,14 @@
 #include <list/s_list.h>
 #include <f_error/m_error.h>
 
-t_ui			f_htable_generate_key(const t_htable *v_this, const char *str);
+size_t			f_htable_generate_key(const t_htable *v_this, const char *str);
 
 t_htable_cell	*f_htable_create_cell(const char *key, void *data,
 									void (*f_delete)(void *data));
 
 bool			f_htable_add(t_htable *v_this, const char *str, void *data)
 {
-	t_ui			key;
+	size_t			key;
 	t_list			*element;
 	t_htable_cell	*cell;
 

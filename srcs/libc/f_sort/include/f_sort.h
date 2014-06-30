@@ -33,12 +33,12 @@
 #ifndef F_SORT_H
 # define F_SORT_H
 
-# include <t_types.h>
+# include <stddef.h>
 
-void	uf_sort_bubble(int *ptr, t_ui size);
-void	uf_sort_shell(int *ptr, t_ui size);
-void	uf_sort_quick(int *ptr, t_ui size);
+void	uf_sort_bubble(int *ptr, size_t size);
+void	uf_sort_shell(int *ptr, size_t size);
+void	uf_sort_quick(int *ptr, size_t size);
 bool	uf_sort_merge(int *ptr, int size);
-bool	uf_sort_counting(int *ptr, t_ui size);
+bool	uf_sort_counting(int *ptr, size_t size);
 
 #endif

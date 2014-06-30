@@ -34,17 +34,17 @@
 # define F_PRINT_H
 
 # include <unistd.h>
-# include <t_types.h>
+# include <stddef.h>
 # include <stdbool.h>
 
 ssize_t	uf_print_char(char c);
 ssize_t	uf_print_str(const char *str);
-void	uf_print_nstr(const char *str, t_ui size);
+void	uf_print_nstr(const char *str, size_t size);
 void	uf_print_nbr(ssize_t nb);
-void	uf_print_color(t_ui color);
-void	uf_print_color_fx(t_ui color, t_ui fx);
+void	uf_print_color(size_t color);
+void	uf_print_color_fx(size_t color, size_t fx);
 void	uf_print_bits(size_t value, size_t size);
-void	uf_print_floating_nbr(double nbr, t_ui digit);
+void	uf_print_floating_nbr(double nbr, size_t digit);
 void	uf_print_nbr_base(ssize_t nbr, ssize_t base);
 void	uf_print_variadic(const char *fmt, ...);
 void	uf_print_addr(void *addr);

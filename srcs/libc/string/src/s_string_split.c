@@ -41,8 +41,8 @@
 
 static bool	*uf_string_fill_bool(t_string *v_this, const char *charset)
 {
-	t_ui	i;
-	t_ui	size;
+	size_t	i;
+	size_t	size;
 	bool	*active;
 
 	i = 0;
@@ -66,10 +66,10 @@ static bool	*uf_string_fill_bool(t_string *v_this, const char *charset)
 	return (active);
 }
 
-static t_ui	uf_string_count_word(t_string *v_this, bool *active)
+static size_t	uf_string_count_word(t_string *v_this, bool *active)
 {
-	t_ui	i;
-	t_ui	word;
+	size_t	i;
+	size_t	word;
 
 	i = 0;
 	word = 0;
@@ -87,9 +87,9 @@ static t_ui	uf_string_count_word(t_string *v_this, bool *active)
 }
 
 static bool	uf_string_dump_word(const char *str, char **tab,
-								t_ui size, t_ui *word)
+								size_t size, size_t *word)
 {
-	t_ui	i;
+	size_t	i;
 
 	i = 0;
 	tab[*word] = malloc(sizeof(*tab[*word]) * (size + 1));
@@ -107,9 +107,9 @@ static bool	uf_string_dump_word(const char *str, char **tab,
 
 static bool	uf_string_fill_tab(t_string *v_this, char **tab, bool *active)
 {
-	t_ui	i;
-	t_ui	size;
-	t_ui	word;
+	size_t	i;
+	size_t	size;
+	size_t	word;
 
 	i = 0;
 	word = 0;

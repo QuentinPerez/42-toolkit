@@ -41,13 +41,13 @@ static inline void	uf_vector_delete(void *ptr)
 	(void)ptr;
 }
 
-static inline t_ui	uf_vector_realloc(t_ui size)
+static inline size_t	uf_vector_realloc(size_t size)
 {
 	return (size << 1);
 }
 
 bool				f_vector_init(t_vector *v_this,
-								t_ui (*uf_realloc)(t_ui size),
+								size_t (*uf_realloc)(size_t size),
 								void (*uf_delete)(void *ptr))
 {
 	v_this->v_size = 0;

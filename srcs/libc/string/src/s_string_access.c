@@ -34,12 +34,12 @@
 #include <string/s_string.h>
 #include <f_string/f_string.h>
 
-inline t_ui	f_string_size(const t_string *v_this)
+inline size_t	f_string_size(const t_string *v_this)
 {
 	return (v_this->v_size);
 }
 
-inline t_ui	f_string_capacity(const t_string *v_this)
+inline size_t	f_string_capacity(const t_string *v_this)
 {
 	return (v_this->v_capacity);
 }

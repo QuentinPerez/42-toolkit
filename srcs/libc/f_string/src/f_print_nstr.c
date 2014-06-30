@@ -10,15 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <t_types.h>
 #include <unistd.h>
 
-ssize_t	uf_print_nstr_fd(const char *str, t_ui size, t_ui fd)
+ssize_t	uf_print_nstr_fd(const char *str, size_t size, size_t fd)
 {
 	return (write(fd, str, size));
 }
 
-void	uf_print_nstr(const char *str, t_ui size)
+void	uf_print_nstr(const char *str, size_t size)
 {
 	uf_print_nstr_fd(str, size, 1);
 }

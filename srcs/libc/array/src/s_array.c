@@ -41,14 +41,14 @@ static inline void	uf_array_delete(void *ptr)
 	(void)ptr;
 }
 
-static inline t_ui	uf_array_realloc(t_ui size)
+static inline size_t	uf_array_realloc(size_t size)
 {
 	return (size << 1);
 }
 
 bool				f_array_init(t_array *v_this,
-							t_ui (*uf_realloc)(t_ui size),
-							void (*uf_delete)(void *ptr), t_ui type_size)
+							size_t (*uf_realloc)(size_t size),
+							void (*uf_delete)(void *ptr), size_t type_size)
 {
 	v_this->v_size = 0;
 	v_this->v_capacity = 0;
@@ -68,8 +68,8 @@ bool				f_array_init(t_array *v_this,
 
 void				f_array_clear(t_array *v_this)
 {
-	t_ui	i;
-	t_ui	size;
+	size_t	i;
+	size_t	size;
 	char	*ptr;
 
 	i = 0;

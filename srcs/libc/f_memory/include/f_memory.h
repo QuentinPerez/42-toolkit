@@ -34,12 +34,11 @@
 # define F_MEMORY_H
 
 # include <stddef.h>
-# include <t_types.h>
 # include <stdbool.h>
 
-void	*uf_memset(void *src, t_uc c, size_t size);
+void	*uf_memset(void *src, unsigned char c, size_t size);
 void	uf_memcpy(void *to, const void *from, size_t size);
 bool	uf_memcmp(const void *left, void *right, size_t size);
-void	*uf_print_memory(const void *addr, t_ui size);
+void	*uf_print_memory(const void *addr, size_t size);
 
 #endif

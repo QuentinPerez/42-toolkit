@@ -35,11 +35,11 @@
 #include <f_memory/f_memory.h>
 #include <f_string/f_str_tools.h>
 
-bool	uf_string_realloc(t_string *v_this, t_ui add);
+bool	uf_string_realloc(t_string *v_this, size_t add);
 
-void	f_string_erase(t_string *v_this, t_ui from, t_ui to)
+void	f_string_erase(t_string *v_this, size_t from, size_t to)
 {
-	t_ui	size;
+	size_t	size;
 
 	if (from >= to || to >= v_this->v_size)
 		return ;
@@ -49,9 +49,9 @@ void	f_string_erase(t_string *v_this, t_ui from, t_ui to)
 	v_this->v_size = v_this->v_size - (to - from);
 }
 
-bool	f_string_insert(t_string *v_this, const char *insert, t_ui at)
+bool	f_string_insert(t_string *v_this, const char *insert, size_t at)
 {
-	t_ui	size;
+	size_t	size;
 
 	if (at >= v_this->v_size)
 		return (D_STRING(add_str)(v_this, insert));

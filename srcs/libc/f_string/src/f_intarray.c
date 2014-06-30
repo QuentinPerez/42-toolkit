@@ -31,12 +31,11 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <t_types.h>
 #include <string/s_string.h>
 #include <f_string/f_char.h>
 #include <f_string/f_space.h>
 
-char		*uf_itoa_base(int nbr, t_ui base)
+char		*uf_itoa_base(int nbr, size_t base)
 {
 	char		*ret;
 	t_string	str;
@@ -54,7 +53,7 @@ char		*uf_itoa(int nbr)
 	return (uf_itoa_base(nbr, 10));
 }
 
-static char	*uf_atoi_check_base(const char *nbr, bool *neg, char *c, t_ui base)
+static char	*uf_atoi_check_base(const char *nbr, bool *neg, char *c, size_t base)
 {
 	*neg = false;
 	*c = *nbr;
@@ -79,7 +78,7 @@ static char	*uf_atoi_check_base(const char *nbr, bool *neg, char *c, t_ui base)
 	return ((char *)nbr);
 }
 
-int			uf_atoi_base(const char *nbr, t_ui base)
+int			uf_atoi_base(const char *nbr, size_t base)
 {
 	char	c;
 	bool	neg;
@@ -95,7 +94,7 @@ int			uf_atoi_base(const char *nbr, t_ui base)
 			c = c - (uf_is_upper(c) == true ? 'A' - 10 : 'a' - 10);
 		else
 			break ;
-		if ((t_ui)c >= base)
+		if ((size_t)c >= base)
 			break ;
 		ret = ret * base;
 		ret = ret + c;

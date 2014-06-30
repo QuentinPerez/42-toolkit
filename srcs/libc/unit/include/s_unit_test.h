@@ -34,12 +34,12 @@
 # define S_UNIT_TEST_H
 
 # include <stdbool.h>
-# include <t_types.h>
+# include <stddef.h>
 # include <list/s_list.h>
 
 typedef struct	s_unit_assert
 {
-	t_ui		v_line;
+	size_t		v_line;
 	const char	*v_file;
 }				t_unit_assert;
 

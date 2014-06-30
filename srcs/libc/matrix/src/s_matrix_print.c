@@ -36,8 +36,8 @@
 
 void	f_matrix_print(const t_matrix *v_this, const char *name)
 {
-	t_ui	i;
-	t_ui	j;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
 	uf_print_str("Matrix ");

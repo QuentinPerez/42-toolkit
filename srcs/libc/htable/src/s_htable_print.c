@@ -37,7 +37,7 @@
 
 void	f_htable_print(t_htable *v_this, bool (*uf_print)(t_htable_cell *data))
 {
-	t_ui	i;
+	size_t	i;
 	t_list	*list;
 
 	i = 0;

@@ -35,7 +35,7 @@
 #include <stdlib.h>
 #include <f_error/m_error.h>
 
-static bool			f_vector_realloc(t_vector *v_this, t_ui size)
+static bool			f_vector_realloc(t_vector *v_this, size_t size)
 {
 	void	**tmp;
 
@@ -50,9 +50,9 @@ static bool			f_vector_realloc(t_vector *v_this, t_ui size)
 	return (true);
 }
 
-static inline void	f_vector_decal(t_vector *v_this, t_ui start)
+static inline void	f_vector_decal(t_vector *v_this, size_t start)
 {
-	t_ui	end;
+	size_t	end;
 
 	end = v_this->v_size - 1;
 	while (start < end)
@@ -65,7 +65,7 @@ static inline void	f_vector_decal(t_vector *v_this, t_ui start)
 
 bool				f_vector_push_back(t_vector *v_this, void *data)
 {
-	t_ui	new_size;
+	size_t	new_size;
 
 	if (data == NULL)
 		M_INFOS("Null pointer");
@@ -80,7 +80,7 @@ bool				f_vector_push_back(t_vector *v_this, void *data)
 
 void				*f_vector_erase(t_vector *v_this, void *erase)
 {
-	t_ui	i;
+	size_t	i;
 	void	*ret;
 
 	i = 0;
@@ -99,7 +99,7 @@ void				*f_vector_erase(t_vector *v_this, void *erase)
 	return (ret);
 }
 
-bool				f_vector_reserve(t_vector *v_this, t_ui size)
+bool				f_vector_reserve(t_vector *v_this, size_t size)
 {
 	if (size <= v_this->v_capacity)
 		return (false);

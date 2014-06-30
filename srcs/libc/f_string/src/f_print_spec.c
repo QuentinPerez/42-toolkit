@@ -32,7 +32,7 @@
 
 #include <f_string/f_print_fd.h>
 
-void	uf_print_floating_nbr_fd(double nbr, t_ui digit, t_ui fd)
+void	uf_print_floating_nbr_fd(double nbr, size_t digit, size_t fd)
 {
 	uf_print_nbr_fd((ssize_t)nbr, fd);
 	uf_print_char_fd('.', fd);
@@ -45,12 +45,12 @@ void	uf_print_floating_nbr_fd(double nbr, t_ui digit, t_ui fd)
 	}
 }
 
-void	uf_print_floating_nbr(double nbr, t_ui digit)
+void	uf_print_floating_nbr(double nbr, size_t digit)
 {
 	uf_print_floating_nbr_fd(nbr, digit, 1);
 }
 
-void	uf_print_bits_fd(size_t value, size_t size, t_ui fd)
+void	uf_print_bits_fd(size_t value, size_t size, size_t fd)
 {
 	size_t	max;
 

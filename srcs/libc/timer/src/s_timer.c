@@ -75,7 +75,7 @@ void	f_timer_unpause(t_timer *v_this)
 	}
 }
 
-t_ui	f_timer_get_ticks(t_timer *v_this)
+size_t	f_timer_get_ticks(t_timer *v_this)
 {
 	struct timeval	tmp;
 

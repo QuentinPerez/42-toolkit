@@ -35,8 +35,8 @@
 
 bool	f_array_foreach(t_array *v_this, bool (*funct)(void *data))
 {
-	t_ui	i;
-	t_ui	size;
+	size_t	i;
+	size_t	size;
 	char	*ptr;
 
 	i = 0;

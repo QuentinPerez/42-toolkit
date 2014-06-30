@@ -36,8 +36,8 @@
 
 bool	f_vector_foreach(t_vector *v_this, bool (*funct)(void *))
 {
-	t_ui	i;
-	t_ui	size;
+	size_t	i;
+	size_t	size;
 
 	i = 0;
 	size = v_this->v_size;

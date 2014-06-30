@@ -21,7 +21,7 @@
 
 static void uf_init(int *tab)
 {
-	t_ui	i;
+	size_t	i;
 
 	i = 0;
 	srand(time(NULL));
@@ -34,7 +34,7 @@ static void uf_init(int *tab)
 
 static bool	uf_check_if_tab_is_sorted(int *tab)
 {
-	t_ui	i;
+	size_t	i;
 
 	i = 0;
 	while (i < SIZE_TAB - 1)
@@ -50,7 +50,7 @@ static bool	uf_check_if_tab_is_sorted(int *tab)
 
 void	uf_print_tab(int *tab)
 {
-	t_ui	i;
+	size_t	i;
 
 	i = 0;
 	while (i < SIZE_TAB)
@@ -61,7 +61,7 @@ void	uf_print_tab(int *tab)
 	}
 }
 
-void	tf_launch(const char *name, void (*sort)(int *, t_ui))
+void	tf_launch(const char *name, void (*sort)(int *, size_t))
 {
 	t_timer	timer;
 	int		ptr_int[SIZE_TAB];
@@ -90,9 +90,9 @@ int	main(int argc, char const** argv)
  	* Who has the biggest ...
 	 */
 	tf_launch("Shell", uf_sort_shell);
-	tf_launch("Counting", (void (*)(int*, t_ui))uf_sort_counting);
+	tf_launch("Counting", (void (*)(int*, size_t))uf_sort_counting);
 	tf_launch("Quick", uf_sort_quick);
-	tf_launch("Merge", (void (*)(int*, t_ui))uf_sort_merge);
+	tf_launch("Merge", (void (*)(int*, size_t))uf_sort_merge);
 	tf_launch("Bubble", uf_sort_bubble);
 	(void)argc;
 	(void)argv;

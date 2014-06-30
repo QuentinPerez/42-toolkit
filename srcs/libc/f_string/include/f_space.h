@@ -34,9 +34,8 @@
 # define F_SPACE_H
 
 # include <stdbool.h>
-# include <t_types.h>
 
-bool	uf_is_space(const t_uc c);
+bool	uf_is_space(const unsigned char c);
 char	*uf_skip_space(const char *str);
 
 #endif

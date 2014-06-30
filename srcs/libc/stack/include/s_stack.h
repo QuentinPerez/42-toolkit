@@ -33,7 +33,7 @@
 #ifndef S_STACK_H
 # define S_STACK_H
 
-# include <t_types.h>
+# include <stddef.h>
 # include <stdbool.h>
 
 typedef struct	s_stack_cell
@@ -44,7 +44,7 @@ typedef struct	s_stack_cell
 
 typedef struct	s_stack
 {
-	t_ui				v_size;
+	size_t				v_size;
 	t_stack_cell		*v_last;
 	void				(*f_destroy)(void *data);
 }				t_stack;
@@ -58,7 +58,7 @@ void	f_stack_pop(t_stack *v_this);
 void	f_stack_clear(t_stack *v_this);
 void	*f_stack_top(t_stack *v_this);
 bool	f_stack_empty(const t_stack *v_this);
-t_ui	f_stack_size(const t_stack *v_this);
+size_t	f_stack_size(const t_stack *v_this);
 bool	f_stack_foreach(t_stack *v_this, bool (*funct)(void *data));
 
 #endif

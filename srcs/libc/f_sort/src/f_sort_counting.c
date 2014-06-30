@@ -32,7 +32,6 @@
  */
 
 #include <stdbool.h>
-#include <t_types.h>
 #include <stdlib.h>
 #include <f_error/m_error.h>
 #include <f_memory/f_memory.h>
@@ -40,13 +39,13 @@
 
 static void	uf_sort_tab(int *tab, int *counter, int minmax[2])
 {
-	t_ui	i;
+	size_t	i;
 	int		j;
 	int		index;
 
 	index = 0;
 	i = minmax[0];
-	while (i <= (t_ui)minmax[1])
+	while (i <= (size_t)minmax[1])
 	{
 		j = 0;
 		while (j < counter[i - minmax[0]])
@@ -59,11 +58,11 @@ static void	uf_sort_tab(int *tab, int *counter, int minmax[2])
 	}
 }
 
-static bool	uf_sort_make_counter(int *tab, t_ui size, int minmax[2])
+static bool	uf_sort_make_counter(int *tab, size_t size, int minmax[2])
 {
-	t_ui	i;
+	size_t	i;
 	int		*counter;
-	t_ui	size_counter;
+	size_t	size_counter;
 
 	i = 0;
 	size_counter = minmax[1] - minmax[0] + 1;
@@ -81,9 +80,9 @@ static bool	uf_sort_make_counter(int *tab, t_ui size, int minmax[2])
 	return (true);
 }
 
-bool		uf_sort_counting(int *tab, t_ui size)
+bool		uf_sort_counting(int *tab, size_t size)
 {
-	t_ui	i;
+	size_t	i;
 	int		minmax[2];
 
 	i = 1;

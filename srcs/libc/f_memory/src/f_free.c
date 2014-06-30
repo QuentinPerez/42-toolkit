@@ -31,11 +31,10 @@
 */
 
 #include <stdlib.h>
-#include <t_types.h>
 
 void	uf_free_tab(void **tab)
 {
-	t_ui	i;
+	size_t	i;
 
 	i = 0;
 	while (tab[i] != NULL)
@@ -46,9 +45,9 @@ void	uf_free_tab(void **tab)
 	free(tab);
 }
 
-void	uf_free_tab_fail(void **tab, t_ui current)
+void	uf_free_tab_fail(void **tab, size_t current)
 {
-	t_ui	i;
+	size_t	i;
 
 	i = 0;
 	while (i < current)

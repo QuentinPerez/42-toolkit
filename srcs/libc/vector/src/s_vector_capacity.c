@@ -38,12 +38,12 @@ inline bool	f_vector_empty(const t_vector *v_this)
 	return (v_this->v_size == 0);
 }
 
-inline t_ui	f_vector_size(const t_vector *v_this)
+inline size_t	f_vector_size(const t_vector *v_this)
 {
 	return (v_this->v_size);
 }
 
-inline t_ui	f_vector_capacity(const t_vector *v_this)
+inline size_t	f_vector_capacity(const t_vector *v_this)
 {
 	return (v_this->v_capacity);
 }

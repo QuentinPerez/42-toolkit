@@ -31,20 +31,19 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <t_types.h>
 #include <stdbool.h>
 
-extern inline bool	uf_is_alpha(const t_uc c)
+bool	uf_is_alpha(const unsigned char c)
 {
 	return ((c > 96 && c < 123) || (c > 64 && c < 91));
 }
 
-extern inline bool	uf_is_digit(const t_uc c)
+bool	uf_is_digit(const unsigned char c)
 {
 	return (c > 47 && c < 58);
 }
 
-extern inline bool	uf_is_printable(const t_uc c)
+bool	uf_is_printable(const unsigned char c)
 {
 	return (c > 31 && c < 127);
 }

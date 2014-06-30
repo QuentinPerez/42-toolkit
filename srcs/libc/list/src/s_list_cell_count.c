@@ -34,10 +34,10 @@
 #include <list/s_list_cell.h>
 #include <stddef.h>
 
-t_ui	f_list_cell_count(const t_list_cell *other_begin,
+size_t	f_list_cell_count(const t_list_cell *other_begin,
 					const t_list_cell *other_end)
 {
-	t_ui	count;
+	size_t	count;
 
 	count = 0;
 	if (other_end != NULL)

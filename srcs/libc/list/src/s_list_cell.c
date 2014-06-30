@@ -49,12 +49,12 @@ t_list_cell			*f_list_cell_create(t_list_cell *prev,
 	return (cell);
 }
 
-inline t_list_cell	*f_list_cell_next(const t_list_cell *cur)
+t_list_cell			*f_list_cell_next(const t_list_cell *cur)
 {
 	return (cur->v_next);
 }
 
-inline t_list_cell	*f_list_cell_prev(const t_list_cell *cur)
+t_list_cell			*f_list_cell_prev(const t_list_cell *cur)
 {
 	return (cur->v_prev);
 }

@@ -31,7 +31,7 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <t_types.h>
+#include <stddef.h>
 
 static inline void	uf_sort_quick_swap(int **left, int **right)
 {
@@ -44,7 +44,7 @@ static inline void	uf_sort_quick_swap(int **left, int **right)
 	*left = *left + 1;
 }
 
-void				uf_sort_quick(int *ptr, t_ui size)
+void				uf_sort_quick(int *ptr, size_t size)
 {
 	int	pivot;
 	int	*left;

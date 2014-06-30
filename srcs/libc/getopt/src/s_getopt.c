@@ -63,7 +63,7 @@ static bool	uf_getopt_split_posibility(t_getopt *v_this, const char *posibility)
 static bool	uf_fmt_av(t_getopt *v_this, t_string *string,
 					bool value, const char *add)
 {
-	t_ui	i;
+	size_t	i;
 
 	i = 0;
 	if (value == true)
@@ -82,10 +82,10 @@ static bool	uf_fmt_av(t_getopt *v_this, t_string *string,
 	return (true);
 }
 
-static bool	uf_getopt_init_option(t_getopt *v_this, t_ui ac, const char **av)
+static bool	uf_getopt_init_option(t_getopt *v_this, size_t ac, const char **av)
 {
-	t_ui		i;
-	t_ui		size;
+	size_t		i;
+	size_t		size;
 	t_string	string;
 
 	i = 1;

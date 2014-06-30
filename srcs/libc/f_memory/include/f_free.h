@@ -34,6 +34,6 @@
 # define F_FREE_H
 
 void	uf_free_tab(void **tab);
-void	uf_free_tab_fail(void **tab, t_ui current);
+void	uf_free_tab_fail(void **tab, size_t current);
 
 #endif

@@ -37,7 +37,7 @@
 
 typedef struct	s_unit_context
 {
-	t_ui		v_id;
+	size_t		v_id;
 	t_list		v_test;
 	const char	*v_name;
 	bool		(*f_init)(void *data);

@@ -33,12 +33,12 @@
 
 #include <queue/s_queue.h>
 
-inline bool	f_queue_empty(const t_queue *v_this)
+bool	f_queue_empty(const t_queue *v_this)
 {
 	return (v_this->v_size == 0);
 }
 
-inline t_ui	f_queue_size(const t_queue *v_this)
+size_t	f_queue_size(const t_queue *v_this)
 {
 	return (v_this->v_size);
 }

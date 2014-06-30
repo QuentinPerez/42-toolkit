@@ -52,12 +52,12 @@ void			f_htable_delete_cell(void *data)
 	free(cell);
 }
 
-t_ui			f_htable_generate_key(const t_htable *v_this, const char *str)
+size_t			f_htable_generate_key(const t_htable *v_this, const char *str)
 {
-	t_ui	ret;
-	t_ui	len;
-	t_ui	i;
-	t_ui	tmp;
+	size_t	ret;
+	size_t	len;
+	size_t	i;
+	size_t	tmp;
 
 	i = 0;
 	ret = 0;

@@ -37,18 +37,18 @@
 # include <stdbool.h>
 # include <f_memory/f_memory.h>
 # include <f_error/m_error.h>
-# include <t_types.h>
+# include <stddef.h>
 
 typedef struct	s_matrix
 {
 	double	**v_coeff;
-	t_ui	v_columns;
-	t_ui	v_rows;
+	size_t	v_columns;
+	size_t	v_rows;
 }				t_matrix;
 
 #define D_MATRIX(funct)	f_matrix_##funct
 
-bool	f_matrix_init(t_matrix *v_this, t_ui c, t_ui r);
+bool	f_matrix_init(t_matrix *v_this, size_t c, size_t r);
 void	f_matrix_sum(t_matrix *v_this, t_matrix *m1, t_matrix *m2);
 void	f_matrix_sub(t_matrix *v_this, t_matrix *m1, t_matrix *m2);
 void	f_matrix_div(t_matrix *v_this, t_matrix *m1, t_matrix *m2);

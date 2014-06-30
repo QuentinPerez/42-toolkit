@@ -34,7 +34,7 @@
 #include <queue/s_queue.h>
 #include <stddef.h>
 
-inline void	*f_queue_front(t_queue *v_this)
+void		*f_queue_front(t_queue *v_this)
 {
 	if (v_this->v_head != NULL)
 		return (v_this->v_head->v_data);

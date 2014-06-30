@@ -34,17 +34,17 @@
 # define S_GETOPT_H
 
 # include <stdbool.h>
-# include <t_types.h>
+# include <stddef.h>
 
 typedef struct	s_getopt
 {
 	char	**v_option;
 	char	**v_posibility;
 	char	*v_current_argv;
-	t_ui	v_current_argc;
+	size_t	v_current_argc;
 	char	*v_next_argv;
 	char	**v_argv;
-	t_ui	v_argc;
+	size_t	v_argc;
 }				t_getopt;
 
 # define D_GETOPT(funct)	f_getopt_##funct

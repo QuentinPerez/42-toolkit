@@ -32,7 +32,6 @@
 */
 
 #include <stddef.h>
-#include <t_types.h>
 
 int	uf_strcmp(const char *left, const char *right)
 {
@@ -41,7 +40,7 @@ int	uf_strcmp(const char *left, const char *right)
 		left = left + 1;
 		right = right + 1;
 	}
-	return ((int)((t_uc)*left - (t_uc)*right));
+	return ((int)((unsigned char)*left - (unsigned char)*right));
 }
 
 int	uf_strncmp(const char *left, const char *right, size_t count)
@@ -56,5 +55,5 @@ int	uf_strncmp(const char *left, const char *right, size_t count)
 		left = left + 1;
 		right = right + 1;
 	}
-	return ((int)((t_uc)*left - (t_uc)*right));
+	return ((int)((unsigned char)*left - (unsigned char)*right));
 }

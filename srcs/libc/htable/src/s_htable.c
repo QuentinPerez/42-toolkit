@@ -38,9 +38,9 @@
 
 void	f_htable_delete_cell(void *data);
 
-bool	f_htable_init(t_htable *v_this, t_ui prime, void (*f_delete)(void *ptr))
+bool	f_htable_init(t_htable *v_this, size_t prime, void (*f_delete)(void *ptr))
 {
-	t_ui	i;
+	size_t	i;
 	t_list	list;
 
 	i = 0;

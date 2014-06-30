@@ -31,10 +31,9 @@
 */
 
 #include <unistd.h>
-#include <t_types.h>
 #include <stdbool.h>
 
-void	uf_print_bool_fd(bool value, t_ui fd)
+void	uf_print_bool_fd(bool value, size_t fd)
 {
 	if (value == true)
 		write(fd, "true", 4);

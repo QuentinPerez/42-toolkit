@@ -47,7 +47,7 @@ void		uf_unit_print_console(t_unit *v_this, const char *info,
 
 static void	uf_treat_line(t_unit *v_this, t_unit_console_option *opt, char *str)
 {
-	t_ui	i;
+	size_t	i;
 
 	i = 0;
 	while (i < D_UNIT_CONSOLE_OPTION)
@@ -67,7 +67,7 @@ static void	uf_treat_line(t_unit *v_this, t_unit_console_option *opt, char *str)
 static void	uf_unit_add_option(t_unit_console_option *option, const char *full,
 							const char *shortcut, void (*funct)(t_unit *))
 {
-	static t_ui	i = 0;
+	static size_t	i = 0;
 
 	option[i].v_option = full;
 	option[i].f_funct = funct;

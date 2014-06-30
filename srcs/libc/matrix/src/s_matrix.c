@@ -35,9 +35,9 @@
 #include <f_memory/f_free.h>
 #include <stdlib.h>
 
-static bool	uf_matrix_fillcoeff(t_matrix *v_this, t_ui col, t_ui row)
+static bool	uf_matrix_fillcoeff(t_matrix *v_this, size_t col, size_t row)
 {
-	t_ui	i;
+	size_t	i;
 
 	i = 0;
 	while (i < row)
@@ -54,7 +54,7 @@ static bool	uf_matrix_fillcoeff(t_matrix *v_this, t_ui col, t_ui row)
 	return (true);
 }
 
-bool		f_matrix_init(t_matrix *v_this, t_ui c, t_ui r)
+bool		f_matrix_init(t_matrix *v_this, size_t c, size_t r)
 {
 	uf_memset(v_this, '\0', sizeof(*v_this));
 	if (c == 0 || r == 0)

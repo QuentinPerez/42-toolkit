@@ -36,10 +36,10 @@
 #include <f_error/m_error.h>
 #include <stdlib.h>
 
-bool	uf_string_realloc(t_string *v_this, t_ui add)
+bool	uf_string_realloc(t_string *v_this, size_t add)
 {
 	char	*tmp;
-	t_ui	new_capacity;
+	size_t	new_capacity;
 
 	new_capacity = v_this->v_capacity;
 	while (v_this->v_size + add > new_capacity)

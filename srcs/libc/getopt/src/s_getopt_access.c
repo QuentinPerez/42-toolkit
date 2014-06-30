@@ -37,7 +37,7 @@
 
 static bool	uf_getopt_check_option(t_getopt *v_this, const char *check)
 {
-	t_ui	i;
+	size_t	i;
 
 	i = 0;
 	while (v_this->v_option[i] != NULL)
@@ -59,7 +59,7 @@ static bool	uf_getopt_check_option(t_getopt *v_this, const char *check)
 
 bool		f_getopt_option(t_getopt *v_this)
 {
-	t_ui	size;
+	size_t	size;
 	char	*av;
 
 	while (v_this->v_current_argc < v_this->v_argc)

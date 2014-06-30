@@ -35,7 +35,7 @@
 #include <list/s_list.h>
 #include <unit/s_unit_test.h>
 
-void	mf_unit_assert(t_unit_test *t, bool check, t_ui line, char *file)
+void	mf_unit_assert(t_unit_test *t, bool check, size_t line, char *file)
 {
 	t_unit_assert	*assert;
 

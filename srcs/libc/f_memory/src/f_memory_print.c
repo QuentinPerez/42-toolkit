@@ -30,12 +30,11 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <t_types.h>
 #include <f_string/f_print.h>
 
-static void	uf_print_content(t_uc *data, t_ui size)
+static void	uf_print_content(unsigned char *data, size_t size)
 {
-	t_ui	i;
+	size_t	i;
 
 	i = 0;
 	uf_print_char(' ');
@@ -57,9 +56,9 @@ static void	uf_print_hex(char c)
 	uf_print_nbr_base(c, 16);
 }
 
-static t_uc	*uf_print_data(t_uc *data, t_ui size)
+static unsigned char	*uf_print_data(unsigned char *data, size_t size)
 {
-	t_ui	i;
+	size_t	i;
 
 	i = 0;
 	uf_print_addr(data);
@@ -83,11 +82,11 @@ static t_uc	*uf_print_data(t_uc *data, t_ui size)
 	return (data);
 }
 
-void		*uf_print_memory(const void *addr, t_ui size)
+void		*uf_print_memory(const void *addr, size_t size)
 {
-	t_uc	*data;
+	unsigned char	*data;
 
-	data = (t_uc *)addr;
+	data = (unsigned char *)addr;
 	while (size > 16)
 	{
 		data = uf_print_data(data, 16);

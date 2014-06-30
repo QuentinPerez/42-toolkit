@@ -33,7 +33,7 @@
 
 #include <string/s_string.h>
 
-bool	f_string_add_color(t_string *v_this, t_ui color, t_ui fx)
+bool	f_string_add_color(t_string *v_this, size_t color, size_t fx)
 {
 	if (D_STRING(add_str)(v_this, "\033[") == false)
 		return (false);

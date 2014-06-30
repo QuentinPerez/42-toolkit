@@ -34,7 +34,7 @@
 #include <vector/s_vector.h>
 #include <stddef.h>
 
-inline void	*f_vector_at(t_vector *v_this, t_ui index)
+inline void	*f_vector_at(t_vector *v_this, size_t index)
 {
 	if (index > v_this->v_size - 1)
 		return (NULL);

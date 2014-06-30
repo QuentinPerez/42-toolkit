@@ -31,13 +31,12 @@
 */
 
 #include <stdlib.h>
-#include <t_types.h>
 #include <f_string/f_string.h>
 #include <f_string/f_str_tools.h>
 
 char	*uf_strdup(const char *str)
 {
-	t_ui	size;
+	size_t	size;
 	char	*ret;
 
 	size = uf_str_len(str);

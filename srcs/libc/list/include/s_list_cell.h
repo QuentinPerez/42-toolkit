@@ -33,7 +33,7 @@
 #ifndef S_LIST_CELL_H
 # define S_LIST_CELL_H
 
-# include <t_types.h>
+# include <stddef.h>
 
 typedef struct	s_list_cell
 {
@@ -44,7 +44,7 @@ typedef struct	s_list_cell
 
 # define D_LIST_CELL(funct)	f_list_cell_##funct
 
-t_ui		f_list_cell_count(const t_list_cell *other_begin,
+size_t		f_list_cell_count(const t_list_cell *other_begin,
 							  const t_list_cell *other_end);
 t_list_cell	*f_list_cell_next(const t_list_cell *cur);
 t_list_cell	*f_list_cell_prev(const t_list_cell *cur);

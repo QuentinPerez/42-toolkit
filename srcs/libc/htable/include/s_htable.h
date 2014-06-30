@@ -45,13 +45,13 @@ typedef struct	s_htable_cell
 typedef struct	s_htable
 {
 	t_array	v_array;
-	t_ui	v_prime;
+	size_t	v_prime;
 	void	(*f_delete)(void *data);
 }				t_htable;
 
 # define D_HTABLE(funct)	f_htable_##funct
 
-bool	f_htable_init(t_htable *v_this, t_ui size, void (*f_del)(void *ptr));
+bool	f_htable_init(t_htable *v_this, size_t size, void (*f_del)(void *ptr));
 bool	f_htable_add(t_htable *v_this, const char *key, void *data);
 void	*f_htable_get(t_htable *v_this, const char *key);
 void	f_htable_print(t_htable *v_this, bool (*uf_print)(t_htable_cell *data));

@@ -36,9 +36,9 @@
 #include <f_string/f_str_tools.h>
 #include <f_string/f_print.h>
 
-void	uf_unit_print_nchar(t_ui size, char c)
+void	uf_unit_print_nchar(size_t size, char c)
 {
-	t_ui	i;
+	size_t	i;
 
 	i = 0;
 	while (i < size)
@@ -51,7 +51,7 @@ void	uf_unit_print_nchar(t_ui size, char c)
 void	uf_unit_print_console(t_unit *v_this, const char *info,
 							bool menu, char c)
 {
-	t_ui	tmp;
+	size_t	tmp;
 
 	uf_print_char('\n');
 	tmp = (v_this->v_params.v_width >> 1) - (uf_str_len(info) >> 1) - 1;

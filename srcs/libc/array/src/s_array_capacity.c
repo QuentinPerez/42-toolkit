@@ -33,17 +33,17 @@
 
 #include <array/s_array.h>
 
-inline bool	f_array_empty(const t_array *v_this)
+bool	f_array_empty(const t_array *v_this)
 {
 	return (v_this->v_size == 0);
 }
 
-inline t_ui	f_array_capacity(const t_array *v_this)
+size_t	f_array_capacity(const t_array *v_this)
 {
 	return (v_this->v_capacity);
 }
 
-inline t_ui	f_array_size(const t_array *v_this)
+size_t	f_array_size(const t_array *v_this)
 {
 	return (v_this->v_size);
 }

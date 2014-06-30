@@ -35,11 +35,11 @@
 #include <f_string/f_str_tools.h>
 #include <f_string/f_string.h>
 
-t_ui	uf_string_realloc(t_string *v_this, t_ui add);
+size_t	uf_string_realloc(t_string *v_this, size_t add);
 
 bool	f_string_add_str(t_string *v_this, const char *str)
 {
-	t_ui	size;
+	size_t	size;
 
 	size = uf_str_len(str);
 	if (size == 0)
@@ -53,7 +53,7 @@ bool	f_string_add_str(t_string *v_this, const char *str)
 	return (true);
 }
 
-bool	f_string_add_char(t_string *v_this, t_uc c)
+bool	f_string_add_char(t_string *v_this, unsigned char c)
 {
 	if (v_this->v_size + 2 > v_this->v_capacity
 		&& uf_string_realloc(v_this, 2) == false)
@@ -64,7 +64,7 @@ bool	f_string_add_char(t_string *v_this, t_uc c)
 	return (true);
 }
 
-bool	f_string_add_nstr(t_string *v_this, const char *str, t_ui size)
+bool	f_string_add_nstr(t_string *v_this, const char *str, size_t size)
 {
 	if (size == 0)
 		return (true);

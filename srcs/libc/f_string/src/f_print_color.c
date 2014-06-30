@@ -32,7 +32,7 @@
 
 #include <f_string/f_print.h>
 
-void	uf_print_color_fx(t_ui color, t_ui params)
+void	uf_print_color_fx(size_t color, size_t params)
 {
 	uf_print_str("\033[");
 	if (params > 0)
@@ -44,7 +44,7 @@ void	uf_print_color_fx(t_ui color, t_ui params)
 	uf_print_char('m');
 }
 
-void	uf_print_color(t_ui color)
+void	uf_print_color(size_t color)
 {
 	uf_print_color_fx(color, 0);
 }

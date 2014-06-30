@@ -35,8 +35,8 @@
 
 void	f_matrix_sum(t_matrix *v_this, t_matrix *m1, t_matrix *m2)
 {
-	t_ui	i;
-	t_ui	j;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
 	if (m1->v_rows != m2->v_rows || m1->v_columns != m2->v_columns)
@@ -55,8 +55,8 @@ void	f_matrix_sum(t_matrix *v_this, t_matrix *m1, t_matrix *m2)
 
 void	f_matrix_sub(t_matrix *v_this, t_matrix *m1, t_matrix *m2)
 {
-	t_ui	i;
-	t_ui	j;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
 	if (m1->v_rows != m2->v_rows || m1->v_columns != m2->v_columns)
@@ -75,8 +75,8 @@ void	f_matrix_sub(t_matrix *v_this, t_matrix *m1, t_matrix *m2)
 
 void	f_matrix_mul(t_matrix *v_this, t_matrix *m1, int c)
 {
-	t_ui	i;
-	t_ui	j;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
 	while (i < m1->v_rows)
@@ -93,8 +93,8 @@ void	f_matrix_mul(t_matrix *v_this, t_matrix *m1, int c)
 
 void	f_matrix_div(t_matrix *v_this, t_matrix *m1, t_matrix *m2)
 {
-	t_ui	i;
-	t_ui	j;
+	size_t	i;
+	size_t	j;
 
 	i = 0;
 	if (m1->v_rows != m2->v_rows || m1->v_columns != m2->v_columns)

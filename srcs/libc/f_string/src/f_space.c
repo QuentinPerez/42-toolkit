@@ -32,9 +32,8 @@
 */
 
 #include <stdbool.h>
-#include <t_types.h>
 
-bool	uf_is_space(const t_uc c)
+bool	uf_is_space(const unsigned char c)
 {
 	return (c == '\t' || c == ' ' || c == '\r'
 			|| c == '\f' || c == '\v' || c == '\n');

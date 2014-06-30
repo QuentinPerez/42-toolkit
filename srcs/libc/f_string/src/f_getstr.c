@@ -34,10 +34,11 @@
 #include <string/s_string.h>
 #include <f_error/m_error.h>
 
-static bool	uf_get_data(t_string *string, t_ui fd, t_uc terminate, bool del)
+static bool	uf_get_data(t_string *string, size_t fd, unsigned char terminate,
+																	bool del)
 {
 	char	c;
-	t_ui	nb_read;
+	size_t	nb_read;
 
 	nb_read = read(fd, &c, 1);
 	while (nb_read == 1)
@@ -55,7 +56,7 @@ static bool	uf_get_data(t_string *string, t_ui fd, t_uc terminate, bool del)
 	return (true);
 }
 
-char		*uf_getstr(t_ui fd, t_uc terminate, bool del)
+char		*uf_getstr(size_t fd, unsigned char terminate, bool del)
 {
 	t_string	string;
 	char		*ret;
@@ -69,7 +70,7 @@ char		*uf_getstr(t_ui fd, t_uc terminate, bool del)
 	return (ret);
 }
 
-char		*uf_getline(t_ui fd, bool del)
+char		*uf_getline(size_t fd, bool del)
 {
 	return (uf_getstr(fd, '\n', del));
 }

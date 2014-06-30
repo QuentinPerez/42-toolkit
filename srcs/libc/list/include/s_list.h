@@ -34,7 +34,7 @@
 # define S_LIST_H
 
 # include <stdbool.h>
-# include <t_types.h>
+# include <stddef.h>
 # include <list/s_list_cell.h>
 # include <list/s_list_interval.h>
 
@@ -42,7 +42,7 @@ typedef struct	s_list
 {
 	t_list_cell	*v_begin;
 	t_list_cell	*v_end;
-	t_ui		v_size;
+	size_t		v_size;
 	void		(*f_destroy)(void *data);
 }				t_list;
 
@@ -50,11 +50,11 @@ typedef struct	s_list
 
 void		f_list_init(t_list *v_this, void (*v_funct_destroy)(void *data));
 bool		f_list_empty(const t_list *v_this);
-t_ui		f_list_size(const t_list *v_this);
+size_t		f_list_size(const t_list *v_this);
 t_list_cell	*f_list_begin(const t_list *v_this);
 t_list_cell	*f_list_end(const t_list *v_this);
 t_list_cell	*f_list_erase(t_list *v_this, t_list_cell *erase, void **data);
-t_list_cell	*f_list_get_cell(t_list *list, t_ui cell_at);
+t_list_cell	*f_list_get_cell(t_list *list, size_t cell_at);
 void		f_list_print_addr(const t_list *v_this);
 bool		f_list_push_back(t_list *v_this, void *data);
 void		f_list_pop_back(t_list *v_this);

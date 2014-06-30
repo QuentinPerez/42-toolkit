@@ -31,14 +31,13 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <t_types.h>
 #include <f_string/f_char.h>
 #include <stddef.h>
 
 int	uf_str_case_cmp(const char *left, const char *right)
 {
-	t_uc	left_letter;
-	t_uc	right_letter;
+	unsigned char	left_letter;
+	unsigned char	right_letter;
 
 	while (*left != '\0' && *right != '\0')
 	{
@@ -54,8 +53,8 @@ int	uf_str_case_cmp(const char *left, const char *right)
 
 int	uf_str_case_ncmp(const char *left, const char *right, size_t count)
 {
-	t_uc	left_letter;
-	t_uc	right_letter;
+	unsigned char	left_letter;
+	unsigned char	right_letter;
 
 	if (count == 0)
 		return (0);

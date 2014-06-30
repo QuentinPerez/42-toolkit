@@ -34,14 +34,13 @@
 # define F_CHAR_H
 
 # include <stdbool.h>
-# include <t_types.h>
 
-bool	uf_is_upper(const t_uc c);
-bool	uf_is_lower(const t_uc c);
-t_uc	uf_to_lower(const t_uc c);
-t_uc	uf_to_upper(const t_uc c);
-bool	uf_is_alpha(const t_uc c);
-bool	uf_is_printable(const t_uc c);
-bool	uf_is_digit(const t_uc c);
+bool			uf_is_upper(const unsigned char c);
+bool			uf_is_lower(const unsigned char c);
+unsigned char	uf_to_lower(const unsigned char c);
+unsigned char	uf_to_upper(const unsigned char c);
+bool			uf_is_alpha(const unsigned char c);
+bool			uf_is_printable(const unsigned char c);
+bool			uf_is_digit(const unsigned char c);
 
 #endif
