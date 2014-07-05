@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/30 00:36:31 by qperez            #+#    #+#             */
-/*   Updated: 2014/06/30 00:37:15 by qperez           ###   ########.fr       */
+/*   Updated: 2014/07/05 13:33:52 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ typedef struct	s_arqueue
 	size_t	v_capacity;
 	size_t	v_sizeof;
 	void	*v_array;
-
 }				t_arqueue;
 
 # define	D_ARQUEUE(funct)	f_arqueue_##funct

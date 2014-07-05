@@ -6,13 +6,13 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/30 00:38:02 by qperez            #+#    #+#             */
-/*   Updated: 2014/06/30 00:38:16 by qperez           ###   ########.fr       */
+/*   Updated: 2014/07/05 13:36:04 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
 ** <This file contains s_arqueue function>
-** < init, destroy >
+** < init, destroy, push, pop, empty>
 ** Copyright (C) <2014>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
