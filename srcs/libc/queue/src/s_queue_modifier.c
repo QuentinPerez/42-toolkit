@@ -48,6 +48,8 @@ static t_queue_cell	*f_queue_create_cell(void *data)
 	return (cell);
 }
 
+#include <stdio.h>
+
 bool				f_queue_push(t_queue *v_this, void *data)
 {
 	t_queue_cell	*push;
@@ -67,16 +69,18 @@ bool				f_queue_push(t_queue *v_this, void *data)
 void				*f_queue_pop(t_queue *v_this)
 {
 	t_queue_cell	*del;
+	void			*data;
 
 	if (v_this->v_head != NULL)
 	{
 		del = v_this->v_head;
-		v_this->f_destroy(del->v_data);
+		data = del->v_data;
 		v_this->v_head = del->v_next;
 		v_this->v_size = v_this->v_size - 1;
 		if (v_this->v_size == 0)
 			v_this->v_tail = NULL;
 		free(del);
+		return (data);
 	}
 	return (NULL);
 }
