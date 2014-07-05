@@ -48,8 +48,6 @@ static t_queue_cell	*f_queue_create_cell(void *data)
 	return (cell);
 }
 
-#include <stdio.h>
-
 bool				f_queue_push(t_queue *v_this, void *data)
 {
 	t_queue_cell	*push;
