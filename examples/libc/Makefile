@@ -40,6 +40,7 @@ LISTDIR	=	array			\
 			stack			\
 			string			\
 			timer			\
+			threadpool		\
 			unit			\
 			vector			\
 			matrix			\
