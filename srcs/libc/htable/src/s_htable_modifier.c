@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/08 19:25:06 by qperez            #+#    #+#             */
-/*   Updated: 2014/02/12 19:45:49 by qperez           ###   ########.fr       */
+/*   Updated: 2014/08/27 10:45:27 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,18 +36,13 @@
 #include <list/s_list.h>
 #include <f_error/m_error.h>
 
-size_t			f_htable_generate_key(const t_htable *v_this, const char *str);
-
-t_htable_cell	*f_htable_create_cell(const char *key, void *data,
-									void (*f_delete)(void *data));
-
-bool			f_htable_add(t_htable *v_this, const char *str, void *data)
+bool	f_htable_add(t_htable *v_this, const char *str, void *data)
 {
 	size_t			key;
 	t_list			*element;
 	t_htable_cell	*cell;
 
-	key = D_HTABLE(generate_key)(v_this, str);
+	key = v_this->f_generate_key(v_this->v_prime, str);
 	element = D_ARRAY(at)(&v_this->v_array, key, t_list *);
 	cell = D_HTABLE(create_cell)(str, data, v_this->f_delete);
 	if (cell == NULL)
@@ -55,7 +50,7 @@ bool			f_htable_add(t_htable *v_this, const char *str, void *data)
 	return (D_LIST(push_back)(element, cell));
 }
 
-void			*f_htable_get(t_htable *v_this, const char *str)
+void	*f_htable_get(t_htable *v_this, const char *str)
 {
 	t_list		*list;
 	void		*ret;
@@ -63,7 +58,7 @@ void			*f_htable_get(t_htable *v_this, const char *str)
 
 	ret = NULL;
 	list = D_ARRAY(at)(&v_this->v_array,
-					D_HTABLE(generate_key)(v_this, str), t_list *);
+					v_this->f_generate_key(v_this->v_prime, str), t_list *);
 	cell = D_LIST(begin)(list);
 	while (cell != NULL && ret == NULL)
 	{

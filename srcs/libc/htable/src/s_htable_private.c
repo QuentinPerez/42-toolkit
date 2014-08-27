@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/09 08:25:06 by qperez            #+#    #+#             */
-/*   Updated: 2014/02/12 19:46:31 by qperez           ###   ########.fr       */
+/*   Updated: 2014/08/27 10:44:42 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void			f_htable_delete_cell(void *data)
 	free(cell);
 }
 
-size_t			f_htable_generate_key(const t_htable *v_this, const char *str)
+size_t			f_htable_generate_key(size_t prime, const char *str)
 {
 	size_t	ret;
 	size_t	len;
@@ -73,5 +73,5 @@ size_t			f_htable_generate_key(const t_htable *v_this, const char *str)
 		}
 		i = i + 1;
 	}
-	return (ret % v_this->v_prime);
+	return (ret % prime);
 }

@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/08 13:53:57 by qperez            #+#    #+#             */
-/*   Updated: 2014/02/12 19:45:34 by qperez           ###   ########.fr       */
+/*   Updated: 2014/08/27 10:44:06 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,9 +36,9 @@
 #include <f_error/m_error.h>
 #include <f_memory/f_memory.h>
 
-void	f_htable_delete_cell(void *data);
-
-bool	f_htable_init(t_htable *v_this, size_t prime, void (*f_delete)(void *ptr))
+bool	f_htable_init(t_htable *v_this, size_t prime,
+				size_t (*f_generate_key)(size_t prime, const char *str),
+				void (*f_delete)(void *ptr))
 {
 	size_t	i;
 	t_list	list;
@@ -55,6 +55,9 @@ bool	f_htable_init(t_htable *v_this, size_t prime, void (*f_delete)(void *ptr))
 	}
 	v_this->v_prime = prime;
 	v_this->f_delete = f_delete;
+	v_this->f_generate_key = D_HTABLE(generate_key);
+	if (f_generate_key != NULL)
+		v_this->f_generate_key = f_generate_key;
 	return (true);
 }
 

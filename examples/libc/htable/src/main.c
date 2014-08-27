@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/08 13:01:24 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/04 20:58:57 by qperez           ###   ########.fr       */
+/*   Updated: 2014/08/27 10:39:34 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	main(int argc, char const** argv)
 	/*
 	 * 127 is prime number OK !!
 	 */
-	D_HTABLE(init)(&htable, 127, NULL);
+	D_HTABLE(init)(&htable, 127, NULL, NULL);
 	/*
 	 * Here I add "42" in htable
 	 * With data (void*)1;

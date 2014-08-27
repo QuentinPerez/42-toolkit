@@ -21,7 +21,7 @@
 CC		=	clang
 DIR42	=	lib42
 CFLAGS	+=	-Wextra -Wall -Werror -I./$(DIR42)/include -DD_ERRORS_ON
-LDFLAGS	+=	-L./$(DIR42) -l42
+LDFLAGS	+=	-L./$(DIR42) -l42 -lpthread
 DEBUG	=	-g3 -fno-inline -DD_ERRORS_ON
 
 LISTDIR	=	array			\

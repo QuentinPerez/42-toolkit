@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/08 13:47:03 by qperez            #+#    #+#             */
-/*   Updated: 2014/02/12 19:45:14 by qperez           ###   ########.fr       */
+/*   Updated: 2014/08/27 10:44:21 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,16 +47,25 @@ typedef struct	s_htable
 	t_array	v_array;
 	size_t	v_prime;
 	void	(*f_delete)(void *data);
+	size_t	(*f_generate_key)(size_t prime, const char *str);
 }				t_htable;
 
 # define D_HTABLE(funct)	f_htable_##funct
 
-bool	f_htable_init(t_htable *v_this, size_t size, void (*f_del)(void *ptr));
-bool	f_htable_add(t_htable *v_this, const char *key, void *data);
-void	*f_htable_get(t_htable *v_this, const char *key);
-void	f_htable_print(t_htable *v_this, bool (*uf_print)(t_htable_cell *data));
-void	f_htable_delete(t_htable *v_this, const char *key);
-void	*f_htable_erase(t_htable *v_this, const char *key);
-void	f_htable_destroy(t_htable *v_this);
+bool			f_htable_init(t_htable *v_this, size_t prime,
+					size_t (*f_generate_key)(size_t prime, const char *str),
+					void (*f_delete)(void *ptr));
+bool			f_htable_add(t_htable *v_this, const char *key, void *data);
+void			*f_htable_get(t_htable *v_this, const char *key);
+void			f_htable_print(t_htable *v_this,
+								bool (*uf_print)(t_htable_cell *data));
+void			f_htable_delete(t_htable *v_this, const char *key);
+void			*f_htable_erase(t_htable *v_this, const char *key);
+void			f_htable_delete_cell(void *data);
+size_t			f_htable_generate_key(size_t prime, const char *str);
+t_htable_cell	*f_htable_create_cell(const char *key, void *data,
+									void (*f_delete)(void *data));
+
+void			f_htable_destroy(t_htable *v_this);
 
 #endif
