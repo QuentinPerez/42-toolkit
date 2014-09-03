@@ -1,7 +1,12 @@
 LIB42 RELEASES
 ===
 
-####Current release : 0.1.6
+####Current release : 0.1.7
+
+	-V0.1.7 09-03-2014
+		add arqueue
+		add threadpool
+		add travis
 
 	-V0.1.6 19-03-2014
 		add lock
