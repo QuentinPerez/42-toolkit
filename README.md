@@ -1,6 +1,8 @@
 42-toolkit
 ==========
 
+[![Build Status](https://travis-ci.org/QuentinPerez/42-toolkit.svg?branch=master)](https://travis-ci.org/QuentinPerez/42-toolkit)
+
 <p align="center">
 	<img src="https://raw.github.com/QuentinPerez/42-toolkit/master/doc/images/logo-42.png" alt="42" title="42">
 </p>
