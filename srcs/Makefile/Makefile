@@ -18,7 +18,6 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-CC		=	cc
 CFLAGS	+=	-Wextra -Wall -Werror
 LDFLAGS	+=
 DEBUG	=	-g3 -fno-inline -DD_ERRORS_ON

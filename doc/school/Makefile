@@ -18,7 +18,6 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-CC		=	clang
 TOOLKIT	=	42-toolkit
 DIR42	=	lib42
 CFLAGS	+=	-Wextra -Wall -Werror -I./$(DIR42)/include

@@ -18,7 +18,6 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-CC		=	clang
 DIR42	=	lib42
 CFLAGS	+=	-Wextra -Wall -Werror -I./$(DIR42)/include -DD_ERRORS_ON
 LDFLAGS	+=	-L./$(DIR42) -l42 -lpthread
