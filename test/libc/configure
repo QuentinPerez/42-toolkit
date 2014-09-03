@@ -2,11 +2,18 @@
 
 # Please don't use
 
+LIB=lib42
+
 printf "\e[36mGenerating %s \e[0m\t...\t" $LIB
 
-cd ../../../srcs/libc > /dev/null
+if [ -e $LIB ];
+then
+	rm -fr $LIB
+fi
+
+cd ../../srcs/libc > /dev/null
 ./make_lib > /dev/null
 cd - > /dev/null
-ln -s ../../../srcs/libc/lib42 > /dev/null
+ln -s ../../srcs/libc/lib42 > /dev/null
 
 printf "\e[32mDone\e[0m\n"

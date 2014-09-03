@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/27 15:48:40 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/05 21:53:29 by qperez           ###   ########.fr       */
+/*   Updated: 2014/09/03 16:52:09 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 void	D_UNIT_FUNCT(memleaks)
 {
-	ui		i;
-	t_stack	stack;
+	unsigned int	i;
+	t_stack			stack;
 
 	i = 0;
 	D_STACK(init)(&stack, 0);

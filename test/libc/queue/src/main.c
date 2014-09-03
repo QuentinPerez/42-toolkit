@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/27 15:48:40 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/05 21:52:09 by qperez           ###   ########.fr       */
+/*   Updated: 2014/09/03 16:51:52 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 void	D_UNIT_FUNCT(memleaks)
 {
-	ui		i;
-	t_queue	queue;
+	unsigned int	i;
+	t_queue			queue;
 
 	i = 0;
 	D_QUEUE(init)(&queue, 0);

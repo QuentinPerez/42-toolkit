@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/27 15:48:40 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/05 17:16:43 by qperez           ###   ########.fr       */
+/*   Updated: 2014/09/03 16:51:30 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@
 
 void	D_UNIT_FUNCT(ret_val)
 {
-	t_htable	htable;
-	char		str[6];
-	ui			i;
+	t_htable		htable;
+	char			str[6];
+	unsigned int	i;
 
 	i = 0;
 	str[5] = 0;
-	D_UNIT(assert)(D_HTABLE(init)(&htable, 613, 0) == 1);
+	D_UNIT(assert)(D_HTABLE(init)(&htable, 613, 0, 0) == 1);
 	while (i < 100)
 	{
 		str[0] = rand() % 200;
@@ -39,13 +39,13 @@ void	D_UNIT_FUNCT(ret_val)
 
 void	D_UNIT_FUNCT(memleaks)
 {
-	t_htable	htable;
-	char		str[6];
-	ui			i;
+	t_htable		htable;
+	char			str[6];
+	unsigned int	i;
 
 	i = 0;
 	srand(time(NULL));
-	D_HTABLE(init)(&htable, 197, free);
+	D_HTABLE(init)(&htable, 197, 0, free);
 	str[5] = 0;
 	while (i < 100)
 	{

@@ -3,8 +3,8 @@ Test
 
 ### How to test ?
 
-	- cd <directory>
 	- make
+	- cd <directory>
 	- ./a.out
 
 ===

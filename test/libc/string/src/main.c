@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/27 15:48:40 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/05 21:59:30 by qperez           ###   ########.fr       */
+/*   Updated: 2014/09/03 16:52:23 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 void	D_UNIT_FUNCT(memleaks)
 {
-	ui			i;
-	t_string	string;
+	unsigned int	i;
+	t_string		string;
 
 	i = 0;
 	D_STRING(init)(&string, 0);
