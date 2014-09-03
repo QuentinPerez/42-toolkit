@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/28 20:37:37 by qperez            #+#    #+#             */
-/*   Updated: 2014/02/12 19:53:05 by qperez           ###   ########.fr       */
+/*   Updated: 2014/09/03 17:23:07 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,9 +89,6 @@ static size_t	uf_string_count_word(t_string *v_this, bool *active)
 static bool	uf_string_dump_word(const char *str, char **tab,
 								size_t size, size_t *word)
 {
-	size_t	i;
-
-	i = 0;
 	tab[*word] = malloc(sizeof(*tab[*word]) * (size + 1));
 	if (tab[*word] == NULL)
 	{

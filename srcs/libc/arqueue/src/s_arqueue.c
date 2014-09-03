@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/30 00:38:02 by qperez            #+#    #+#             */
-/*   Updated: 2014/07/05 13:36:04 by qperez           ###   ########.fr       */
+/*   Updated: 2014/09/03 17:22:27 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,8 +52,8 @@ bool		f_arqueue_push(t_arqueue *v_this, void *push)
 {
 	if (v_this->v_size >= v_this->v_capacity)
 		return (M_ERROR(false, "Couldn't push element"));
-	uf_memcpy(&v_this->v_array[v_this->v_end * v_this->v_sizeof], push,
-															v_this->v_sizeof);
+	uf_memcpy(&((char *)v_this->v_array)[v_this->v_end * v_this->v_sizeof],
+				push, v_this->v_sizeof);
 	v_this->v_end = v_this->v_end + 1;
 	if (v_this->v_end >= v_this->v_capacity)
 		v_this->v_end = 0;
@@ -73,7 +73,7 @@ void		*f_arqueue_pop(t_arqueue *v_this)
 	if (v_this->v_size == 0)
 		return (NULL);
 	v_this->v_size = v_this->v_size - 1;
-	ret = &v_this->v_array[v_this->v_start * v_this->v_sizeof];
+	ret = &((char *)v_this->v_array)[v_this->v_start * v_this->v_sizeof];
 	v_this->v_start = v_this->v_start + 1;
 	if (v_this->v_start >= v_this->v_capacity)
 		v_this->v_start = 0;
