@@ -87,4 +87,14 @@ $(DIR42)	:
 force	:
 		true
 
+travis	:
+		for EXE in $(LISTDIR);							\
+		do												\
+			if [ $$EXE != "unit" ];						\
+			then										\
+				echo "\033[32m----Testing $$EXE";		\
+				$$EXE/a.out;							\
+			fi											\
+		done
+
 .PHONY:	clean re relib

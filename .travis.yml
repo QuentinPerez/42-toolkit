@@ -1,0 +1,10 @@
+language: c
+compiler:
+    - gcc
+    - cc
+    - clang
+
+script:
+    - make -C examples/libc
+    - make -C test/libc
+    - make -C examples/libc travis

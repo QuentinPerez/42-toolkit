@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/27 15:48:40 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/14 18:49:22 by qperez           ###   ########.fr       */
+/*   Updated: 2014/09/03 17:49:48 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@
 
 int		uf_rbcmp(void *d1, void *d2)
 {
-	return ((int)d1 - (int)d2);
+	return ((size_t)d1 - (size_t)d2);
 }
 
 bool	uf_print(void *d1, void *d2)
 {
-	uf_print_nbr((int)d1);
+	uf_print_nbr((size_t)d1);
 	uf_print_char(' ');
 	(void)d2;
 	return (true);
@@ -29,7 +29,7 @@ bool	uf_print(void *d1, void *d2)
 
 void	D_UNIT_FUNCT(memleaks)
 {
-	ssize_t			i;
+	size_t		i;
 	t_rbtree	rbtree;
 
 	D_RBTREE(init)(&rbtree, uf_rbcmp, 0);

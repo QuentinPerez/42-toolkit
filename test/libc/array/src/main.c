@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/27 15:48:40 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/05 13:21:29 by qperez           ###   ########.fr       */
+/*   Updated: 2014/09/03 17:49:23 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,9 +67,9 @@ void	D_UNIT_FUNCT(getter)
 	t_array	array;
 
 	i = 0;
-	D_ARRAY(init)(&array, 0, 0, sizeof(int));
-	D_UNIT(assert)(D_ARRAY(data)(&array, int) != 0);
-	D_UNIT(assert)(D_ARRAY(at)(&array, 0, int) != 0);
+	D_ARRAY(init)(&array, 0, 0, sizeof(size_t));
+	D_UNIT(assert)(D_ARRAY(data)(&array, void *) != NULL);
+	D_UNIT(assert)(D_ARRAY(at)(&array, 0, void *) != NULL);
 	D_UNIT(assert)(D_ARRAY(size)(&array) == 0);
 	D_UNIT(assert)(D_ARRAY(empty)(&array) == 1);
 	while (i < 987654)
