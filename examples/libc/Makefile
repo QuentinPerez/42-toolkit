@@ -92,7 +92,7 @@ travis	:
 		do												\
 			if [ $$EXE != "unit" ];						\
 			then										\
-				echo "\033[32m----Testing $$EXE";		\
+				echo "\033[32m----Testing $$EXE\033[m";	\
 				$$EXE/a.out;							\
 			fi											\
 		done

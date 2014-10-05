@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s_matrix.h                                         :+:      :+:    :+:   */
+/*   s_imatrix.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmuller <clara.muller19@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/09 19:20:01 by cmuller           #+#    #+#             */
-/*   Updated: 2014/02/12 19:48:31 by qperez           ###   ########.fr       */
+/*   Updated: 2014/10/05 13:00:43 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains s_matrix prototype>
+** <This file contains s_imatrix prototype>
 ** Copyright (C) <2013>  Clara Muller <clara.muller19@gmail.com>
 **
 ** This file is part of 42-toolkit.
@@ -31,29 +31,27 @@
 */
 
 
-#ifndef S_MATRIX_H
-# define S_MATRIX_H
+#ifndef S_IMATRIX_H
+# define S_IMATRIX_H
 
 # include <stdbool.h>
 # include <f_memory/f_memory.h>
 # include <f_error/m_error.h>
 # include <stddef.h>
 
-typedef struct	s_matrix
+typedef struct	s_imatrix
 {
-	double	**v_coeff;
+	int		**v_coeff;
 	size_t	v_columns;
 	size_t	v_rows;
-}				t_matrix;
+}				t_imatrix;
 
-#define D_MATRIX(funct)	f_matrix_##funct
+#define D_IMATRIX(funct)	f_imatrix_##funct
 
-bool	f_matrix_init(t_matrix *v_this, size_t c, size_t r);
-void	f_matrix_sum(t_matrix *v_this, t_matrix *m1, t_matrix *m2);
-void	f_matrix_sub(t_matrix *v_this, t_matrix *m1, t_matrix *m2);
-void	f_matrix_div(t_matrix *v_this, t_matrix *m1, t_matrix *m2);
-void	f_matrix_mul(t_matrix *v_this, t_matrix *m1, int constante);
-void	f_matrix_print(const t_matrix *v_this, const char *name);
-void	f_matrix_destroy(t_matrix *v_this);
+bool	f_imatrix_init(t_imatrix *v_this, size_t c, size_t r);
+void	f_imatrix_sum(t_imatrix *v_this, t_imatrix *m1, t_imatrix *m2);
+void	f_imatrix_sub(t_imatrix *v_this, t_imatrix *m1, t_imatrix *m2);
+void	f_imatrix_print(const t_imatrix *v_this, const char *name);
+void	f_imatrix_destroy(t_imatrix *v_this);
 
 #endif

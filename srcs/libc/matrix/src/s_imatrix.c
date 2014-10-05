@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s_matrix.c                                         :+:      :+:    :+:   */
+/*   s_imatrix.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cmuller <clara.muller19@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/09 20:57:21 by cmuller           #+#    #+#             */
-/*   Updated: 2014/02/12 19:48:03 by qperez           ###   ########.fr       */
+/*   Updated: 2014/10/05 13:18:47 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains s_matrix function>
+** <This file contains s_imatrix function>
 ** < init, destroy >
 ** Copyright (C) <2013> Clara Muller <clara.muller19@gmail.com>
 **
@@ -31,45 +31,47 @@
 ** along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <matrix/s_matrix.h>
+#include <matrix/s_imatrix.h>
 #include <f_memory/f_free.h>
 #include <stdlib.h>
 
-static bool	uf_matrix_fillcoeff(t_matrix *v_this, size_t col, size_t row)
+static bool	uf_imatrix_fillcoeff(t_imatrix *v_this, size_t col, size_t row)
 {
 	size_t	i;
 
 	i = 0;
 	while (i < row)
 	{
-		v_this->v_coeff[i] = malloc(sizeof(*(v_this->v_coeff[i])) * col);
+		v_this->v_coeff[i] = malloc(sizeof(*v_this->v_coeff[i]) * col);
 		if (v_this->v_coeff[i] == NULL)
 		{
 			uf_free_tab_fail((void **)v_this->v_coeff, i);
 			return (M_ERROR(false, "Bad alloc"));
 		}
+		uf_memset(v_this->v_coeff[i], 0, sizeof(*v_this->v_coeff[i]) * col);
 		i = i + 1;
 	}
 	v_this->v_coeff[i] = NULL;
 	return (true);
 }
 
-bool		f_matrix_init(t_matrix *v_this, size_t c, size_t r)
+bool		f_imatrix_init(t_imatrix *v_this, size_t c, size_t r)
 {
-	uf_memset(v_this, '\0', sizeof(*v_this));
+	uf_memset(v_this, 0, sizeof(*v_this));
 	if (c == 0 || r == 0)
 		return (M_ERROR(false, "Columns != 0 && Rows != 0"));
-	v_this->v_coeff = malloc(sizeof(*(v_this->v_coeff)) * (r + 1));
+	v_this->v_coeff = malloc(sizeof(*v_this->v_coeff) * (r + 1));
 	if (v_this->v_coeff == NULL)
 		return (M_ERROR(false, "Bad alloc"));
-	if (uf_matrix_fillcoeff(v_this, c, r) == false)
+	uf_memset(v_this->v_coeff, 0, sizeof(*v_this->v_coeff) * (r + 1));
+	if (uf_imatrix_fillcoeff(v_this, c, r) == false)
 		return (false);
 	v_this->v_columns = c;
 	v_this->v_rows = r;
 	return (true);
 }
 
-void		f_matrix_destroy(t_matrix *v_this)
+void		f_imatrix_destroy(t_imatrix *v_this)
 {
 	uf_free_tab((void **)v_this->v_coeff);
 	v_this->v_columns = 0;

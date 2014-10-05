@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   s_matrix_print.c                                   :+:      :+:    :+:   */
+/*   s_imatrix_print.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/12 18:00:21 by qperez            #+#    #+#             */
-/*   Updated: 2014/02/12 19:49:21 by qperez           ###   ########.fr       */
+/*   Updated: 2014/10/05 13:07:37 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains s_matrix_print function>
+** <This file contains s_imatrix_print function>
 ** < print >
 ** Copyright (C) <2013> Clara Muller <clara.muller19@gmail.com>
 **
@@ -31,10 +31,10 @@
 ** along with this program. If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <matrix/s_matrix.h>
+#include <matrix/s_imatrix.h>
 #include <f_string/f_print.h>
 
-void	f_matrix_print(const t_matrix *v_this, const char *name)
+void	f_imatrix_print(const t_imatrix *v_this, const char *name)
 {
 	size_t	i;
 	size_t	j;
@@ -49,7 +49,7 @@ void	f_matrix_print(const t_matrix *v_this, const char *name)
 		j = 0;
 		while (j < v_this->v_columns)
 		{
-			uf_print_variadic("[%d]", (int)v_this->v_coeff[i][j]);
+			uf_print_variadic("[%d]", v_this->v_coeff[i][j]);
 			j = j + 1;
 		}
 		uf_print_char('\n');

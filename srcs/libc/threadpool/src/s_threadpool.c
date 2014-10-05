@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/07/05 13:35:11 by qperez            #+#    #+#             */
-/*   Updated: 2014/07/05 13:36:34 by qperez           ###   ########.fr       */
+/*   Updated: 2014/10/05 13:23:40 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,6 @@ bool		f_threadpool_add_task(t_threadpool *v_this,
 {
 	t_threadpool_task	*add;
 	t_threadpool_data	*data;
-
 
 	if ((add = malloc(sizeof(*add))) == NULL)
 		return (M_ERROR(false, "Bad alloc"));
