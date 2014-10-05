@@ -44,6 +44,7 @@ LISTDIR	=	array			\
 			unit			\
 			vector			\
 			matrix			\
+			rand			\
 			lock			\
 			rbtree
 

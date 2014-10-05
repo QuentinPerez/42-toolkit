@@ -6,56 +6,31 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/13 12:58:04 by qperez            #+#    #+#             */
-/*   Updated: 2014/10/05 13:33:53 by qperez           ###   ########.fr       */
+/*   Updated: 2014/10/05 13:35:31 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include <error/s_error.h>
-
-bool	uf_test_bool(t_error *v_this)
-{
-	/*
-	 * Use variadic here Are you kidding ?
-	 * ...
-	 * Ok just for the skills
-	 */
-	return (D_ERROR(add)(v_this, true, "The %s error", "first"));
-}
-
-void	uf_test_void(t_error *v_this)
-{
-	return (D_ERROR(add_v)(v_this, "The %s error", "Second"));
-}
-
-/*
- * This file is a little example of the t_error structure
- */
+#include <rand/s_rand.h>
 
 int		main(int argc, char const** argv)
 {
-	t_error	error;
+	t_rand	rand_fd;
+	t_rand	rand_std;
 
 	/*
-	 * Initialize the structure with the filename here file.txt
+	 * Initialize the structure
 	 */
-	if (D_ERROR(init)(&error, "file.txt") == false)
+	if (D_RAND(init)(&rand_fd, e_rand_file) == false
+		|| D_RAND(init)(&rand_std, e_rand_std) == false)
 	{
 		printf("Error\n");
 		return (-1);
 	}
-	/*
-	 * Add 2 errors to file.txt
-	 */
-	uf_test_void(&error);
-	uf_test_bool(&error);
-	/*
-	 * free memory used by array !!
-	 * ...
-	 * Pff it's useless the OS make it after
-	 * ....
-	 */
-	D_ERROR(destroy)(&error);
+	printf("/dev/urandom %zd\n", D_RAND(generate)(&rand_fd));
+	printf("libc         %zd\n", D_RAND(generate)(&rand_std));
+	D_RAND(destroy)(&rand_fd);
+	D_RAND(destroy)(&rand_std);
 	(void)argc;
 	(void)argv;
 	return (0);
