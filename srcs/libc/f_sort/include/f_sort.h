@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/18 12:23:30 by qperez            #+#    #+#             */
-/*   Updated: 2014/03/19 15:10:20 by qperez           ###   ########.fr       */
+/*   Updated: 2014/10/13 15:10:55 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@
 void	uf_sort_bubble(int *ptr, size_t size);
 void	uf_sort_shell(int *ptr, size_t size);
 void	uf_sort_quick(int *ptr, size_t size);
-bool	uf_sort_merge(int *ptr, int size);
+bool	uf_sort_merge(int *ptr, size_t size);
 bool	uf_sort_counting(int *ptr, size_t size);
 
 #endif

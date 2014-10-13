@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/22 14:33:19 by qperez            #+#    #+#             */
-/*   Updated: 2014/02/12 19:39:32 by qperez           ###   ########.fr       */
+/*   Updated: 2014/10/13 15:14:31 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@
 #include <f_error/m_error.h>
 #include <f_memory/f_memory.h>
 #include <f_math/f_math.h>
+#include <stdint.h>
 
 static void	uf_sort_tab(int *tab, int *counter, int minmax[2])
 {
@@ -66,8 +67,8 @@ static bool	uf_sort_make_counter(int *tab, size_t size, int minmax[2])
 
 	i = 0;
 	size_counter = minmax[1] - minmax[0] + 1;
-	counter = malloc(sizeof(*counter) * (size_counter));
-	if (counter == NULL)
+	if (size_counter == 0 || size_counter > SIZE_MAX / sizeof(*counter)
+		|| (counter = malloc(sizeof(*counter) * size_counter)) == NULL)
 		return (M_ERROR(false, "Bad alloc"));
 	uf_memset(counter, 0, sizeof(*counter) * size_counter);
 	while (i < size)

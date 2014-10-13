@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/28 20:37:37 by qperez            #+#    #+#             */
-/*   Updated: 2014/09/03 17:23:07 by qperez           ###   ########.fr       */
+/*   Updated: 2014/10/13 15:29:44 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@
 */
 
 #include <stdlib.h>
+#include <stdint.h>
 #include <f_error/m_error.h>
 #include <string/s_string.h>
 #include <f_memory/f_memory.h>
@@ -46,8 +47,8 @@ static bool	*uf_string_fill_bool(t_string *v_this, const char *charset)
 	bool	*active;
 
 	i = 0;
-	active = malloc(v_this->v_size * sizeof(*active));
-	if (active == NULL)
+	if (v_this->v_size > SIZE_MAX / sizeof(*active)
+		|| (active = malloc(v_this->v_size * sizeof(*active))) == NULL)
 		return ((bool *)M_ERROR((size_t)NULL, "Bad alloc"));
 	uf_memset(active, false, v_this->v_size * sizeof(*active));
 	size = uf_str_len(charset);
@@ -89,8 +90,8 @@ static size_t	uf_string_count_word(t_string *v_this, bool *active)
 static bool	uf_string_dump_word(const char *str, char **tab,
 								size_t size, size_t *word)
 {
-	tab[*word] = malloc(sizeof(*tab[*word]) * (size + 1));
-	if (tab[*word] == NULL)
+	if ((size + 1) > SIZE_MAX / sizeof(*tab[*word])
+		|| (tab[*word] = malloc(sizeof(*tab[*word]) * (size + 1))) == NULL)
 	{
 		uf_free_tab_fail((void **)tab, *word);
 		return (false);
@@ -133,14 +134,21 @@ char		**f_string_split(t_string *v_this, const char *charset)
 {
 	bool	*active;
 	char	**ret;
+	size_t	nb_word;
 
 	if (v_this->v_size == 0)
 		return (NULL);
 	active = uf_string_fill_bool(v_this, charset);
 	if (active == NULL)
 		return (NULL);
-	ret = malloc(sizeof(*ret) * uf_string_count_word(v_this, active));
-	if (ret != NULL && uf_string_fill_tab(v_this, ret, active) == false)
+	nb_word = uf_string_count_word(v_this, active);
+	if (nb_word > SIZE_MAX / sizeof(*ret)
+		|| (ret = malloc(sizeof(*ret) * nb_word)) == NULL)
+	{
+		free(active);
+		return (NULL);
+	}
+	if (uf_string_fill_tab(v_this, ret, active) == false)
 		ret = NULL;
 	free(active);
 	return (ret);

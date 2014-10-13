@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/30 00:38:02 by qperez            #+#    #+#             */
-/*   Updated: 2014/09/03 17:22:27 by qperez           ###   ########.fr       */
+/*   Updated: 2014/10/13 15:13:48 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,15 @@
 #include <f_error/m_error.h>
 #include <f_memory/f_memory.h>
 #include <stdlib.h>
+#include <stdint.h>
 
 bool		f_arqueue_init(t_arqueue *v_this, size_t elem_size, size_t nb_elem)
 {
 	v_this->v_start = 0;
 	v_this->v_end = 0;
 	v_this->v_size = 0;
-	if ((v_this->v_array = malloc(elem_size * nb_elem)) == NULL)
+	if (elem_size == 0 || nb_elem == 0 || nb_elem > SIZE_MAX / elem_size
+		|| (v_this->v_array = malloc(elem_size * nb_elem)) == NULL)
 		return (M_ERROR(false, "Bad alloc"));
 	v_this->v_capacity = nb_elem;
 	v_this->v_sizeof = elem_size;

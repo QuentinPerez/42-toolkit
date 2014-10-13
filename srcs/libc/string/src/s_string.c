@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/22 12:13:42 by qperez            #+#    #+#             */
-/*   Updated: 2014/02/12 19:50:40 by qperez           ###   ########.fr       */
+/*   Updated: 2014/10/13 15:30:46 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@
 */
 
 #include <stdlib.h>
+#include <stdint.h>
 #include <string/s_string.h>
 #include <f_error/m_error.h>
 #include <f_memory/f_memory.h>
@@ -48,7 +49,8 @@ bool				f_string_init(t_string *v_this,
 
 	size = 2;
 	v_this->v_size = 0;
-	v_this->v_str = malloc(size * sizeof(*v_this->v_str));
+	if (size > SIZE_MAX / sizeof(*v_this->v_str)
+		|| (v_this->v_str = malloc(size * sizeof(*v_this->v_str))) == NULL)
 	if (v_this->v_str == NULL)
 		return (M_ERROR(false, "Bad alloc"));
 	uf_memset(v_this->v_str, 0, size * sizeof(*v_this->v_str));

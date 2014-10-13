@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/07/05 13:35:11 by qperez            #+#    #+#             */
-/*   Updated: 2014/10/05 13:23:40 by qperez           ###   ########.fr       */
+/*   Updated: 2014/10/13 15:31:37 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+#include <stdint.h>
 #include <threadpool/s_threadpool.h>
 #include <f_error/m_error.h>
 #include <f_memory/f_memory.h>
@@ -94,7 +95,8 @@ bool		f_threadpool_init(t_threadpool *v_this, size_t nb_thread)
 	t_threadpool_data	*data;
 
 	v_this->pv_data.v_run = false;
-	if ((v_this->v_id = malloc(sizeof(*v_this->v_id) * nb_thread)) == NULL)
+	if (nb_thread > SIZE_MAX / sizeof(*v_this->v_id)
+		|| (v_this->v_id = malloc(sizeof(*v_this->v_id) * nb_thread)) == NULL)
 		return (M_ERROR(false, "Bad alloc"));
 	D_QUEUE(init)(&v_this->pv_data.v_tasks, free);
 	if (D_LOCK(init)(&v_this->v_data, &v_this->pv_data) == false)

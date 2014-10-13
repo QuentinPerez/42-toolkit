@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/08 20:33:45 by qperez            #+#    #+#             */
-/*   Updated: 2014/02/12 19:41:21 by qperez           ###   ########.fr       */
+/*   Updated: 2014/10/13 15:17:23 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@
 #include <stdlib.h>
 #include <f_string/f_string.h>
 #include <f_string/f_str_tools.h>
+#include <f_error/m_error.h>
+#include <stdint.h>
 
 char	*uf_strdup(const char *str)
 {
@@ -40,9 +42,9 @@ char	*uf_strdup(const char *str)
 	char	*ret;
 
 	size = uf_str_len(str);
-	if (size == 0)
-		return (NULL);
-	ret = malloc(sizeof(*ret) * (size + 1));
+	if (size == 0 || (size + 1) > SIZE_MAX / sizeof(*ret)
+		|| (ret = malloc(sizeof(*ret) * (size + 1))) == NULL)
+		return ((char *)M_ERROR((size_t)NULL, "Bad alloc"));
 	if (ret != NULL)
 		uf_strcpy(ret, str);
 	return (ret);
