@@ -18,7 +18,9 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-CFLAGS	+=	-Wextra -Wall -Werror -DD_ERRORS_ON -I./include
+SHELL	=	bash
+CFLAGS	+=	-Wextra -Wall -Werror -I./include
+INCLDEP	=	-Y./include
 LDFLAGS	+=	-lpthread
 DEBUG	=	-g3 -fno-inline
 
@@ -27,5 +29,4 @@ LISTDIR	=	src
 
 DIRSRC	=	src
 
-LIB	=	lib42.a
-
+NAME	=	lib42.a
