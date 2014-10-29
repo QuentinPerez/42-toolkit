@@ -62,7 +62,7 @@ all	:	$(DIR42) $(LIB42) $(EXELIST)
 
 
 $(LIB42)	:	force
-			make -C $(DIR42) nodepends
+			make -C $(DIR42)
 
 clean	:
 		/bin/rm	-fr $(DIR42) $(EXELIST)
