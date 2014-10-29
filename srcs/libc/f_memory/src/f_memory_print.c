@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/08 00:22:04 by qperez            #+#    #+#             */
-/*   Updated: 2014/02/12 19:36:57 by qperez           ###   ########.fr       */
+/*   Updated: 2014/10/29 10:19:42 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@
 
 #include <f_string/f_print.h>
 
-static void	uf_print_content(unsigned char *data, size_t size)
+static void				uf_print_content(unsigned char *data, size_t size)
 {
 	size_t	i;
 
@@ -40,7 +40,7 @@ static void	uf_print_content(unsigned char *data, size_t size)
 	uf_print_char(' ');
 	while (i < size)
 	{
-		if (data[i] < 32 || data[i] == 127)
+		if (data[i] < 32 || data[i] > 126)
 			uf_print_char('.');
 		else
 			uf_print_char(data[i]);
@@ -49,7 +49,7 @@ static void	uf_print_content(unsigned char *data, size_t size)
 	uf_print_char('\n');
 }
 
-static void	uf_print_hex(char c)
+static void				uf_print_hex(unsigned char c)
 {
 	if (c < 16)
 		uf_print_char('0');
@@ -82,7 +82,7 @@ static unsigned char	*uf_print_data(unsigned char *data, size_t size)
 	return (data);
 }
 
-void		*uf_print_memory(const void *addr, size_t size)
+void					*uf_print_memory(const void *addr, size_t size)
 {
 	unsigned char	*data;
 

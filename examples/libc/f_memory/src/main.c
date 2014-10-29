@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/26 13:26:45 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/04 20:37:49 by qperez           ###   ########.fr       */
+/*   Updated: 2014/10/29 10:22:24 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,20 +19,21 @@
 
 int		main(int argc, char const** argv)
 {
-	char	mem[50];
+	char	data[256];
+	int		i;
 
-	/*
-	 * Fill mem with 'A'
-	 */
-	uf_memset(mem, 'A', sizeof(*mem) * 50);
-	/*
-	 * Copy memory
-	 */
-	uf_memcpy(mem, "Hello 42", 8);
-	/*
-	 * Show memory
-	 */
-	uf_print_memory(mem, sizeof(*mem) * 50);
+	i = 0;
+	while (i < 256)
+	{
+		data[i] = i;
+		i = i + 1;
+	}
+	uf_print_memory(data, sizeof(data));
+	uf_memset(data, 0, sizeof(data));
+	uf_memcpy(data, "AAAAAAAA", 8);
+	uf_print_char('\n');
+	uf_memcpy(data + 50, "AAAAAAAA", 8);
+	uf_print_memory(data, sizeof(data));
 	(void)argc;
 	(void)argv;
 	return (0);
