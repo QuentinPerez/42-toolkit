@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/30 17:48:19 by qperez            #+#    #+#             */
-/*   Updated: 2014/02/23 20:32:10 by qperez           ###   ########.fr       */
+/*   Updated: 2014/11/08 18:11:32 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,11 +71,14 @@ bool		f_list_push_front(t_list *v_this, void *data)
 
 void		f_list_pop_back(t_list *v_this)
 {
+	t_list_cell	*tmp;
+
 	if (v_this->v_end != NULL)
 	{
 		v_this->f_destroy(v_this->v_end->v_data);
+		tmp = v_this->v_end->v_prev;
 		free(v_this->v_end);
-		v_this->v_end = v_this->v_end->v_prev;
+		v_this->v_end = tmp;
 		v_this->v_size = v_this->v_size - 1;
 		if (v_this->v_end != NULL)
 			v_this->v_end->v_next = NULL;
@@ -86,11 +89,14 @@ void		f_list_pop_back(t_list *v_this)
 
 void		f_list_pop_front(t_list *v_this)
 {
+	t_list_cell	*tmp;
+
 	if (v_this->v_begin != NULL)
 	{
 		v_this->f_destroy(v_this->v_begin->v_data);
+		tmp = v_this->v_begin->v_next;
 		free(v_this->v_begin);
-		v_this->v_begin = v_this->v_begin->v_next;
+		v_this->v_begin = tmp;
 		v_this->v_size = v_this->v_size - 1;
 		if (v_this->v_begin != NULL)
 			v_this->v_begin->v_prev = NULL;

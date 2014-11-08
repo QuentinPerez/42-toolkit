@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/07 23:03:19 by qperez            #+#    #+#             */
-/*   Updated: 2014/02/19 19:31:16 by qperez           ###   ########.fr       */
+/*   Updated: 2014/11/08 18:08:41 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ int	uf_str_case_cmp(const char *left, const char *right)
 	unsigned char	left_letter;
 	unsigned char	right_letter;
 
+	left_letter = uf_to_lower(*left);
+	right_letter = uf_to_lower(*right);
 	while (*left != '\0' && *right != '\0')
 	{
 		left_letter = uf_to_lower(*left);
@@ -58,6 +60,8 @@ int	uf_str_case_ncmp(const char *left, const char *right, size_t count)
 
 	if (count == 0)
 		return (0);
+	left_letter = uf_to_lower(*left);
+	right_letter = uf_to_lower(*right);
 	while (*left != '\0' && *right != '\0' && count != 0)
 	{
 		left_letter = uf_to_lower(*left);

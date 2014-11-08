@@ -33,6 +33,9 @@ debug	:	CFLAGS += $(DEBUG)
 debug	:	re
 		echo -e '\033[1;31mDebug version \033[1;35m$(DEBUG)\033[0m'
 
+analyze	:
+		clang --analyze -Xanalyzer -analyzer-output=html $(SRC) -I./include
+
 every	:	CFLAGS += -Weverything
 every	:	re
 		echo -e '\033[1;33mGood job !\033[0m'
