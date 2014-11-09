@@ -12,7 +12,7 @@
 
 #include <unistd.h>
 
-ssize_t	uf_print_nstr_fd(const char *str, size_t size, size_t fd)
+ssize_t	uf_print_nstr_fd(const char *str, size_t size, int fd)
 {
 	return (write(fd, str, size));
 }

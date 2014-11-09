@@ -33,17 +33,17 @@
 #include <f_string/f_print_fd.h>
 #include <f_string/f_str_tools.h>
 
-ssize_t	uf_print_char_fd(char c, size_t fd)
+ssize_t	uf_print_char_fd(char c, int fd)
 {
 	return (write(fd, &c, 1));
 }
 
-ssize_t	uf_print_str_fd(const char *str, size_t fd)
+ssize_t	uf_print_str_fd(const char *str, int fd)
 {
 	return (write(fd, str, uf_str_len(str)));
 }
 
-void	uf_print_nbr_base_fd(ssize_t nbr, ssize_t base, size_t fd)
+void	uf_print_nbr_base_fd(ssize_t nbr, ssize_t base, int fd)
 {
 	ssize_t	digit;
 
@@ -62,12 +62,12 @@ void	uf_print_nbr_base_fd(ssize_t nbr, ssize_t base, size_t fd)
 	}
 }
 
-void	uf_print_nbr_fd(ssize_t nbr, size_t fd)
+void	uf_print_nbr_fd(ssize_t nbr, int fd)
 {
 	uf_print_nbr_base_fd(nbr, 10, fd);
 }
 
-void	uf_print_addr_fd(void *addr, size_t fd)
+void	uf_print_addr_fd(void *addr, int fd)
 {
 	size_t	nbr;
 	size_t	digit;

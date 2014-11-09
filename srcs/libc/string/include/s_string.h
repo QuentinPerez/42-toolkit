@@ -50,7 +50,7 @@ typedef struct	s_string
 
 bool		f_string_init(t_string *v_this, size_t (*uf_realloc)(size_t size));
 void		f_string_print(const t_string *v_this);
-void		f_string_print_fd(const t_string *v_this, size_t fd);
+void		f_string_print_fd(const t_string *v_this, int fd);
 void		f_string_print_memory(const t_string *v_this, const char *name);
 char		*f_string_dup(const t_string *v_this);
 const char	*f_string_str(const t_string *v_this);

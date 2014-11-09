@@ -96,7 +96,7 @@ bool				uf_sort_merge(int *ptr, size_t size)
 	if (size == 0 || size > SIZE_MAX / sizeof(*tmp)
 		|| (tmp = malloc(sizeof(*tmp) * size)) == NULL)
 		return (M_ERROR(false, "Bad alloc"));
-	uf_recursive_merge(ptr, tmp, 0, size - 1);
+	uf_recursive_merge(ptr, tmp, 0, (int)size - 1);
 	free(tmp);
 	return (true);
 }

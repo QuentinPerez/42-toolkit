@@ -78,7 +78,7 @@ static char	*uf_atoi_check_base(const char *nbr, bool *neg, char *c, size_t base
 	return ((char *)nbr);
 }
 
-int			uf_atoi_base(const char *nbr, size_t base)
+int			uf_atoi_base(const char *nbr, unsigned int base)
 {
 	char	c;
 	bool	neg;
@@ -94,7 +94,7 @@ int			uf_atoi_base(const char *nbr, size_t base)
 			c = c - (uf_is_upper(c) == true ? 'A' - 10 : 'a' - 10);
 		else
 			break ;
-		if ((size_t)c >= base)
+		if ((unsigned int)c >= base)
 			break ;
 		ret = ret * base;
 		ret = ret + c;

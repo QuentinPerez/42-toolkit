@@ -44,20 +44,20 @@ bool	f_rand_init(t_rand *v_this, t_type_rand style)
         return (M_ERROR(false, "style value is out of range"));
     v_this->v_style = style;
     if (style == e_rand_std)
-        srand(time(NULL));
+        srand((unsigned int)time(NULL));
     else
     {
         if ((v_this->v_fd = open("/dev/urandom", O_RDONLY)) == -1)
         {
             M_INFOS("Couldn't open /dev/urandom, we will use libc");
-            srand(time(NULL));
+            srand((unsigned int)time(NULL));
             v_this->v_style = e_rand_std;
         }
     }
     return (true);
 }
 
-bool	f_rand_change_seed(t_rand *v_this, size_t seed)
+bool	f_rand_change_seed(t_rand *v_this, unsigned int seed)
 {
 	if (v_this->v_style == e_rand_file)
 		return (M_ERROR(false, "You could't change seed of /dev/urandom"));

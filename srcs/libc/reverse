@@ -1,0 +1,21 @@
+#!/bin/bash
+
+LIB=lib42
+
+function move_file
+{
+	while [ ! -z "$1" ];
+	do
+		ORIG=$(find . -name `basename $1` | grep -v $LIB)
+		diff $1 $ORIG > /dev/null 2>&1
+		if [ $? -eq 1 ]
+		then
+			cp $1 $ORIG
+			echo $1 "->" $ORIG
+		fi
+		shift
+	done
+}
+
+move_file $(find $LIB -type f -name "*.c")
+move_file $(find $LIB -type f -name "*.h")

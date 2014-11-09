@@ -33,7 +33,7 @@
 #include <unistd.h>
 #include <stdbool.h>
 
-void	uf_print_bool_fd(bool value, size_t fd)
+void	uf_print_bool_fd(bool value, int fd)
 {
 	if (value == true)
 		write(fd, "true", 4);

@@ -51,7 +51,7 @@ static void	uf_sort_tab(int *tab, int *counter, int minmax[2])
 		j = 0;
 		while (j < counter[i - minmax[0]])
 		{
-			tab[index] = i;
+			tab[index] = (int)i;
 			index = index + 1;
 			j = j + 1;
 		}
