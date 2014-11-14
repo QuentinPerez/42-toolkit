@@ -1,9 +1,10 @@
 
 OBJ		=	$(addprefix $(OBJDIR)/, $(SRC:.c=.o))
+DEPS	=	$(OBJDIR)/Makefile.deps
 
 .SILENT:
 
-all		:	$(OBJDIR) depends $(NAME)
+all		:	$(OBJDIR) $(DEPS) $(NAME)
 
 $(addprefix $(OBJDIR)/, %.o)	:	%.c
 								$(CC) $(CFLAGS) -o $@ -c $<
@@ -13,10 +14,14 @@ $(NAME)	:	$(OBJ)
 		ar rcs $(NAME) $(OBJ)
 		echo -e '\033[1;31mC libraries \033[1;35m$(NAME) \033[1;33m$(CC)\033[0m'
 
-depends		:
+ifneq ("$(wildcard $(DEPS))", "")
+-include $(DEPS)
+endif
+
+$(DEPS)		:
 	$(eval RETURN_VAL := $(shell makedepend 2>/dev/null; echo $$?))
 	if [ $(RETURN_VAL) -eq 0 ]; then												\
-		makedepend -- $(CFLAGS) -- $(SRC) -p $(OBJDIR)/ -m $(INCLDEP) 2> /dev/null;	\
+		makedepend -- $(CFLAGS) -- $(SRC) -p $(OBJDIR)/ $(INCLDEP) -f- > $(DEPS) 2> /dev/null;	\
 	fi
 
 clean	:
@@ -27,17 +32,18 @@ fclean	:	clean
 		/bin/rm -fr $(NAME)
 		echo -e '\033[1;34mFclean libraries $(NAME)\033[0m'
 
-re		:	fclean all
+re		:	fclean
+		make
 
 debug	:	CFLAGS += $(DEBUG)
-debug	:	re
+debug	:	fclean all
 		echo -e '\033[1;31mDebug version \033[1;35m$(DEBUG)\033[0m'
 
 analyze	:
 		clang --analyze -Xanalyzer -analyzer-output=html $(SRC) -I./include
 
 every	:	CFLAGS += -Weverything
-every	:	re
+every	:	fclean all
 		echo -e '\033[1;33mGood job !\033[0m'
 
 $(OBJDIR)	:
