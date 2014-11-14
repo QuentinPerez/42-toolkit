@@ -1,7 +1,13 @@
 LIB42 RELEASES
 ===
 
-####Current release : 0.1.7
+####Current release : 0.1.8
+
+	-V0.1.8 11-14-2014
+		add secure function
+		fix matrix
+		add the structure rand
+		fix the behavior of Makefile
 
 	-V0.1.7 09-03-2014
 		add arqueue
