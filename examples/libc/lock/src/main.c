@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/03/19 15:12:35 by qperez            #+#    #+#             */
-/*   Updated: 2014/03/19 15:21:10 by qperez           ###   ########.fr       */
+/*   Updated: 2014/11/20 21:10:40 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ int	main(int argc, char const** argv)
 	t_share	*acces_share;
 
 	dprintf(1, "Init lock\n");
-	if (D_LOCK(init)(&lock, &private_share) == false)
+	if (D_LOCK(init)(&lock, &private_share, e_lock_default) == false)
 		return (1);
 	/*
 	 * safe access

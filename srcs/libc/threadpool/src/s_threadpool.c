@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/07/05 13:35:11 by qperez            #+#    #+#             */
-/*   Updated: 2014/10/13 15:31:37 by qperez           ###   ########.fr       */
+/*   Updated: 2014/11/20 20:54:19 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,8 @@ bool		f_threadpool_init(t_threadpool *v_this, size_t nb_thread)
 		|| (v_this->v_id = malloc(sizeof(*v_this->v_id) * nb_thread)) == NULL)
 		return (M_ERROR(false, "Bad alloc"));
 	D_QUEUE(init)(&v_this->pv_data.v_tasks, free);
-	if (D_LOCK(init)(&v_this->v_data, &v_this->pv_data) == false)
+	if (D_LOCK(init)(&v_this->v_data, &v_this->pv_data,
+												e_lock_default) == false)
 	{
 		free(v_this->v_id);
 		return (M_ERROR(false, "Couldn't initialize lock"));

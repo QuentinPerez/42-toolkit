@@ -4,7 +4,7 @@ Lock
 ## Function
 
 
-	- init(t_lock *v_this, void *data)
+	- init(t_lock *v_this, void *data, e_lock_type type)
 	  /* This function initialize t_lock with the data when you want to protect */
 
 	- lock(t_lock *v_this, void **data)
