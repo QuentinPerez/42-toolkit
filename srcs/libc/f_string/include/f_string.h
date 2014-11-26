@@ -51,7 +51,9 @@ char	*uf_itoa_base(int nbr, size_t base);
 int		uf_atoi(char *nbr);
 int		uf_atoi_base(char *nbr, size_t base);
 char	*uf_strdup(const char *str);
-char	*uf_getstr(size_t fd, unsigned char terminate, bool del_terminate);
-char	*uf_getline(size_t fd, bool del_terminate);
+char	*uf_getstr(int fd, unsigned char terminate, bool del_terminate);
+char	*uf_getline(int fd, bool del_terminate);
+char	*uf_mapfile(const char *name, size_t *len);
+bool	uf_unmapfile(void *addr, size_t len);
 
 #endif

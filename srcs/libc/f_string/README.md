@@ -147,6 +147,12 @@ String Function
 	- uf_skip_space(const char *str)
 	/* Increase str while is space */
 
+	- uf_mapfile(const char *name, size_t *len)
+	/* Load a file in memory */
+
+	- uf_unmapfile(const char *name, size_t len)
+	/* Free memory allocated by uf_mapfile */
+
 ===
 ### How to use ?
 
