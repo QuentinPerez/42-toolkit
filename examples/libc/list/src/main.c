@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/05 15:08:40 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/05 23:44:16 by qperez           ###   ########.fr       */
+/*   Updated: 2014/12/02 13:11:57 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 
 bool	uf_print_data(void *data)
 {
-	uf_print_variadic("Data = %d\n", (int)data);
+	uf_print_variadic("Data = %d\n", (size_t)data);
 	return (true);
 }
 

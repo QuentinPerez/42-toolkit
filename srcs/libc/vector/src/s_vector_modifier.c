@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/16 15:17:58 by qperez            #+#    #+#             */
-/*   Updated: 2014/03/02 14:27:14 by qperez           ###   ########.fr       */
+/*   Updated: 2014/12/02 11:51:35 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@
 */
 
 #include <vector/s_vector.h>
-#include <stdlib.h>
+#include <f_secure/f_secure.h>
 #include <f_error/m_error.h>
 
 static bool			f_vector_realloc(t_vector *v_this, size_t size)
@@ -40,8 +40,8 @@ static bool			f_vector_realloc(t_vector *v_this, size_t size)
 	void	**tmp;
 
 	tmp = v_this->v_data;
-	v_this->v_data = realloc(v_this->v_data, sizeof(*v_this->v_data) * size);
-	if (v_this->v_data == NULL)
+	if ((v_this->v_data = uf_realloc_s(v_this->v_data, size,
+									sizeof(*v_this->v_data))) == NULL)
 	{
 		v_this->v_data = tmp;
 		return (M_ERROR(false, "Bad alloc"));

@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/22 14:33:19 by qperez            #+#    #+#             */
-/*   Updated: 2014/10/13 15:14:31 by qperez           ###   ########.fr       */
+/*   Updated: 2014/12/02 10:43:46 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@
  */
 
 #include <stdbool.h>
-#include <stdlib.h>
+#include <f_secure/f_secure.h>
 #include <f_error/m_error.h>
 #include <f_memory/f_memory.h>
 #include <f_math/f_math.h>
@@ -67,8 +67,7 @@ static bool	uf_sort_make_counter(int *tab, size_t size, int minmax[2])
 
 	i = 0;
 	size_counter = minmax[1] - minmax[0] + 1;
-	if (size_counter == 0 || size_counter > SIZE_MAX / sizeof(*counter)
-		|| (counter = malloc(sizeof(*counter) * size_counter)) == NULL)
+	if ((counter = uf_malloc_s(size_counter, sizeof(*counter))) == NULL)
 		return (M_ERROR(false, "Bad alloc"));
 	uf_memset(counter, 0, sizeof(*counter) * size_counter);
 	while (i < size)
@@ -77,7 +76,7 @@ static bool	uf_sort_make_counter(int *tab, size_t size, int minmax[2])
 		i = i + 1;
 	}
 	uf_sort_tab(tab, counter, minmax);
-	free(counter);
+	uf_free_s((void **)&counter);
 	return (true);
 }
 

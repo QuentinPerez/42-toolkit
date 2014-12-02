@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/31 16:10:19 by qperez            #+#    #+#             */
-/*   Updated: 2014/01/08 18:28:39 by qperez           ###   ########.fr       */
+/*   Updated: 2014/12/02 12:00:41 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <stdlib.h>
+#include <f_secure/f_secure.h>
 #include <unit/s_unit.h>
 #include <f_error/m_error.h>
 #include <f_string/f_string.h>
@@ -44,7 +44,7 @@ static void			uf_unit_destroy_test(void *data)
 
 	test = (t_unit_test *)data;
 	D_LIST(destroy)(&test->v_assert);
-	free(data);
+	uf_free_s((void **)&data);
 }
 
 static t_unit_test	*uf_unit_alloc_test(const char *name,
@@ -52,8 +52,7 @@ static t_unit_test	*uf_unit_alloc_test(const char *name,
 {
 	t_unit_test	*t;
 
-	t = malloc(sizeof(*t));
-	if (t == NULL)
+	if ((t = uf_malloc_s(1, sizeof(*t))) == NULL)
 		return ((t_unit_test*)M_ERROR((size_t)NULL, "Bad alloc"));
 	t->v_name = name;
 	t->f_func = test;
@@ -70,8 +69,7 @@ bool				f_unit_add_context(t_unit *v_this, const char *name,
 {
 	t_unit_context	*context;
 
-	context = malloc(sizeof(*context));
-	if (context == NULL)
+	if ((context = uf_malloc_s(1, sizeof(*context))) == NULL)
 		return (M_ERROR(false, "Bad alloc"));
 	context->v_name = name;
 	context->f_init = init;
@@ -80,7 +78,7 @@ bool				f_unit_add_context(t_unit *v_this, const char *name,
 	D_LIST(init)(&context->v_test, uf_unit_destroy_test);
 	if (D_LIST(push_back)(&v_this->v_context, context) == false)
 	{
-		free(context);
+		uf_free_s((void **)&context);
 		return (false);
 	}
 	return (true);
@@ -107,7 +105,7 @@ bool				mf_unit_add_test(t_unit *v_this, const char *context,
 		return (false);
 	if (D_LIST(push_back)(&((t_unit_context*)cell->v_data)->v_test, t) == false)
 	{
-		free(t);
+		uf_free_s((void **)&t);
 		return (false);
 	}
 	return (true);

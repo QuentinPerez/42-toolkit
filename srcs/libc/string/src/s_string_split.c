@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/28 20:37:37 by qperez            #+#    #+#             */
-/*   Updated: 2014/10/13 15:29:44 by qperez           ###   ########.fr       */
+/*   Updated: 2014/12/02 11:33:06 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <stdlib.h>
+#include <f_secure/f_secure.h>
 #include <stdint.h>
 #include <f_error/m_error.h>
 #include <string/s_string.h>
@@ -47,8 +47,7 @@ static bool	*uf_string_fill_bool(t_string *v_this, const char *charset)
 	bool	*active;
 
 	i = 0;
-	if (v_this->v_size > SIZE_MAX / sizeof(*active)
-		|| (active = malloc(v_this->v_size * sizeof(*active))) == NULL)
+	if ((active = uf_malloc_s(v_this->v_size, sizeof(*active))) == NULL)
 		return ((bool *)M_ERROR((size_t)NULL, "Bad alloc"));
 	uf_memset(active, false, v_this->v_size * sizeof(*active));
 	size = uf_str_len(charset);
@@ -90,8 +89,7 @@ static size_t	uf_string_count_word(t_string *v_this, bool *active)
 static bool	uf_string_dump_word(const char *str, char **tab,
 								size_t size, size_t *word)
 {
-	if ((size + 1) > SIZE_MAX / sizeof(*tab[*word])
-		|| (tab[*word] = malloc(sizeof(*tab[*word]) * (size + 1))) == NULL)
+	if ((tab[*word] = uf_malloc_s(size + 1, sizeof(*tab[*word]))) == NULL)
 	{
 		uf_free_tab_fail((void **)tab, *word);
 		return (false);
@@ -142,14 +140,13 @@ char		**f_string_split(t_string *v_this, const char *charset)
 	if (active == NULL)
 		return (NULL);
 	nb_word = uf_string_count_word(v_this, active);
-	if (nb_word > SIZE_MAX / sizeof(*ret)
-		|| (ret = malloc(sizeof(*ret) * nb_word)) == NULL)
+	if ((ret = uf_malloc_s(nb_word, sizeof(*ret))) == NULL)
 	{
-		free(active);
+		uf_free_s((void **)&active);
 		return (NULL);
 	}
 	if (uf_string_fill_tab(v_this, ret, active) == false)
 		ret = NULL;
-	free(active);
+	uf_free_s((void **)&active);
 	return (ret);
 }

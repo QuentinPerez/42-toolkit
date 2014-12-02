@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/27 15:34:44 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/02 13:23:03 by qperez           ###   ########.fr       */
+/*   Updated: 2014/12/02 11:58:29 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@
 
 #include <stack/s_stack.h>
 #include <f_memory/f_memory.h>
-#include <stdlib.h>
+#include <f_secure/f_secure.h>
 
 static void	uf_stack_funct_destroy(void *data)
 {
@@ -57,7 +57,7 @@ void		f_stack_clear(t_stack *v_this)
 		del = v_this->v_last;
 		v_this->f_destroy(v_this->v_last->v_data);
 		v_this->v_last = v_this->v_last->v_prev;
-		free(del);
+		uf_free_s((void **)&del);
 	}
 	v_this->v_size = 0;
 }

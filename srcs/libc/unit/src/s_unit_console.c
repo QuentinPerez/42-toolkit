@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/31 11:39:40 by qperez            #+#    #+#             */
-/*   Updated: 2014/02/12 19:55:15 by qperez           ###   ########.fr       */
+/*   Updated: 2014/12/02 12:00:13 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <stdlib.h>
+#include <f_secure/f_secure.h>
 #include <unit/s_unit.h>
 #include <unit/s_unit_console.h>
 #include <f_string/f_string.h>
@@ -61,7 +61,7 @@ static void	uf_treat_line(t_unit *v_this, t_unit_console_option *opt, char *str)
 	}
 	if (i == D_UNIT_CONSOLE_OPTION)
 		uf_print_variadic("command not found: %s\n", str);
-	free(str);
+	uf_free_s((void **)&str);
 }
 
 static void	uf_unit_add_option(t_unit_console_option *option, const char *full,

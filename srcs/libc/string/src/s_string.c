@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/22 12:13:42 by qperez            #+#    #+#             */
-/*   Updated: 2014/10/13 15:30:46 by qperez           ###   ########.fr       */
+/*   Updated: 2014/12/02 11:33:43 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,11 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <stdlib.h>
 #include <stdint.h>
 #include <string/s_string.h>
 #include <f_error/m_error.h>
 #include <f_memory/f_memory.h>
+#include <f_secure/f_secure.h>
 
 static inline size_t	uf_string_realloc(size_t size)
 {
@@ -49,9 +49,7 @@ bool				f_string_init(t_string *v_this,
 
 	size = 2;
 	v_this->v_size = 0;
-	if (size > SIZE_MAX / sizeof(*v_this->v_str)
-		|| (v_this->v_str = malloc(size * sizeof(*v_this->v_str))) == NULL)
-	if (v_this->v_str == NULL)
+	if ((v_this->v_str = uf_malloc_s(size, sizeof(*v_this->v_str))) == NULL)
 		return (M_ERROR(false, "Bad alloc"));
 	uf_memset(v_this->v_str, 0, size * sizeof(*v_this->v_str));
 	v_this->f_realloc = uf_string_realloc;
@@ -77,6 +75,6 @@ void				f_string_clear(t_string *v_this)
 
 void				f_string_destroy(t_string *v_this)
 {
-	free(v_this->v_str);
+	uf_free_s((void **)&v_this->v_str);
 	uf_memset(v_this, 0, sizeof(*v_this));
 }

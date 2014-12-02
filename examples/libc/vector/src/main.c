@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/05 15:08:40 by qperez            #+#    #+#             */
-/*   Updated: 2014/03/19 15:12:11 by qperez           ###   ########.fr       */
+/*   Updated: 2014/12/02 13:12:10 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 static bool	uf_print(void *ptr)
 {
 	uf_print_str("Value : ");
-	uf_print_nbr((int)ptr);
+	uf_print_nbr((size_t)ptr);
 	uf_print_char('\n');
 	return (true);
 }

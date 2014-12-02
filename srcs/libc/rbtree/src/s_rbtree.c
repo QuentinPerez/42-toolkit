@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/13 15:09:23 by qperez            #+#    #+#             */
-/*   Updated: 2014/01/08 17:57:49 by qperez           ###   ########.fr       */
+/*   Updated: 2014/12/02 12:03:19 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <stdlib.h>
+#include <f_secure/f_secure.h>
 #include <rbtree/s_rbtree.h>
 #include <f_error/m_error.h>
 #include <f_memory/f_memory.h>
@@ -69,7 +69,7 @@ static void	uf_rbtree_recursive_destroy(t_rbtree *v_this, t_rbcell *node)
 		uf_rbtree_recursive_destroy(v_this, node->v_left);
 		uf_rbtree_recursive_destroy(v_this, node->v_right);
 		v_this->f_delete(node->v_data);
-		free(node);
+		uf_free_s((void **)&node);
 	}
 }
 

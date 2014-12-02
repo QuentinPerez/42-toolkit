@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/13 12:58:04 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/15 11:59:35 by qperez           ###   ########.fr       */
+/*   Updated: 2014/12/02 13:12:42 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,12 @@
 
 int		uf_rbcmp(void *d1, void *d2)
 {
-	return ((int)d1 - (int)d2);
+	return ((size_t)d1 - (size_t)d2);
 }
 
 bool	uf_print(void *d1, void *d2)
 {
-	uf_print_nbr((int)d1);
+	uf_print_nbr((size_t)d1);
 	uf_print_char(' ');
 	(void)d2;
 	return (true);

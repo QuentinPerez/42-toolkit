@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/02 15:23:05 by qperez            #+#    #+#             */
-/*   Updated: 2014/02/12 19:42:48 by qperez           ###   ########.fr       */
+/*   Updated: 2014/12/02 11:46:52 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <stdlib.h>
+#include <f_secure/f_secure.h>
 #include <array/s_array.h>
 #include <f_error/m_error.h>
 #include <f_memory/f_memory.h>
@@ -41,7 +41,7 @@ static bool	f_array_realloc(t_array *v_this, size_t size)
 	void	*tmp;
 
 	tmp = v_this->v_data;
-	v_this->v_data = realloc(v_this->v_data, size * v_this->v_type_size);
+	v_this->v_data = uf_realloc_s(v_this->v_data, size, v_this->v_type_size);
 	if (v_this->v_data == NULL)
 	{
 		v_this->v_data = tmp;

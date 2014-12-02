@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/25 18:38:40 by qperez            #+#    #+#             */
-/*   Updated: 2014/02/12 19:52:41 by qperez           ###   ########.fr       */
+/*   Updated: 2014/12/02 11:58:44 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@
 #include <string/s_string.h>
 #include <f_memory/f_memory.h>
 #include <f_error/m_error.h>
-#include <stdlib.h>
+#include <f_secure/f_secure.h>
 
 bool	uf_string_realloc(t_string *v_this, size_t add)
 {
@@ -44,10 +44,9 @@ bool	uf_string_realloc(t_string *v_this, size_t add)
 	new_capacity = v_this->v_capacity;
 	while (v_this->v_size + add > new_capacity)
 		new_capacity = v_this->f_realloc(new_capacity);
-	tmp = realloc(v_this->v_str, new_capacity);
-	if (tmp == NULL)
+	if ((tmp = uf_realloc_s(v_this->v_str, 1, new_capacity)) == NULL)
 	{
-		free(v_this->v_str);
+		uf_free_s((void **)&v_this->v_str);
 		uf_memset(v_this, 0, sizeof(*v_this));
 		return (M_ERROR(false, "Bad alloc"));
 	}

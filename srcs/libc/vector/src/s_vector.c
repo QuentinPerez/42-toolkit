@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/16 12:10:46 by qperez            #+#    #+#             */
-/*   Updated: 2014/02/12 19:56:01 by qperez           ###   ########.fr       */
+/*   Updated: 2014/12/02 12:00:54 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@
 */
 
 #include <vector/s_vector.h>
-#include <stdlib.h>
+#include <f_secure/f_secure.h>
 #include <f_error/m_error.h>
 #include <f_memory/f_memory.h>
 
@@ -58,8 +58,7 @@ bool				f_vector_init(t_vector *v_this,
 	v_this->f_delete = uf_delete;
 	if (uf_delete == NULL)
 		v_this->f_delete = uf_vector_delete;
-	v_this->v_data = calloc(2, sizeof(*v_this->v_data));
-	if (v_this->v_data == NULL)
+	if ((v_this->v_data = uf_malloc_s(2, sizeof(*v_this->v_data))) == NULL)
 		return (M_ERROR(false, "Bad alloc"));
 	v_this->v_capacity = 2;
 	return (true);
@@ -82,6 +81,6 @@ void				f_vector_destroy(t_vector *v_this)
 {
 	D_VECTOR(clear)(v_this);
 	if (v_this->v_capacity > 0)
-		free(v_this->v_data);
+		uf_free_s((void **)&v_this->v_data);
 	uf_memset(v_this, 0, sizeof(*v_this));
 }

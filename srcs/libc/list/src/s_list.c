@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/28 20:52:06 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/04 09:58:49 by qperez           ###   ########.fr       */
+/*   Updated: 2014/12/02 12:02:33 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <stdlib.h>
+#include <f_secure/f_secure.h>
 #include <list/s_list.h>
 #include <f_string/f_print.h>
 #include <f_memory/f_memory.h>
@@ -84,7 +84,7 @@ void		f_list_clear(t_list *v_this)
 		del = cur;
 		cur = cur->v_next;
 		v_this->f_destroy(del->v_data);
-		free(del);
+		uf_free_s((void **)&del);
 	}
 	D_LIST(init)(v_this, v_this->f_destroy);
 }

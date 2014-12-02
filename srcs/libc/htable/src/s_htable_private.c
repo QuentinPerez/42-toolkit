@@ -6,12 +6,12 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/09 08:25:06 by qperez            #+#    #+#             */
-/*   Updated: 2014/08/27 10:44:42 by qperez           ###   ########.fr       */
+/*   Updated: 2014/12/02 10:49:28 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <htable/s_htable.h>
-#include <stdlib.h>
+#include <f_secure/f_secure.h>
 #include <f_string/f_string.h>
 #include <f_string/f_str_tools.h>
 
@@ -25,13 +25,12 @@ t_htable_cell	*f_htable_create_cell(const char *key, void *data,
 {
 	t_htable_cell	*cell;
 
-	cell = malloc(sizeof(*cell));
-	if (cell != NULL)
+	if ((cell = uf_malloc_s(1, sizeof(*cell))) != NULL)
 	{
 		cell->v_key = uf_strdup(key);
 		if (cell->v_key == NULL)
 		{
-			free(cell);
+			uf_free_s((void **)&cell);
 			return (NULL);
 		}
 		cell->v_data = data;
@@ -47,9 +46,9 @@ void			f_htable_delete_cell(void *data)
 	t_htable_cell	*cell;
 
 	cell = (t_htable_cell*)data;
-	free(cell->v_key);
+	uf_free_s((void **)&cell->v_key);
 	cell->f_delete(cell->v_data);
-	free(cell);
+	uf_free_s((void **)&cell);
 }
 
 size_t			f_htable_generate_key(size_t prime, const char *str)

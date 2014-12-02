@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/27 17:18:23 by qperez            #+#    #+#             */
-/*   Updated: 2013/12/29 15:52:21 by qperez           ###   ########.fr       */
+/*   Updated: 2014/12/02 11:28:59 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,14 +33,13 @@
 
 #include <stack/s_stack.h>
 #include <f_error/m_error.h>
-#include <stdlib.h>
+#include <f_secure/f_secure.h>
 
 static t_stack_cell	*f_stack_create_cell(void *data)
 {
 	t_stack_cell	*cell;
 
-	cell = malloc(sizeof(*cell));
-	if (cell != NULL)
+	if ((cell = uf_malloc_s(1, sizeof(*cell))) != NULL)
 		cell->v_data = data;
 	return (cell);
 }
@@ -68,5 +67,5 @@ void				f_stack_pop(t_stack *v_this)
 	v_this->f_destroy(v_this->v_last->v_data);
 	v_this->v_last = v_this->v_last->v_prev;
 	v_this->v_size = v_this->v_size - 1;
-	free(del);
+	uf_free_s((void **)&del);
 }

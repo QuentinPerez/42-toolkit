@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/23 13:43:18 by qperez            #+#    #+#             */
-/*   Updated: 2014/10/13 15:13:35 by qperez           ###   ########.fr       */
+/*   Updated: 2014/12/02 10:44:10 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,9 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <stdlib.h>
 #include <stdbool.h>
 #include <f_error/m_error.h>
+#include <f_secure/f_secure.h>
 #include <stdint.h>
 
 static inline void	uf_merge_assign(int *ptr, int *tmp, int *index, int *value)
@@ -93,10 +93,9 @@ bool				uf_sort_merge(int *ptr, size_t size)
 {
 	int	*tmp;
 
-	if (size == 0 || size > SIZE_MAX / sizeof(*tmp)
-		|| (tmp = malloc(sizeof(*tmp) * size)) == NULL)
+	if ((tmp = uf_malloc_s(size, sizeof(*tmp))) == NULL)
 		return (M_ERROR(false, "Bad alloc"));
 	uf_recursive_merge(ptr, tmp, 0, (int)size - 1);
-	free(tmp);
+	uf_free_s((void **)&tmp);
 	return (true);
 }

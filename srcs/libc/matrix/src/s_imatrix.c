@@ -6,7 +6,7 @@
 /*   By: cmuller <clara.muller19@gmail.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/09 20:57:21 by cmuller           #+#    #+#             */
-/*   Updated: 2014/10/13 15:21:58 by qperez           ###   ########.fr       */
+/*   Updated: 2014/12/02 11:25:47 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@
 
 #include <matrix/s_imatrix.h>
 #include <f_memory/f_free.h>
-#include <stdlib.h>
+#include <f_secure/f_secure.h>
 #include <stdint.h>
 
 static bool	uf_imatrix_fillcoeff(t_imatrix *v_this, size_t col, size_t row)
@@ -43,9 +43,8 @@ static bool	uf_imatrix_fillcoeff(t_imatrix *v_this, size_t col, size_t row)
 	i = 0;
 	while (i < row)
 	{
-		if (col > SIZE_MAX / sizeof(*v_this->v_coeff[i])
-			|| (v_this->v_coeff[i] = malloc(
-								sizeof(*v_this->v_coeff[i]) * col)) == NULL)
+		if ((v_this->v_coeff[i] = uf_malloc_s(col,
+									sizeof(*v_this->v_coeff[i]))) == NULL)
 		{
 			uf_free_tab_fail((void **)v_this->v_coeff, i);
 			return (M_ERROR(false, "Bad alloc"));
@@ -62,10 +61,8 @@ bool		f_imatrix_init(t_imatrix *v_this, size_t c, size_t r)
 	uf_memset(v_this, 0, sizeof(*v_this));
 	if (c == 0 || r == 0)
 		return (M_ERROR(false, "Columns != 0 && Rows != 0"));
-	if ((r + 1) > SIZE_MAX / sizeof(*v_this->v_coeff)
-		|| (v_this->v_coeff = malloc(
-								sizeof(*v_this->v_coeff) * (r + 1))) == NULL)
-	if (v_this->v_coeff == NULL)
+	if ((v_this->v_coeff = uf_malloc_s(r + 1,
+									sizeof(*v_this->v_coeff))) == NULL)
 		return (M_ERROR(false, "Bad alloc"));
 	uf_memset(v_this->v_coeff, 0, sizeof(*v_this->v_coeff) * (r + 1));
 	if (uf_imatrix_fillcoeff(v_this, c, r) == false)

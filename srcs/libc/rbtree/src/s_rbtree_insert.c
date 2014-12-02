@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/13 19:17:19 by qperez            #+#    #+#             */
-/*   Updated: 2014/10/13 15:23:15 by qperez           ###   ########.fr       */
+/*   Updated: 2014/12/02 11:27:09 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@
 
 #include <rbtree/s_rbtree.h>
 #include <f_error/m_error.h>
-#include <stdlib.h>
+#include <f_secure/f_secure.h>
 
 void			uf_rotate_right(t_rbtree *v_this, t_rbcell *node);
 void			uf_rotate_left(t_rbtree *v_this, t_rbcell *node);
@@ -97,7 +97,7 @@ static t_rbcell	*uf_rb_node_exist(t_rbtree *v_this, t_rbcell **parent, void *d)
 		else
 			node = node->v_right;
 	}
-	if ((node = malloc(sizeof(*node))) == NULL)
+	if ((node = uf_malloc_s(1, sizeof(*node))) == NULL)
 		return ((t_rbcell *)M_ERROR(0, "Bad alloc"));
 	node->v_data = d;
 	node->v_left = node->v_right = &v_this->v_nil;

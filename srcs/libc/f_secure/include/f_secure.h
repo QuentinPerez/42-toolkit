@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/10/07 19:52:49 by qperez            #+#    #+#             */
-/*   Updated: 2014/10/07 19:52:51 by qperez           ###   ########.fr       */
+/*   Updated: 2014/12/02 10:43:11 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@
 # define F_SECURE_H
 
 # include <stdbool.h>
+# include <stdlib.h>
 
 bool    uf_hhu_add(unsigned char a, unsigned char b, unsigned char *sum);
 bool    uf_hu_add(unsigned short a, unsigned short b, unsigned short *sum);
@@ -46,5 +47,10 @@ bool    uf_u_sub(unsigned int a, unsigned int b, unsigned int *sum);
 bool    uf_hhu_mul(unsigned char a, unsigned char b, unsigned char *sum);
 bool    uf_hu_mul(unsigned short a, unsigned short b, unsigned short *sum);
 bool    uf_u_mul(unsigned int a, unsigned int b, unsigned int *sum);
+
+void	*uf_malloc_s(size_t nbr, size_t size);
+void	*uf_calloc_s(size_t nbr, size_t size);
+void	*uf_realloc_s(void *ptr, size_t nbr, size_t size);
+void	uf_free_s(void **ptr);
 
 #endif

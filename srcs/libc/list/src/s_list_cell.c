@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/28 20:58:01 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/03 23:56:38 by qperez           ###   ########.fr       */
+/*   Updated: 2014/12/02 10:54:22 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,14 @@
 */
 
 #include <list/s_list_cell.h>
-#include <stdlib.h>
+#include <f_secure/f_secure.h>
 
 t_list_cell			*f_list_cell_create(t_list_cell *prev,
 										t_list_cell *next, void *data)
 {
 	t_list_cell	*cell;
 
-	cell = malloc(sizeof(*cell));
-	if (cell != NULL)
+	if ((cell = uf_malloc_s(1, sizeof(*cell))) != NULL)
 	{
 		cell->v_next = next;
 		cell->v_prev = prev;

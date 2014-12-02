@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/30 11:02:29 by qperez            #+#    #+#             */
-/*   Updated: 2014/02/12 19:49:45 by qperez           ###   ########.fr       */
+/*   Updated: 2014/12/02 11:57:37 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@
 
 #include <queue/s_queue.h>
 #include <f_memory/f_memory.h>
-#include <stdlib.h>
+#include <f_secure/f_secure.h>
 
 static void	uf_queue_funct_destroy(void *data)
 {
@@ -57,7 +57,7 @@ void	f_queue_clear(t_queue *v_this)
 		del = v_this->v_head;
 		v_this->f_destroy(del->v_data);
 		v_this->v_head = del->v_next;
-		free(del);
+		uf_free_s((void **)&del);
 	}
 	v_this->v_tail = NULL;
 	v_this->v_head = NULL;

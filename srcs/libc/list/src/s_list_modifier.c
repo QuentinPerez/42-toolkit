@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/30 17:48:19 by qperez            #+#    #+#             */
-/*   Updated: 2014/11/08 18:11:32 by qperez           ###   ########.fr       */
+/*   Updated: 2014/12/02 12:02:57 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <stdlib.h>
+#include <f_secure/f_secure.h>
 #include <list/s_list.h>
 #include <f_error/m_error.h>
 
@@ -77,7 +77,7 @@ void		f_list_pop_back(t_list *v_this)
 	{
 		v_this->f_destroy(v_this->v_end->v_data);
 		tmp = v_this->v_end->v_prev;
-		free(v_this->v_end);
+		uf_free_s((void **)&v_this->v_end);
 		v_this->v_end = tmp;
 		v_this->v_size = v_this->v_size - 1;
 		if (v_this->v_end != NULL)
@@ -95,7 +95,7 @@ void		f_list_pop_front(t_list *v_this)
 	{
 		v_this->f_destroy(v_this->v_begin->v_data);
 		tmp = v_this->v_begin->v_next;
-		free(v_this->v_begin);
+		uf_free_s((void **)&v_this->v_begin);
 		v_this->v_begin = tmp;
 		v_this->v_size = v_this->v_size - 1;
 		if (v_this->v_begin != NULL)
@@ -120,7 +120,7 @@ t_list_cell	*f_list_erase(t_list *v_this, t_list_cell *erase, void **data)
 		erase->v_prev->v_next = erase->v_next;
 	if (erase->v_next != NULL)
 		erase->v_next->v_prev = erase->v_prev;
-	free(erase);
+	uf_free_s((void **)&erase);
 	v_this->v_size = v_this->v_size - 1;
 	if (v_this->v_size == 0)
 	{

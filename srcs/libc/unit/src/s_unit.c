@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/31 11:09:02 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/04 00:04:31 by qperez           ###   ########.fr       */
+/*   Updated: 2014/12/02 12:03:58 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <stdlib.h>
+#include <f_secure/f_secure.h>
 #include <unit/s_unit.h>
 #include <unit/s_unit_context.h>
 
@@ -41,7 +41,7 @@ static void	uf_delete_unit_context(void *data)
 
 	context = (t_unit_context*)data;
 	D_LIST(destroy)(&context->v_test);
-	free(data);
+	uf_free_s((void **)&data);
 }
 
 bool		f_unit_init(t_unit *v_this)

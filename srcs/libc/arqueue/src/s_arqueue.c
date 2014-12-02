@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/06/30 00:38:02 by qperez            #+#    #+#             */
-/*   Updated: 2014/10/13 15:13:48 by qperez           ###   ########.fr       */
+/*   Updated: 2014/12/02 11:40:00 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@
 #include <arqueue/s_arqueue.h>
 #include <f_error/m_error.h>
 #include <f_memory/f_memory.h>
-#include <stdlib.h>
+#include <f_secure/f_secure.h>
 #include <stdint.h>
 
 bool		f_arqueue_init(t_arqueue *v_this, size_t elem_size, size_t nb_elem)
@@ -42,8 +42,7 @@ bool		f_arqueue_init(t_arqueue *v_this, size_t elem_size, size_t nb_elem)
 	v_this->v_start = 0;
 	v_this->v_end = 0;
 	v_this->v_size = 0;
-	if (elem_size == 0 || nb_elem == 0 || nb_elem > SIZE_MAX / elem_size
-		|| (v_this->v_array = malloc(elem_size * nb_elem)) == NULL)
+	if ((v_this->v_array = uf_malloc_s(nb_elem, elem_size)) == NULL)
 		return (M_ERROR(false, "Bad alloc"));
 	v_this->v_capacity = nb_elem;
 	v_this->v_sizeof = elem_size;
@@ -84,5 +83,5 @@ void		*f_arqueue_pop(t_arqueue *v_this)
 
 void		f_arqueue_destroy(t_arqueue *v_this)
 {
-	free(v_this->v_array);
+	uf_free_s(&v_this->v_array);
 }

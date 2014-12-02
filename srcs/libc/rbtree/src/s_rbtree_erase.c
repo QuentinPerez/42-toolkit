@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/15 11:36:38 by qperez            #+#    #+#             */
-/*   Updated: 2014/01/08 18:32:12 by qperez           ###   ########.fr       */
+/*   Updated: 2014/12/02 12:03:36 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <stdlib.h>
+#include <f_secure/f_secure.h>
 #include <rbtree/s_rbtree.h>
 
 void			uf_rotate_right(t_rbtree *v_this, t_rbcell *node);
@@ -154,6 +154,6 @@ void		*f_rbtree_erase(t_rbtree *v_this, t_rbcell *node)
 		else
 			node->v_parent->v_right = i;
 	}
-	free(node);
+	uf_free_s((void **)&node);
 	return (data);
 }

@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/07/05 13:35:11 by qperez            #+#    #+#             */
-/*   Updated: 2014/11/20 20:54:19 by qperez           ###   ########.fr       */
+/*   Updated: 2014/12/02 11:59:36 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@
 #include <threadpool/s_threadpool.h>
 #include <f_error/m_error.h>
 #include <f_memory/f_memory.h>
-#include <stdlib.h>
+#include <f_secure/f_secure.h>
 #include <unistd.h>
 
 static void	*f_threadpool_routine(void *arg)
@@ -57,7 +57,7 @@ static void	*f_threadpool_routine(void *arg)
 			if (run == true && task != NULL)
 			{
 				task->f_funct(task->v_data);
-				free(task);
+				uf_free_s((void **)&task);
 			}
 		}
 		usleep(5000);
@@ -95,20 +95,19 @@ bool		f_threadpool_init(t_threadpool *v_this, size_t nb_thread)
 	t_threadpool_data	*data;
 
 	v_this->pv_data.v_run = false;
-	if (nb_thread > SIZE_MAX / sizeof(*v_this->v_id)
-		|| (v_this->v_id = malloc(sizeof(*v_this->v_id) * nb_thread)) == NULL)
+	if ((v_this->v_id = uf_malloc_s(nb_thread, sizeof(*v_this->v_id))) == NULL)
 		return (M_ERROR(false, "Bad alloc"));
 	D_QUEUE(init)(&v_this->pv_data.v_tasks, free);
 	if (D_LOCK(init)(&v_this->v_data, &v_this->pv_data,
 												e_lock_default) == false)
 	{
-		free(v_this->v_id);
+		uf_free_s((void **)&v_this->v_id);
 		return (M_ERROR(false, "Couldn't initialize lock"));
 	}
 	if (D_LOCK(lock)(&v_this->v_data, (void **)&data) == true)
 		return (D_THREADPOOL(create)(v_this, data, nb_thread));
 	D_LOCK(destroy)(&v_this->v_data);
-	free(v_this->v_id);
+	uf_free_s((void **)&v_this->v_id);
 	return (M_ERROR(false, "An error has occured"));
 }
 
@@ -118,21 +117,21 @@ bool		f_threadpool_add_task(t_threadpool *v_this,
 	t_threadpool_task	*add;
 	t_threadpool_data	*data;
 
-	if ((add = malloc(sizeof(*add))) == NULL)
+	if ((add = uf_malloc_s(1, sizeof(*add))) == NULL)
 		return (M_ERROR(false, "Bad alloc"));
 	uf_memcpy(add, task, sizeof(*add));
 	if (D_LOCK(lock)(&v_this->v_data, (void **)&data) == true)
 	{
 		if (D_QUEUE(push)(&data->v_tasks, add) == false)
 		{
-			free(add);
+			uf_free_s((void **)&add);
 			D_LOCK(release)(&v_this->v_data, (void **)&data);
 			return (M_ERROR(false, "Couldn't add tasks"));
 		}
 		D_LOCK(release)(&v_this->v_data, (void **)&data);
 		return (true);
 	}
-	free(add);
+	uf_free_s((void **)&add);
 	return (false);
 }
 
@@ -155,5 +154,5 @@ void		f_threadpool_destroy(t_threadpool *v_this)
 	}
 	D_LOCK(destroy)(&v_this->v_data);
 	D_QUEUE(destroy)(&v_this->pv_data.v_tasks);
-	free(v_this->v_id);
+	uf_free_s((void **)&v_this->v_id);
 }

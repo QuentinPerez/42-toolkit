@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   f_strdup.c                                         :+:      :+:    :+:   */
+/*   f_alloc.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2013/10/08 20:33:45 by qperez            #+#    #+#             */
-/*   Updated: 2014/12/02 11:43:15 by qperez           ###   ########.fr       */
+/*   Created: 2014/12/02 10:14:09 by qperez            #+#    #+#             */
+/*   Updated: 2014/12/02 10:36:04 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /*
-** <This file contains f_strdup function>
-** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
+** <This file contains alloc_s functions>
+** Copyright (C) <2014>  Quentin Perez <qperez42@gmail.com>
 **
 ** This file is part of 42-toolkit.
 **
@@ -30,20 +30,36 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <f_secure/f_secure.h>
-#include <f_string/f_string.h>
-#include <f_string/f_str_tools.h>
-#include <f_error/m_error.h>
+#include <stdbool.h>
+#include <stdlib.h>
 #include <stdint.h>
+#include <f_error/m_error.h>
 
-char	*uf_strdup(const char *str)
+void	*uf_malloc_s(size_t nbr, size_t size)
 {
-	size_t	size;
-	char	*ret;
+	if (size == 0 || nbr == 0 || nbr > SIZE_MAX / size)
+		return ((void *)M_ERROR(0, "Bad size malloc"));
+	return (malloc(size * nbr));
+}
 
-	size = uf_str_len(str);
-	if ((ret = uf_malloc_s((size + 1), sizeof(*ret))) == NULL)
-		return ((char *)M_ERROR((size_t)NULL, "Bad alloc"));
-	uf_strcpy(ret, str);
-	return (ret);
+void	*uf_calloc_s(size_t nbr, size_t size)
+{
+	if (size == 0 || nbr == 0 || nbr > SIZE_MAX / size)
+		return ((void *)M_ERROR(0, "Bad size calloc"));
+	return (calloc(nbr, size));
+}
+
+void	*uf_realloc_s(void *ptr, size_t nbr, size_t size)
+{
+	if (size == 0 || nbr == 0 || nbr > SIZE_MAX / size)
+		return ((void *)M_ERROR(0, "Bad size realloc"));
+	return (realloc(ptr, nbr * size));
+}
+
+void	uf_free_s(void **ptr)
+{
+	if (*ptr == NULL)
+		M_INFOS("ptr == NULL");
+	free(*ptr);
+	*ptr = NULL;
 }

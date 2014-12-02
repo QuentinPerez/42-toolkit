@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/08 11:37:57 by qperez            #+#    #+#             */
-/*   Updated: 2014/02/12 19:33:17 by qperez           ###   ########.fr       */
+/*   Updated: 2014/12/02 12:02:09 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <stdlib.h>
+#include <f_secure/f_secure.h>
 
 void	uf_free_tab(void **tab)
 {
@@ -39,7 +39,7 @@ void	uf_free_tab(void **tab)
 	i = 0;
 	while (tab[i] != NULL)
 	{
-		free(tab[i]);
+		uf_free_s(&tab[i]);
 		i = i + 1;
 	}
 	free(tab);
@@ -52,7 +52,7 @@ void	uf_free_tab_fail(void **tab, size_t current)
 	i = 0;
 	while (i < current)
 	{
-		free(tab[i]);
+		uf_free_s(&tab[i]);
 		i = i + 1;
 	}
 	free(tab);

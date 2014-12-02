@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/30 13:28:54 by qperez            #+#    #+#             */
-/*   Updated: 2013/12/29 15:51:19 by qperez           ###   ########.fr       */
+/*   Updated: 2014/12/02 11:44:02 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,14 @@
 */
 
 #include <queue/s_queue.h>
-#include <stdlib.h>
+#include <f_secure/f_secure.h>
 #include <f_error/m_error.h>
 
 static t_queue_cell	*f_queue_create_cell(void *data)
 {
 	t_queue_cell	*cell;
 
-	cell = malloc(sizeof(*cell));
-	if (cell != NULL)
+	if ((cell = uf_malloc_s(1, sizeof(*cell))) != NULL)
 	{
 		cell->v_data = data;
 		cell->v_next = NULL;
@@ -77,7 +76,7 @@ void				*f_queue_pop(t_queue *v_this)
 		v_this->v_size = v_this->v_size - 1;
 		if (v_this->v_size == 0)
 			v_this->v_tail = NULL;
-		free(del);
+		uf_free_s((void **)&del);
 		return (data);
 	}
 	return (NULL);

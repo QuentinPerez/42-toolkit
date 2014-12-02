@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/31 19:00:08 by qperez            #+#    #+#             */
-/*   Updated: 2014/02/12 19:54:47 by qperez           ###   ########.fr       */
+/*   Updated: 2014/12/02 11:37:44 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <stdlib.h>
+#include <f_secure/f_secure.h>
 #include <list/s_list.h>
 #include <unit/s_unit_test.h>
 
@@ -41,13 +41,12 @@ void	mf_unit_assert(t_unit_test *t, bool check, size_t line, char *file)
 
 	if (check == false)
 	{
-		assert = malloc(sizeof(*assert));
-		if (assert != NULL)
+		if ((assert = uf_malloc_s(1, sizeof(*assert))) != NULL)
 		{
 			assert->v_file = file;
 			assert->v_line = line;
 			if (D_LIST(push_back)(&t->v_assert, assert) == false)
-				free(assert);
+				uf_free_s((void **)&assert);
 			else
 				t->v_failed = true;
 		}

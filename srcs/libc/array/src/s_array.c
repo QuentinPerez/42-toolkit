@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/02 12:59:24 by qperez            #+#    #+#             */
-/*   Updated: 2014/02/12 19:42:14 by qperez           ###   ########.fr       */
+/*   Updated: 2014/12/02 11:50:08 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#include <stdlib.h>
+#include <f_secure/f_secure.h>
 #include <array/s_array.h>
 #include <f_error/m_error.h>
 #include <f_memory/f_memory.h>
@@ -58,9 +58,9 @@ bool				f_array_init(t_array *v_this,
 	v_this->f_delete = uf_delete;
 	if (uf_delete == NULL)
 		v_this->f_delete = uf_array_delete;
-	v_this->v_data = calloc(2, type_size);
-	if (v_this->v_data == NULL)
+	if ((v_this->v_data = uf_malloc_s(2, type_size)) == NULL)
 		return (M_ERROR(false, "Bad alloc"));
+	uf_memset(v_this->v_data, 0, 2 * type_size);
 	v_this->v_capacity = 2;
 	v_this->v_type_size = type_size;
 	return (true);
@@ -85,6 +85,6 @@ void				f_array_clear(t_array *v_this)
 void				f_array_destroy(t_array *v_this)
 {
 	D_ARRAY(clear)(v_this);
-	free(v_this->v_data);
+	uf_free_s((void **)&v_this->v_data);
 	uf_memset(v_this, 0, sizeof(*v_this));
 }
