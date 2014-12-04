@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/27 15:48:40 by qperez            #+#    #+#             */
-/*   Updated: 2014/12/04 10:33:53 by qperez           ###   ########.fr       */
+/*   Updated: 2014/12/04 12:10:05 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,9 @@ int		main(int argc, char const** argv)
 	char				str[10];
 	ssize_t				nread;
 	int					interaction;
+	int					rep;
 
+	rep = 4;
 	demo.nop = 1;
 	demo.nop2 = 2;
 	demo.nop3 = 3;
@@ -45,7 +47,7 @@ int		main(int argc, char const** argv)
 	}
 	D_FDNOTIFY(init)(&notif);
 	D_FDNOTIFY(enable_timeout)(&notif, 1, 0);
-	while (D_FDNOTIFY(get_event)(&notif, &event, &list, &interaction) == true)
+	while (D_FDNOTIFY(get_event)(&notif, &event, &list, &interaction) == true && rep > 0)
 	{
 		dprintf(1, "interaction [%d] ", interaction);
 		if (event.v_type == e_fdnotify_read)
@@ -59,6 +61,7 @@ int		main(int argc, char const** argv)
 		}
 		else if (interaction == 0)
 			dprintf(1, "timeout\n");
+		rep = rep - 1;
 	}
 	(void)argc;
 	(void)argv;
