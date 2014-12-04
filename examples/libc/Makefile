@@ -45,6 +45,7 @@ LISTDIR	=	array			\
 			matrix			\
 			rand			\
 			lock			\
+			fdnotify		\
 			rbtree
 
 LIB42	=	$(DIR42)/lib42.a
