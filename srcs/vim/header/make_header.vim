@@ -27,6 +27,15 @@ autocmd	BufWritePre	*.c			call	Update_header_42()
 autocmd	BufNewFile	*.h			call	Insert_header_42()
 autocmd	BufWritePre	*.h			call	Update_header_42()
 
+" 			.cpp files autocmd
+autocmd	BufNewFile	*.cpp			call	Insert_header_42()
+autocmd	BufWritePre	*.cpp			call	Update_header_42()
+
+
+" 			.h files autocmd
+autocmd	BufNewFile	*.hpp			call	Insert_header_42()
+autocmd	BufWritePre	*.hpp			call	Update_header_42()
+
 " 			Makefile autocmd
 autocmd	BufNewFile	Makefile	call	Insert_header_42_Makefile()
 autocmd	BufWritePre	Makefile	call	Update_header_42_Makefile()
