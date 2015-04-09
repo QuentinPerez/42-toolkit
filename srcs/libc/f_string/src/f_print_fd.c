@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/28 15:06:45 by qperez            #+#    #+#             */
-/*   Updated: 2014/02/12 19:38:02 by qperez           ###   ########.fr       */
+/*   Updated: 2015/04/09 14:46:25 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,11 @@ void	uf_print_nbr_base_fd(ssize_t nbr, ssize_t base, int fd)
 	while ((nbr / digit) >= base || (nbr / digit) <= -base)
 		digit = digit * base;
 	if (nbr < 0)
-	{
 		uf_print_char_fd('-', fd);
-		nbr = -nbr;
-	}
 	while (digit > 0)
 	{
-		uf_print_in_base(nbr / digit % base, fd);
+		uf_print_in_base(nbr > 0 ? nbr / digit % base
+						: -(nbr / digit % base), fd);
 		digit = digit / base;
 	}
 }
