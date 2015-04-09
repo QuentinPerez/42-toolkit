@@ -31,8 +31,6 @@
 #include <f_memory/f_memory.h>
 #include <f_string/f_str_tools.h>
 
-bool	uf_string_realloc(t_string *v_this, size_t add);
-
 void	f_string_erase(t_string *v_this, size_t from, size_t to)
 {
 	size_t	size;

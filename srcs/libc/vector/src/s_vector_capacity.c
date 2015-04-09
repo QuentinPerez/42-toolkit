@@ -29,7 +29,7 @@
 
 #include <vector/s_vector.h>
 
-inline bool	f_vector_empty(const t_vector *v_this)
+inline bool		f_vector_empty(const t_vector *v_this)
 {
 	return (v_this->v_size == 0);
 }

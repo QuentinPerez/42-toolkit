@@ -29,12 +29,12 @@
 
 #include <stdbool.h>
 
-bool	uf_is_upper(const unsigned char c)
+bool			uf_is_upper(const unsigned char c)
 {
 	return (c > '@' && c < '[');
 }
 
-bool	uf_is_lower(const unsigned char c)
+bool			uf_is_lower(const unsigned char c)
 {
 	return (c > '`' && c < '{');
 }

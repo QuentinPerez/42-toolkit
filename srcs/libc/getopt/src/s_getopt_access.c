@@ -64,10 +64,10 @@ bool		f_getopt_option(t_getopt *v_this)
 		size = uf_str_len(av);
 		if (size == 2 && av[0] == '-' && av[1] != '-'
 			&& uf_getopt_check_option(v_this, av + 1) == true)
-			return (true);;
+			return (true);
 		if (size > 3 && av[0] == '-' && av[1] == '-' && av[2] != '-'
 			&& uf_getopt_check_option(v_this, av + 2) == true)
-			return (true); ;
+			return (true);
 		v_this->v_current_argc = v_this->v_current_argc + 1;
 	}
 	return (false);

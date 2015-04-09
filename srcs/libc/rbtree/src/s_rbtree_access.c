@@ -37,5 +37,5 @@ t_rbcell	*f_rbtree_root(t_rbtree *v_this)
 bool		f_rbtree_empty(const t_rbtree *v_this)
 {
 	return (v_this->v_root.v_left == &v_this->v_nil
-			&& v_this->v_root.v_right == &v_this->v_nil);
+	&& v_this->v_root.v_right == &v_this->v_nil);
 }

@@ -30,9 +30,9 @@
 #include <list/s_list.h>
 #include <f_error/m_error.h>
 
-static void	f_list_pick_cells_imp(t_list *const v_this,
-								t_list_cell *const begin,
-								t_list_cell *const end)
+static void		f_list_pick_cells_imp(t_list *const v_this,
+									t_list_cell *const begin,
+									t_list_cell *const end)
 {
 	t_list_cell	*cell_before;
 	t_list_cell	*cell_after;
@@ -58,8 +58,8 @@ static void	f_list_pick_cells_imp(t_list *const v_this,
 		cell_after->v_prev = cell_before;
 }
 
-static size_t	f_list_pick_cells(t_list *const v_this, t_list_cell *const begin,
-							t_list_cell *end)
+static size_t	f_list_pick_cells(t_list *const v_this,
+								t_list_cell *const begin, t_list_cell *end)
 {
 	size_t	cell_count;
 
@@ -75,9 +75,10 @@ static size_t	f_list_pick_cells(t_list *const v_this, t_list_cell *const begin,
 	return (cell_count);
 }
 
-static void	f_list_splice_imp(t_list *const v_this, t_list_cell *const position,
-							t_list_cell *const other_begin,
-							t_list_cell *const other_end)
+static void		f_list_splice_imp(t_list *const v_this,
+								t_list_cell *const position,
+								t_list_cell *const other_begin,
+								t_list_cell *const other_end)
 {
 	t_list_cell	*before;
 
@@ -96,8 +97,8 @@ static void	f_list_splice_imp(t_list *const v_this, t_list_cell *const position,
 	other_end->v_next = position;
 }
 
-void		f_list_splice(t_list *v_this, t_list_cell *position,
-						t_list *other_list, t_list_interval *other_interval)
+void			f_list_splice(t_list *v_this, t_list_cell *position,
+							t_list *other_list, t_list_interval *other_interval)
 {
 	size_t	cell_count;
 

@@ -71,7 +71,7 @@ bool	f_lock_release(t_lock *v_this, void **data)
 	{
 		if (ret == EPERM)
 			return (M_ERROR(false, "Bad permission an "
-									"another thread locks this mutex"));
+			"another thread locks this mutex"));
 		else if (ret == EINVAL)
 			return (M_ERROR(false, "Invalid value"));
 		return (M_ERROR(false, "Fail unlock"));

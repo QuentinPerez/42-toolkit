@@ -81,5 +81,5 @@ size_t	f_timer_get_ticks(t_timer *v_this)
 		return (v_this->v_pause.tv_sec * 1000 + v_this->v_pause.tv_usec / 1000);
 	gettimeofday(&tmp, NULL);
 	return ((tmp.tv_sec * 1000 + tmp.tv_usec / 1000) -
-			(v_this->v_start.tv_sec * 1000 + v_this->v_start.tv_usec / 1000));
+	(v_this->v_start.tv_sec * 1000 + v_this->v_start.tv_usec / 1000));
 }

@@ -30,10 +30,6 @@
 #include <f_secure/f_secure.h>
 #include <rbtree/s_rbtree.h>
 
-void			uf_rotate_right(t_rbtree *v_this, t_rbcell *node);
-void			uf_rotate_left(t_rbtree *v_this, t_rbcell *node);
-t_rbcell		*uf_rb_next(t_rbtree *v_this, t_rbcell *node);
-
 static bool		uf_rb_change_node(t_rbtree *v_this, t_rbcell **node,
 								t_rbcell **tmp, bool right)
 {
@@ -105,8 +101,8 @@ static void		uf_rb_fix_node(t_rbtree *v_this, t_rbcell *node)
 	node->v_color = e_black;
 }
 
-static void	uf_rb_init_node(t_rbtree *v_this, t_rbcell *node,
-							t_rbcell **j, t_rbcell **i)
+static void		uf_rb_init_node(t_rbtree *v_this, t_rbcell *node,
+								t_rbcell **j, t_rbcell **i)
 {
 	if (node->v_left == &v_this->v_nil || node->v_right == &v_this->v_nil)
 		*i = node;
@@ -127,7 +123,7 @@ static void	uf_rb_init_node(t_rbtree *v_this, t_rbcell *node,
 	}
 }
 
-void		*f_rbtree_erase(t_rbtree *v_this, t_rbcell *node)
+void			*f_rbtree_erase(t_rbtree *v_this, t_rbcell *node)
 {
 	t_rbcell	*j;
 	t_rbcell	*i;

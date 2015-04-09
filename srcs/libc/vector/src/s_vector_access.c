@@ -37,7 +37,7 @@ inline void	*f_vector_at(t_vector *v_this, size_t index)
 	return (v_this->v_data[index]);
 }
 
-void	**f_vector_data(t_vector *v_this)
+void		**f_vector_data(t_vector *v_this)
 {
 	return (v_this->v_data);
 }

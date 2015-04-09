@@ -36,7 +36,7 @@
 #include <f_string/f_string.h>
 #include <f_memory/f_free.h>
 
-static bool	*uf_string_fill_bool(t_string *v_this, const char *charset)
+static bool		*uf_string_fill_bool(t_string *v_this, const char *charset)
 {
 	size_t	i;
 	size_t	size;
@@ -82,8 +82,8 @@ static size_t	uf_string_count_word(t_string *v_this, bool *active)
 	return (word + 1);
 }
 
-static bool	uf_string_dump_word(const char *str, char **tab,
-								size_t size, size_t *word)
+static bool		uf_string_dump_word(const char *str, char **tab,
+									size_t size, size_t *word)
 {
 	if ((tab[*word] = uf_malloc_s(size + 1, sizeof(*tab[*word]))) == NULL)
 	{
@@ -97,7 +97,7 @@ static bool	uf_string_dump_word(const char *str, char **tab,
 	return (true);
 }
 
-static bool	uf_string_fill_tab(t_string *v_this, char **tab, bool *active)
+static bool		uf_string_fill_tab(t_string *v_this, char **tab, bool *active)
 {
 	size_t	i;
 	size_t	size;
@@ -124,7 +124,7 @@ static bool	uf_string_fill_tab(t_string *v_this, char **tab, bool *active)
 	return (true);
 }
 
-char		**f_string_split(t_string *v_this, const char *charset)
+char			**f_string_split(t_string *v_this, const char *charset)
 {
 	bool	*active;
 	char	**ret;

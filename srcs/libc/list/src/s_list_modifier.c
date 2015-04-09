@@ -31,8 +31,6 @@
 #include <list/s_list.h>
 #include <f_error/m_error.h>
 
-t_list_cell	*f_list_cell_create(t_list_cell *prv, t_list_cell *nxt, void *data);
-
 bool		f_list_push_back(t_list *v_this, void *data)
 {
 	t_list_cell	*cell;

@@ -32,7 +32,7 @@
 #include <f_error/m_error.h>
 #include <f_memory/f_memory.h>
 
-static inline void	uf_array_delete(void *ptr)
+static inline void		uf_array_delete(void *ptr)
 {
 	(void)ptr;
 }
@@ -42,7 +42,7 @@ static inline size_t	uf_array_realloc(size_t size)
 	return (size << 1);
 }
 
-bool				f_array_init(t_array *v_this,
+bool					f_array_init(t_array *v_this,
 							size_t (*uf_realloc)(size_t size),
 							void (*uf_delete)(void *ptr), size_t type_size)
 {
@@ -62,7 +62,7 @@ bool				f_array_init(t_array *v_this,
 	return (true);
 }
 
-void				f_array_clear(t_array *v_this)
+void					f_array_clear(t_array *v_this)
 {
 	size_t	i;
 	size_t	size;
@@ -78,7 +78,7 @@ void				f_array_clear(t_array *v_this)
 	}
 }
 
-void				f_array_destroy(t_array *v_this)
+void					f_array_destroy(t_array *v_this)
 {
 	D_ARRAY(clear)(v_this);
 	uf_free_s((void **)&v_this->v_data);

@@ -31,9 +31,6 @@
 #include <f_error/m_error.h>
 #include <f_secure/f_secure.h>
 
-void			uf_rotate_right(t_rbtree *v_this, t_rbcell *node);
-void			uf_rotate_left(t_rbtree *v_this, t_rbcell *node);
-
 static t_rbcell	*uf_rb_balance_rot(t_rbtree *v_this, t_rbcell *node,
 								bool check, bool right)
 {
@@ -96,12 +93,13 @@ static t_rbcell	*uf_rb_node_exist(t_rbtree *v_this, t_rbcell **parent, void *d)
 	if ((node = uf_malloc_s(1, sizeof(*node))) == NULL)
 		return ((t_rbcell *)M_ERROR(0, "Bad alloc"));
 	node->v_data = d;
-	node->v_left = node->v_right = &v_this->v_nil;
+	node->v_right = &v_this->v_nil;
+	node->v_left = &v_this->v_nil;
 	node->v_parent = *parent;
 	return (node);
 }
 
-bool				f_rbtree_insert(t_rbtree *v_this, void *data)
+bool			f_rbtree_insert(t_rbtree *v_this, void *data)
 {
 	t_rbcell	*n;
 	t_rbcell	*parent;

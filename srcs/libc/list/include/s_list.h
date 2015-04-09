@@ -71,5 +71,8 @@ void		f_list_delete_if(t_list *v_this,
 							 bool (*cmp)(void *data, void *value), void *value);
 void		f_list_clear(t_list *v_this);
 void		f_list_destroy(t_list *v_this);
+t_list_cell	*f_list_cell_create(t_list_cell *prv, t_list_cell *nxt, void *data);
+
+
 
 #endif

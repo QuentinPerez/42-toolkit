@@ -30,8 +30,6 @@
 #include <stddef.h>
 #include <list/s_list.h>
 
-t_list_cell	*f_list_cell_create(t_list_cell *prv, t_list_cell *nxt, void *data);
-
 t_list_cell	*f_list_insert(t_list *v_this, t_list_cell *position, void *data)
 {
 	t_list_cell	*cell;

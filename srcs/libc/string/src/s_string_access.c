@@ -40,17 +40,17 @@ inline size_t	f_string_capacity(const t_string *v_this)
 	return (v_this->v_capacity);
 }
 
-inline bool	f_string_empty(const t_string *v_this)
+inline bool		f_string_empty(const t_string *v_this)
 {
 	return (v_this->v_size == 0);
 }
 
-char		*f_string_dup(const t_string *v_this)
+char			*f_string_dup(const t_string *v_this)
 {
 	return (uf_strdup(v_this->v_str));
 }
 
-const char	*f_string_str(const t_string *v_this)
+const char		*f_string_str(const t_string *v_this)
 {
 	return (v_this->v_str);
 }

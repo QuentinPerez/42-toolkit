@@ -71,7 +71,7 @@ void		uf_print_variadic_fd(int fd, const char *fmt, ...)
 			fmt = fmt + 1;
 	}
 	if (tmp != fmt)
-			uf_print_nstr_fd(tmp, fmt - tmp, fd);
+		uf_print_nstr_fd(tmp, fmt - tmp, fd);
 	va_end(ap);
 }
 
@@ -95,6 +95,6 @@ void		uf_print_variadic(const char *fmt, ...)
 			fmt = fmt + 1;
 	}
 	if (tmp != fmt)
-			uf_print_nstr_fd(tmp, fmt - tmp, 1);
+		uf_print_nstr_fd(tmp, fmt - tmp, 1);
 	va_end(ap);
 }

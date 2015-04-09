@@ -29,14 +29,9 @@
 
 #include <unit/s_unit.h>
 #include <unit/s_unit_context.h>
+#include <unit/s_unit_console.h>
 #include <list/s_list.h>
 #include <f_string/f_print.h>
-
-bool	uf_unit_print_context(void *data);
-void	uf_unit_console_run(t_list *list);
-void	uf_unit_console_failure(t_list *list);
-void	uf_unit_print_console(t_unit *v_this, const char *info,
-							bool menu, char c);
 
 void	uf_unit_console_treat_run(t_unit *v_this)
 {

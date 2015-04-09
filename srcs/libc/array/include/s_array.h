@@ -34,12 +34,12 @@
 
 typedef struct	s_array
 {
-	size_t	v_size;
-	size_t	v_type_size;
-	size_t	v_capacity;
-	void	*v_data;
-	size_t	(*f_realloc)(size_t size);
-	void	(*f_delete)(void *ptr);
+	size_t		v_size;
+	size_t		v_type_size;
+	size_t		v_capacity;
+	void		*v_data;
+	size_t		(*f_realloc)(size_t size);
+	void		(*f_delete)(void *ptr);
 }				t_array;
 
 # define f_array_at(v, index, type)	(type)mf_array_at(v, index)

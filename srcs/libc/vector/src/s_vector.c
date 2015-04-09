@@ -32,7 +32,7 @@
 #include <f_error/m_error.h>
 #include <f_memory/f_memory.h>
 
-static inline void	uf_vector_delete(void *ptr)
+static inline void		uf_vector_delete(void *ptr)
 {
 	(void)ptr;
 }
@@ -42,9 +42,9 @@ static inline size_t	uf_vector_realloc(size_t size)
 	return (size << 1);
 }
 
-bool				f_vector_init(t_vector *v_this,
-								size_t (*uf_realloc)(size_t size),
-								void (*uf_delete)(void *ptr))
+bool					f_vector_init(t_vector *v_this,
+									size_t (*uf_realloc)(size_t size),
+									void (*uf_delete)(void *ptr))
 {
 	v_this->v_size = 0;
 	v_this->v_capacity = 0;
@@ -60,7 +60,7 @@ bool				f_vector_init(t_vector *v_this,
 	return (true);
 }
 
-inline void			f_vector_clear(t_vector *v_this)
+inline void				f_vector_clear(t_vector *v_this)
 {
 	int	size;
 
@@ -73,7 +73,7 @@ inline void			f_vector_clear(t_vector *v_this)
 	v_this->v_size = 0;
 }
 
-void				f_vector_destroy(t_vector *v_this)
+void					f_vector_destroy(t_vector *v_this)
 {
 	D_VECTOR(clear)(v_this);
 	if (v_this->v_capacity > 0)

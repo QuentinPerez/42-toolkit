@@ -37,7 +37,7 @@ char	mf_print_infos(const char *file, int line, const char *fct)
 	uf_print_nbr_fd(line, 2);
 	uf_print_str_fd(": \033[1;37m", 2);
 	uf_print_str_fd(fct, 2);
-	uf_print_str_fd("()\n\033[1;31m→\t", 2);
+	uf_print_str_fd("()\n\033[1;31m->\t", 2);
 	(void)file;
 	(void)line;
 	(void)fct;
@@ -85,7 +85,7 @@ void	mf_infos(const char *funct, const char *infos, ...)
 	}
 	va_start(ap, infos);
 	D_STRING(init)(&str, 0);
-	D_STRING(variadic)(&str, "\033[1;37m→\t%s(): \033[0;33m", funct);
+	D_STRING(variadic)(&str, "\033[1;37m->\t%s(): \033[0;33m", funct);
 	D_STRING(variadic_list)(&str, infos, &ap);
 	D_STRING(add_str)(&str, ".\033[0m\n");
 	D_STRING(print_fd)(&str, 2);

@@ -29,8 +29,6 @@
 
 #include <string/s_string.h>
 
-size_t		uf_string_realloc(t_string *v_this, size_t add);
-
 static size_t	uf_string_get_digit(ssize_t nbr, size_t base, size_t *alloc)
 {
 	size_t	digit;
@@ -51,8 +49,8 @@ static size_t	uf_string_get_digit(ssize_t nbr, size_t base, size_t *alloc)
 	return (digit);
 }
 
-
-bool		f_string_add_nbr_base(t_string *v_this, ssize_t nbr, size_t base)
+bool			f_string_add_nbr_base(t_string *v_this,
+									ssize_t nbr, size_t base)
 {
 	size_t	size;
 	size_t	digit;
@@ -79,12 +77,12 @@ bool		f_string_add_nbr_base(t_string *v_this, ssize_t nbr, size_t base)
 	return (true);
 }
 
-bool		f_string_add_nbr(t_string *v_this, ssize_t nbr)
+bool			f_string_add_nbr(t_string *v_this, ssize_t nbr)
 {
 	return (D_STRING(add_nbr_base)(v_this, nbr, 10));
 }
 
-bool		f_string_add_ptr(t_string *v_this, void *addr)
+bool			f_string_add_ptr(t_string *v_this, void *addr)
 {
 	size_t		nbr;
 	size_t		digit;

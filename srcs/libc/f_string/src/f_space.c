@@ -32,7 +32,7 @@
 bool	uf_is_space(const unsigned char c)
 {
 	return (c == '\t' || c == ' ' || c == '\r'
-			|| c == '\f' || c == '\v' || c == '\n');
+	|| c == '\f' || c == '\v' || c == '\n');
 }
 
 char	*uf_skip_space(const char *str)

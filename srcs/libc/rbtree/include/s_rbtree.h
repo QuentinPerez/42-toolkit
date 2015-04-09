@@ -75,4 +75,8 @@ void 		*f_rbtree_erase(t_rbtree *tree, t_rbcell *node);
 void 		f_rbtree_delete(t_rbtree *tree, t_rbcell *node);
 void		f_rbtree_destroy(t_rbtree *v_this);
 
+void		uf_rotate_right(t_rbtree *v_this, t_rbcell *node);
+void		uf_rotate_left(t_rbtree *v_this, t_rbcell *node);
+t_rbcell	*uf_rb_next(t_rbtree *v_this, t_rbcell *node);
+
 #endif

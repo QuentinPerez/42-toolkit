@@ -69,4 +69,7 @@ void		f_string_erase(t_string *v_this, size_t from, size_t to);
 bool		f_string_insert(t_string *v_this, const char *insert, size_t at);
 void		f_string_destroy(t_string *v_this);
 
+bool		uf_string_realloc(t_string *v_this, size_t add);
+
+
 #endif

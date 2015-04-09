@@ -30,7 +30,7 @@ char	*uf_mapfile(const char *name, size_t *len)
 	{
 		close(fd);
 		return ((char *)M_ERROR((size_t)NULL, "The file parameter are not"
-														"available"));
+		"available"));
 	}
 	if ((ret = mmap(NULL, st.st_size, PROT_READ,
 					MAP_FILE | MAP_PRIVATE, fd, 0)) == MAP_FAILED)

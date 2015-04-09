@@ -33,7 +33,7 @@
 
 typedef struct	s_error
 {
-	int	v_fd;
+	int			v_fd;
 }				t_error;
 
 # define D_ERROR(funct)				f_error_##funct

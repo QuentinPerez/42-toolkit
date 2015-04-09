@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/10/05 11:48:32 by qperez            #+#    #+#             */
-/*   Updated: 2014/10/05 13:38:39 by qperez           ###   ########.fr       */
+/*   Updated: 2015/04/09 15:27:41 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,22 +35,22 @@
 
 bool	f_rand_init(t_rand *v_this, t_type_rand style)
 {
-    v_this->v_fd = -1;
-    if (style >= e_rand_max)
-        return (M_ERROR(false, "style value is out of range"));
-    v_this->v_style = style;
-    if (style == e_rand_std)
-        srand((unsigned int)time(NULL));
-    else
-    {
-        if ((v_this->v_fd = open("/dev/urandom", O_RDONLY)) == -1)
-        {
-            M_INFOS("Couldn't open /dev/urandom, we will use libc");
-            srand((unsigned int)time(NULL));
-            v_this->v_style = e_rand_std;
-        }
-    }
-    return (true);
+	v_this->v_fd = -1;
+	if (style >= e_rand_max)
+		return (M_ERROR(false, "style value is out of range"));
+	v_this->v_style = style;
+	if (style == e_rand_std)
+		srand((unsigned int)time(NULL));
+	else
+	{
+		if ((v_this->v_fd = open("/dev/urandom", O_RDONLY)) == -1)
+		{
+			M_INFOS("Couldn't open /dev/urandom, we will use libc");
+			srand((unsigned int)time(NULL));
+			v_this->v_style = e_rand_std;
+		}
+	}
+	return (true);
 }
 
 bool	f_rand_change_seed(t_rand *v_this, unsigned int seed)
@@ -63,20 +63,20 @@ bool	f_rand_change_seed(t_rand *v_this, unsigned int seed)
 
 ssize_t	f_rand_generate(t_rand *v_this)
 {
-    ssize_t value;
+	ssize_t value;
 
-    if (v_this->v_style == e_rand_file)
-    {
-        if (read(v_this->v_fd, &value, sizeof(value)) != sizeof(value))
-            M_INFOS("An error has occured");
-    }
-    else
-        value = (ssize_t)rand();
-    return (value);
+	if (v_this->v_style == e_rand_file)
+	{
+		if (read(v_this->v_fd, &value, sizeof(value)) != sizeof(value))
+			M_INFOS("An error has occured");
+	}
+	else
+		value = (ssize_t)rand();
+	return (value);
 }
 
 void	f_rand_destroy(t_rand *v_this)
 {
-    if (v_this->v_style == e_rand_file)
-        close(v_this->v_fd);
+	if (v_this->v_style == e_rand_file)
+		close(v_this->v_fd);
 }

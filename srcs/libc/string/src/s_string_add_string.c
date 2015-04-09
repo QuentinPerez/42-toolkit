@@ -31,8 +31,6 @@
 #include <f_string/f_str_tools.h>
 #include <f_string/f_string.h>
 
-size_t	uf_string_realloc(t_string *v_this, size_t add);
-
 bool	f_string_add_str(t_string *v_this, const char *str)
 {
 	size_t	size;

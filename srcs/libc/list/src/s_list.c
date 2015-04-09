@@ -45,7 +45,7 @@ void		f_list_init(t_list *v_this, void (*uf_funct_destroy)(void *data))
 		v_this->f_destroy = uf_funct_destroy;
 }
 
-void	f_list_print_addr(const t_list *v_this)
+void		f_list_print_addr(const t_list *v_this)
 {
 	t_list_cell	*current;
 

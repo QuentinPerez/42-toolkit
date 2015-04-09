@@ -29,7 +29,7 @@
 
 #include <stack/s_stack.h>
 
-inline bool	f_stack_empty(const t_stack *v_this)
+inline bool		f_stack_empty(const t_stack *v_this)
 {
 	return (v_this->v_size == 0);
 }

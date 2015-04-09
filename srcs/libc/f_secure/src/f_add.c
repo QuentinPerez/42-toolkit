@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/10/07 19:56:56 by qperez            #+#    #+#             */
-/*   Updated: 2014/10/07 19:57:34 by qperez           ###   ########.fr       */
+/*   Updated: 2015/04/09 15:18:33 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,26 +30,26 @@
 #include <limits.h>
 #include <f_error/m_error.h>
 
-bool    uf_hhu_add(unsigned char a, unsigned char b, unsigned char *sum)
+bool	uf_hhu_add(unsigned char a, unsigned char b, unsigned char *sum)
 {
-    if (UCHAR_MAX - a < b)
-        return (M_ERROR(false, "Unsigned char overflow"));
-    *sum = a + b;
-    return (true);
+	if (UCHAR_MAX - a < b)
+		return (M_ERROR(false, "Unsigned char overflow"));
+	*sum = a + b;
+	return (true);
 }
 
-bool    uf_hu_add(unsigned short a, unsigned short b, unsigned short *sum)
+bool	uf_hu_add(unsigned short a, unsigned short b, unsigned short *sum)
 {
-    if (USHRT_MAX - a < b)
-        return (M_ERROR(false, "Unsigned short overflow"));
-    *sum = a + b;
-    return (true);
+	if (USHRT_MAX - a < b)
+		return (M_ERROR(false, "Unsigned short overflow"));
+	*sum = a + b;
+	return (true);
 }
 
-bool    uf_u_add(unsigned int a, unsigned int b, unsigned int *sum)
+bool	uf_u_add(unsigned int a, unsigned int b, unsigned int *sum)
 {
-    if (UINT_MAX - a < b)
-        return (M_ERROR(false, "Unsigned int overflow"));
-    *sum = a + b;
-    return (true);
+	if (UINT_MAX - a < b)
+		return (M_ERROR(false, "Unsigned int overflow"));
+	*sum = a + b;
+	return (true);
 }

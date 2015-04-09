@@ -58,7 +58,7 @@ void	uf_unit_print_console(t_unit *v_this, const char *info,
 	if (menu == true)
 		uf_print_variadic("  (%eR%e)un       (%eS%e)elect       (%eL%e)ist     "
 						"  (%eF%e)ailures       (%eH%e)elp       (%eQ%e)uit"
-						"\n\n%e↳%e ",
+						"\n\n%e->%e ",
 						34, 0, 34, 0, 34, 0, 34, 0, 34, 0, 34, 0, 35, 0);
 }
 

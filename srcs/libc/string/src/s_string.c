@@ -33,13 +33,13 @@
 #include <f_memory/f_memory.h>
 #include <f_secure/f_secure.h>
 
-static inline size_t	uf_string_realloc(size_t size)
+static inline size_t	uf_string_realloc_value(size_t size)
 {
 	return (size << 1);
 }
 
-bool				f_string_init(t_string *v_this,
-								size_t (*uf_realloc)(size_t size))
+bool					f_string_init(t_string *v_this,
+									size_t (*uf_realloc)(size_t size))
 {
 	size_t	size;
 
@@ -48,7 +48,7 @@ bool				f_string_init(t_string *v_this,
 	if ((v_this->v_str = uf_malloc_s(size, sizeof(*v_this->v_str))) == NULL)
 		return (M_ERROR(false, "Bad alloc"));
 	uf_memset(v_this->v_str, 0, size * sizeof(*v_this->v_str));
-	v_this->f_realloc = uf_string_realloc;
+	v_this->f_realloc = uf_string_realloc_value;
 	if (uf_realloc != NULL)
 		v_this->f_realloc = uf_realloc;
 	v_this->v_capacity = size;
@@ -56,7 +56,7 @@ bool				f_string_init(t_string *v_this,
 	return (true);
 }
 
-void				f_string_clear(t_string *v_this)
+void					f_string_clear(t_string *v_this)
 {
 	size_t	size;
 
@@ -69,7 +69,7 @@ void				f_string_clear(t_string *v_this)
 	v_this->v_size = 0;
 }
 
-void				f_string_destroy(t_string *v_this)
+void					f_string_destroy(t_string *v_this)
 {
 	uf_free_s((void **)&v_this->v_str);
 	uf_memset(v_this, 0, sizeof(*v_this));

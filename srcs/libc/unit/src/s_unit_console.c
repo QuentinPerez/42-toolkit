@@ -33,14 +33,6 @@
 #include <f_string/f_string.h>
 #include <f_string/f_print.h>
 
-void		uf_unit_console_treat_failure(t_unit *v_this);
-void		uf_unit_console_treat_help(t_unit *v_this);
-void		uf_unit_console_treat_list(t_unit *v_this);
-void		uf_unit_console_treat_run(t_unit *v_this);
-void		uf_unit_console_treat_select(t_unit *v_this);
-void		uf_unit_print_console(t_unit *v_this, const char *info,
-								bool menu, char c);
-
 static void	uf_treat_line(t_unit *v_this, t_unit_console_option *opt, char *str)
 {
 	size_t	i;

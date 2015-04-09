@@ -49,7 +49,8 @@ char		*uf_itoa(int nbr)
 	return (uf_itoa_base(nbr, 10));
 }
 
-static char	*uf_atoi_check_base(const char *nbr, bool *neg, char *c, size_t base)
+static char	*uf_atoi_check_base(const char *nbr, bool *neg,
+								char *c, size_t base)
 {
 	*neg = false;
 	*c = *nbr;

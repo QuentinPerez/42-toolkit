@@ -40,7 +40,8 @@ void		f_fdnotify_disable_timeout(t_fdnotify *v_this)
 	v_this->p_timeout = NULL;
 }
 
-void		f_fdnotify_enable_timeout(t_fdnotify *v_this, int seconds, int useconds)
+void		f_fdnotify_enable_timeout(t_fdnotify *v_this,
+									int seconds, int useconds)
 {
 	v_this->v_timeout.tv_sec = seconds;
 	v_this->v_timeout.tv_usec = useconds;

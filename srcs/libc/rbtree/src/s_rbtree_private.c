@@ -29,7 +29,7 @@
 
 #include <rbtree/s_rbtree.h>
 
-void	uf_rotate_left(t_rbtree *v_this, t_rbcell *node)
+void		uf_rotate_left(t_rbtree *v_this, t_rbcell *node)
 {
 	t_rbcell *child;
 
@@ -46,7 +46,7 @@ void	uf_rotate_left(t_rbtree *v_this, t_rbcell *node)
 	node->v_parent = child;
 }
 
-void	uf_rotate_right(t_rbtree *v_this, t_rbcell *node)
+void		uf_rotate_right(t_rbtree *v_this, t_rbcell *node)
 {
 	t_rbcell *child;
 
@@ -63,7 +63,7 @@ void	uf_rotate_right(t_rbtree *v_this, t_rbcell *node)
 	node->v_parent = child;
 }
 
-t_rbcell *uf_rb_next(t_rbtree *v_this, t_rbcell *node)
+t_rbcell	*uf_rb_next(t_rbtree *v_this, t_rbcell *node)
 {
 	t_rbcell	*ret;
 
@@ -85,4 +85,3 @@ t_rbcell *uf_rb_next(t_rbtree *v_this, t_rbcell *node)
 	}
 	return (ret);
 }
-
