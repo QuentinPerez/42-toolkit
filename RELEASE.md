@@ -1,7 +1,13 @@
 LIB42 RELEASES
 ===
 
-####Current release : 0.1.8
+####Current release : 0.2
+
+	-V0.2 04-19-2015
+		fix norme
+		delete makedepend
+		add fdnotify
+		add options to lock
 
 	-V0.1.8 11-14-2014
 		add secure function
