@@ -19,12 +19,11 @@
 #
 
 SHELL	=	bash
-CFLAGS	+=	-Wextra -Wall -Werror -I./include
-INCLDEP	=	-Y./include
+CFLAGS	+=	-Wextra -Wall -Werror -Wshadow -I./include
 LDFLAGS	+=	-lpthread
 DEBUG	=	-g3 -fno-inline
 
-OBJDIR	=	.objs
+OBJDIR	=	./.objs
 LISTDIR	=	src
 
 DIRSRC	=	src

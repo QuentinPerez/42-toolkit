@@ -1,28 +1,29 @@
 
 OBJ		=	$(addprefix $(OBJDIR)/, $(SRC:.c=.o))
-DEPS	=	$(OBJDIR)/Makefile.deps
+DEP		=	$(OBJ:.o=.d)
+DEPFILE	=	$(OBJDIR)/$(DIRSRC)/.build
 
 .SILENT:
 
-all		:	$(OBJDIR) $(DEPS) $(NAME)
+all		:	$(OBJDIR) $(NAME)
+
+-include $(DEP)
+
+$(addprefix $(OBJDIR)/, %.d)	:	%.c
+	$(CC) $(CFLAGS) $< -MM -MT $(@:.d=.o) 2> /dev/null > $@
 
 $(addprefix $(OBJDIR)/, %.o)	:	%.c
-								$(CC) $(CFLAGS) -o $@ -c $<
-								echo -e '\033[0;32mBuilding C Object $@\033[0m'
+	$(CC) $(CFLAGS) -o $@ -c $<
+	echo -e '\033[0;32mBuilding C Object $@\033[0m'
 
-$(NAME)	:	$(OBJ)
-		ar rcs $(NAME) $(OBJ)
-		echo -e '\033[1;31mC libraries \033[1;35m$(NAME) \033[1;33m$(CC)\033[0m'
+$(NAME)	:	$(OBJ) $(DEPFILE)
+	ar rcs $(NAME) $(OBJ)
+	echo -e '\033[1;31mC libraries \033[1;35m$(NAME) \033[1;33m$(CC)\033[0m'
 
-ifneq ("$(wildcard $(DEPS))", "")
--include $(DEPS)
-endif
-
-$(DEPS)		:
-	$(eval RETURN_VAL := $(shell makedepend 2>/dev/null; echo $$?))
-	if [ $(RETURN_VAL) -eq 0 ]; then												\
-		makedepend -- $(CFLAGS) -- $(SRC) -p $(OBJDIR)/ $(INCLDEP) -f- > $(DEPS) 2> /dev/null;	\
-	fi
+$(DEPFILE)	:
+	touch $@
+	echo -e '\033[1;35mBuilding dependencies \033[0m'
+	make 2> /dev/null > /dev/null
 
 clean	:
 		/bin/rm	-fr $(OBJDIR)
