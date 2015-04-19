@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/06 21:23:29 by qperez            #+#    #+#             */
-/*   Updated: 2014/02/12 19:41:04 by qperez           ###   ########.fr       */
+/*   Updated: 2015/04/19 14:08:16 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ int		uf_atoi_base(char *nbr, size_t base);
 char	*uf_strdup(const char *str);
 char	*uf_getstr(int fd, unsigned char terminate, bool del_terminate);
 char	*uf_getline(int fd, bool del_terminate);
-char	*uf_mapfile(const char *name, size_t *len);
+char	*uf_mapfile(const char *name, size_t *len, int mmap_flags, bool priv);
 bool	uf_unmapfile(void *addr, size_t len);
 
 #endif

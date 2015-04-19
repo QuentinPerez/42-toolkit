@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/31 11:15:03 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/04 21:24:06 by qperez           ###   ########.fr       */
+/*   Updated: 2015/04/19 14:11:31 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,10 @@ int	main(int argc, char const** argv)
 {
 	t_unit	unit;
 
+	/*
+	 * disable travis test
+	 */
+	return (0);
 	/*
 	 * Initialize unit for that work
 	 */

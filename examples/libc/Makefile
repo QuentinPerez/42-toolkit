@@ -23,30 +23,7 @@ CFLAGS	+=	-Wextra -Wall -Werror -I./$(DIR42)/include -DD_ERRORS_ON
 LDFLAGS	+=	-L./$(DIR42) -l42 -lpthread
 DEBUG	=	-g3 -fno-inline -DD_ERRORS_ON
 
-LISTDIR	=	array			\
-			arqueue			\
-			error			\
-			f_crypto		\
-			f_error			\
-			f_math			\
-			f_memory		\
-			f_sort			\
-			f_string		\
-			getopt			\
-			htable			\
-			list			\
-			queue			\
-			stack			\
-			string			\
-			timer			\
-			threadpool		\
-			unit			\
-			vector			\
-			matrix			\
-			rand			\
-			lock			\
-			fdnotify		\
-			rbtree
+LISTDIR	=	$(shell find . -type d -d 1)
 
 LIB42	=	$(DIR42)/lib42.a
 
