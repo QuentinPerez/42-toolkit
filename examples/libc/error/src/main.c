@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/13 12:58:04 by qperez            #+#    #+#             */
-/*   Updated: 2014/10/05 13:33:53 by qperez           ###   ########.fr       */
+/*   Updated: 2015/04/19 16:24:52 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,6 @@ bool	uf_test_bool(t_error *v_this)
 	 * Ok just for the skills
 	 */
 	return (D_ERROR(add)(v_this, true, "The %s error", "first"));
-}
-
-void	uf_test_void(t_error *v_this)
-{
-	return (D_ERROR(add_v)(v_this, "The %s error", "Second"));
 }
 
 /*
@@ -47,7 +42,6 @@ int		main(int argc, char const** argv)
 	/*
 	 * Add 2 errors to file.txt
 	 */
-	uf_test_void(&error);
 	uf_test_bool(&error);
 	/*
 	 * free memory used by array !!

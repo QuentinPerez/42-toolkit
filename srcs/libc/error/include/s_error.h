@@ -39,12 +39,10 @@ typedef struct	s_error
 # define D_ERROR(funct)				f_error_##funct
 # define D_MINFOS(v)				mf_pt_infos(v, __LINE__, __func__, __FILE__)
 # define f_error_add(v, r, f, ...)	mf_add(v, D_MINFOS(v), r, f, ##__VA_ARGS__)
-# define f_error_add_v(v, f, ...)	mf_add_v(v, D_MINFOS(v), f, ##__VA_ARGS__)
 
 bool	f_error_init(t_error *v_this, const char *filename);
 void	f_error_destroy(t_error *v_this);
 bool	mf_add(t_error *v_this, char nothing, bool ret, const char *error, ...);
-void	mf_add_v(t_error *v_this, char nothing, const char *error, ...);
 char	mf_pt_infos(t_error *v_this, const int line, const char *funct,
 					const char *file);
 

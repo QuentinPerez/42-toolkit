@@ -30,6 +30,7 @@
 #include <lock/s_lock.h>
 #include <f_error/m_error.h>
 #include <errno.h>
+#include <string.h>
 
 bool	f_lock_init(t_lock *v_this, void *data, t_type_lock type)
 {
@@ -38,10 +39,13 @@ bool	f_lock_init(t_lock *v_this, void *data, t_type_lock type)
 	if (type != e_lock_default && type != e_lock_errorcheck
 		&& type != e_lock_recursive && type != e_lock_normal)
 		return (M_ERROR(false, "Bad type value"));
-	if (pthread_mutexattr_init(&attr) != 0
-		|| pthread_mutexattr_settype(&attr, type) != 0
-		|| pthread_mutex_init(&v_this->lock, NULL) != 0)
-		return (M_ERROR(false, "Fail init lock"));
+	errno = 0;
+	if (pthread_mutexattr_init(&attr) != 0)
+		return (M_ERROR(false, "pthread_mutexattr_init: %s", strerror(errno)));
+	if (pthread_mutexattr_settype(&attr, type) != 0)
+		return (M_ERROR(false, "pthread_mutexattr_set: %s", strerror(errno)));
+	if (pthread_mutex_init(&v_this->lock, NULL) != 0)
+		return (M_ERROR(false, "pthread_mutex_init: %s", strerror(errno)));
 	pthread_mutexattr_destroy(&attr);
 	v_this->data = data;
 	return (true);
@@ -52,13 +56,7 @@ bool	f_lock_lock(t_lock *v_this, void **data)
 	int	ret;
 
 	if ((ret = pthread_mutex_lock(&v_this->lock)) != 0)
-	{
-		if (ret == EDEADLK)
-			return (M_ERROR(false, "Deadlock"));
-		else if (ret == EINVAL)
-			return (M_ERROR(false, "Invalid value"));
-		return (M_ERROR(false, "Bad lock"));
-	}
+		return (M_ERROR(false, "pthread_mutex_lock %s", strerror(errno)));
 	*data = v_this->data;
 	return (true);
 }
@@ -68,14 +66,7 @@ bool	f_lock_release(t_lock *v_this, void **data)
 	int	ret;
 
 	if ((ret = pthread_mutex_unlock(&v_this->lock)) != 0)
-	{
-		if (ret == EPERM)
-			return (M_ERROR(false, "Bad permission an "
-			"another thread locks this mutex"));
-		else if (ret == EINVAL)
-			return (M_ERROR(false, "Invalid value"));
-		return (M_ERROR(false, "Fail unlock"));
-	}
+		return (M_ERROR(false, "pthread_mutex_unlock %s", strerror(errno)));
 	*data = NULL;
 	return (true);
 }
@@ -85,11 +76,6 @@ bool	f_lock_destroy(t_lock *v_this)
 	int	ret;
 
 	if ((ret = pthread_mutex_destroy(&v_this->lock)) != 0)
-	{
-		if (ret == EBUSY)
-			return (M_ERROR(false, "Mutex is locked"));
-		else if (ret == EINVAL)
-			return (M_ERROR(false, "Invalid value"));
-	}
+		return (M_ERROR(false, "pthread_mutex_destroy %s", strerror(errno)));
 	return (true);
 }

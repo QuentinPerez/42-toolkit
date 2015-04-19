@@ -66,13 +66,6 @@ size_t	mf_error(char nothing, size_t ret, const char *fmt, ...)
 	return (ret);
 }
 
-void	mf_error_v(char nothing, const char *fmt, ...)
-{
-	mf_error(0, 0, fmt);
-	(void)nothing;
-	(void)fmt;
-}
-
 void	mf_infos(const char *funct, const char *infos, ...)
 {
 	va_list		ap;

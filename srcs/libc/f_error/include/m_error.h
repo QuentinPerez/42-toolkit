@@ -33,12 +33,10 @@
 
 # define D_PRINT_INFOS			mf_print_infos(__FILE__, __LINE__, __func__)
 # define M_ERROR(ret, fmt, ...)	mf_error(D_PRINT_INFOS, ret, fmt, ##__VA_ARGS__)
-# define M_ERROR_V(fmt, ...)	mf_error_v(D_PRINT_INFOS, fmt, ##__VA_ARGS__)
 # define M_INFOS(str_inf, ...)	mf_infos(__func__, str_inf, ##__VA_ARGS__)
 
 char	mf_print_infos(const char *file, int line, const char *fct);
 size_t	mf_error(char call_print_infos, size_t ret, const char *fmt, ...);
-void	mf_error_v(char call_print_infos, const char *fmt, ...);
 void	mf_infos(const char *funct, const char *infos, ...);
 
 #endif

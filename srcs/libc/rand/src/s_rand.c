@@ -32,6 +32,8 @@
 #include <stdlib.h>
 #include <time.h>
 #include <fcntl.h>
+#include <string.h>
+#include <errno.h>
 
 bool	f_rand_init(t_rand *v_this, t_type_rand style)
 {
@@ -43,9 +45,10 @@ bool	f_rand_init(t_rand *v_this, t_type_rand style)
 		srand((unsigned int)time(NULL));
 	else
 	{
+		errno = 0;
 		if ((v_this->v_fd = open("/dev/urandom", O_RDONLY)) == -1)
 		{
-			M_INFOS("Couldn't open /dev/urandom, we will use libc");
+			M_INFOS("open: %s, we will use libc", strerror(errno));
 			srand((unsigned int)time(NULL));
 			v_this->v_style = e_rand_std;
 		}
@@ -67,8 +70,9 @@ ssize_t	f_rand_generate(t_rand *v_this)
 
 	if (v_this->v_style == e_rand_file)
 	{
+		errno = 0;
 		if (read(v_this->v_fd, &value, sizeof(value)) != sizeof(value))
-			M_INFOS("An error has occured");
+			M_INFOS("read: %s", strerror(errno));
 	}
 	else
 		value = (ssize_t)rand();

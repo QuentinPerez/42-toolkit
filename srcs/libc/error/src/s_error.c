@@ -60,22 +60,6 @@ bool	mf_add(t_error *v_this, char nothing, bool ret, const char *error, ...)
 	return (ret);
 }
 
-void	mf_add_v(t_error *v_this, char nothing, const char *error, ...)
-{
-	va_list		ap;
-	t_string	str;
-
-	va_start(ap, error);
-	D_STRING(init)(&str, 0);
-	D_STRING(add_str)(&str, "()\n\t\t-> ");
-	D_STRING(variadic_list)(&str, error, &ap);
-	D_STRING(add_char)(&str, '\n');
-	D_STRING(print_fd)(&str, v_this->v_fd);
-	D_STRING(destroy)(&str);
-	va_end(ap);
-	(void)nothing;
-}
-
 void	f_error_destroy(t_error *v_this)
 {
 	if (v_this->v_fd > 2)

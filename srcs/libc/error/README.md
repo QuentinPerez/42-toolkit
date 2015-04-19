@@ -10,10 +10,6 @@ Error
 	  /* This function append error to file or if file was NULL print on screen */
 	  /* And return ret */
 
-	- add_v(t_error *v_this, const char *error)
-	  /* This function append error to file or if file was NULL print on screen */
-	  /* Return void */
-
 	- destroy(t_error *v_this)
 	  /* This function free t_error */
 

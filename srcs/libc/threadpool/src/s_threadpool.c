@@ -95,7 +95,7 @@ bool		f_threadpool_init(t_threadpool *v_this, size_t nb_thread)
 		return (M_ERROR(false, "Bad alloc"));
 	D_QUEUE(init)(&v_this->pv_data.v_tasks, free);
 	if (D_LOCK(init)(&v_this->v_data, &v_this->pv_data,
-												e_lock_default) == false)
+					e_lock_default) == false)
 	{
 		uf_free_s((void **)&v_this->v_id);
 		return (M_ERROR(false, "Couldn't initialize lock"));
