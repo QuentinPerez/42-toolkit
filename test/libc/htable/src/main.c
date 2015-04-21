@@ -23,7 +23,7 @@ void	D_UNIT_FUNCT(ret_val)
 
 	i = 0;
 	str[5] = 0;
-	D_UNIT(assert)(D_HTABLE(init)(&htable, 613, 0, 0) == 1);
+	F_UNIT_ASSERT(D_HTABLE(init)(&htable, 613, 0, 0) == 1);
 	while (i < 100)
 	{
 		str[0] = rand() % 200;
@@ -32,7 +32,7 @@ void	D_UNIT_FUNCT(ret_val)
 		str[3] = rand() % 125;
 		str[4] = rand() % 34;
 		i = i + 1;
-		D_UNIT(assert)(D_HTABLE(add)(&htable, str, malloc(sizeof(int))) == 1);
+		F_UNIT_ASSERT(D_HTABLE(add)(&htable, str, malloc(sizeof(int))) == 1);
 	}
 	D_HTABLE(destroy)(&htable);
 }
@@ -67,9 +67,9 @@ int		main(int argc, char const** argv)
 
 	D_UNIT(init)(&unit);
 	D_UNIT(add_context)(&unit, "Leaks", 0, 0);
-	D_UNIT(add_test)(&unit, "Leaks", memleaks);
+	F_UNIT_ADD_TEST(&unit, "Leaks", memleaks);
 	D_UNIT(add_context)(&unit, "Method", 0, 0);
-	D_UNIT(add_test)(&unit, "Method", ret_val);
+	F_UNIT_ADD_TEST(&unit, "Method", ret_val);
 	D_UNIT(console_run)(&unit);
 	D_UNIT(destroy)(&unit);
 	(void)argc;

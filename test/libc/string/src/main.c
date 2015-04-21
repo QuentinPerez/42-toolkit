@@ -38,7 +38,7 @@ int		main(int argc, char const** argv)
 
 	D_UNIT(init)(&unit);
 	D_UNIT(add_context)(&unit, "Leaks", 0, 0);
-	D_UNIT(add_test)(&unit, "Leaks", memleaks);
+	F_UNIT_ADD_TEST(&unit, "Leaks", memleaks);
 	D_UNIT(console_run)(&unit);
 	D_UNIT(destroy)(&unit);
 	(void)argc;

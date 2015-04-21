@@ -16,12 +16,12 @@
 
 void	D_UNIT_FUNCT(ret_val)
 {
-	D_UNIT(assert)((int)uf_deg_to_rad(100) == 1);
-	D_UNIT(assert)((int)uf_rad_to_deg(1) == 57);
-	D_UNIT(assert)((int)uf_abs(-42) == 42);
-	D_UNIT(assert)((int)uf_abs(42) == 42);
-	D_UNIT(assert)((int)uf_min(42, 57) == 42);
-	D_UNIT(assert)((int)uf_max(42, 57) == 57);
+	F_UNIT_ASSERT((int)uf_deg_to_rad(100) == 1);
+	F_UNIT_ASSERT((int)uf_rad_to_deg(1) == 57);
+	F_UNIT_ASSERT((int)uf_abs(-42) == 42);
+	F_UNIT_ASSERT((int)uf_abs(42) == 42);
+	F_UNIT_ASSERT((int)uf_min(42, 57) == 42);
+	F_UNIT_ASSERT((int)uf_max(42, 57) == 57);
 }
 
 int		main(int argc, char const** argv)
@@ -30,7 +30,7 @@ int		main(int argc, char const** argv)
 
 	D_UNIT(init)(&unit);
 	D_UNIT(add_context)(&unit, "Method", 0, 0);
-	D_UNIT(add_test)(&unit, "Method", ret_val);
+	F_UNIT_ADD_TEST(&unit, "Method", ret_val);
 	D_UNIT(console_run)(&unit);
 	D_UNIT(destroy)(&unit);
 	(void)argc;

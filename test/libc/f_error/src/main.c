@@ -15,10 +15,10 @@
 
 void	D_UNIT_FUNCT(ret_val)
 {
-	D_UNIT(assert)(M_ERROR(false, "") == false);
-	D_UNIT(assert)(M_ERROR(true, "") == true);
-	D_UNIT(assert)(M_ERROR(1, "") == 1);
-	D_UNIT(assert)(M_ERROR(-1, "") == (size_t)-1);
+	F_UNIT_ASSERT(M_ERROR(false, "") == false);
+	F_UNIT_ASSERT(M_ERROR(true, "") == true);
+	F_UNIT_ASSERT(M_ERROR(1, "") == 1);
+	F_UNIT_ASSERT(M_ERROR(-1, "") == (size_t)-1);
 }
 
 int		main(int argc, char const** argv)
@@ -27,7 +27,7 @@ int		main(int argc, char const** argv)
 
 	D_UNIT(init)(&unit);
 	D_UNIT(add_context)(&unit, "Method", 0, 0);
-	D_UNIT(add_test)(&unit, "Method", ret_val);
+	F_UNIT_ADD_TEST(&unit, "Method", ret_val);
 	D_UNIT(console_run)(&unit);
 	D_UNIT(destroy)(&unit);
 	(void)argc;

@@ -18,9 +18,9 @@ void	D_UNIT_FUNCT(ret_val)
 {
 	t_error	error;
 
-	D_UNIT(assert)(D_ERROR(init)(&error, "file.txt") == 1);
-	D_UNIT(assert)(D_ERROR(add)(&error, false, "nothing") == false);
-	D_UNIT(assert)(D_ERROR(add)(&error, true, "nothing") == true);
+	F_UNIT_ASSERT(D_ERROR(init)(&error, "file.txt") == 1);
+	F_UNIT_ASSERT(F_ERROR_ADD(&error, false, "nothing") == false);
+	F_UNIT_ASSERT(F_ERROR_ADD(&error, true, "nothing") == true);
 	D_ERROR(destroy)(&error);
 	unlink("file.txt");
 }
@@ -31,7 +31,7 @@ int		main(int argc, char const** argv)
 
 	D_UNIT(init)(&unit);
 	D_UNIT(add_context)(&unit, "Method", 0, 0);
-	D_UNIT(add_test)(&unit, "Method", ret_val);
+	F_UNIT_ADD_TEST(&unit, "Method", ret_val);
 	D_UNIT(console_run)(&unit);
 	D_UNIT(destroy)(&unit);
 	(void)argc;

@@ -54,12 +54,12 @@ void	D_UNIT_FUNCT(getter)
 
 	i = 0;
 	D_LIST(init)(&list, 0);
-	D_UNIT(assert)(D_LIST(empty)(&list) == true);
-	D_UNIT(assert)(D_LIST(size)(&list) == 0);
+	F_UNIT_ASSERT(D_LIST(empty)(&list) == true);
+	F_UNIT_ASSERT(D_LIST(size)(&list) == 0);
 	while (i < 50)
 	{
-		D_UNIT(assert)(D_LIST(push_back)(&list, (void*)(size_t)i) == 0);
-		D_UNIT(assert)(D_LIST(push_front)(&list, (void*)(size_t)i) == 0);
+		F_UNIT_ASSERT(D_LIST(push_back)(&list, (void*)(size_t)i) == 0);
+		F_UNIT_ASSERT(D_LIST(push_front)(&list, (void*)(size_t)i) == 0);
 		i = i + 1;
 	}
 	D_LIST(destroy)(&list);
@@ -71,9 +71,9 @@ int		main(int argc, char const** argv)
 
 	D_UNIT(init)(&unit);
 	D_UNIT(add_context)(&unit, "Leaks", 0, 0);
-	D_UNIT(add_test)(&unit, "Leaks", memleaks);
+	F_UNIT_ADD_TEST(&unit, "Leaks", memleaks);
 	D_UNIT(add_context)(&unit, "Method", 0, 0);
-	D_UNIT(add_test)(&unit, "Method", getter);
+	F_UNIT_ADD_TEST(&unit, "Method", getter);
 	D_UNIT(console_run)(&unit);
 	D_UNIT(destroy)(&unit);
 	(void)argc;

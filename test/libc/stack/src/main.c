@@ -22,10 +22,10 @@ void	D_UNIT_FUNCT(memleaks)
 	D_STACK(init)(&stack, 0);
 	while (i < 5000)
 	{
-		D_UNIT(assert)(D_STACK(push)(&stack, 0) == true);
+		F_UNIT_ASSERT(D_STACK(push)(&stack, 0) == true);
 		i = i + 1;
 	}
-	D_UNIT(assert)(D_STACK(size)(&stack) == 5000);
+	F_UNIT_ASSERT(D_STACK(size)(&stack) == 5000);
 	D_STACK(destroy)(&stack);
 }
 
@@ -35,7 +35,7 @@ int		main(int argc, char const** argv)
 
 	D_UNIT(init)(&unit);
 	D_UNIT(add_context)(&unit, "Leaks", 0, 0);
-	D_UNIT(add_test)(&unit, "Leaks", memleaks);
+	F_UNIT_ADD_TEST(&unit, "Leaks", memleaks);
 	D_UNIT(console_run)(&unit);
 	D_UNIT(destroy)(&unit);
 	(void)argc;

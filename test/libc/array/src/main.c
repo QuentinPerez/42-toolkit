@@ -68,17 +68,17 @@ void	D_UNIT_FUNCT(getter)
 
 	i = 0;
 	D_ARRAY(init)(&array, 0, 0, sizeof(size_t));
-	D_UNIT(assert)(D_ARRAY(data)(&array, void *) != NULL);
-	D_UNIT(assert)(D_ARRAY(at)(&array, 0, void *) != NULL);
-	D_UNIT(assert)(D_ARRAY(size)(&array) == 0);
-	D_UNIT(assert)(D_ARRAY(empty)(&array) == 1);
+	F_UNIT_ASSERT(F_ARRAY_DATA(&array, void *) != NULL);
+	F_UNIT_ASSERT(F_ARRAY_AT(&array, 0, void *) != NULL);
+	F_UNIT_ASSERT(D_ARRAY(size)(&array) == 0);
+	F_UNIT_ASSERT(D_ARRAY(empty)(&array) == 1);
 	while (i < 987654)
 	{
 		D_ARRAY(push_back)(&array, &i);
 		i = i + 1;
 	}
-	D_UNIT(assert)(D_ARRAY(size)(&array) == 987654);
-	D_UNIT(assert)(D_ARRAY(empty)(&array) == 0);
+	F_UNIT_ASSERT(D_ARRAY(size)(&array) == 987654);
+	F_UNIT_ASSERT(D_ARRAY(empty)(&array) == 0);
 	D_ARRAY(destroy)(&array);
 }
 
@@ -94,13 +94,13 @@ void	D_UNIT_FUNCT(ret_val)
 	t_array	array;
 
 	i = 0;
-	D_UNIT(assert)(D_ARRAY(init)(&array, 0, 0, sizeof(int)) == 1);
+	F_UNIT_ASSERT(D_ARRAY(init)(&array, 0, 0, sizeof(int)) == 1);
 	while (i < 987654)
 	{
-		D_UNIT(assert)(D_ARRAY(push_back)(&array, &i) == 1);
+		F_UNIT_ASSERT(D_ARRAY(push_back)(&array, &i) == 1);
 		i = i + 1;
 	}
-	D_UNIT(assert)(D_ARRAY(foreach)(&array, uf_foreach) == 1);
+	F_UNIT_ASSERT(D_ARRAY(foreach)(&array, uf_foreach) == 1);
 	D_ARRAY(destroy)(&array);
 }
 
@@ -111,9 +111,9 @@ int		main(int argc, char const** argv)
 	D_UNIT(init)(&unit);
 	D_UNIT(add_context)(&unit, "Leaks", 0, 0);
 	D_UNIT(add_context)(&unit, "Method", 0, 0);
-	D_UNIT(add_test)(&unit, "Leaks", memleaks);
-	D_UNIT(add_test)(&unit, "Method", getter);
-	D_UNIT(add_test)(&unit, "Method", ret_val);
+	F_UNIT_ADD_TEST(&unit, "Leaks", memleaks);
+	F_UNIT_ADD_TEST(&unit, "Method", getter);
+	F_UNIT_ADD_TEST(&unit, "Method", ret_val);
 	D_UNIT(console_run)(&unit);
 	D_UNIT(destroy)(&unit);
 	(void)argc;
