@@ -47,9 +47,9 @@ typedef struct	s_rand
 
 # define D_RAND(funct)	f_rand_##funct
 
-bool	f_rand_init(t_rand *v_this, t_type_rand style);
-bool	f_rand_change_seed(t_rand *v_this, unsigned int seed);
-ssize_t	f_rand_generate(t_rand *v_this);
-void	f_rand_destroy(t_rand *v_this);
+bool			f_rand_init(t_rand *v_this, t_type_rand style);
+bool			f_rand_change_seed(t_rand *v_this, unsigned int seed);
+ssize_t			f_rand_generate(t_rand *v_this);
+void			f_rand_destroy(t_rand *v_this);
 
 #endif

@@ -42,23 +42,23 @@ typedef struct	s_array
 	void		(*f_delete)(void *ptr);
 }				t_array;
 
-# define f_array_at(v, index, type)	(type)mf_array_at(v, index)
-# define f_array_data(v, type)		(type)mf_array_data(v)
-# define D_ARRAY(funct)				f_array_##funct
+# define F_ARRAY_AT(v, index, type) (type)mf_array_at(v, index)
+# define F_ARRAY_DATA(v, type) (type)mf_array_data(v)
+# define D_ARRAY(funct) f_array_##funct
 
-bool	f_array_init(t_array *v_this, size_t (*uf_realloc)(size_t size),
-					 void (*uf_delete)(void *ptr), size_t type_size);
-void	f_array_clear(t_array *v_this);
-bool	f_array_foreach(t_array *v_this, bool (*funct)(void *data));
-bool	f_array_push_back(t_array *v_this, void *data);
-bool	f_array_empty(const t_array *v_this);
-size_t	f_array_capacity(const t_array *v_this);
-size_t	f_array_size(const t_array *v_this);
-void	f_array_delete_if(t_array *v_this, bool (*ft_cmp)(void *d1, void *d2),
-						  void *data);
-bool	f_array_resize(t_array *v_this, size_t size);
-void	f_array_destroy(t_array *v_this);
-void	*mf_array_data(t_array *v_this);
-void	*mf_array_at(t_array *v_this, size_t index);
+bool			f_array_init(t_array *v_this, size_t (*uf_realloc)(size_t size),
+							void (*uf_delete)(void *ptr), size_t type_size);
+void			f_array_clear(t_array *v_this);
+bool			f_array_foreach(t_array *v_this, bool (*funct)(void *data));
+bool			f_array_push_back(t_array *v_this, void *data);
+bool			f_array_empty(const t_array *v_this);
+size_t			f_array_capacity(const t_array *v_this);
+size_t			f_array_size(const t_array *v_this);
+void			f_array_delete_if(t_array *v_this,
+							bool (*ft_cmp)(void *d1, void *d2), void *data);
+bool			f_array_resize(t_array *v_this, size_t size);
+void			f_array_destroy(t_array *v_this);
+void			*mf_array_data(t_array *v_this);
+void			*mf_array_at(t_array *v_this, size_t index);
 
 #endif

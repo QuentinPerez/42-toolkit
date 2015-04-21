@@ -34,30 +34,31 @@
 
 typedef struct	s_vector
 {
-	size_t	v_size;
-	size_t	v_capacity;
-	void	**v_data;
-	size_t	(*f_realloc)(size_t size);
-	void	(*f_delete)(void *ptr);
+	size_t		v_size;
+	size_t		v_capacity;
+	void		**v_data;
+	size_t		(*f_realloc)(size_t size);
+	void		(*f_delete)(void *ptr);
 }				t_vector;
 
 # define D_VECTOR(funct)	f_vector_##funct
 
-bool	f_vector_init(t_vector *v_this, size_t (*uf_realloc)(size_t size),
-					  void (*uf_delete)(void *ptr));
-void	f_vector_clear(t_vector *v_this);
-bool	f_vector_empty(const t_vector *v_this);
-size_t	f_vector_size(const t_vector *v_this);
-size_t	f_vector_capacity(const t_vector *v_this);
-bool	f_vector_push_back(t_vector *v_this, void *data);
-void	*f_vector_erase(t_vector *v_this, void *erase);
-bool	f_vector_delete(t_vector *v_this, void *mb_del);
-bool	f_vector_foreach(t_vector *v_this, bool (*funct)(void *ptr));
-bool	f_vector_reserve(t_vector *v_this, size_t new_size);
-void	*f_vector_at(t_vector *v_this, size_t index);
-void	**f_vector_data(t_vector *v_this);
-void	*f_vector_front(t_vector *v_this);
-void	*f_vector_back(t_vector *v_this);
-void	f_vector_destroy(t_vector *v_this);
+bool			f_vector_init(t_vector *v_this,
+						size_t (*uf_realloc)(size_t size),
+						void (*uf_delete)(void *ptr));
+void			f_vector_clear(t_vector *v_this);
+bool			f_vector_empty(const t_vector *v_this);
+size_t			f_vector_size(const t_vector *v_this);
+size_t			f_vector_capacity(const t_vector *v_this);
+bool			f_vector_push_back(t_vector *v_this, void *data);
+void			*f_vector_erase(t_vector *v_this, void *erase);
+bool			f_vector_delete(t_vector *v_this, void *mb_del);
+bool			f_vector_foreach(t_vector *v_this, bool (*funct)(void *ptr));
+bool			f_vector_reserve(t_vector *v_this, size_t new_size);
+void			*f_vector_at(t_vector *v_this, size_t index);
+void			**f_vector_data(t_vector *v_this);
+void			*f_vector_front(t_vector *v_this);
+void			*f_vector_back(t_vector *v_this);
+void			f_vector_destroy(t_vector *v_this);
 
 #endif

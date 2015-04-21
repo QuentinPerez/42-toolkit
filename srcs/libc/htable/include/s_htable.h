@@ -33,17 +33,17 @@
 
 typedef struct	s_htable_cell
 {
-	char	*v_key;
-	void	*v_data;
-	void	(*f_delete)(void *data);
+	char		*v_key;
+	void		*v_data;
+	void		(*f_delete)(void *data);
 }				t_htable_cell;
 
 typedef struct	s_htable
 {
-	t_array	v_array;
-	size_t	v_prime;
-	void	(*f_delete)(void *data);
-	size_t	(*f_generate_key)(size_t prime, const char *str);
+	t_array		v_array;
+	size_t		v_prime;
+	void		(*f_delete)(void *data);
+	size_t		(*f_generate_key)(size_t prime, const char *str);
 }				t_htable;
 
 # define D_HTABLE(funct)	f_htable_##funct

@@ -26,7 +26,6 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-
 #ifndef S_IMATRIX_H
 # define S_IMATRIX_H
 
@@ -37,17 +36,17 @@
 
 typedef struct	s_imatrix
 {
-	int		**v_coeff;
-	size_t	v_columns;
-	size_t	v_rows;
+	int			**v_coeff;
+	size_t		v_columns;
+	size_t		v_rows;
 }				t_imatrix;
 
-#define D_IMATRIX(funct)	f_imatrix_##funct
+# define D_IMATRIX(funct)	f_imatrix_##funct
 
-bool	f_imatrix_init(t_imatrix *v_this, size_t c, size_t r);
-void	f_imatrix_sum(t_imatrix *v_this, t_imatrix *m1, t_imatrix *m2);
-void	f_imatrix_sub(t_imatrix *v_this, t_imatrix *m1, t_imatrix *m2);
-void	f_imatrix_print(const t_imatrix *v_this, const char *name);
-void	f_imatrix_destroy(t_imatrix *v_this);
+bool			f_imatrix_init(t_imatrix *v_this, size_t c, size_t r);
+void			f_imatrix_sum(t_imatrix *v_this, t_imatrix *m1, t_imatrix *m2);
+void			f_imatrix_sub(t_imatrix *v_this, t_imatrix *m1, t_imatrix *m2);
+void			f_imatrix_print(const t_imatrix *v_this, const char *name);
+void			f_imatrix_destroy(t_imatrix *v_this);
 
 #endif

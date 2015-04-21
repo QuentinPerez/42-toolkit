@@ -29,7 +29,7 @@
 #ifndef S_UNIT_CONSOLE_H
 # define S_UNIT_CONSOLE_H
 
-struct			s_unit;
+struct s_unit;
 
 typedef struct	s_unit_console_option
 {
@@ -39,11 +39,11 @@ typedef struct	s_unit_console_option
 
 # define D_UNIT_CONSOLE_OPTION	12
 
-void	uf_unit_console_treat_failure(t_unit *v_this);
-void	uf_unit_console_treat_help(t_unit *v_this);
-void	uf_unit_console_treat_list(t_unit *v_this);
-void	uf_unit_console_treat_run(t_unit *v_this);
-void	uf_unit_console_treat_select(t_unit *v_this);
-void	uf_unit_print_console(t_unit *v_this, const char *info,
-							bool menu, char c);
+void			uf_unit_console_treat_failure(t_unit *v_this);
+void			uf_unit_console_treat_help(t_unit *v_this);
+void			uf_unit_console_treat_list(t_unit *v_this);
+void			uf_unit_console_treat_run(t_unit *v_this);
+void			uf_unit_console_treat_select(t_unit *v_this);
+void			uf_unit_print_console(t_unit *v_this, const char *info,
+									bool menu, char c);
 #endif

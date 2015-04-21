@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/08 19:25:06 by qperez            #+#    #+#             */
-/*   Updated: 2014/08/27 10:45:27 by qperez           ###   ########.fr       */
+/*   Updated: 2015/04/21 15:32:36 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ bool	f_htable_add(t_htable *v_this, const char *str, void *data)
 	t_htable_cell	*cell;
 
 	key = v_this->f_generate_key(v_this->v_prime, str);
-	element = D_ARRAY(at)(&v_this->v_array, key, t_list *);
+	element = F_ARRAY_AT(&v_this->v_array, key, t_list *);
 	cell = D_HTABLE(create_cell)(str, data, v_this->f_delete);
 	if (cell == NULL)
 		return (M_ERROR(false, "Bad alloc"));
@@ -53,7 +53,7 @@ void	*f_htable_get(t_htable *v_this, const char *str)
 	t_list_cell	*cell;
 
 	ret = NULL;
-	list = D_ARRAY(at)(&v_this->v_array,
+	list = F_ARRAY_AT(&v_this->v_array,
 					v_this->f_generate_key(v_this->v_prime, str), t_list *);
 	cell = D_LIST(begin)(list);
 	while (cell != NULL && ret == NULL)

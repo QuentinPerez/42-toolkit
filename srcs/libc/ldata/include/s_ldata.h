@@ -34,14 +34,14 @@
 
 typedef struct	s_ldata
 {
-	void	*v_ptr;
-	size_t	v_len;
+	void		*v_ptr;
+	size_t		v_len;
 }				t_ldata;
 
 # define D_LDATA(funct)	f_ldata_##funct
 
-bool	f_ldata_init(t_ldata *v_this, size_t len);
-void	*f_ldata_get_ptr(t_ldata *v_this);
-void	f_ldata_destroy(t_ldata *v_this);
+bool			f_ldata_init(t_ldata *v_this, size_t len);
+void			*f_ldata_get_ptr(t_ldata *v_this);
+void			f_ldata_destroy(t_ldata *v_this);
 
 #endif

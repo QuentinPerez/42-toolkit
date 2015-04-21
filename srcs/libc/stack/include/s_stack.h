@@ -32,29 +32,31 @@
 # include <stddef.h>
 # include <stdbool.h>
 
-typedef struct	s_stack_cell
+typedef struct			s_stack_cell
 {
 	void				*v_data;
 	struct s_stack_cell	*v_prev;
-}				t_stack_cell;
+}						t_stack_cell;
 
-typedef struct	s_stack
+typedef struct			s_stack
 {
 	size_t				v_size;
 	t_stack_cell		*v_last;
 	void				(*f_destroy)(void *data);
-}				t_stack;
+}						t_stack;
 
 # define D_STACK(funct)	f_stack_##funct
 
-void	f_stack_init(t_stack *v_this, void (*funct_destroy)(void *data));
-void	f_stack_destroy(t_stack *v_this);
-bool	f_stack_push(t_stack *v_this, void *data);
-void	f_stack_pop(t_stack *v_this);
-void	f_stack_clear(t_stack *v_this);
-void	*f_stack_top(t_stack *v_this);
-bool	f_stack_empty(const t_stack *v_this);
-size_t	f_stack_size(const t_stack *v_this);
-bool	f_stack_foreach(t_stack *v_this, bool (*funct)(void *data));
+void					f_stack_init(t_stack *v_this,
+									void (*funct_destroy)(void *data));
+void					f_stack_destroy(t_stack *v_this);
+bool					f_stack_push(t_stack *v_this, void *data);
+void					f_stack_pop(t_stack *v_this);
+void					f_stack_clear(t_stack *v_this);
+void					*f_stack_top(t_stack *v_this);
+bool					f_stack_empty(const t_stack *v_this);
+size_t					f_stack_size(const t_stack *v_this);
+bool					f_stack_foreach(t_stack *v_this,
+									bool (*funct)(void *data));
 
 #endif

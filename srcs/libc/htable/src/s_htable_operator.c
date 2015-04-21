@@ -38,7 +38,7 @@ void	*f_htable_erase(t_htable *v_this, const char *key)
 	t_list_cell	*cell;
 
 	ret = NULL;
-	list = D_ARRAY(at)(&v_this->v_array,
+	list = F_ARRAY_AT(&v_this->v_array,
 					D_HTABLE(generate_key)(v_this->v_prime, key), t_list *);
 	cell = D_LIST(begin)(list);
 	while (cell != NULL && ret == NULL)
@@ -58,7 +58,7 @@ void	f_htable_delete(t_htable *v_this, const char *key)
 	t_list		*list;
 	t_list_cell	*cell;
 
-	list = D_ARRAY(at)(&v_this->v_array,
+	list = F_ARRAY_AT(&v_this->v_array,
 					D_HTABLE(generate_key)(v_this->v_prime, key), t_list *);
 	cell = D_LIST(begin)(list);
 	while (cell != NULL)

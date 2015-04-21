@@ -44,32 +44,34 @@ typedef struct	s_string
 
 # define D_STRING(funct)	f_string_##funct
 
-bool		f_string_init(t_string *v_this, size_t (*uf_realloc)(size_t size));
-void		f_string_print(const t_string *v_this);
-void		f_string_print_fd(const t_string *v_this, int fd);
-void		f_string_print_memory(const t_string *v_this, const char *name);
-char		*f_string_dup(const t_string *v_this);
-const char	*f_string_str(const t_string *v_this);
-size_t		f_string_capacity(const t_string *v_this);
-bool		f_string_empty(const t_string *v_this);
-size_t		f_string_size(const t_string *v_this);
-void		f_string_clear(t_string *v_this);
-bool		f_string_add_str(t_string *v_this, const char *str);
-bool		f_string_add_nstr(t_string *v_this, const char *str, size_t size);
-bool		f_string_add_char(t_string *v_this, unsigned char c);
-bool		f_string_add_nbr(t_string *v_this, ssize_t nbr);
-bool		f_string_add_ptr(t_string *v_this, void *addr);
-bool		f_string_add_nbr_base(t_string *v_this, ssize_t nbr, size_t base);
-bool		f_string_add_color(t_string *v_this, size_t color, size_t fx);
-bool		f_string_variadic(t_string *v_this, const char *fmt, ...);
-bool		f_string_variadic_list(t_string *v_this, const char *fmt,
-								   va_list *ap);
-char		**f_string_split(t_string *v_this, const char *charset);
-void		f_string_erase(t_string *v_this, size_t from, size_t to);
-bool		f_string_insert(t_string *v_this, const char *insert, size_t at);
-void		f_string_destroy(t_string *v_this);
-
-bool		uf_string_realloc(t_string *v_this, size_t add);
-
+bool			f_string_init(t_string *v_this,
+							size_t (*uf_realloc)(size_t size));
+void			f_string_print(const t_string *v_this);
+void			f_string_print_fd(const t_string *v_this, int fd);
+void			f_string_print_memory(const t_string *v_this, const char *name);
+char			*f_string_dup(const t_string *v_this);
+const char		*f_string_str(const t_string *v_this);
+size_t			f_string_capacity(const t_string *v_this);
+bool			f_string_empty(const t_string *v_this);
+size_t			f_string_size(const t_string *v_this);
+void			f_string_clear(t_string *v_this);
+bool			f_string_add_str(t_string *v_this, const char *str);
+bool			f_string_add_nstr(t_string *v_this, const char *str,
+								size_t size);
+bool			f_string_add_char(t_string *v_this, unsigned char c);
+bool			f_string_add_nbr(t_string *v_this, ssize_t nbr);
+bool			f_string_add_ptr(t_string *v_this, void *addr);
+bool			f_string_add_nbr_base(t_string *v_this, ssize_t nbr,
+									size_t base);
+bool			f_string_add_color(t_string *v_this, size_t color, size_t fx);
+bool			f_string_variadic(t_string *v_this, const char *fmt, ...);
+bool			f_string_variadic_list(t_string *v_this, const char *fmt,
+								va_list *ap);
+char			**f_string_split(t_string *v_this, const char *charset);
+void			f_string_erase(t_string *v_this, size_t from, size_t to);
+bool			f_string_insert(t_string *v_this, const char *insert,
+								size_t at);
+void			f_string_destroy(t_string *v_this);
+bool			uf_string_realloc(t_string *v_this, size_t add);
 
 #endif

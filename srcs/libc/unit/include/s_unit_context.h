@@ -40,10 +40,8 @@ typedef struct	s_unit_context
 	bool		(*f_destroy)(void *data);
 }				t_unit_context;
 
-
-bool	uf_unit_print_context(void *data);
-void	uf_unit_console_run(t_list *list);
-void	uf_unit_console_failure(t_list *list);
-
+bool			uf_unit_print_context(void *data);
+void			uf_unit_console_run(t_list *list);
+void			uf_unit_console_failure(t_list *list);
 
 #endif

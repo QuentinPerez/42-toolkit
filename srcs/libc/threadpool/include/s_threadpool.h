@@ -34,30 +34,32 @@
 # include <lock/s_lock.h>
 # include <queue/s_queue.h>
 
-typedef struct	s_threadpool_data
+typedef struct			s_threadpool_data
 {
-	bool	v_run;
-	t_queue	v_tasks;
-}				t_threadpool_data;
+	bool				v_run;
+	t_queue				v_tasks;
+}						t_threadpool_data;
 
-typedef struct	s_threadpool_task
+typedef struct			s_threadpool_task
 {
-	void	(*f_funct)(void *);
-	void	*v_data;
-}				t_threadpool_task;
+	void				(*f_funct)(void *);
+	void				*v_data;
+}						t_threadpool_task;
 
-typedef struct	s_threadpool
+typedef struct			s_threadpool
 {
 	pthread_t			*v_id;
 	size_t				v_nb_thread;
 	t_threadpool_data	pv_data;
 	t_lock				v_data;
-}				t_threadpool;
+}						t_threadpool;
 
-# define	D_THREADPOOL(funct)	f_threadpool_##funct
+# define D_THREADPOOL(funct)	f_threadpool_##funct
 
-bool	f_threadpool_init(t_threadpool *v_this, size_t nb_threads);
-bool	f_threadpool_add_task(t_threadpool *v_this, t_threadpool_task *task);
-void	f_threadpool_destroy(t_threadpool *v_this);
+bool					f_threadpool_init(t_threadpool *v_this,
+										size_t nb_threads);
+bool					f_threadpool_add_task(t_threadpool *v_this,
+										t_threadpool_task *task);
+void					f_threadpool_destroy(t_threadpool *v_this);
 
 #endif

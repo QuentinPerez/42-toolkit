@@ -31,16 +31,16 @@
 
 # include <stdbool.h>
 
-typedef struct s_fdnotify_cell
+typedef struct	s_fdnotify_cell
 {
-	int		v_fd;
-	bool	v_add_to_write;
+	int			v_fd;
+	bool		v_add_to_write;
 }				t_fdnotify_cell;
 
 # define D_FDNOTIFY_CELL(funct)	f_fdnotify_cell_##funct
 
-bool	f_fdnotify_cell_init(t_fdnotify_cell *v_this, int fd);
-void	f_fdnotify_cell_add_to_write(t_fdnotify_cell *v_this);
-void	f_fdnotify_cell_destroy(t_fdnotify_cell *v_this, bool close_fd);
+bool			f_fdnotify_cell_init(t_fdnotify_cell *v_this, int fd);
+void			f_fdnotify_cell_add_to_write(t_fdnotify_cell *v_this);
+void			f_fdnotify_cell_destroy(t_fdnotify_cell *v_this, bool close_fd);
 
 #endif

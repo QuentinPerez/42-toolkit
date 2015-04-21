@@ -34,20 +34,21 @@
 
 typedef struct	s_arqueue
 {
-	size_t	v_start;
-	size_t	v_end;
-	size_t	v_size;
-	size_t	v_capacity;
-	size_t	v_sizeof;
-	void	*v_array;
+	size_t		v_start;
+	size_t		v_end;
+	size_t		v_size;
+	size_t		v_capacity;
+	size_t		v_sizeof;
+	void		*v_array;
 }				t_arqueue;
 
-# define	D_ARQUEUE(funct)	f_arqueue_##funct
+# define D_ARQUEUE(funct)	f_arqueue_##funct
 
-bool	f_arqueue_init(t_arqueue *v_this, size_t elem_size, size_t nb_elem);
-bool	f_arqueue_push(t_arqueue *v_this, void *push);
-bool	f_arqueue_empty(t_arqueue *v_this);
-void	*f_arqueue_pop(t_arqueue *v_this);
-void	f_arqueue_destroy(t_arqueue *v_this);
+bool			f_arqueue_init(t_arqueue *v_this, size_t elem_size,
+								size_t nb_elem);
+bool			f_arqueue_push(t_arqueue *v_this, void *push);
+bool			f_arqueue_empty(t_arqueue *v_this);
+void			*f_arqueue_pop(t_arqueue *v_this);
+void			f_arqueue_destroy(t_arqueue *v_this);
 
 #endif

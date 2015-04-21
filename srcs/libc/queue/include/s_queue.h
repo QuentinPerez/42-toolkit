@@ -32,31 +32,33 @@
 # include <stddef.h>
 # include <stdbool.h>
 
-typedef struct	s_queue_cell
+typedef struct			s_queue_cell
 {
 	void				*v_data;
 	struct s_queue_cell	*v_next;
-}				t_queue_cell;
+}						t_queue_cell;
 
-typedef struct	s_queue
+typedef struct			s_queue
 {
 	size_t				v_size;
 	t_queue_cell		*v_head;
 	t_queue_cell		*v_tail;
 	void				(*f_destroy)(void *data);
-}				t_queue;
+}						t_queue;
 
 # define D_QUEUE(funct)	f_queue_##funct
 
-void	f_queue_init(t_queue *v_this, void (*funct_destroy)(void *data));
-void	f_queue_clear(t_queue *v_this);
-void	f_queue_destroy(t_queue *v_this);
-bool	f_queue_empty(const t_queue *v_this);
-size_t	f_queue_size(const t_queue *v_this);
-bool	f_queue_push(t_queue *v_this, void *data);
-void	*f_queue_pop(t_queue *v_this);
-void	*f_queue_front(t_queue *v_this);
-void	*f_queue_back(t_queue *v_this);
-bool	f_queue_foreach(t_queue *v_this, bool (*funct)(void * data));
+void					f_queue_init(t_queue *v_this,
+									void (*funct_destroy)(void *data));
+void					f_queue_clear(t_queue *v_this);
+void					f_queue_destroy(t_queue *v_this);
+bool					f_queue_empty(const t_queue *v_this);
+size_t					f_queue_size(const t_queue *v_this);
+bool					f_queue_push(t_queue *v_this, void *data);
+void					*f_queue_pop(t_queue *v_this);
+void					*f_queue_front(t_queue *v_this);
+void					*f_queue_back(t_queue *v_this);
+bool					f_queue_foreach(t_queue *v_this,
+									bool (*funct)(void *data));
 
 #endif

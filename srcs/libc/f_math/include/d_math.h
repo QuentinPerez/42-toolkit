@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   t_math.h                                           :+:      :+:    :+:   */
+/*   d_math.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 /*
-** <This file contains t_math define>
+** <This file contains d_math define>
 ** Copyright (C) <2013>  Quentin Perez <qperez42@gmail.com>
 ** This file is part of 42-toolkit.
 ** 42-toolkit is free software: you can redistribute it and/or modify
@@ -26,8 +26,8 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef T_MATH_H
-# define T_MATH_H
+#ifndef D_MATH_H
+# define D_MATH_H
 
 # define D_EPSILON	0.0000001192093
 # define D_E		2.71828182845904523536028747135266250

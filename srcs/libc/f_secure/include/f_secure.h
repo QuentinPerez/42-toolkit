@@ -32,17 +32,17 @@
 # include <stdbool.h>
 # include <stdlib.h>
 
-bool    uf_hhu_add(unsigned char a, unsigned char b, unsigned char *sum);
-bool    uf_hu_add(unsigned short a, unsigned short b, unsigned short *sum);
-bool    uf_u_add(unsigned int a, unsigned int b, unsigned int *sum);
+bool	uf_hhu_add(unsigned char a, unsigned char b, unsigned char *sum);
+bool	uf_hu_add(unsigned short a, unsigned short b, unsigned short *sum);
+bool	uf_u_add(unsigned int a, unsigned int b, unsigned int *sum);
 
-bool    uf_hhu_sub(unsigned char a, unsigned char b, unsigned char *sum);
-bool    uf_hu_sub(unsigned short a, unsigned short b, unsigned short *sum);
-bool    uf_u_sub(unsigned int a, unsigned int b, unsigned int *sum);
+bool	uf_hhu_sub(unsigned char a, unsigned char b, unsigned char *sum);
+bool	uf_hu_sub(unsigned short a, unsigned short b, unsigned short *sum);
+bool	uf_u_sub(unsigned int a, unsigned int b, unsigned int *sum);
 
-bool    uf_hhu_mul(unsigned char a, unsigned char b, unsigned char *sum);
-bool    uf_hu_mul(unsigned short a, unsigned short b, unsigned short *sum);
-bool    uf_u_mul(unsigned int a, unsigned int b, unsigned int *sum);
+bool	uf_hhu_mul(unsigned char a, unsigned char b, unsigned char *sum);
+bool	uf_hu_mul(unsigned short a, unsigned short b, unsigned short *sum);
+bool	uf_u_mul(unsigned int a, unsigned int b, unsigned int *sum);
 
 void	*uf_malloc_s(size_t nbr, size_t size);
 void	*uf_calloc_s(size_t nbr, size_t size);

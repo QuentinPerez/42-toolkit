@@ -37,7 +37,7 @@ void	f_htable_print(t_htable *v_this, bool (*uf_print)(t_htable_cell *data))
 	t_list	*list;
 
 	i = 0;
-	list = D_ARRAY(data)(&v_this->v_array, t_list *);
+	list = F_ARRAY_DATA(&v_this->v_array, t_list *);
 	while (i < v_this->v_prime)
 	{
 		if (D_LIST(size)(list + i) > 0)

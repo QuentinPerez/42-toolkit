@@ -32,25 +32,26 @@
 # include <pthread.h>
 # include <stdbool.h>
 
-typedef enum	e_type_lock
+typedef enum			e_type_lock
 {
 	e_lock_default = PTHREAD_MUTEX_DEFAULT,
 	e_lock_normal = PTHREAD_MUTEX_NORMAL,
 	e_lock_errorcheck = PTHREAD_MUTEX_ERRORCHECK,
 	e_lock_recursive = PTHREAD_MUTEX_RECURSIVE
-}				t_type_lock;
+}						t_type_lock;
 
-typedef struct	s_lock
+typedef struct			s_lock
 {
 	void				*data;
 	pthread_mutex_t		lock;
-}				t_lock;
+}						t_lock;
 
 # define D_LOCK(funct)				f_lock_##funct
 
-bool	f_lock_init(t_lock *v_this, void *data, t_type_lock type);
-bool	f_lock_lock(t_lock *v_this, void **data);
-bool	f_lock_release(t_lock *v_this, void **data);
-bool	f_lock_destroy(t_lock *v_this);
+bool					f_lock_init(t_lock *v_this, void *data,
+									t_type_lock type);
+bool					f_lock_lock(t_lock *v_this, void **data);
+bool					f_lock_release(t_lock *v_this, void **data);
+bool					f_lock_destroy(t_lock *v_this);
 
-#endif /* !S_LOCK_H */
+#endif

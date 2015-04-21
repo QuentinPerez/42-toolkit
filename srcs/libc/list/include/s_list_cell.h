@@ -31,18 +31,18 @@
 
 # include <stddef.h>
 
-typedef struct	s_list_cell
+typedef struct			s_list_cell
 {
 	struct s_list_cell	*v_next;
 	struct s_list_cell	*v_prev;
 	void				*v_data;
-}				t_list_cell;
+}						t_list_cell;
 
 # define D_LIST_CELL(funct)	f_list_cell_##funct
 
-size_t		f_list_cell_count(const t_list_cell *other_begin,
-							  const t_list_cell *other_end);
-t_list_cell	*f_list_cell_next(const t_list_cell *cur);
-t_list_cell	*f_list_cell_prev(const t_list_cell *cur);
+size_t					f_list_cell_count(const t_list_cell *other_begin,
+								const t_list_cell *other_end);
+t_list_cell				*f_list_cell_next(const t_list_cell *cur);
+t_list_cell				*f_list_cell_prev(const t_list_cell *cur);
 
 #endif

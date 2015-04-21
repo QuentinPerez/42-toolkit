@@ -31,52 +31,53 @@
 
 # include <stdbool.h>
 
-enum	e_rbcolor
+enum				e_rbcolor
 {
 	e_red,
 	e_black
 };
 
-typedef struct	s_rbcell
+typedef struct		s_rbcell
 {
 	struct s_rbcell	*v_left;
 	struct s_rbcell	*v_right;
 	struct s_rbcell	*v_parent;
 	void			*v_data;
 	enum e_rbcolor	v_color;
-}				t_rbcell;
+}					t_rbcell;
 
-typedef struct	s_rbtree
+typedef struct		s_rbtree
 {
-	t_rbcell	v_root;
-	t_rbcell	v_nil;
-	int			(*f_cmp)(void *d1, void *d2);
-	void		(*f_delete)(void *data);
-}				t_rbtree;
+	t_rbcell		v_root;
+	t_rbcell		v_nil;
+	int				(*f_cmp)(void *d1, void *d2);
+	void			(*f_delete)(void *data);
+}					t_rbtree;
 
-# define f_rbtree_foreach_pre(v, f, d)	mf_preorder(v, (v)->v_root.v_left, d, f)
-# define f_rbtree_foreach_in(v, f, d)	mf_inorder(v, (v)->v_root.v_left, d, f)
-# define f_rbtree_foreach_post(v, f, d)	mf_pstorder(v, (v)->v_root.v_left, d, f)
+# define F_RBTREE_FOREACH_PRE(v, f, d)	mf_preorder(v, (v)->v_root.v_left, d, f)
+# define F_RBTREE_FOREACH_IN(v, f, d)	mf_inorder(v, (v)->v_root.v_left, d, f)
+# define F_RBTREE_FOREACH_POST(v, f, d)	mf_pstorder(v, (v)->v_root.v_left, d, f)
 # define D_RBTREE(funct)				f_rbtree_##funct
 
-bool		f_rbtree_init(t_rbtree *v_this, int (*f_cmp)(void *d1, void *d2),
-						  void (*f_del)(void *data));
-t_rbcell	*f_rbtree_find(t_rbtree *v_this, void *find);
-t_rbcell	*f_rbtree_root(t_rbtree *v_this);
-bool		f_rbtree_empty(const t_rbtree *v_this);
-bool		mf_preorder(t_rbtree *v_this, t_rbcell *node, void *data,
-						bool (*funct)(void *node, void *data));
-bool		mf_inorder(t_rbtree *v_this, t_rbcell *node, void *data,
-					   bool (*funct)(void *node, void *data));
-bool		mf_pstorder(t_rbtree *v_this, t_rbcell *node, void *data,
-						bool (*funct)(void *node, void *data));
-bool		f_rbtree_insert(t_rbtree *v_this, void *v_data);
-void 		*f_rbtree_erase(t_rbtree *tree, t_rbcell *node);
-void 		f_rbtree_delete(t_rbtree *tree, t_rbcell *node);
-void		f_rbtree_destroy(t_rbtree *v_this);
+bool				f_rbtree_init(t_rbtree *v_this,
+								int (*f_cmp)(void *d1, void *d2),
+								void (*f_del)(void *data));
+t_rbcell			*f_rbtree_find(t_rbtree *v_this, void *find);
+t_rbcell			*f_rbtree_root(t_rbtree *v_this);
+bool				f_rbtree_empty(const t_rbtree *v_this);
+bool				mf_preorder(t_rbtree *v_this, t_rbcell *node, void *data,
+								bool (*funct)(void *node, void *data));
+bool				mf_inorder(t_rbtree *v_this, t_rbcell *node, void *data,
+								bool (*funct)(void *node, void *data));
+bool				mf_pstorder(t_rbtree *v_this, t_rbcell *node, void *data,
+								bool (*funct)(void *node, void *data));
+bool				f_rbtree_insert(t_rbtree *v_this, void *v_data);
+void				*f_rbtree_erase(t_rbtree *tree, t_rbcell *node);
+void				f_rbtree_delete(t_rbtree *tree, t_rbcell *node);
+void				f_rbtree_destroy(t_rbtree *v_this);
 
-void		uf_rotate_right(t_rbtree *v_this, t_rbcell *node);
-void		uf_rotate_left(t_rbtree *v_this, t_rbcell *node);
-t_rbcell	*uf_rb_next(t_rbtree *v_this, t_rbcell *node);
+void				uf_rotate_right(t_rbtree *v_this, t_rbcell *node);
+void				uf_rotate_left(t_rbtree *v_this, t_rbcell *node);
+t_rbcell			*uf_rb_next(t_rbtree *v_this, t_rbcell *node);
 
 #endif

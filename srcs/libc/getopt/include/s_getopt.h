@@ -34,22 +34,22 @@
 
 typedef struct	s_getopt
 {
-	char	**v_option;
-	char	**v_posibility;
-	char	*v_current_argv;
-	size_t	v_current_argc;
-	char	*v_next_argv;
-	char	**v_argv;
-	size_t	v_argc;
+	char		**v_option;
+	char		**v_posibility;
+	char		*v_current_argv;
+	size_t		v_current_argc;
+	char		*v_next_argv;
+	char		**v_argv;
+	size_t		v_argc;
 }				t_getopt;
 
 # define D_GETOPT(funct)	f_getopt_##funct
 
-bool		f_getopt_init(t_getopt *v_this, int argc, const char **argv,
-						  const char *opt);
-bool		f_getopt_option(t_getopt *v_this);
-bool		f_getopt_check(const t_getopt *v_this, const char *option);
-const char	*f_getopt_params(const t_getopt *v_this);
-void		f_getopt_destroy(t_getopt *v_this);
+bool			f_getopt_init(t_getopt *v_this, int argc, const char **argv,
+							const char *opt);
+bool			f_getopt_option(t_getopt *v_this);
+bool			f_getopt_check(const t_getopt *v_this, const char *option);
+const char		*f_getopt_params(const t_getopt *v_this);
+void			f_getopt_destroy(t_getopt *v_this);
 
 #endif

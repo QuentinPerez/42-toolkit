@@ -26,22 +26,22 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
-#ifndef S_LIST_INTERVAL
-# define S_LIST_INTERVAL
+#ifndef S_LIST_INTERVAL_H
+# define S_LIST_INTERVAL_H
 
 # include <list/s_list_cell.h>
 
 typedef struct		s_list_interval
 {
-	t_list_cell	*v_begin;
-	t_list_cell	*v_end;
+	t_list_cell		*v_begin;
+	t_list_cell		*v_end;
 }					t_list_interval;
 
 # define D_LIST_INTERVAL(funct)	f_list_interval_##funct
 
-void		f_list_interval_init(t_list_interval *v_this, t_list_cell *begin,
-								 t_list_cell *end);
-t_list_cell	*f_list_interval_begin(const t_list_interval *v_this);
-t_list_cell	*f_list_interval_end(const t_list_interval *v_this);
+void				f_list_interval_init(t_list_interval *v_this,
+							t_list_cell *begin, t_list_cell *end);
+t_list_cell			*f_list_interval_begin(const t_list_interval *v_this);
+t_list_cell			*f_list_interval_end(const t_list_interval *v_this);
 
 #endif
