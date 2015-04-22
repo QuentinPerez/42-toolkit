@@ -15,7 +15,7 @@ Threadpool
 ===
 ### How to use ?
 
-You can see [example](https://github.com/42School/42-toolkit/tree/master/examples/libc/threadpool).
+You can see [example](https://github.com/QuentinPerez/42-toolkit/tree/master/examples/libc/threadpool).
 
 ===
 ## License

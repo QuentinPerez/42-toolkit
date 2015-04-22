@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/28 16:40:56 by qperez            #+#    #+#             */
-/*   Updated: 2014/01/08 12:42:10 by qperez           ###   ########.fr       */
+/*   Updated: 2015/04/22 22:04:57 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,6 @@
 
 /*
  * This file is a little example errors macros
- */
-
-/*
- * Pff he sucks, m_error don't work with me
- * Have you compile the project with -DD_ERRORS_ON flags ?
- * ... Sorry
  */
 
 int		main(int argc, const char **argv)

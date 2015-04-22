@@ -7,7 +7,7 @@
 	<img src="https://raw.github.com/QuentinPerez/42-toolkit/master/doc/images/logo-42.png" alt="42" title="42">
 </p>
 
-# 42School
+# School
 ===
 
 #### Demonstration:
@@ -28,9 +28,9 @@ Abraham Lincoln.
 
 #### I've found a bug!
 
-We're glad you did, and certainly would like to know more! Please use the [issues tracker](https://github.com/42School/42-toolkit/issues) to report it.
+We're glad you did, and certainly would like to know more! Please use the [issues tracker](https://github.com/QuentinPerez/42-toolkit/issues) to report it.
 
-You can share your thoughts, requests, feedback on that same [tracker](https://github.com/42School/42-toolkit/issues)!
+You can share your thoughts, requests, feedback on that same [tracker](https://github.com/QuentinPerez/42-toolkit/issues)!
 
 #### I'm a dev, I can help!
 

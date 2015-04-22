@@ -19,9 +19,9 @@
 #
 
 DIR42	=	lib42
-CFLAGS	+=	-Wextra -Wall -Werror -I./$(DIR42)/include -DD_ERRORS_ON
+CFLAGS	+=	-Wextra -Wall -Werror -I./$(DIR42)/include
 LDFLAGS	+=	-L./$(DIR42) -l42 -lpthread
-DEBUG	=	-g3 -fno-inline -DD_ERRORS_ON
+DEBUG	=	-g3 -fno-inline
 
 LISTDIR	=	$(shell find . -type d -d 1)
 

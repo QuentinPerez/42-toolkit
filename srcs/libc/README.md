@@ -33,7 +33,18 @@ Libc
 	- cd lib42
 
 ===
-## How add to your Makefile ?
+
+## How add to your git project (at school) ?
+
+	- git submodule add https://github.com/QuentinPerez/42-toolkit.git
+	- git submodule init
+
+#####Update:
+
+	- git submodule update
+===
+
+## How compile lib42 in your own Makefile ?
 
 #####Variables:
 
@@ -49,44 +60,21 @@ Libc
 
 #####Rules:
 
-	- $(LIB42)	:	force
-	-  			make -C $(DIR42)
-    -
-	- relib		:
-	- 			make re -C $(DIR42)
-    -
-	- force		:
-	- 			true
-===
+    - $(LIB42)	:	$(DIR42)
+        make -C $(DIR42)
 
-## How add to your git project (at school) ?
+    - $(DIR42)	:	$(TOOLKIT)
+        cd $(TOOLKIT)/srcs/libc && ./make_lib && mv $(DIR42) ../../../
 
-#####Variable:
-
-	- TOOLKIT    = 42-toolkit
-
-#####Add dependencies:
-
-	- $(DIR42)	:	$(TOOLKIT)
-				cd $(TOOLKIT)/srcs/libc && ./make_lib && mv $(DIR42) ../../../
-
-#####Rules:
-
-	- $(TOOLKIT)	:
-				git submodule add https://github.com/42School/42-toolkit.git
-				git submodule init
-
-#####Update:
-
-	- git submodule update
+    - $(TOOLKIT)	:
+	   git submodule init
+	   git submodule update
 ===
 
 
 ### Example link
 
-[Makefile](https://github.com/42School/42-toolkit/tree/master/examples/libc/list/Makefile).
-
-[school's Makefile](https://github.com/42School/42-toolkit/tree/master/doc/school/Makefile).
+[school's Makefile](https://github.com/QuentinPerez/42-toolkit/tree/master/doc/school/Makefile).
 
 ===
 
