@@ -21,22 +21,22 @@
 
 void	D_UNIT_FUNCT(string)
 {
-	D_UNIT(assert)(uf_strcmp("Hello", "Hello") == 0);
+	F_UNIT_ASSERT(uf_strcmp("Hello", "Hello") == 0);
 }
 
 void	D_UNIT_FUNCT(string2)
 {
-	D_UNIT(assert)(uf_strcmp("Hello", "42") == 0);
+	F_UNIT_ASSERT(uf_strcmp("Hello", "42") == 0);
 }
 
 void	D_UNIT_FUNCT(integer)
 {
-	D_UNIT(assert)(14 == 14);
+	F_UNIT_ASSERT(14 == 14);
 }
 
 void	D_UNIT_FUNCT(integer2)
 {
-	D_UNIT(assert)(14 == 0);
+	F_UNIT_ASSERT(14 == 0);
 }
 
 int	main(int argc, char const** argv)
@@ -63,10 +63,10 @@ int	main(int argc, char const** argv)
 	/*
 	 * It's time to push
 	 */
-	D_UNIT(add_test)(&unit, "Integer test", integer);
-	D_UNIT(add_test)(&unit, "Integer test", integer2);
-	D_UNIT(add_test)(&unit, "String test", string2);
-	D_UNIT(add_test)(&unit, "String test", string);
+	F_UNIT_ADD_TEST(&unit, "Integer test", integer);
+	F_UNIT_ADD_TEST(&unit, "Integer test", integer2);
+	F_UNIT_ADD_TEST(&unit, "String test", string2);
+	F_UNIT_ADD_TEST(&unit, "String test", string);
 	/*
 	 * Are you ready for ASCII art
 	 */
@@ -79,4 +79,3 @@ int	main(int argc, char const** argv)
 	(void)argv;
 	return (0);
 }
-

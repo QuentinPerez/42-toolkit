@@ -23,7 +23,7 @@ CFLAGS	+=	-Wextra -Wall -Werror -I./$(DIR42)/include
 LDFLAGS	+=	-L./$(DIR42) -l42 -lpthread
 DEBUG	=	-g3 -fno-inline
 
-LISTDIR	=	$(shell find . -type d -d 1)
+LISTDIR	=	$(shell find . -type d -depth 1)
 
 LIB42	=	$(DIR42)/lib42.a
 

@@ -49,11 +49,11 @@ int		main(int argc, char const** argv)
 	 * Print all value
 	 */
 	D_RBTREE(erase)(&rbtree, D_RBTREE(find)(&rbtree, (void *)4));
-	D_RBTREE(foreach_in)(&rbtree, uf_print, 0);
+	F_RBTREE_FOREACH_IN(&rbtree, uf_print, 0);
 	uf_print_char('\n');
-	D_RBTREE(foreach_pre)(&rbtree, uf_print, 0);
+	F_RBTREE_FOREACH_PRE(&rbtree, uf_print, 0);
 	uf_print_char('\n');
-	D_RBTREE(foreach_post)(&rbtree, uf_print, 0);
+	F_RBTREE_FOREACH_POST(&rbtree, uf_print, 0);
 	uf_print_char('\n');
 	/*
 	 * free memory

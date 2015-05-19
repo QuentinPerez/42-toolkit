@@ -75,7 +75,7 @@ int		main(int argc, char const** argv)
 	/*
 	 * Get first element
 	 */
-	uf_print_point(D_ARRAY(at)(&array, 0, t_point *));
+	uf_print_point(F_ARRAY_AT(&array, 0, t_point *));
 	/*
 	 * Delete this fucking point !!
 	 */

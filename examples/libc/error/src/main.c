@@ -20,7 +20,7 @@ bool	uf_test_bool(t_error *v_this)
 	 * ...
 	 * Ok just for the skills
 	 */
-	return (D_ERROR(add)(v_this, true, "The %s error", "first"));
+	return (F_ERROR_ADD(v_this, true, "The %s error", "first"));
 }
 
 /*
