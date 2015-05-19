@@ -23,7 +23,7 @@ CFLAGS	+=	-Wextra -Wall -Werror -I./$(DIR42)/include
 LDFLAGS	+=	-L./$(DIR42) -l42 -lpthread
 DEBUG	=	-g3 -fno-inline
 
-LISTDIR	=	$(shell find . -type d -depth 1)
+LISTDIR	=	$(shell find ./* -maxdepth 0 -type d)
 
 LIB42	=	$(DIR42)/lib42.a
 
@@ -34,7 +34,7 @@ EXELIST	=	$(addsuffix /a.out, $(LISTDIR))
 all	:	$(DIR42) $(LIB42) $(EXELIST)
 
 %/a.out		:
-		$(CC) $(CFLAGS) -o $@ $(subst /a.out,,$@/src/main.c) $(LDFLAGS)
+		$(CC) $(CFLAGS) -o $@ $(subst /a.out,/src/main.c,$@) $(LDFLAGS)
 		printf '\033[1;31m%s \033[1;35m%s \033[1;33m%s\n\033[0m' "Linking C executable" "$@" "$(CC)"
 
 
