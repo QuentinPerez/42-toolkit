@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/26 12:53:04 by qperez            #+#    #+#             */
-/*   Updated: 2014/02/12 19:36:09 by qperez           ###   ########.fr       */
+/*   Updated: 2015/05/30 14:57:48 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,10 @@
 
 #include <stdbool.h>
 #include <stddef.h>
+#include <sys/mman.h>
+#include <f_error/m_error.h>
+#include <string.h>
+#include <errno.h>
 
 void	*uf_memset(void *src, unsigned char c, size_t size)
 {
@@ -73,4 +77,11 @@ bool	uf_memcmp(const void *left, const void *right, size_t size)
 		size = size - 1;
 	}
 	return (size == 0);
+}
+
+bool	uf_lockallmemory(void)
+{
+	if (mlockall(MCL_CURRENT | MCL_FUTURE) == -1)
+		return (M_ERROR(false, "mlockall: %s", strerror(errno)));
+	return (true);
 }
