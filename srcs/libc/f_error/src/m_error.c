@@ -57,7 +57,7 @@ size_t	mf_error(char nothing, size_t ret, const char *fmt, ...)
 	va_start(ap, fmt);
 	D_STRING(init)(&str, 0);
 	D_STRING(variadic_list)(&str, fmt, &ap);
-	D_STRING(add_str)(&str, ".\033[0;37m\n");
+	D_STRING(add_str)(&str, ".\033[0m\n");
 	D_STRING(print_fd)(&str, 2);
 	D_STRING(destroy)(&str);
 	va_end(ap);
