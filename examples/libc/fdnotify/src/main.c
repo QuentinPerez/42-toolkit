@@ -63,6 +63,7 @@ int		main(int argc, char const** argv)
 			dprintf(1, "timeout\n");
 		rep = rep - 1;
 	}
+	D_LIST(destroy)(&list);
 	(void)argc;
 	(void)argv;
 	return (0);
