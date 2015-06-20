@@ -35,14 +35,32 @@
 
 void	*uf_memset(void *src, unsigned char c, size_t size)
 {
-	unsigned char	*ptr;
+	size_t	*ptr;
+	size_t	a;
+	size_t	delim;
+	size_t	i;
 
-	ptr = (unsigned char *)src;
-	while (size > 0)
+	delim = size / sizeof(size_t);
+	a = c;
+	ptr = (size_t *)src;
+	i = 0;
+	while (i < sizeof(size_t) - 1)
 	{
-		*ptr = c;
-		ptr = ptr + 1;
-		size = size - 1;
+		a <<= 8;
+		a |= c;
+		i = i + 1;
+	}
+	i = 0;
+	while (i < delim)
+	{
+		ptr[i] = a;
+		i = i + 1;
+	}
+	i *= sizeof(size_t);
+	while (i < size)
+	{
+		((unsigned char*)ptr)[i] = c;
+		i = i + 1;
 	}
 	return (src);
 }
