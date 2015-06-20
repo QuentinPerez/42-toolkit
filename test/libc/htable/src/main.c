@@ -23,7 +23,7 @@ void	D_UNIT_FUNCT(ret_val)
 
 	i = 0;
 	str[5] = 0;
-	F_UNIT_ASSERT(D_HTABLE(init)(&htable, 613, 0, 0) == 1);
+	F_UNIT_ASSERT(D_HTABLE(init)(&htable, 613, 0, free) == 1);
 	while (i < 100)
 	{
 		str[0] = rand() % 200;
