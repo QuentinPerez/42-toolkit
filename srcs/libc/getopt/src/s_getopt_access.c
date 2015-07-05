@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/29 23:09:01 by qperez            #+#    #+#             */
-/*   Updated: 2014/02/12 19:44:08 by qperez           ###   ########.fr       */
+/*   Updated: 2015/07/04 20:50:31 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,8 @@ static bool	uf_getopt_check_option(t_getopt *v_this, const char *check)
 
 bool		f_getopt_option(t_getopt *v_this)
 {
-	size_t	size;
-	char	*av;
+	size_t		size;
+	const char	*av;
 
 	while (v_this->v_current_argc < v_this->v_argc)
 	{

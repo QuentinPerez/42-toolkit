@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/18 12:23:30 by qperez            #+#    #+#             */
-/*   Updated: 2014/10/13 15:10:55 by qperez           ###   ########.fr       */
+/*   Updated: 2015/07/03 16:37:53 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@
 # define F_SORT_H
 
 # include <stddef.h>
+# include <stdbool.h>
 
 void	uf_sort_bubble(int *ptr, size_t size);
 void	uf_sort_shell(int *ptr, size_t size);

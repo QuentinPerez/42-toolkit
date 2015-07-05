@@ -19,8 +19,14 @@
 #
 
 SHELL	=	bash
-CFLAGS	+=	-Wextra -Wall -Werror -Wshadow -I./include
-LDFLAGS	+=	-lpthread
+CFLAGS	+=	-Wextra -Wall -Werror -Wshadow \
+			-Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations -Wpointer-arith \
+			-Wcast-qual -Wsign-compare -Wfloat-equal -Wwrite-strings -Waggregate-return \
+			-Wconversion -Wunreachable-code \
+			-Wundef \
+			-ftrapv \
+			-I./include -O2
+#LDFLAGS	+=	-fmudflap -s
 DEBUG	=	-g3 -fno-inline
 
 OBJDIR	=	./.objs

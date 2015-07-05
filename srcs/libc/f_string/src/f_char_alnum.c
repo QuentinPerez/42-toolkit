@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/21 23:06:57 by qperez            #+#    #+#             */
-/*   Updated: 2014/02/12 19:32:16 by qperez           ###   ########.fr       */
+/*   Updated: 2015/07/03 16:25:22 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 */
 
 #include <stdbool.h>
+#include <f_string/f_char.h>
 
 bool	uf_is_alpha(const unsigned char c)
 {

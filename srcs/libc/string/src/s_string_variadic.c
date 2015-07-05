@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/25 19:19:43 by qperez            #+#    #+#             */
-/*   Updated: 2014/01/08 18:39:19 by qperez           ###   ########.fr       */
+/*   Updated: 2015/07/04 20:58:20 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,8 @@ static bool	uf_string_treat_argument(t_string *v_this, va_list *ap,
 	}
 	else if (**fmt == 'c')
 	{
-		if (D_STRING(add_char)(v_this, va_arg(*ap, int)) == false)
+		if (D_STRING(add_char)(v_this,
+								(unsigned char)va_arg(*ap, int)) == false)
 			return (false);
 	}
 	else
@@ -84,7 +85,7 @@ bool		f_string_variadic(t_string *v_this, const char *fmt, ...)
 	{
 		if (*fmt == '%')
 		{
-			if (D_STRING(add_nstr)(v_this, tmp, fmt - tmp) == false
+			if (D_STRING(add_nstr)(v_this, tmp, (size_t)(fmt - tmp)) == false
 				|| uf_string_treat_argument(v_this, &ap, &fmt) == false)
 				error = true;
 			fmt = fmt + 1;
@@ -94,7 +95,7 @@ bool		f_string_variadic(t_string *v_this, const char *fmt, ...)
 			fmt = fmt + 1;
 	}
 	if (error == false && tmp != fmt
-		&& D_STRING(add_nstr)(v_this, tmp, fmt - tmp) == false)
+		&& D_STRING(add_nstr)(v_this, tmp, (size_t)(fmt - tmp)) == false)
 		error = true;
 	va_end(ap);
 	return (error);
@@ -112,7 +113,7 @@ bool		f_string_variadic_list(t_string *v_this, const char *fmt,
 	{
 		if (*fmt == '%')
 		{
-			if (D_STRING(add_nstr)(v_this, tmp, fmt - tmp) == false
+			if (D_STRING(add_nstr)(v_this, tmp, (size_t)(fmt - tmp)) == false
 				|| uf_string_treat_argument(v_this, ap, &fmt) == false)
 				error = true;
 			fmt = fmt + 1;
@@ -122,7 +123,7 @@ bool		f_string_variadic_list(t_string *v_this, const char *fmt,
 			fmt = fmt + 1;
 	}
 	if (error == false && tmp != fmt
-		&& D_STRING(add_nstr)(v_this, tmp, fmt - tmp) == false)
+		&& D_STRING(add_nstr)(v_this, tmp, (size_t)(fmt - tmp)) == false)
 		error = true;
 	return (error);
 }

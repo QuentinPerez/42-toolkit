@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/07 20:56:15 by qperez            #+#    #+#             */
-/*   Updated: 2014/02/12 19:31:40 by qperez           ###   ########.fr       */
+/*   Updated: 2015/07/03 16:24:57 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 */
 
 #include <stdbool.h>
+#include <f_string/f_char.h>
 
 bool			uf_is_upper(const unsigned char c)
 {

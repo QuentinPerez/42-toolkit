@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/03 13:59:04 by qperez            #+#    #+#             */
-/*   Updated: 2014/02/12 19:42:21 by qperez           ###   ########.fr       */
+/*   Updated: 2015/07/04 20:44:01 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 */
 
 #include <array/s_array.h>
+#include <stdint.h>
 
 void	*mf_array_data(t_array *v_this)
 {
@@ -36,5 +37,5 @@ void	*mf_array_data(t_array *v_this)
 
 void	*mf_array_at(t_array *v_this, size_t index)
 {
-	return (v_this->v_data + index * v_this->v_type_size);
+	return ((void *)((uintptr_t)v_this->v_data + index * v_this->v_type_size));
 }

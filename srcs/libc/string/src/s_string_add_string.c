@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/25 18:44:48 by qperez            #+#    #+#             */
-/*   Updated: 2014/02/12 19:52:09 by qperez           ###   ########.fr       */
+/*   Updated: 2015/07/04 20:56:07 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ bool	f_string_add_char(t_string *v_this, unsigned char c)
 	if (v_this->v_size + 2 > v_this->v_capacity
 		&& uf_string_realloc(v_this, 2) == false)
 		return (false);
-	v_this->v_str[v_this->v_size] = c;
+	v_this->v_str[v_this->v_size] = (char)c;
 	v_this->v_size = v_this->v_size + 1;
 	v_this->v_str[v_this->v_size] = '\0';
 	return (true);

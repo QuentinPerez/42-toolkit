@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/06 21:20:02 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/19 15:09:38 by qperez           ###   ########.fr       */
+/*   Updated: 2015/07/03 16:41:06 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@
 #include <stddef.h>
 #include <f_string/f_str_tools.h>
 #include <f_memory/f_memory.h>
+#include <f_string/f_string.h>
 
 char	*uf_strcpy(char *dest, const char *src)
 {

@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/28 15:09:03 by qperez            #+#    #+#             */
-/*   Updated: 2014/11/08 18:03:47 by qperez           ###   ########.fr       */
+/*   Updated: 2015/07/03 16:39:52 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 */
 
 #include <f_string/f_print_fd.h>
+#include <f_string/f_str_tools.h>
 #include <f_error/m_error.h>
 
 size_t	uf_str_len(const char *str)

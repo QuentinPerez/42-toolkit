@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/06 22:29:30 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/20 14:20:02 by qperez           ###   ########.fr       */
+/*   Updated: 2015/07/04 17:25:29 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@
 #include <stddef.h>
 #include <f_string/f_str_tools.h>
 #include <f_memory/f_memory.h>
+#include <f_string/f_string.h>
 
 char		*uf_strcat(char *dest, const char *src)
 {
@@ -90,7 +91,7 @@ size_t		uf_strlcat(char *dest, const char *src, size_t size)
 	p_src = src;
 	p_dest = dest;
 	p_dest = uf_goto_end(p_dest, tmp);
-	dlen = p_dest - dest;
+	dlen = (size_t)(p_dest - dest);
 	tmp = size - dlen;
 	if (tmp == 0)
 		return (dlen + uf_str_len(p_src));
@@ -105,5 +106,5 @@ size_t		uf_strlcat(char *dest, const char *src, size_t size)
 		p_src = p_src + 1;
 	}
 	*p_dest = '\0';
-	return (dlen + (p_src - src));
+	return (dlen + (size_t)(p_src - src));
 }

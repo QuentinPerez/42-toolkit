@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/29 18:08:24 by qperez            #+#    #+#             */
-/*   Updated: 2014/02/12 19:43:52 by qperez           ###   ########.fr       */
+/*   Updated: 2015/07/04 20:50:10 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ typedef struct	s_getopt
 	char		**v_posibility;
 	char		*v_current_argv;
 	size_t		v_current_argc;
-	char		*v_next_argv;
-	char		**v_argv;
+	const char	*v_next_argv;
+	const char	**v_argv;
 	size_t		v_argc;
 }				t_getopt;
 

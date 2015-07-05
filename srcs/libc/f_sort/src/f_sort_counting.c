@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/22 14:33:19 by qperez            #+#    #+#             */
-/*   Updated: 2014/12/02 10:43:46 by qperez           ###   ########.fr       */
+/*   Updated: 2015/07/04 10:03:04 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,16 +33,17 @@
 #include <f_memory/f_memory.h>
 #include <f_math/f_math.h>
 #include <stdint.h>
+#include <f_sort/f_sort.h>
 
 static void	uf_sort_tab(int *tab, int *counter, int minmax[2])
 {
-	size_t	i;
-	int		j;
-	int		index;
+	int	i;
+	int	j;
+	int	index;
 
 	index = 0;
 	i = minmax[0];
-	while (i <= (size_t)minmax[1])
+	while (i <= minmax[1])
 	{
 		j = 0;
 		while (j < counter[i - minmax[0]])
@@ -62,7 +63,7 @@ static bool	uf_sort_make_counter(int *tab, size_t size, int minmax[2])
 	size_t	size_counter;
 
 	i = 0;
-	size_counter = minmax[1] - minmax[0] + 1;
+	size_counter = (size_t)(minmax[1] - minmax[0] + 1);
 	if ((counter = uf_malloc_s(size_counter, sizeof(*counter))) == NULL)
 		return (M_ERROR(false, "Bad alloc"));
 	uf_memset(counter, 0, sizeof(*counter) * size_counter);
@@ -91,8 +92,8 @@ bool		uf_sort_counting(int *tab, size_t size)
 		return (false);
 	while (i < size)
 	{
-		minmax[0] = uf_min(tab[i], minmax[0]);
-		minmax[1] = uf_max(tab[i], minmax[1]);
+		minmax[0] = (int)uf_min(tab[i], minmax[0]);
+		minmax[1] = (int)uf_max(tab[i], minmax[1]);
 		i = i + 1;
 	}
 	return (uf_sort_make_counter(tab, size, minmax));

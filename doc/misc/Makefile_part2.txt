@@ -43,7 +43,7 @@ debug	:	fclean all
 analyze	:
 		clang --analyze -Xanalyzer -analyzer-output=html $(SRC) -I./include
 
-every	:	CFLAGS += -Weverything
+every	:	CFLAGS += -Weverything -Wno-gnu-zero-variadic-macro-arguments
 every	:	fclean all
 		echo -e '\033[1;33mGood job !\033[0m'
 

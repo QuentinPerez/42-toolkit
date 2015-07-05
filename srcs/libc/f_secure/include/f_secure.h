@@ -44,9 +44,12 @@ bool	uf_hhu_mul(unsigned char a, unsigned char b, unsigned char *sum);
 bool	uf_hu_mul(unsigned short a, unsigned short b, unsigned short *sum);
 bool	uf_u_mul(unsigned int a, unsigned int b, unsigned int *sum);
 
-void	*uf_malloc_s(size_t nbr, size_t size);
-void	*uf_calloc_s(size_t nbr, size_t size);
-void	*uf_realloc_s(void *ptr, size_t nbr, size_t size);
+void	*uf_malloc_s(size_t nbr, size_t size)
+											__attribute__((warn_unused_result));
+void	*uf_calloc_s(size_t nbr, size_t size)
+											__attribute__((warn_unused_result));
+void	*uf_realloc_s(void *ptr, size_t nbr, size_t size)
+											__attribute__((warn_unused_result));
 void	uf_free_s(void **ptr);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/10/07 19:56:56 by qperez            #+#    #+#             */
-/*   Updated: 2015/04/09 15:18:33 by qperez           ###   ########.fr       */
+/*   Updated: 2015/07/03 16:23:43 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@
 #include <stdbool.h>
 #include <limits.h>
 #include <f_error/m_error.h>
+#include <f_secure/f_secure.h>
 
 bool	uf_hhu_add(unsigned char a, unsigned char b, unsigned char *sum)
 {

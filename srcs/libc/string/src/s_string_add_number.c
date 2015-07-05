@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/25 13:16:21 by qperez            #+#    #+#             */
-/*   Updated: 2014/02/12 19:51:22 by qperez           ###   ########.fr       */
+/*   Updated: 2015/07/04 20:55:46 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static size_t	uf_string_get_digit(ssize_t nbr, size_t base, size_t *alloc)
 		*alloc = *alloc + 1;
 		nbr = -nbr;
 	}
-	while ((nbr / digit) >= base)
+	while ((nbr / (ssize_t)digit) >= (ssize_t)base)
 	{
 		digit = digit * base;
 		*alloc = *alloc + 1;
@@ -69,7 +69,8 @@ bool			f_string_add_nbr_base(t_string *v_this,
 	}
 	while (digit > 0)
 	{
-		v_this->v_str[v_this->v_size] = v_this->v_hex[nbr / digit % base];
+		v_this->v_str[v_this->v_size] = v_this->v_hex[nbr
+											/ (ssize_t)digit % (ssize_t)base];
 		v_this->v_size = v_this->v_size + 1;
 		digit = digit / base;
 	}

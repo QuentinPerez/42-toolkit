@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/08 00:22:04 by qperez            #+#    #+#             */
-/*   Updated: 2014/10/29 10:19:42 by qperez           ###   ########.fr       */
+/*   Updated: 2015/07/03 17:12:19 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 */
 
 #include <f_string/f_print.h>
+#include <f_memory/f_memory.h>
 
 static void				uf_print_content(unsigned char *data, size_t size)
 {
@@ -39,7 +40,7 @@ static void				uf_print_content(unsigned char *data, size_t size)
 		if (data[i] < 32 || data[i] > 126)
 			uf_print_char('.');
 		else
-			uf_print_char(data[i]);
+			uf_print_char(((char *)data)[i]);
 		i = i + 1;
 	}
 	uf_print_char('\n');

@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/07 23:03:19 by qperez            #+#    #+#             */
-/*   Updated: 2014/11/08 18:08:41 by qperez           ###   ########.fr       */
+/*   Updated: 2015/07/04 15:45:08 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 */
 
 #include <f_string/f_char.h>
+#include <f_string/f_string.h>
 #include <stddef.h>
 
 int	uf_str_case_cmp(const char *left, const char *right)
@@ -35,12 +36,12 @@ int	uf_str_case_cmp(const char *left, const char *right)
 	unsigned char	left_letter;
 	unsigned char	right_letter;
 
-	left_letter = uf_to_lower(*left);
-	right_letter = uf_to_lower(*right);
+	left_letter = uf_to_lower((unsigned char)*left);
+	right_letter = uf_to_lower((unsigned char)*right);
 	while (*left != '\0' && *right != '\0')
 	{
-		left_letter = uf_to_lower(*left);
-		right_letter = uf_to_lower(*right);
+		left_letter = uf_to_lower((unsigned char)*left);
+		right_letter = uf_to_lower((unsigned char)*right);
 		if (left_letter != right_letter)
 			break ;
 		right = right + 1;
@@ -56,12 +57,12 @@ int	uf_str_case_ncmp(const char *left, const char *right, size_t count)
 
 	if (count == 0)
 		return (0);
-	left_letter = uf_to_lower(*left);
-	right_letter = uf_to_lower(*right);
+	left_letter = uf_to_lower((unsigned char)*left);
+	right_letter = uf_to_lower((unsigned char)*right);
 	while (*left != '\0' && *right != '\0' && count != 0)
 	{
-		left_letter = uf_to_lower(*left);
-		right_letter = uf_to_lower(*right);
+		left_letter = uf_to_lower((unsigned char)*left);
+		right_letter = uf_to_lower((unsigned char)*right);
 		count = count - 1;
 		if (left_letter != right_letter)
 			break ;

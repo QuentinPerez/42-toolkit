@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/22 11:46:25 by qperez            #+#    #+#             */
-/*   Updated: 2013/10/28 14:34:37 by qperez           ###   ########.fr       */
+/*   Updated: 2015/07/03 16:34:29 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@
 ** You should have received a copy of the GNU General Public License
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+
+#include <f_math/f_math.h>
 
 double	uf_min(const double x, const double y)
 {

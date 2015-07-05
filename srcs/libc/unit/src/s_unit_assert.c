@@ -30,6 +30,7 @@
 #include <f_secure/f_secure.h>
 #include <list/s_list.h>
 #include <unit/s_unit_test.h>
+#include <unit/s_unit.h>
 
 void	mf_unit_assert(t_unit_test *t, bool check, size_t line, char *file)
 {

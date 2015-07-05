@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/18 12:23:14 by qperez            #+#    #+#             */
-/*   Updated: 2014/02/12 19:38:55 by qperez           ###   ########.fr       */
+/*   Updated: 2015/07/03 16:37:32 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 */
 
 #include <stddef.h>
+#include <f_sort/f_sort.h>
 
 void	uf_sort_bubble(int *begin, size_t size)
 {

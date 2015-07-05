@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/28 12:30:46 by qperez            #+#    #+#             */
-/*   Updated: 2014/02/12 19:30:29 by qperez           ###   ########.fr       */
+/*   Updated: 2015/07/03 16:41:43 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+#include <f_error/m_error.h>
 #include <f_string/f_print_fd.h>
 #include <string/s_string.h>
 

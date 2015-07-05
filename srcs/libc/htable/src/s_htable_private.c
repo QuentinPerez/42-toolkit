@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/09 08:25:06 by qperez            #+#    #+#             */
-/*   Updated: 2014/12/02 10:49:28 by qperez           ###   ########.fr       */
+/*   Updated: 2015/07/04 20:51:27 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ size_t			f_htable_generate_key(size_t prime, const char *str)
 	len = uf_str_len(str);
 	while (i < len)
 	{
-		ret = (ret << 4) + str[i];
+		ret = (ret << 4) + (size_t)str[i];
 		tmp = ret & 0xF0000000;
 		if (tmp == 1)
 		{

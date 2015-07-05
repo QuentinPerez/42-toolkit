@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/30 11:05:34 by qperez            #+#    #+#             */
-/*   Updated: 2014/02/12 19:38:32 by qperez           ###   ########.fr       */
+/*   Updated: 2015/07/03 17:23:31 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,15 +40,15 @@ static void	uf_print_treat_argument(va_list *ap, const char **fmt, int fd)
 	else if (**fmt == 'x' || **fmt == 'X')
 		uf_print_nbr_base_fd(va_arg(*ap, int), 16, fd);
 	else if (**fmt == 'c')
-		uf_print_char_fd(va_arg(*ap, int), fd);
+		uf_print_char_fd((char)va_arg(*ap, int), fd);
 	else if (**fmt == 's')
 		uf_print_str_fd(va_arg(*ap, char *), fd);
 	else if (**fmt == 'p')
 		uf_print_addr_fd(va_arg(*ap, void *), fd);
 	else if (**fmt == 'e')
-		uf_print_color(va_arg(*ap, int));
+		uf_print_color((size_t)va_arg(*ap, int));
 	else if (**fmt == 'E')
-		uf_print_color_fx(va_arg(*ap, int), 1);
+		uf_print_color_fx((size_t)va_arg(*ap, int), 1);
 }
 
 void		uf_print_variadic_fd(int fd, const char *fmt, ...)
@@ -62,7 +62,7 @@ void		uf_print_variadic_fd(int fd, const char *fmt, ...)
 	{
 		if (*fmt == '%')
 		{
-			uf_print_nstr_fd(tmp, fmt - tmp, fd);
+			uf_print_nstr_fd(tmp, (size_t)(fmt - tmp), fd);
 			uf_print_treat_argument(&ap, &fmt, fd);
 			fmt = fmt + 1;
 			tmp = fmt;
@@ -71,7 +71,7 @@ void		uf_print_variadic_fd(int fd, const char *fmt, ...)
 			fmt = fmt + 1;
 	}
 	if (tmp != fmt)
-		uf_print_nstr_fd(tmp, fmt - tmp, fd);
+		uf_print_nstr_fd(tmp, (size_t)(fmt - tmp), fd);
 	va_end(ap);
 }
 
@@ -86,7 +86,7 @@ void		uf_print_variadic(const char *fmt, ...)
 	{
 		if (*fmt == '%')
 		{
-			uf_print_nstr_fd(tmp, fmt - tmp, 1);
+			uf_print_nstr_fd(tmp, (size_t)(fmt - tmp), 1);
 			uf_print_treat_argument(&ap, &fmt, 1);
 			fmt = fmt + 1;
 			tmp = fmt;
@@ -95,6 +95,6 @@ void		uf_print_variadic(const char *fmt, ...)
 			fmt = fmt + 1;
 	}
 	if (tmp != fmt)
-		uf_print_nstr_fd(tmp, fmt - tmp, 1);
+		uf_print_nstr_fd(tmp, (size_t)(fmt - tmp), 1);
 	va_end(ap);
 }

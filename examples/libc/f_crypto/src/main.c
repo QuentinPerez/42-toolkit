@@ -25,8 +25,6 @@ int		main(int argc, char const** argv)
 
 	/*
 	 * Cleaning before everything ... .. .
-	 * Pff see it, sizeof(*dest) * 50 = 50 it's stupid
-	 * ... In 2256 sizeof(char) = 2 ?!? Who has true ?
 	 */
 	uf_memset(dest, 0, sizeof(*dest) * 50);
 	/*
@@ -35,17 +33,15 @@ int		main(int argc, char const** argv)
 	uf_strcpy(dest, "The president is not dead, for the moment");
 	uf_print_variadic("Msg : %s\n", dest);
 	/*
-	 * Use xor algorthym to encrypt msg ... Ahah NSA
-	 * If i use the letter rate i can crack your msg
-	 * ... Go to play in the sandbox
+	 * Use xor algorthym to encrypt msg ...
 	 */
 	uf_print_str("Xor Power\n");
-	uf_crypto_xor(dest, "01/10/1110", sizeof(*dest) * 50);
+	uf_crypto_xor(dest, (const unsigned char *)"01/10/1110", sizeof(*dest) * 50);
 	uf_print_variadic("Encrypt Msg : %s\n", dest);
 	/*
 	 * Reuse xor algorthym to decrypt msg
 	 */
-	uf_crypto_xor(dest, "01/10/1110", sizeof(*dest) * 50);
+	uf_crypto_xor(dest, (const unsigned char *)"01/10/1110", sizeof(*dest) * 50);
 	uf_print_variadic("Decrypt Msg : %s\n", dest);
 	/*
 	 * Now use a rot algorithym the 13

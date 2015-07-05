@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/29 17:30:08 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/03 23:50:46 by qperez           ###   ########.fr       */
+/*   Updated: 2015/07/03 16:35:14 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 */
 
 #include <f_string/f_print_fd.h>
+#include <f_string/f_print.h>
 
 ssize_t	uf_print_char(char c)
 {

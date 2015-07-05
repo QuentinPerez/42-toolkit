@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/16 12:38:55 by qperez            #+#    #+#             */
-/*   Updated: 2014/02/12 19:53:18 by qperez           ###   ########.fr       */
+/*   Updated: 2015/07/04 20:59:47 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,8 +78,10 @@ size_t	f_timer_get_ticks(t_timer *v_this)
 	if (v_this->v_started == false)
 		return (0);
 	if (v_this->v_paused == true)
-		return (v_this->v_pause.tv_sec * 1000 + v_this->v_pause.tv_usec / 1000);
+		return ((size_t)v_this->v_pause.tv_sec * 1000 +
+						(size_t)v_this->v_pause.tv_usec / 1000);
 	gettimeofday(&tmp, NULL);
-	return ((tmp.tv_sec * 1000 + tmp.tv_usec / 1000) -
-	(v_this->v_start.tv_sec * 1000 + v_this->v_start.tv_usec / 1000));
+	return (((size_t)tmp.tv_sec * 1000 + (size_t)tmp.tv_usec / 1000) -
+	((size_t)v_this->v_start.tv_sec * 1000 +
+	(size_t)v_this->v_start.tv_usec / 1000));
 }

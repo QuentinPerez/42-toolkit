@@ -29,6 +29,7 @@
 
 #include <unit/s_unit.h>
 #include <unit/s_unit_test.h>
+#include <unit/s_unit_context.h>
 #include <list/s_list.h>
 #include <f_string/f_print.h>
 

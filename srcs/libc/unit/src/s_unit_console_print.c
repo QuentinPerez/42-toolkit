@@ -29,10 +29,11 @@
 
 #include <unit/s_unit.h>
 #include <unit/s_unit_context.h>
+#include <unit/s_unit_console.h>
 #include <f_string/f_str_tools.h>
 #include <f_string/f_print.h>
 
-void	uf_unit_print_nchar(size_t size, char c)
+static void	uf_unit_print_nchar(size_t size, char c)
 {
 	size_t	i;
 
@@ -44,8 +45,8 @@ void	uf_unit_print_nchar(size_t size, char c)
 	}
 }
 
-void	uf_unit_print_console(t_unit *v_this, const char *info,
-							bool menu, char c)
+void		uf_unit_print_console(t_unit *v_this, const char *info,
+								bool menu, char c)
 {
 	size_t	tmp;
 
@@ -62,7 +63,7 @@ void	uf_unit_print_console(t_unit *v_this, const char *info,
 						34, 0, 34, 0, 34, 0, 34, 0, 34, 0, 34, 0, 35, 0);
 }
 
-bool	uf_unit_print_context(void *data)
+bool		uf_unit_print_context(void *data)
 {
 	t_unit_context	*context;
 
@@ -77,7 +78,7 @@ bool	uf_unit_print_context(void *data)
 		uf_print_variadic("%eYes\t%E ", 32, 37);
 	else
 		uf_print_variadic("%e  No\t%e ", 31, 37);
-	uf_print_nbr(D_LIST(size)(&context->v_test));
+	uf_print_nbr((ssize_t)D_LIST(size)(&context->v_test));
 	uf_print_str("\n\033[0m");
 	return (true);
 }

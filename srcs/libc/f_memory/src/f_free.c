@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/08 11:37:57 by qperez            #+#    #+#             */
-/*   Updated: 2014/12/02 12:02:09 by qperez           ###   ########.fr       */
+/*   Updated: 2015/07/03 16:29:23 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 */
 
 #include <f_secure/f_secure.h>
+#include <f_memory/f_free.h>
 
 void	uf_free_tab(void **tab)
 {

@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/23 13:04:55 by qperez            #+#    #+#             */
-/*   Updated: 2014/02/12 19:39:55 by qperez           ###   ########.fr       */
+/*   Updated: 2015/07/04 10:04:10 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 */
 
 #include <stddef.h>
+#include <f_sort/f_sort.h>
 
 static inline void	uf_sort_quick_swap(int **left, int **right)
 {
@@ -65,6 +66,6 @@ void				uf_sort_quick(int *ptr, size_t size)
 		}
 		uf_sort_quick_swap(&left, &right);
 	}
-	uf_sort_quick(ptr, right - ptr + 1);
-	uf_sort_quick(left, ptr + size - left);
+	uf_sort_quick(ptr, (size_t)(right - ptr + 1));
+	uf_sort_quick(left, (size_t)(ptr + size - left));
 }

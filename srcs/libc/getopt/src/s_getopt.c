@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/29 18:02:55 by qperez            #+#    #+#             */
-/*   Updated: 2014/02/12 19:43:28 by qperez           ###   ########.fr       */
+/*   Updated: 2015/07/04 20:49:03 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,14 +115,14 @@ bool		f_getopt_init(t_getopt *v_this, int argc,
 		return (false);
 	if (uf_getopt_split_posibility(v_this, opt) == false)
 		return (false);
-	if (uf_getopt_init_option(v_this, argc, argv) == false)
+	if (uf_getopt_init_option(v_this, (size_t)argc, argv) == false)
 		return (false);
 	if (v_this->v_posibility != NULL)
 		uf_free_tab((void **)v_this->v_posibility);
 	v_this->v_posibility = NULL;
 	v_this->v_current_argc = 1;
-	v_this->v_argv = (char **)argv;
-	v_this->v_argc = argc;
+	v_this->v_argv = argv;
+	v_this->v_argc = (size_t)argc;
 	return (true);
 }
 

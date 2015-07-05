@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/26 12:48:37 by qperez            #+#    #+#             */
-/*   Updated: 2015/05/30 14:58:16 by qperez           ###   ########.fr       */
+/*   Updated: 2015/07/03 16:33:39 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@
 
 void	*uf_memset(void *src, unsigned char c, size_t size);
 void	uf_memcpy(void *to, const void *from, size_t size);
-bool	uf_memcmp(const void *left, void *right, size_t size);
+bool	uf_memcmp(const void *left, const void *right, size_t size);
 void	*uf_print_memory(const void *addr, size_t size);
 bool	uf_lockallmemory(void);
 

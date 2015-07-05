@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/23 13:43:18 by qperez            #+#    #+#             */
-/*   Updated: 2014/12/02 10:44:10 by qperez           ###   ########.fr       */
+/*   Updated: 2015/07/03 16:38:25 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@
 #include <stdbool.h>
 #include <f_error/m_error.h>
 #include <f_secure/f_secure.h>
+#include <f_sort/f_sort.h>
 #include <stdint.h>
 
 static inline void	uf_merge_assign(int *ptr, int *tmp, int *index, int *value)

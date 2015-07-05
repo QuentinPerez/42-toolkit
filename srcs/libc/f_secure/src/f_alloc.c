@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/12/02 10:14:09 by qperez            #+#    #+#             */
-/*   Updated: 2014/12/02 10:36:04 by qperez           ###   ########.fr       */
+/*   Updated: 2015/07/03 16:24:13 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@
 #include <stdlib.h>
 #include <stdint.h>
 #include <f_error/m_error.h>
+#include <f_secure/f_secure.h>
 
 void	*uf_malloc_s(size_t nbr, size_t size)
 {

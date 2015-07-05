@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/07 23:41:00 by qperez            #+#    #+#             */
-/*   Updated: 2014/02/12 19:40:16 by qperez           ###   ########.fr       */
+/*   Updated: 2015/07/04 10:04:38 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 */
 
 #include <stdbool.h>
+#include <f_string/f_space.h>
 
 bool	uf_is_space(const unsigned char c)
 {
@@ -37,7 +38,7 @@ bool	uf_is_space(const unsigned char c)
 
 char	*uf_skip_space(const char *str)
 {
-	while (uf_is_space(*str) == true)
+	while (uf_is_space((const unsigned char)*str) == true)
 		str = str + 1;
 	return ((char *)str);
 }

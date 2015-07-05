@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/10/07 20:10:06 by qperez            #+#    #+#             */
-/*   Updated: 2015/04/09 15:20:14 by qperez           ###   ########.fr       */
+/*   Updated: 2015/07/03 16:34:54 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 
 #include <stdbool.h>
 #include <limits.h>
+#include <f_secure/f_secure.h>
 #include <f_error/m_error.h>
 
 bool	uf_hhu_mul(unsigned char a, unsigned char b, unsigned char *sum)

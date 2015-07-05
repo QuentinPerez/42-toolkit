@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/08 19:59:30 by qperez            #+#    #+#             */
-/*   Updated: 2014/02/12 19:46:09 by qperez           ###   ########.fr       */
+/*   Updated: 2015/07/04 20:51:01 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	f_htable_print(t_htable *v_this, bool (*uf_print)(t_htable_cell *data))
 		if (D_LIST(size)(list + i) > 0)
 		{
 			uf_print_char('[');
-			uf_print_nbr(i);
+			uf_print_nbr((ssize_t)i);
 			uf_print_str("]-> ");
 			D_LIST(foreach)(list + i, (bool (*)(void *))uf_print);
 			uf_print_char('\n');

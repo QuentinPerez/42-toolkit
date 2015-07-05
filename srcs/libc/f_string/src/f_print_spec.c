@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/25 15:16:37 by qperez            #+#    #+#             */
-/*   Updated: 2014/02/12 19:38:19 by qperez           ###   ########.fr       */
+/*   Updated: 2015/07/03 17:16:08 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 */
 
 #include <f_string/f_print_fd.h>
+#include <f_string/f_print.h>
 
 void	uf_print_floating_nbr_fd(double nbr, size_t digit, int fd)
 {
@@ -36,7 +37,7 @@ void	uf_print_floating_nbr_fd(double nbr, size_t digit, int fd)
 	{
 		nbr = nbr - (ssize_t)nbr;
 		nbr = nbr * 10;
-		uf_print_char_fd((ssize_t)nbr + '0', fd);
+		uf_print_char_fd((char)((ssize_t)nbr + '0'), fd);
 		digit = digit - 1;
 	}
 }

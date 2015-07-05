@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/07 20:14:55 by qperez            #+#    #+#             */
-/*   Updated: 2014/02/12 19:40:43 by qperez           ###   ########.fr       */
+/*   Updated: 2015/07/03 16:40:50 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 */
 
 #include <stddef.h>
+#include <f_string/f_string.h>
 
 int	uf_strcmp(const char *left, const char *right)
 {

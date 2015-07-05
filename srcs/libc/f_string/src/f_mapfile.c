@@ -6,13 +6,14 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/26 22:26:46 by qperez            #+#    #+#             */
-/*   Updated: 2015/04/19 14:08:17 by qperez           ###   ########.fr       */
+/*   Updated: 2015/07/03 17:11:46 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <sys/mman.h>
 #include <fcntl.h>
 #include <f_error/m_error.h>
+#include <f_string/f_string.h>
 #include <stdint.h>
 #include <sys/stat.h>
 #include <unistd.h>
@@ -33,13 +34,13 @@ char	*uf_mapfile(const char *name, size_t *len,
 		return ((char *)M_ERROR(0, "The file parameter are not"
 		"available"));
 	}
-	if ((ret = mmap(NULL, st.st_size, map_flags,
+	if ((ret = mmap(NULL, (size_t)st.st_size, map_flags,
 		private == true ? MAP_PRIVATE : MAP_SHARED, fd, 0)) == MAP_FAILED)
 	{
 		close(fd);
 		return ((char *)M_ERROR(0, "Could'nt map the file"));
 	}
-	*len = st.st_size;
+	*len = (size_t)st.st_size;
 	close(fd);
 	return (ret);
 }

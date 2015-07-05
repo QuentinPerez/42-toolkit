@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/08/28 20:58:01 by qperez            #+#    #+#             */
-/*   Updated: 2014/12/02 10:54:22 by qperez           ###   ########.fr       */
+/*   Updated: 2015/07/04 20:51:59 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+#include <list/s_list.h>
 #include <list/s_list_cell.h>
 #include <f_secure/f_secure.h>
 

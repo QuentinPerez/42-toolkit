@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/21 23:36:28 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/04 09:30:27 by qperez           ###   ########.fr       */
+/*   Updated: 2015/07/03 16:25:43 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@
 */
 
 #include <f_math/d_math.h>
+#include <f_math/f_convert.h>
 
 double	uf_deg_to_rad(double deg)
 {

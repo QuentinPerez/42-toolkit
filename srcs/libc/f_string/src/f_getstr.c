@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/30 13:45:49 by qperez            #+#    #+#             */
-/*   Updated: 2014/02/12 19:35:01 by qperez           ###   ########.fr       */
+/*   Updated: 2015/07/03 17:01:22 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,13 @@
 #include <unistd.h>
 #include <string/s_string.h>
 #include <f_error/m_error.h>
+#include <f_string/f_string.h>
 
 static bool	uf_get_data(t_string *string, int fd, unsigned char terminate,
 																	bool del)
 {
-	char	c;
-	size_t	nb_read;
+	unsigned char	c;
+	ssize_t			nb_read;
 
 	nb_read = read(fd, &c, 1);
 	while (nb_read == 1)

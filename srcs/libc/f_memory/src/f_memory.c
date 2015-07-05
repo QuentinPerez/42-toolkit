@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/09/26 12:53:04 by qperez            #+#    #+#             */
-/*   Updated: 2015/05/30 14:57:48 by qperez           ###   ########.fr       */
+/*   Updated: 2015/07/03 16:33:03 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@
 #include <f_error/m_error.h>
 #include <string.h>
 #include <errno.h>
+#include <f_memory/f_memory.h>
 
 void	*uf_memset(void *src, unsigned char c, size_t size)
 {

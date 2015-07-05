@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/21 23:50:31 by qperez            #+#    #+#             */
-/*   Updated: 2013/11/04 20:33:05 by qperez           ###   ########.fr       */
+/*   Updated: 2015/07/03 16:21:29 by qperez           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@
 ** You should have received a copy of the GNU General Public License
 ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
+
+#include <f_math/f_math.h>
 
 double	uf_abs(double value)
 {
