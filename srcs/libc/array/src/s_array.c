@@ -76,6 +76,7 @@ void					f_array_clear(t_array *v_this)
 		v_this->f_delete((void*)(ptr + i));
 		i = i + v_this->v_type_size;
 	}
+	v_this->v_size = 0;
 }
 
 void					f_array_destroy(t_array *v_this)

@@ -29,6 +29,7 @@
 
 #include <array/s_array.h>
 #include <stdint.h>
+#include <f_error/m_error.h>
 
 void	*mf_array_data(t_array *v_this)
 {
@@ -37,5 +38,7 @@ void	*mf_array_data(t_array *v_this)
 
 void	*mf_array_at(t_array *v_this, size_t index)
 {
+	if (index >= v_this->v_size)
+		return ((void *)M_ERROR((size_t)0,"Out of range"));
 	return ((void *)((uintptr_t)v_this->v_data + index * v_this->v_type_size));
 }

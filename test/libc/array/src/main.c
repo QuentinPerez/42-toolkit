@@ -11,112 +11,354 @@
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <unit/s_unit.h>
+#include <stdarg.h>
+#include <setjmp.h>
+#include <cmocka.h>
 #include <array/s_array.h>
+#include <stdio.h>
 
-struct	s_leaks
-{
-	int	*v_leak;
-};
-
-void	uf_delete_leak(void *d)
-{
-	struct s_leaks	*leak;
-
-	leak = (struct s_leaks*)d;
-	free(leak->v_leak);
-}
-
-bool	uf_cmp(void *d1, void *d2)
-{
-	return (*(int*)d1 == *(int*)d2);
-}
-
-void	D_UNIT_FUNCT(memleaks)
-{
-	int				i;
-	t_array			array;
-	struct s_leaks	leak;
-
-	i = 0;
-	D_ARRAY(init)(&array, 0, 0, sizeof(int));
-	while (i < 987654)
-	{
-		D_ARRAY(push_back)(&array, &i);
-		i = i + 1;
-	}
-	i = 67;
-	D_ARRAY(delete_if)(&array, uf_cmp, &i);
-	D_ARRAY(resize)(&array, 9876543);
-	D_ARRAY(destroy)(&array);
-	i = 0;
-	D_ARRAY(init)(&array, 0, uf_delete_leak, sizeof(struct s_leaks));
-	while (i < 987654)
-	{
-		leak.v_leak = malloc(sizeof(int));
-		D_ARRAY(push_back)(&array, &leak);
-		i = i + 1;
-	}
-	D_ARRAY(destroy)(&array);
-	(void)t;
-}
-
-void	D_UNIT_FUNCT(getter)
-{
-	int		i;
+static void
+data(void **state) {
 	t_array	array;
 
-	i = 0;
-	D_ARRAY(init)(&array, 0, 0, sizeof(size_t));
-	F_UNIT_ASSERT(F_ARRAY_DATA(&array, void *) != NULL);
-	F_UNIT_ASSERT(F_ARRAY_AT(&array, 0, void *) != NULL);
-	F_UNIT_ASSERT(D_ARRAY(size)(&array) == 0);
-	F_UNIT_ASSERT(D_ARRAY(empty)(&array) == 1);
-	while (i < 987654)
-	{
-		D_ARRAY(push_back)(&array, &i);
-		i = i + 1;
-	}
-	F_UNIT_ASSERT(D_ARRAY(size)(&array) == 987654);
-	F_UNIT_ASSERT(D_ARRAY(empty)(&array) == 0);
+	assert_true(D_ARRAY(init)(&array, 0, 0, sizeof(size_t)));
+	assert_ptr_equal(F_ARRAY_DATA(&array, size_t *), array.v_data);
 	D_ARRAY(destroy)(&array);
+	(void)state;
 }
 
-bool	uf_foreach(void *d)
-{
-	(void)d;
-	return (true);
-}
-
-void	D_UNIT_FUNCT(ret_val)
-{
-	int		i;
+static void
+at_out_of_range(void **state) {
 	t_array	array;
 
-	i = 0;
-	F_UNIT_ASSERT(D_ARRAY(init)(&array, 0, 0, sizeof(int)) == 1);
-	while (i < 987654)
-	{
-		F_UNIT_ASSERT(D_ARRAY(push_back)(&array, &i) == 1);
-		i = i + 1;
-	}
-	F_UNIT_ASSERT(D_ARRAY(foreach)(&array, uf_foreach) == 1);
+	assert_true(D_ARRAY(init)(&array, 0, 0, sizeof(size_t)));
+	assert_null(F_ARRAY_AT(&array, 0, size_t));
 	D_ARRAY(destroy)(&array);
+	(void)state;
 }
 
-int		main(int argc, char const** argv)
-{
-	t_unit	unit;
+static void
+at(void **state) {
+	t_array	array;
+	size_t	put = 0;
 
-	D_UNIT(init)(&unit);
-	D_UNIT(add_context)(&unit, "Leaks", 0, 0);
-	D_UNIT(add_context)(&unit, "Method", 0, 0);
-	F_UNIT_ADD_TEST(&unit, "Leaks", memleaks);
-	F_UNIT_ADD_TEST(&unit, "Method", getter);
-	F_UNIT_ADD_TEST(&unit, "Method", ret_val);
-	D_UNIT(console_run)(&unit);
-	D_UNIT(destroy)(&unit);
+	assert_true(D_ARRAY(init)(&array, 0, 0, sizeof(size_t)));
+	assert_true(D_ARRAY(push_back)(&array, &put));
+	put++;
+	assert_non_null(F_ARRAY_AT(&array, 0, size_t));
+	assert_int_equal(*(size_t *)F_ARRAY_AT(&array, 0, size_t), 0);
+	D_ARRAY(destroy)(&array);
+	(void)state;
+}
+
+static bool
+uf_cmp(void *d1, void *d2) {
+	return (*(size_t *)d1 == *(size_t *)d2);
+}
+
+static void
+delete_if(void **state) {
+	t_array	array;
+	size_t	put = 0;
+	size_t	cmp = 1;
+
+	assert_true(D_ARRAY(init)(&array, 0, 0, sizeof(size_t)));
+	assert_true(D_ARRAY(push_back)(&array, &put));
+	put++;
+	assert_true(D_ARRAY(push_back)(&array, &put));
+	put++;
+	assert_true(D_ARRAY(push_back)(&array, &put));
+	put++;
+	D_ARRAY(delete_if)(&array, uf_cmp, &cmp);
+	assert_int_equal(*(size_t *)F_ARRAY_AT(&array, 0, size_t), 0);
+	assert_int_equal(*(size_t *)F_ARRAY_AT(&array, 1, size_t), 2);
+	assert_int_equal(D_ARRAY(size)(&array), 2);
+	D_ARRAY(destroy)(&array);
+	(void)state;
+}
+static void
+delete_if_double(void **state) {
+	t_array	array;
+	size_t	put = 0;
+	size_t	cmp = 1;
+
+	assert_true(D_ARRAY(init)(&array, 0, 0, sizeof(size_t)));
+	assert_true(D_ARRAY(push_back)(&array, &put));
+	put++;
+	assert_true(D_ARRAY(push_back)(&array, &put));
+	assert_true(D_ARRAY(push_back)(&array, &put));
+	put++;
+	assert_true(D_ARRAY(push_back)(&array, &put));
+	put++;
+	D_ARRAY(delete_if)(&array, uf_cmp, &cmp);
+	assert_int_equal(*(size_t *)F_ARRAY_AT(&array, 0, size_t), 0);
+	assert_int_equal(*(size_t *)F_ARRAY_AT(&array, 1, size_t), 2);
+	assert_int_equal(D_ARRAY(size)(&array), 2);
+	D_ARRAY(destroy)(&array);
+	(void)state;
+}
+
+static void
+delete_if_last(void **state) {
+	t_array	array;
+	size_t	put = 0;
+	size_t	cmp = 2;
+
+	assert_true(D_ARRAY(init)(&array, 0, 0, sizeof(size_t)));
+	assert_true(D_ARRAY(push_back)(&array, &put));
+	put++;
+	assert_true(D_ARRAY(push_back)(&array, &put));
+	put++;
+	assert_true(D_ARRAY(push_back)(&array, &put));
+	put++;
+	D_ARRAY(delete_if)(&array, uf_cmp, &cmp);
+	assert_int_equal(*(size_t *)F_ARRAY_AT(&array, 0, size_t), 0);
+	assert_int_equal(*(size_t *)F_ARRAY_AT(&array, 1, size_t), 1);
+	assert_int_equal(D_ARRAY(size)(&array), 2);
+	D_ARRAY(destroy)(&array);
+	(void)state;
+}
+
+static void
+delete_if_first(void **state) {
+	t_array	array;
+	size_t	put = 0;
+	size_t	cmp = 0;
+
+	assert_true(D_ARRAY(init)(&array, 0, 0, sizeof(size_t)));
+	assert_true(D_ARRAY(push_back)(&array, &put));
+	put++;
+	assert_true(D_ARRAY(push_back)(&array, &put));
+	put++;
+	assert_true(D_ARRAY(push_back)(&array, &put));
+	put++;
+	D_ARRAY(delete_if)(&array, uf_cmp, &cmp);
+	assert_int_equal(*(size_t *)F_ARRAY_AT(&array, 0, size_t), 1);
+	assert_int_equal(*(size_t *)F_ARRAY_AT(&array, 1, size_t), 2);
+	assert_int_equal(D_ARRAY(size)(&array), 2);
+	D_ARRAY(destroy)(&array);
+	(void)state;
+}
+
+static size_t	uf_realloc(size_t size) {
+	return (size + 1);
+}
+
+static void
+resize(void **state) {
+	t_array	array;
+
+	assert_true(D_ARRAY(init)(&array, uf_realloc, 0, sizeof(size_t)));
+	assert_true(D_ARRAY(resize)(&array, 10));
+	assert_int_equal(D_ARRAY(capacity)(&array), 10);
+	assert_int_equal(D_ARRAY(size)(&array), 0);
+	D_ARRAY(destroy)(&array);
+	(void)state;
+}
+
+static void
+resize_fail(void **state) {
+	t_array	array;
+
+	assert_true(D_ARRAY(init)(&array, uf_realloc, 0, sizeof(size_t)));
+	assert_true(D_ARRAY(resize)(&array, 10));
+	assert_false(D_ARRAY(resize)(&array, 1));
+	D_ARRAY(destroy)(&array);
+	(void)state;
+}
+
+static void
+capacity(void **state) {
+	t_array	array;
+	size_t	put = 0;
+
+	assert_true(D_ARRAY(init)(&array, uf_realloc, 0, sizeof(size_t)));
+	assert_true(D_ARRAY(push_back)(&array, &put));
+	put++;
+	assert_true(D_ARRAY(push_back)(&array, &put));
+	assert_int_equal(D_ARRAY(capacity)(&array), 2);
+	put++;
+	assert_true(D_ARRAY(push_back)(&array, &put));
+	assert_int_equal(D_ARRAY(capacity)(&array), 3);
+	D_ARRAY(destroy)(&array);
+	(void)state;
+}
+
+
+static void
+destroy(void **state) {
+	t_array	array;
+	size_t	put = 4;
+
+	assert_true(D_ARRAY(init)(&array, 0, 0, sizeof(size_t)));
+	assert_true(D_ARRAY(push_back)(&array, &put));
+	assert_int_equal(D_ARRAY(size)(&array), 1);
+	assert_int_equal(*(size_t *)F_ARRAY_AT(&array, 0, size_t), 4);
+	D_ARRAY(destroy)(&array);
+	assert_true(D_ARRAY(init)(&array, 0, 0, sizeof(size_t)));
+	assert_true(D_ARRAY(push_back)(&array, &put));
+	assert_int_equal(D_ARRAY(size)(&array), 1);
+	assert_int_equal(*(size_t *)F_ARRAY_AT(&array, 0, size_t), 4);
+	D_ARRAY(destroy)(&array);
+	(void)state;
+}
+
+static bool
+uf_foreach(void *data) {
+	size_t	*value = (size_t*)data;
+
+	*value = *value + 10;
+	return true;
+}
+
+static void
+foreach(void **state) {
+	t_array	array;
+	size_t	put;
+
+	assert_true(D_ARRAY(init)(&array, 0, 0, sizeof(size_t)));
+	for (put = 0; put < 10; put++) {
+		assert_true(D_ARRAY(push_back)(&array, &put));
+	}
+	D_ARRAY(foreach)(&array, uf_foreach);
+	for (put = 0; put < 10; put++) {
+		assert_int_equal(*(size_t *)F_ARRAY_AT(&array, put, size_t), put + 10);
+	}
+	D_ARRAY(destroy)(&array);
+	(void)state;
+}
+
+static void
+empty(void **state) {
+	t_array	array;
+	size_t	put;
+
+	assert_true(D_ARRAY(init)(&array, 0, 0, sizeof(int)));
+	for (put = 0; put < 10; put++) {
+		assert_true(D_ARRAY(push_back)(&array, &put));
+	}
+	assert_false(D_ARRAY(empty)(&array));
+	D_ARRAY(clear)(&array);
+	assert_true(D_ARRAY(empty)(&array));
+	D_ARRAY(destroy)(&array);
+	(void)state;
+}
+
+static void
+clear_and_push_back(void **state) {
+	t_array	array;
+	size_t	put;
+
+	assert_true(D_ARRAY(init)(&array, 0, 0, sizeof(int)));
+	for (put = 0; put < 10; put++) {
+		assert_true(D_ARRAY(push_back)(&array, &put));
+	}
+	D_ARRAY(clear)(&array);
+	assert_int_equal(D_ARRAY(size)(&array), 0);
+	for (put = 0; put < 10; put++) {
+		assert_true(D_ARRAY(push_back)(&array, &put));
+	}
+	assert_int_equal(D_ARRAY(size)(&array), 10);
+	D_ARRAY(destroy)(&array);
+	(void)state;
+}
+
+static void
+clear(void **state) {
+	t_array	array;
+	size_t	put;
+
+	assert_true(D_ARRAY(init)(&array, 0, 0, sizeof(int)));
+	for (put = 0; put < 10; put++) {
+		assert_true(D_ARRAY(push_back)(&array, &put));
+	}
+	D_ARRAY(clear)(&array);
+	assert_int_equal(D_ARRAY(size)(&array), 0);
+	D_ARRAY(destroy)(&array);
+	(void)state;
+}
+
+static void
+push_back_1000_values(void **state) {
+	t_array	array;
+	size_t	put;
+
+	assert_true(D_ARRAY(init)(&array, 0, 0, sizeof(size_t)));
+	for (put = 0; put < 1000; put++) {
+		assert_true(D_ARRAY(push_back)(&array, &put));
+		assert_int_equal(D_ARRAY(size)(&array), put + 1);
+	}
+	for (put = 0; put < 1000; put++) {
+		assert_int_equal(*(size_t *)F_ARRAY_AT(&array, put, size_t), put);
+	}
+	D_ARRAY(destroy)(&array);
+	(void)state;
+}
+
+static void
+push_back_10_values(void **state) {
+	t_array	array;
+	size_t	put;
+
+	assert_true(D_ARRAY(init)(&array, 0, 0, sizeof(size_t)));
+	for (put = 0; put < 10; put++) {
+		assert_true(D_ARRAY(push_back)(&array, &put));
+		assert_int_equal(D_ARRAY(size)(&array), put + 1);
+	}
+	for (put = 0; put < 10; put++) {
+		assert_int_equal(*(size_t *)F_ARRAY_AT(&array, put, size_t), put);
+	}
+	D_ARRAY(destroy)(&array);
+	(void)state;
+}
+
+static void
+push_back(void **state) {
+	t_array	array;
+	size_t	put = 4;
+
+	assert_true(D_ARRAY(init)(&array, 0, 0, sizeof(size_t)));
+	assert_true(D_ARRAY(push_back)(&array, &put));
+	assert_int_equal(D_ARRAY(size)(&array), 1);
+	assert_int_equal(*(size_t *)F_ARRAY_AT(&array, 0, size_t), 4);
+	D_ARRAY(destroy)(&array);
+	(void)state;
+}
+
+static void
+init(void **state) {
+	t_array	array;
+
+	assert_true(D_ARRAY(init)(&array, 0, 0, sizeof(int)));
+	D_ARRAY(destroy)(&array);
+	(void)state;
+}
+
+int
+main(int argc, char const** argv) {
+	const struct CMUnitTest	test[] = {
+		cmocka_unit_test(init),
+		cmocka_unit_test(push_back),
+		cmocka_unit_test(push_back_10_values),
+		cmocka_unit_test(push_back_1000_values),
+		cmocka_unit_test(clear),
+		cmocka_unit_test(clear_and_push_back),
+		cmocka_unit_test(empty),
+		cmocka_unit_test(foreach),
+		cmocka_unit_test(destroy),
+		cmocka_unit_test(capacity),
+		cmocka_unit_test(delete_if),
+		cmocka_unit_test(delete_if_double),
+		cmocka_unit_test(delete_if_last),
+		cmocka_unit_test(delete_if_first),
+		cmocka_unit_test(at),
+		cmocka_unit_test(at_out_of_range),
+		cmocka_unit_test(data),
+		cmocka_unit_test(resize),
+		cmocka_unit_test(resize_fail),
+	};
+
 	(void)argc;
 	(void)argv;
-	return (0);
+	return (cmocka_run_group_tests(test, 0, 0));
 }

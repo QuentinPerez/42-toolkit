@@ -19,11 +19,13 @@
 #
 
 DIR42	=	lib42
-CFLAGS	+=	-Wextra -Wall -Werror -I./$(DIR42)/include
-LDFLAGS	+=	-L./$(DIR42) -l42 -lpthread
+CMDIR	=	cmocka
+CMLIB	=	$(CMDIR)/build/src/libcmocka.a
+CFLAGS	+=	-Wextra -Wall -Werror -I./$(DIR42)/include -I./$(CMDIR)/include
+LDFLAGS	+=	-L./$(DIR42) -l42 -lpthread $(CMLIB)
 DEBUG	=	-g3 -fno-inline
 
-LISTDIR	=	$(shell find ./* -maxdepth 0 -type d -not -path "./lib42")
+LISTDIR	=	$(shell find ./* -maxdepth 0 -type d -not -path "./lib42" -not -path "./cmocka")
 
 LIB42	=	$(DIR42)/lib42.a
 
@@ -31,15 +33,22 @@ EXELIST	=	$(addsuffix /a.out, $(LISTDIR))
 
 .SILENT:
 
-all	:	$(DIR42) $(LIB42) $(EXELIST)
+all	:	$(CMLIB) $(DIR42) $(LIB42) $(EXELIST)
 
-%/a.out		:
-		$(CC) $(CFLAGS) -o $@ $(subst /a.out,/src/main.c,$@) $(LDFLAGS)
+%/a.out		:	$(subst /a.out,/src/main.c,%/a.out)
+		$(CC) $(CFLAGS) -o $@ $^ $(LDFLAGS)
 		printf '\033[1;31m%s \033[1;35m%s \033[1;33m%s\n\033[0m' "Linking C executable" "$@" "$(CC)"
 
 
 $(LIB42)	:	force
 			make -C $(DIR42)
+
+$(CMDIR)	:
+	git submodule init
+	git submodule update
+
+$(CMLIB)	:	$(CMDIR)
+	mkdir -p $(CMDIR)/build && cd $(CMDIR)/build && cmake .. -DWITH_STATIC_LIB=on && make
 
 clean	:
 		/bin/rm	-fr $(DIR42) $(EXELIST)
@@ -64,5 +73,12 @@ $(DIR42)	:
 
 force	:
 		true
+
+travis	:
+	for EXE in $(LISTDIR);						\
+	do											\
+		echo "\033[32m----Testing $$EXE\033[m";	\
+		$$EXE/a.out;							\
+	done
 
 .PHONY:	clean re relib
