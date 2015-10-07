@@ -36,9 +36,11 @@ You can share your thoughts, requests, feedback on that same [tracker](https://g
 
 Welcome, First just take a look at [these guidelines](CONTRIBUTING.md)
 
+Feel free to contribute :smiley::beers:
+
 #### How to thank us ?
 
-Just click on star button :)
+Just click on :star: button :kissing_heart:
 
 ===
 
