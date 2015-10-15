@@ -10,31 +10,65 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stddef.h>
+#include <stdarg.h>
+#include <setjmp.h>
+#include <cmocka.h>
 #include <error/s_error.h>
-#include <unit/s_unit.h>
 #include <unistd.h>
 
-void	D_UNIT_FUNCT(ret_val)
-{
+
+
+static void
+init(void **state) {
 	t_error	error;
 
-	F_UNIT_ASSERT(D_ERROR(init)(&error, "file.txt") == 1);
-	F_UNIT_ASSERT(F_ERROR_ADD(&error, false, "nothing") == false);
-	F_UNIT_ASSERT(F_ERROR_ADD(&error, true, "nothing") == true);
+	assert_true(D_ERROR(init)(&error, "file.txt"));
 	D_ERROR(destroy)(&error);
-	unlink("file.txt");
+	(void)state;
 }
 
-int		main(int argc, char const** argv)
-{
-	t_unit	unit;
+static void
+add(void **state) {
+	t_error	error;
 
-	D_UNIT(init)(&unit);
-	D_UNIT(add_context)(&unit, "Method", 0, 0);
-	F_UNIT_ADD_TEST(&unit, "Method", ret_val);
-	D_UNIT(console_run)(&unit);
-	D_UNIT(destroy)(&unit);
+	assert_true(D_ERROR(init)(&error, "file.txt"));
+	assert_true(F_ERROR_ADD(&error, true, "%s", "coucou"));
+	assert_false(F_ERROR_ADD(&error, false, "%s", "coucou 2"));
+	D_ERROR(destroy)(&error);
+	(void)state;
+}
+
+static void
+init_multiple(void **state) {
+	t_error	error;
+
+	assert_true(D_ERROR(init)(&error, "file.txt"));
+	D_ERROR(destroy)(&error);
+	assert_true(D_ERROR(init)(&error, "file.txt"));
+	D_ERROR(destroy)(&error);
+	(void)state;
+}
+
+static void
+init_bad_file(void **state) {
+	t_error	error;
+
+	assert_false(D_ERROR(init)(&error, "/toto"));
+	D_ERROR(destroy)(&error);
+	(void)state;
+}
+
+int
+main(int argc, char const** argv) {
+	const struct CMUnitTest	test[] = {
+		cmocka_unit_test(init),
+		cmocka_unit_test(init_multiple),
+		cmocka_unit_test(init_bad_file),
+		cmocka_unit_test(add),
+	};
+
 	(void)argc;
 	(void)argv;
-	return (0);
+	return (cmocka_run_group_tests(test, 0, 0));
 }

@@ -184,6 +184,16 @@ capacity(void **state) {
 	(void)state;
 }
 
+static void
+multiple_destroy(void **state) {
+	t_array	array;
+
+	assert_true(D_ARRAY(init)(&array, 0, 0, sizeof(size_t)));
+	D_ARRAY(destroy)(&array);
+	D_ARRAY(destroy)(&array);
+	(void)state;
+}
+
 
 static void
 destroy(void **state) {
@@ -346,6 +356,7 @@ main(int argc, char const** argv) {
 		cmocka_unit_test(empty),
 		cmocka_unit_test(foreach),
 		cmocka_unit_test(destroy),
+		cmocka_unit_test(multiple_destroy),
 		cmocka_unit_test(capacity),
 		cmocka_unit_test(delete_if),
 		cmocka_unit_test(delete_if_double),

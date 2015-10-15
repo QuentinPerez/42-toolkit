@@ -47,7 +47,7 @@ typedef struct	s_arqueue
 bool			f_arqueue_init(t_arqueue *v_this, size_t elem_size,
 								size_t nb_elem);
 bool			f_arqueue_push(t_arqueue *v_this, void *push);
-bool			f_arqueue_empty(t_arqueue *v_this);
+bool			f_arqueue_empty(const t_arqueue *v_this);
 void			*f_arqueue_pop(t_arqueue *v_this);
 void			f_arqueue_destroy(t_arqueue *v_this);
 

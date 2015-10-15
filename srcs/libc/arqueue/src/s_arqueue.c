@@ -58,7 +58,7 @@ bool		f_arqueue_push(t_arqueue *v_this, void *push)
 	return (true);
 }
 
-bool		f_arqueue_empty(t_arqueue *v_this)
+bool		f_arqueue_empty(const t_arqueue *v_this)
 {
 	return (v_this->v_size == 0);
 }

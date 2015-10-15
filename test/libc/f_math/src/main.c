@@ -10,30 +10,47 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <f_math/f_convert.h>
+#include <stddef.h>
+#include <stdarg.h>
+#include <setjmp.h>
+#include <cmocka.h>
 #include <f_math/f_math.h>
-#include <unit/s_unit.h>
 
-void	D_UNIT_FUNCT(ret_val)
-{
-	F_UNIT_ASSERT((int)uf_deg_to_rad(100) == 1);
-	F_UNIT_ASSERT((int)uf_rad_to_deg(1) == 57);
-	F_UNIT_ASSERT((int)uf_abs(-42) == 42);
-	F_UNIT_ASSERT((int)uf_abs(42) == 42);
-	F_UNIT_ASSERT((int)uf_min(42, 57) == 42);
-	F_UNIT_ASSERT((int)uf_max(42, 57) == 57);
+static void
+t_abs(void **state) {
+	assert_int_equal(uf_abs(-10), 10);
+	assert_int_equal(uf_abs(10), 10);
+	assert_int_equal(uf_abs(0), 0);
+	(void)state;
 }
 
-int		main(int argc, char const** argv)
-{
-	t_unit	unit;
+static void
+t_min(void **state) {
+	assert_int_equal(uf_min(-10, 10), -10);
+	assert_int_equal(uf_min(10, 100), 10);
+	assert_int_equal(uf_min(-10, -20), -20);
+	assert_int_equal(uf_min(0, 0), 0);
+	(void)state;
+}
 
-	D_UNIT(init)(&unit);
-	D_UNIT(add_context)(&unit, "Method", 0, 0);
-	F_UNIT_ADD_TEST(&unit, "Method", ret_val);
-	D_UNIT(console_run)(&unit);
-	D_UNIT(destroy)(&unit);
+static void
+t_max(void **state) {
+	assert_int_equal(uf_max(-10, 10), 10);
+	assert_int_equal(uf_max(10, 100), 100);
+	assert_int_equal(uf_max(-10, -20), -10);
+	assert_int_equal(uf_max(0, 0), 0);
+	(void)state;
+}
+
+int
+main(int argc, char const** argv) {
+	const struct CMUnitTest	test[] = {
+		cmocka_unit_test(t_abs),
+		cmocka_unit_test(t_min),
+		cmocka_unit_test(t_max),
+	};
+
 	(void)argc;
 	(void)argv;
-	return (0);
+	return (cmocka_run_group_tests(test, 0, 0));
 }
