@@ -35,7 +35,7 @@ void	uf_print_floating_nbr_fd(double nbr, size_t digit, int fd)
 	uf_print_char_fd('.', fd);
 	while (digit > 0)
 	{
-		nbr = nbr - (ssize_t)nbr;
+		nbr = nbr - (double)(ssize_t)nbr;
 		nbr = nbr * 10;
 		uf_print_char_fd((char)((ssize_t)nbr + '0'), fd);
 		digit = digit - 1;

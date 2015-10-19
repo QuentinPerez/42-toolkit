@@ -28,7 +28,7 @@ empty(void **state) {
 	assert_false(D_ARQUEUE(empty)(&arqueue));
 	assert_int_equal(*(int *)D_ARQUEUE(pop)(&arqueue), i);
 	assert_true(D_ARQUEUE(empty)(&arqueue));
-	D_ARQUEUE(destroy);
+	D_ARQUEUE(destroy)(&arqueue);
 	(void)state;
 }
 
@@ -41,7 +41,7 @@ pop(void **state) {
 	assert_true(D_ARQUEUE(push)(&arqueue, &i));
 	assert_int_equal(*(int *)D_ARQUEUE(pop)(&arqueue), i);
 	assert_ptr_equal(D_ARQUEUE(pop)(&arqueue), 0);
-	D_ARQUEUE(destroy);
+	D_ARQUEUE(destroy)(&arqueue);
 	(void)state;
 }
 
@@ -53,7 +53,7 @@ push(void **state) {
 	assert_true(D_ARQUEUE(init)(&arqueue, 10, sizeof(int)));
 	assert_true(D_ARQUEUE(push)(&arqueue, &i));
 	assert_int_equal(*(int *)D_ARQUEUE(pop)(&arqueue), i);
-	D_ARQUEUE(destroy);
+	D_ARQUEUE(destroy)(&arqueue);
 	(void)state;
 }
 
@@ -62,9 +62,9 @@ init_with_zero(void **state) {
 	t_arqueue	arqueue;
 
 	assert_false(D_ARQUEUE(init)(&arqueue, 0, sizeof(int)));
-	D_ARQUEUE(destroy);
+	D_ARQUEUE(destroy)(&arqueue);
 	assert_false(D_ARQUEUE(init)(&arqueue, 10, 0));
-	D_ARQUEUE(destroy);
+	D_ARQUEUE(destroy)(&arqueue);
 	(void)state;
 }
 
@@ -73,9 +73,9 @@ destroy(void **state) {
 	t_arqueue	arqueue;
 
 	assert_true(D_ARQUEUE(init)(&arqueue, 10, sizeof(int)));
-	D_ARQUEUE(destroy);
+	D_ARQUEUE(destroy)(&arqueue);
 	assert_true(D_ARQUEUE(init)(&arqueue, 100, sizeof(int)));
-	D_ARQUEUE(destroy);
+	D_ARQUEUE(destroy)(&arqueue);
 	(void)state;
 }
 
@@ -84,8 +84,8 @@ multiple_destroy(void **state) {
 	t_arqueue	arqueue;
 
 	assert_true(D_ARQUEUE(init)(&arqueue, 10, sizeof(int)));
-	D_ARQUEUE(destroy);
-	D_ARQUEUE(destroy);
+	D_ARQUEUE(destroy)(&arqueue);
+	D_ARQUEUE(destroy)(&arqueue);
 	(void)state;
 }
 
@@ -94,7 +94,7 @@ init(void **state) {
 	t_arqueue	arqueue;
 
 	assert_true(D_ARQUEUE(init)(&arqueue, 10, sizeof(int)));
-	D_ARQUEUE(destroy);
+	D_ARQUEUE(destroy)(&arqueue);
 	(void)state;
 }
 

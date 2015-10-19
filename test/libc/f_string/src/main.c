@@ -26,76 +26,96 @@
 
 static void
 is_upper(void **state) {
-	for (unsigned char c = 0; c < CHAR_MAX; c++) {
+	unsigned char c = 0;
+
+	while (c < CHAR_MAX) {
 		assert_true(!!isupper(c) == uf_is_upper(c));
+		c++;
 	}
 	(void)state;
 }
 
 static void
 is_lower(void **state) {
-	for (unsigned char c = 0; c < CHAR_MAX; c++) {
+	unsigned char c = 0;
+
+	while (c < CHAR_MAX) {
 		assert_true(!!islower(c) == uf_is_lower(c));
+		c++;
 	}
 	(void)state;
 }
 
 static void
 is_alpha(void **state) {
-	for (unsigned char c = 0; c < CHAR_MAX; c++) {
+	unsigned char c = 0;
+
+	while (c < CHAR_MAX) {
 		assert_true(!!isalpha(c) == uf_is_alpha(c));
+		c++;
 	}
 	(void)state;
 }
 
 static void
 is_digit(void **state) {
-	for (unsigned char c = 0; c < CHAR_MAX; c++) {
+	unsigned char c = 0;
+
+	while (c < CHAR_MAX) {
 		assert_true(!!isdigit(c) == uf_is_digit(c));
+		c++;
 	}
 	(void)state;
 }
 
 static void
 is_print(void **state) {
-	for (unsigned char c = 0; c < CHAR_MAX; c++) {
+	unsigned char c = 0;
+
+	while (c < CHAR_MAX) {
 		assert_true(!!isprint(c) == uf_is_printable(c));
+		c++;
 	}
 	(void)state;
 }
 
 static void
 to_upper(void **state) {
-	for (unsigned char c = 0; c < CHAR_MAX; c++) {
+	unsigned char c = 0;
+
+	while (c < CHAR_MAX) {
 		assert_true(toupper(c) == uf_to_upper(c));
+		c++;
 	}
 	(void)state;
 }
 
 static void
 to_lower(void **state) {
-	for (unsigned char c = 0; c < CHAR_MAX; c++) {
+	unsigned char c = 0;
+
+	while (c < CHAR_MAX) {
 		assert_true(tolower(c) == uf_to_lower(c));
+		c++;
 	}
 	(void)state;
 }
 
 static void
 print_char(void **state) {
-	char	buff[1024];
-	FILE	*r;
-	int		w;
-	size_t	size;
+	unsigned char i = 0;
+	char		buff[1024];
+	FILE		*r;
+	int			w;
+	size_t		size;
 
-	perror("coic");
 	if ((w = open("file.txt", O_CREAT | O_TRUNC, 0644)) == -1)
 		assert_false("file couldn't open");
-	perror("coic");
-	for (unsigned char i = 0; i < UCHAR_MAX; i++) {
+	while (i < UCHAR_MAX) {
 		uf_print_char_fd(i, w);
+		i++;
 	}
 	close(w);
-	perror("coic");
 	if ((r = fopen("file.txt", "r")) == NULL) {
 		assert_false("file couldn't fopen");
 	}

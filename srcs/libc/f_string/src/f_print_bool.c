@@ -33,10 +33,13 @@
 
 void	uf_print_bool_fd(bool value, int fd)
 {
+	ssize_t unused;
+
 	if (value == true)
-		write(fd, "true", 4);
+		unused = write(fd, "true", 4);
 	else
-		write(fd, "false", 5);
+		unused = write(fd, "false", 5);
+	(void)unused;
 }
 
 void	uf_print_bool(bool value)

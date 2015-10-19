@@ -35,7 +35,7 @@ bool	uf_hhu_add(unsigned char a, unsigned char b, unsigned char *sum)
 {
 	if (UCHAR_MAX - a < b)
 		return (M_ERROR(false, "Unsigned char overflow"));
-	*sum = a + b;
+	*sum = (unsigned char)(a + b);
 	return (true);
 }
 
@@ -43,7 +43,7 @@ bool	uf_hu_add(unsigned short a, unsigned short b, unsigned short *sum)
 {
 	if (USHRT_MAX - a < b)
 		return (M_ERROR(false, "Unsigned short overflow"));
-	*sum = a + b;
+	*sum = (unsigned short)(a + b);
 	return (true);
 }
 
@@ -51,6 +51,6 @@ bool	uf_u_add(unsigned int a, unsigned int b, unsigned int *sum)
 {
 	if (UINT_MAX - a < b)
 		return (M_ERROR(false, "Unsigned int overflow"));
-	*sum = a + b;
+	*sum = (unsigned int)(a + b);
 	return (true);
 }

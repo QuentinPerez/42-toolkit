@@ -35,7 +35,7 @@ bool	uf_hhu_mul(unsigned char a, unsigned char b, unsigned char *sum)
 {
 	if (a > UCHAR_MAX / b)
 		return (M_ERROR(false, "Unsigned char overflow"));
-	*sum = a * b;
+	*sum = (unsigned char)(a * b);
 	return (true);
 }
 
@@ -43,7 +43,7 @@ bool	uf_hu_mul(unsigned short a, unsigned short b, unsigned short *sum)
 {
 	if (a > USHRT_MAX / b)
 		return (M_ERROR(false, "Unsigned short overflow"));
-	*sum = a * b;
+	*sum = (unsigned short)(a * b);
 	return (true);
 }
 
@@ -51,6 +51,6 @@ bool	uf_u_mul(unsigned int a, unsigned int b, unsigned int *sum)
 {
 	if (a > UINT_MAX / b)
 		return (M_ERROR(false, "Unsigned int overflow"));
-	*sum = a * b;
+	*sum = (unsigned int)(a * b);
 	return (true);
 }

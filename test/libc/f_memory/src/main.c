@@ -21,12 +21,17 @@
 static void
 t_memset(void **state) {
 	char	lol[] = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
+	size_t	i = 0;
 
-	for (size_t i = 0; i < sizeof(lol); i++) {
+	while (i < sizeof(lol)) {
+		size_t j = 0;
+
 		uf_memset(lol, '\0', i);
-		for (size_t j = 0; j < i; j++) {
+		while (j < i) {
 			assert_true(lol[j] == '\0');
+			j++;
 		}
+		i++;
 	}
 	(void)state;
 }
@@ -35,29 +40,38 @@ static void
 t_memcpy(void **state) {
 	char	lol[] = "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
 	char	lol2[] = "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb";
+	size_t	i = 0;
 
-	for (size_t i = 0; i < sizeof(lol); i++) {
+	while (i < sizeof(lol)) {
+		size_t j = 0;
+
 		uf_memcpy(lol, lol2, i);
-		for (size_t j = 0; j < i; j++) {
+		while (j < i) {
 			assert_true(lol[j] == 'b');
+			j++;
 		}
+		i++;
 	}
 	(void)state;
 }
 
 static void
 t_memcmp(void **state) {
-	unsigned char t1[256];
-	unsigned char t2[256];
+	unsigned char	t1[256];
+	unsigned char	t2[256];
+	size_t			i = 0;
+	size_t			tmp;
 
-	for (size_t i = 0; i < 256; i++) {
+	while (i < 256) {
 		t1[i] = (unsigned char)i;
 		t2[i] = (unsigned char)i;
+		i++;
 	}
 	assert_true(uf_memcmp(t1, t2, sizeof(t1)));
 	t1[0] = '\1';
 	t2[0] = '\1';
-	for (size_t i = 0, tmp; i < 256; i++) {
+	i = 0;
+	while (i < 256) {
 		if (i == 0) {
 			tmp = t1[0];
 		} else {
@@ -65,6 +79,7 @@ t_memcmp(void **state) {
 		}
 		t1[i] = '\0';
 		assert_false(uf_memcmp(t1, t2, sizeof(t1)));
+		i++;
 	}
 	(void)state;
 }

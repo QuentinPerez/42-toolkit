@@ -45,8 +45,8 @@ size_t	uf_str_len(const char *str)
 void	uf_print_in_base(char nbr, int fd)
 {
 	if (nbr < 10)
-		nbr = nbr + '0';
+		nbr = (char)(nbr + '0');
 	else
-		nbr = nbr + 'a' - 10;
+		nbr = (char)(nbr + 'a' - 10);
 	uf_print_char_fd(nbr, fd);
 }

@@ -227,12 +227,16 @@ foreach(void **state) {
 	size_t	put;
 
 	assert_true(D_ARRAY(init)(&array, 0, 0, sizeof(size_t)));
-	for (put = 0; put < 10; put++) {
+	put = 0;
+	while (put < 10) {
 		assert_true(D_ARRAY(push_back)(&array, &put));
+		put++;
 	}
 	D_ARRAY(foreach)(&array, uf_foreach);
-	for (put = 0; put < 10; put++) {
+	put = 0;
+	while (put < 10) {
 		assert_int_equal(*(size_t *)F_ARRAY_AT(&array, put, size_t), put + 10);
+		put++;
 	}
 	D_ARRAY(destroy)(&array);
 	(void)state;
@@ -244,8 +248,10 @@ empty(void **state) {
 	size_t	put;
 
 	assert_true(D_ARRAY(init)(&array, 0, 0, sizeof(int)));
-	for (put = 0; put < 10; put++) {
+	put = 0;
+	while (put < 10) {
 		assert_true(D_ARRAY(push_back)(&array, &put));
+		put++;
 	}
 	assert_false(D_ARRAY(empty)(&array));
 	D_ARRAY(clear)(&array);
@@ -260,13 +266,17 @@ clear_and_push_back(void **state) {
 	size_t	put;
 
 	assert_true(D_ARRAY(init)(&array, 0, 0, sizeof(int)));
-	for (put = 0; put < 10; put++) {
+	put = 0;
+	while (put < 10) {
 		assert_true(D_ARRAY(push_back)(&array, &put));
+		put++;
 	}
 	D_ARRAY(clear)(&array);
 	assert_int_equal(D_ARRAY(size)(&array), 0);
-	for (put = 0; put < 10; put++) {
+	put = 0;
+	while (put < 10) {
 		assert_true(D_ARRAY(push_back)(&array, &put));
+		put++;
 	}
 	assert_int_equal(D_ARRAY(size)(&array), 10);
 	D_ARRAY(destroy)(&array);
@@ -279,8 +289,10 @@ clear(void **state) {
 	size_t	put;
 
 	assert_true(D_ARRAY(init)(&array, 0, 0, sizeof(int)));
-	for (put = 0; put < 10; put++) {
+	put = 0;
+	while (put < 10) {
 		assert_true(D_ARRAY(push_back)(&array, &put));
+		put++;
 	}
 	D_ARRAY(clear)(&array);
 	assert_int_equal(D_ARRAY(size)(&array), 0);
@@ -294,12 +306,16 @@ push_back_1000_values(void **state) {
 	size_t	put;
 
 	assert_true(D_ARRAY(init)(&array, 0, 0, sizeof(size_t)));
-	for (put = 0; put < 1000; put++) {
+	put = 0;
+	while (put < 1000) {
 		assert_true(D_ARRAY(push_back)(&array, &put));
 		assert_int_equal(D_ARRAY(size)(&array), put + 1);
+		put++;
 	}
-	for (put = 0; put < 1000; put++) {
+	put = 0;
+	while (put < 1000) {
 		assert_int_equal(*(size_t *)F_ARRAY_AT(&array, put, size_t), put);
+		put++;
 	}
 	D_ARRAY(destroy)(&array);
 	(void)state;
@@ -311,12 +327,16 @@ push_back_10_values(void **state) {
 	size_t	put;
 
 	assert_true(D_ARRAY(init)(&array, 0, 0, sizeof(size_t)));
-	for (put = 0; put < 10; put++) {
+	put = 0;
+	while (put < 10) {
 		assert_true(D_ARRAY(push_back)(&array, &put));
 		assert_int_equal(D_ARRAY(size)(&array), put + 1);
+		put++;
 	}
-	for (put = 0; put < 10; put++) {
+	put = 0;
+	while (put < 10) {
 		assert_int_equal(*(size_t *)F_ARRAY_AT(&array, put, size_t), put);
+		put++;
 	}
 	D_ARRAY(destroy)(&array);
 	(void)state;

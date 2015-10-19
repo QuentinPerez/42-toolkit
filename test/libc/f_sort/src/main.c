@@ -19,9 +19,12 @@
 
 static bool
 check_order(int *tab, size_t size) {
-	for (size_t i = 1; i < size; i++) {
+	size_t	i = 1;
+
+	while (i < size) {
 		if (tab[i] < tab[i - 1])
 			return (false);
+		i++;
 	}
 	return (true);
 }

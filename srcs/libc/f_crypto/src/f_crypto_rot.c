@@ -32,7 +32,7 @@
 
 static inline char	uf_rotate(char c, int n, char base)
 {
-	return ((((c - base) + (char)n) % ((char)n << 1)) + base);
+	return ((char)((((c - base) + (char)n) % ((char)n << 1)) + base));
 }
 
 void				uf_crypto_rot5(char *str)

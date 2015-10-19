@@ -43,7 +43,10 @@ void	f_string_print_memory(const t_string *v_this, const char *name)
 
 void	f_string_print_fd(const t_string *v_this, int fd)
 {
-	write(fd, v_this->v_str, v_this->v_size);
+	ssize_t	unused;
+
+	unused = write(fd, v_this->v_str, v_this->v_size);
+	(void)unused;
 }
 
 void	f_string_print(const t_string *v_this)

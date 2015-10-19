@@ -43,13 +43,13 @@ bool			uf_is_lower(const unsigned char c)
 unsigned char	uf_to_lower(const unsigned char c)
 {
 	if (uf_is_upper(c) == true)
-		return (c + 32);
+		return ((const unsigned char)(c + 32));
 	return (c);
 }
 
 unsigned char	uf_to_upper(const unsigned char c)
 {
 	if (uf_is_lower(c) == true)
-		return (c - 32);
+		return ((const unsigned char)(c - 32));
 	return (c);
 }

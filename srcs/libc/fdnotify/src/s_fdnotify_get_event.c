@@ -45,9 +45,9 @@ static void	f_fdnotify_init_select(t_fdnotify *v_this, t_list *list)
 		notify_cell = (t_fdnotify_cell *)cell->v_data;
 		if (notify_cell->v_fd > v_this->v_max)
 			v_this->v_max = notify_cell->v_fd + 1;
-		FD_SET(notify_cell->v_fd, &v_this->v_read);
+		FD_SET((long unsigned int)notify_cell->v_fd, &v_this->v_read);
 		if (notify_cell->v_add_to_write == true)
-			FD_SET(notify_cell->v_fd, &v_this->v_write);
+			FD_SET((long unsigned int)notify_cell->v_fd, &v_this->v_write);
 		cell = cell->v_next;
 	}
 }
@@ -55,7 +55,7 @@ static void	f_fdnotify_init_select(t_fdnotify *v_this, t_list *list)
 static bool	f_fdnotify_create_event(t_fdnotify *v_this, t_fdnotify_cell *notif,
 														t_fdnotify_event *event)
 {
-	if (FD_ISSET(notif->v_fd, &v_this->v_write) != 0)
+	if (FD_ISSET((long unsigned int)notif->v_fd, &v_this->v_write) != 0)
 	{
 		event->v_fd = notif->v_fd;
 		event->v_data = notif;
@@ -63,7 +63,7 @@ static bool	f_fdnotify_create_event(t_fdnotify *v_this, t_fdnotify_cell *notif,
 		notif->v_add_to_write = false;
 		return (true);
 	}
-	else if (FD_ISSET(notif->v_fd, &v_this->v_read) != 0)
+	else if (FD_ISSET((long unsigned int)notif->v_fd, &v_this->v_read) != 0)
 	{
 		event->v_fd = notif->v_fd;
 		event->v_data = notif;

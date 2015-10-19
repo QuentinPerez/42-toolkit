@@ -87,9 +87,9 @@ int					uf_atoi_base(const char *nbr, size_t base)
 	while (true)
 	{
 		if (uf_is_digit(c) == true)
-			c = c - '0';
+			c = (unsigned char)(c - '0');
 		else if (uf_is_alpha(c) == true)
-			c = c - (uf_is_upper(c) == true ? 'A' - 10 : 'a' - 10);
+			c = (unsigned char)(c - (uf_is_upper(c) == true ? 'A' - 10 : 'a' - 10));
 		else
 			break ;
 		if ((unsigned int)c >= base)

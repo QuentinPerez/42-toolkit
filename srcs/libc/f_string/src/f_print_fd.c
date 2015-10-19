@@ -50,8 +50,8 @@ void	uf_print_nbr_base_fd(ssize_t nbr, ssize_t base, int fd)
 		uf_print_char_fd('-', fd);
 	while (digit > 0)
 	{
-		uf_print_in_base(nbr > 0 ? (char)(nbr / digit % base)
-						: (-(char)(nbr / digit % base)), fd);
+		uf_print_in_base((char)(nbr > 0 ? (char)(nbr / digit % base)
+						: (-(char)(nbr / digit % base))), fd);
 		digit = digit / base;
 	}
 }
