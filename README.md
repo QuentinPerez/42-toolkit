@@ -23,7 +23,7 @@ Less time on the generic code and more time on our school project.
 	I will spend the first four sharpening the axe.
 Abraham Lincoln.
 
-===
+
 ## Contributing
 
 #### I've found a bug!
@@ -37,6 +37,13 @@ You can share your thoughts, requests, feedback on that same [tracker](https://g
 Welcome, First just take a look at [these guidelines](CONTRIBUTING.md)
 
 Feel free to contribute :smiley::beers:
+
+#### Docker
+
+```console
+$> docker build -t="42-toolkit" .
+$> docker run -it --rm -v $(pwd):/usr/root/42-toolkit 42-toolkit
+```
 
 #### How to thank us ?
 
