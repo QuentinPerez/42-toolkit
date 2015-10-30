@@ -9,7 +9,7 @@
 
 ## Description
 
-This file highlight lib42 type
+This file highlight `lib42` type
 
 ## License
 

@@ -9,10 +9,7 @@
 
 ## Description
 
-This plugin generate <code>.h</code> like 42
-
-When you open <code>newfile.h</code> this plugin put prepoc.
-If you have 42-hearder plugin he put 42-header too.
+This plugin generate will generate your header file
 
 ## License
 

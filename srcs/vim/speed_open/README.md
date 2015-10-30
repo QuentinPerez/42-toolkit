@@ -1,26 +1,21 @@
 42-toolkit	speed_open
 ==========
 
-## Preview
-
-<p align="center" >
-	<img src="https://raw.github.com/QuentinPerez/42-toolkit/master/doc/images/speed_open.png" alt="speed_open" title="speed_open">
-</p>
-
 # Description
 
-This plugin switch between your <code>.h</code> and <code>.c</code>
+This plugin switch between your `header` file and your `c` file
 
 # How to install ?
 
-Add to your <code>.vimrc</code>
+Append the following line into `~/.vimrc`
 
-    - let mapleader = ","
-    - nnoremap <leader>h :call Speed_open("vs")<cr>
-    - nnoremap <leader>H :call Speed_open("sp")<cr>
+```vimscript
+let mapleader = ","
+nnoremap <leader>h :call Speed_open("vs")<cr>
+nnoremap <leader>H :call Speed_open("sp")<cr>
+```
 
-After open file(.c | .h) and if file(.c | .h) exist press in <code>NORMAL</code> mode <code>,h</code> or <code>,H</code>
-
+And now open a file, press on `ESC` and `,h` or `ESC` and `,H`  
 ## License
 
 42-toolkit is available under the [GNU General Public License, version 3](LICENSE).

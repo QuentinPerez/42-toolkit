@@ -1,14 +1,11 @@
 Vim
 ==========
 
-## How to install ?
+## How to install or update the plugins?
 
-#####All plugins are copy to $HOME/.vim/
-
-
-######Install or Update all plugins:
-	- ./install
-===
+```console
+./install
+```
 
 ## Plugins
 
@@ -17,7 +14,6 @@ Vim
 	- speed_open	"Switch between .c and .h"
 	- syntax		"Highlight lib42 keyword"
 
-===
 ## License
 
 42-toolkit is available under the [GNU General Public License, version 3](LICENSE).
