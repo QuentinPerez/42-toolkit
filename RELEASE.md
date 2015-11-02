@@ -1,7 +1,14 @@
 LIB42 RELEASES
 ===
 
-####Current release : 0.2
+####Current release : 0.2.1
+
+	-V0.2.1 11-02-2015
+		add lockdata
+		add lockallmemory
+		add cmoka unit test
+		add Dockerfile
+
 
 	-V0.2 04-19-2015
 		fix norme
