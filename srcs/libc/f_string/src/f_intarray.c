@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/31 17:58:49 by qperez            #+#    #+#             */
-/*   Updated: 2015/07/03 17:10:13 by qperez           ###   ########.fr       */
+/*   Updated: 2016/01/24 16:03:41 by sfroment         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,8 @@ int					uf_atoi_base(const char *nbr, size_t base)
 		if (uf_is_digit(c) == true)
 			c = (unsigned char)(c - '0');
 		else if (uf_is_alpha(c) == true)
-			c = (unsigned char)(c - (uf_is_upper(c) == true ? 'A' - 10 : 'a' - 10));
+			c = (unsigned char)(c - (uf_is_upper(c) == true ?
+			'A' - 10 : 'a' - 10));
 		else
 			break ;
 		if ((unsigned int)c >= base)

@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/06/09 13:13:01 by qperez            #+#    #+#             */
-/*   Updated: 2015/06/09 13:58:44 by qperez           ###   ########.fr       */
+/*   Updated: 2016/01/24 16:02:32 by sfroment         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,10 +41,10 @@ typedef struct		s_barrier
 	size_t			max;
 }					t_barrier;
 
-bool	f_barrier_init(t_barrier *v_this, size_t count);
-bool	f_barrier_destroy(t_barrier *v_this);
-int		f_barrier_wait(t_barrier *v_this);
+bool				f_barrier_init(t_barrier *v_this, size_t count);
+bool				f_barrier_destroy(t_barrier *v_this);
+int					f_barrier_wait(t_barrier *v_this);
 
-# define	D_BARRIER(func)	f_barrier_##func
+# define D_BARRIER(func)	f_barrier_##func
 
 #endif
