@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/02 12:55:27 by qperez            #+#    #+#             */
-/*   Updated: 2014/02/12 19:41:46 by qperez           ###   ########.fr       */
+/*   Updated: 2016/01/24 16:07:38 by sfroment         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ typedef struct	s_array
 	size_t		v_type_size;
 	size_t		v_capacity;
 	void		*v_data;
-	size_t		(*f_realloc)(size_t size);
 	void		(*f_delete)(void *ptr);
+	size_t		(*f_realloc)(size_t size);
 }				t_array;
 
 # define F_ARRAY_AT(v, index, type) (type)mf_array_at(v, index)

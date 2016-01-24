@@ -6,7 +6,7 @@
 /*   By: qperez <qperez42@gmail.com>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/03 13:59:04 by qperez            #+#    #+#             */
-/*   Updated: 2015/07/04 20:44:01 by qperez           ###   ########.fr       */
+/*   Updated: 2016/01/24 15:59:00 by sfroment         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,6 @@ void	*mf_array_data(t_array *v_this)
 void	*mf_array_at(t_array *v_this, size_t index)
 {
 	if (index >= v_this->v_size)
-		return ((void *)M_ERROR((size_t)0,"Out of range"));
+		return ((void *)M_ERROR((size_t)0, "Out of range"));
 	return ((void *)((uintptr_t)v_this->v_data + index * v_this->v_type_size));
 }
