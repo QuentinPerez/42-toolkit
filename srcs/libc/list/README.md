@@ -18,7 +18,7 @@ List
 	- end(const t_list *v_this)
 	  /* This function return end of list */
 
-	- erase(t_list *v_this, t_cell *cell, void **data)
+	- erase(t_list *v_this, t_list_cell *cell, void **data)
 	  /* This function remove cell to list and put element in data */
 
 	- get_cell(t_list *list, ui cell_at)
