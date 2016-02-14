@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   s_list_splice.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: irabeson <irabeson42@gmail.com>            +#+  +:+       +#+        */
+/*   By: sachafroment <sachafroment@student.42.fr>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/10/07 04:18:37 by irabeson          #+#    #+#             */
-/*   Updated: 2014/02/12 19:47:48 by qperez           ###   ########.fr       */
+/*   Updated: 2016/03/02 21:14:21 by sachafroment     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,99 +30,107 @@
 #include <list/s_list.h>
 #include <f_error/m_error.h>
 
-static void		f_list_pick_cells_imp(t_list *const v_this,
-									t_list_cell *const begin,
-									t_list_cell *const end)
+static void		f_list_free_from(t_list_cell *start)
 {
-	t_list_cell	*cell_before;
-	t_list_cell	*cell_after;
+	t_list	fake_list;
 
-	cell_before = D_LIST_CELL(prev)(begin);
-	cell_after = D_LIST_CELL(next)(end);
-	if (cell_before == NULL)
-	{
-		v_this->v_begin = cell_after;
-		if (cell_after != NULL)
-			cell_after->v_prev = NULL;
-	}
-	else
-		cell_before->v_next = cell_after;
-	if (cell_after == NULL)
-	{
-		if (D_LIST(begin)(v_this) != NULL)
-			v_this->v_end = D_LIST_CELL(next)(v_this->v_begin);
-		else
-			v_this->v_end = D_LIST(begin)(v_this);
-	}
-	else
-		cell_after->v_prev = cell_before;
+	D_LIST(init)(&fake_list, 0);
+	fake_list.v_begin = start;
+	D_LIST(destroy)(&fake_list);
 }
 
-static size_t	f_list_pick_cells(t_list *const v_this,
-								t_list_cell *const begin, t_list_cell *end)
+static void		f_list_splice_empty(t_list *v_this, t_list_cell *start,
+									t_list_cell *end)
 {
-	size_t	cell_count;
+	t_list_cell	*cur;
 
-	if (D_LIST(empty)(v_this) == true)
-		return (0);
-	if (end == NULL)
-		end = D_LIST(end)(v_this);
-	cell_count = D_LIST_CELL(count)(begin, end);
-	D_LIST(pick_cells_imp)(v_this, begin, end);
-	v_this->v_size = D_LIST(size)(v_this) - cell_count;
-	begin->v_prev = NULL;
-	end->v_next = NULL;
-	return (cell_count);
+	cur = start;
+	void (*uf_funct_destroy)(void *) = (void*)^{ return ; };
+	v_this->f_destroy = uf_funct_destroy;
+	v_this->v_begin = start;
+	v_this->v_end = end;
+	while (cur != NULL)
+	{
+		if (D_LIST(push_back)(v_this, cur->v_data) == false)
+		{
+			D_LIST(clear)(v_this);
+			return ;
+		}
+		cur = cur->v_next;
+	}
+	return ;
 }
 
-static void		f_list_splice_imp(t_list *const v_this,
-								t_list_cell *const position,
-								t_list_cell *const other_begin,
-								t_list_cell *const other_end)
+static void		f_list_cell_start_end(t_list *other_list,
+									t_list_interval *other_interval,
+									t_list_cell **other_start,
+									t_list_cell **other_end)
 {
-	t_list_cell	*before;
-
-	before = D_LIST_CELL(prev)(position);
-	if (before == NULL)
-	{
-		v_this->v_begin = other_begin;
-		v_this->v_begin->v_prev = NULL;
-	}
+	if (other_interval && other_interval->v_begin)
+		*other_start = other_interval->v_begin;
 	else
+		*other_start = D_LIST(begin)(other_list);
+	if (other_interval && other_interval->v_end)
+		*other_end = other_interval->v_end;
+	else
+		*other_end = D_LIST(end)(other_list);
+}
+
+static size_t	f_list_splice_imp(t_list_cell *my_start,
+								t_list_cell *my_end,
+								t_list_cell *other_start,
+								t_list_cell *other_end)
+{
+	t_list_cell	*tmp;
+	size_t		count;
+
+	tmp = my_start;
+	count = 0;
+	while (tmp->v_data != other_end->v_data)
 	{
-		before->v_next = other_begin;
-		other_begin->v_prev = before;
+		tmp->v_next = D_LIST_CELL(create)(tmp,
+			tmp->v_next, other_start->v_data);
+		if (!tmp->v_next)
+		{
+			D_LIST(free_from)(my_start->v_next);
+			tmp = my_start;
+			count = 0;
+			break ;
+		}
+		other_start = other_start->v_next;
+		tmp = tmp->v_next;
+		++count;
 	}
-	position->v_prev = other_end;
-	other_end->v_next = position;
+	tmp->v_next = my_end;
+	return (count);
 }
 
 void			f_list_splice(t_list *v_this, t_list_cell *position,
 							t_list *other_list, t_list_interval *other_interval)
 {
-	size_t	cell_count;
+	t_list_cell	*my_start;
+	t_list_cell	*my_end;
+	t_list_cell	*other_start;
+	t_list_cell	*other_end;
+	size_t		count;
 
-	cell_count = D_LIST(pick_cells)(other_list,
-									D_LIST_INTERVAL(begin)(other_interval),
-									D_LIST_INTERVAL(end)(other_interval));
-	if (cell_count == 0)
+	if (D_LIST(size)(other_list) == 0)
 		return ;
+	D_LIST_CELL(start_end)
+	(other_list, other_interval, &other_start, &other_end);
 	if (D_LIST(empty)(v_this) == true)
 	{
-		v_this->v_size = cell_count;
-		v_this->v_begin = D_LIST_INTERVAL(begin)(other_interval);
-		v_this->v_end = D_LIST_INTERVAL(end)(other_interval);
+		D_LIST(splice_empty)(v_this, other_start, other_end);
 		return ;
 	}
+	my_end = NULL;
 	if (position == NULL)
-	{
-		position = D_LIST(end)(v_this);
-		position->v_next = D_LIST_INTERVAL(begin)(other_interval);
-		D_LIST_INTERVAL(begin)(other_interval)->v_prev = position;
-	}
+		my_start = D_LIST(end)(v_this);
 	else
-		D_LIST(splice_imp)(v_this, position,
-						D_LIST_INTERVAL(begin)(other_interval),
-						D_LIST_INTERVAL(end)(other_interval));
-	v_this->v_size = D_LIST(size)(v_this) + cell_count;
+	{
+		my_start = D_LIST_CELL(prev)(position);
+		my_end = position;
+	}
+	count = D_LIST(splice_imp)(my_start, my_end, other_start, other_end);
+	v_this->v_size = D_LIST(size)(v_this) + count;
 }
