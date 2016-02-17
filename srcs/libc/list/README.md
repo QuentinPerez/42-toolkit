@@ -52,10 +52,10 @@ List
 	  /* This function return the first data */
 
 	- split(t_list *v_this, t_list_cell *split_at, t_list *new_list)
-	  /* This function split a list in 2 part and assign the new part to new_list */
+	  /* This function split a list in 2 part and assign the new part to new_list since split_at */
 
 	- foreach(t_list *v_this, bool (*funct)(void *value))
-	  /* This function apply for lot of elements */
+	  /* This function apply funct for all the element until funct return false or we reach the end of the list */
 
 	- reverse(t_list *v_this)
 	  /* This function reverse list */
