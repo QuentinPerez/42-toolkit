@@ -72,4 +72,5 @@ void	f_ldata_destroy(t_ldata *v_this)
 		if (munlock(v_this->v_ptr, v_this->v_len) == -1)
 			M_ERROR(0, "mlock: %s", strerror(errno));
 	}
+	v_this->v_len = 0;
 }

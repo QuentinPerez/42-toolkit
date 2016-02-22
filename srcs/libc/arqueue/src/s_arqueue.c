@@ -80,4 +80,10 @@ void		*f_arqueue_pop(t_arqueue *v_this)
 void		f_arqueue_destroy(t_arqueue *v_this)
 {
 	uf_free_s(&v_this->v_array);
+	v_this->v_start = 0;
+	v_this->v_end = 0;
+	v_this->v_size = 0;
+	v_this->v_capacity = 0;
+	v_this->v_sizeof = 0;
+	v_this->v_array = NULL;
 }

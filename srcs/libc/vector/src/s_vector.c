@@ -56,6 +56,7 @@ bool					f_vector_init(t_vector *v_this,
 		v_this->f_delete = uf_vector_delete;
 	if ((v_this->v_data = uf_malloc_s(2, sizeof(*v_this->v_data))) == NULL)
 		return (M_ERROR(false, "Bad alloc"));
+	uf_memset(v_this->v_data, 0, 2 * sizeof(*v_this->v_data));
 	v_this->v_capacity = 2;
 	return (true);
 }
@@ -78,5 +79,8 @@ void					f_vector_destroy(t_vector *v_this)
 	D_VECTOR(clear)(v_this);
 	if (v_this->v_capacity > 0)
 		uf_free_s((void **)&v_this->v_data);
-	uf_memset(v_this, 0, sizeof(*v_this));
+	v_this->v_size = 0;
+	v_this->v_capacity = 0;
+	v_this->f_realloc = NULL;
+	v_this->f_delete = NULL;
 }

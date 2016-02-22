@@ -77,5 +77,6 @@ bool	f_lock_destroy(t_lock *v_this)
 
 	if ((ret = pthread_mutex_destroy(&v_this->lock)) != 0)
 		return (M_ERROR(false, "pthread_mutex_destroy %s", strerror(errno)));
+	v_this->data = NULL;
 	return (true);
 }

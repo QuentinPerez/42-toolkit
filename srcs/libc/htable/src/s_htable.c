@@ -60,5 +60,7 @@ bool	f_htable_init(t_htable *v_this, size_t prime,
 void	f_htable_destroy(t_htable *v_this)
 {
 	D_ARRAY(destroy)(&v_this->v_array);
-	uf_memset(v_this, 0, sizeof(*v_this));
+	v_this->v_prime = 0;
+	v_this->f_delete = NULL;
+	v_this->f_generate_key = NULL;
 }

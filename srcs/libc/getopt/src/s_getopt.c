@@ -110,7 +110,6 @@ static bool	uf_getopt_init_option(t_getopt *v_this, size_t ac, const char **av)
 bool		f_getopt_init(t_getopt *v_this, int argc,
 						const char **argv, const char *opt)
 {
-	uf_memset(v_this, 0, sizeof(*v_this));
 	if (argc < 2)
 		return (false);
 	if (uf_getopt_split_posibility(v_this, opt) == false)
@@ -120,6 +119,7 @@ bool		f_getopt_init(t_getopt *v_this, int argc,
 	if (v_this->v_posibility != NULL)
 		uf_free_tab((void **)v_this->v_posibility);
 	v_this->v_posibility = NULL;
+	v_this->v_current_argv = NULL;
 	v_this->v_current_argc = 1;
 	v_this->v_argv = argv;
 	v_this->v_argc = (size_t)argc;
@@ -130,5 +130,10 @@ void		f_getopt_destroy(t_getopt *v_this)
 {
 	if (v_this->v_option != NULL)
 		uf_free_tab((void **)v_this->v_option);
-	uf_memset(v_this, 0, sizeof(*v_this));
+	v_this->v_posibility = NULL;
+	v_this->v_current_argv = NULL;
+	v_this->v_current_argc = 0;
+	v_this->v_next_argv = NULL;
+	v_this->v_argv = NULL;
+	v_this->v_argc = 0;
 }
