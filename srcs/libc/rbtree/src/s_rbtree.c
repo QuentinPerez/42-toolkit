@@ -40,17 +40,18 @@ static void	uf_rbtree_delete(void *data)
 bool		f_rbtree_init(t_rbtree *v_this, int (*f_cmp)(void *d1, void *d2),
 						void (*f_del)(void *data))
 {
-	uf_memset(v_this, 0, sizeof(*v_this));
 	if (f_cmp == NULL)
 		return (M_ERROR(false, "f_cmp couldn't NULL"));
 	v_this->f_delete = uf_rbtree_delete;
 	if (f_del != NULL)
 		v_this->f_delete = f_del;
 	v_this->f_cmp = f_cmp;
+	v_this->v_nil.v_data = NULL;
 	v_this->v_nil.v_left = &v_this->v_nil;
 	v_this->v_nil.v_right = &v_this->v_nil;
 	v_this->v_nil.v_parent = &v_this->v_nil;
 	v_this->v_nil.v_color = e_black;
+	v_this->v_root.v_data = NULL;
 	v_this->v_root.v_left = &v_this->v_nil;
 	v_this->v_root.v_right = &v_this->v_nil;
 	v_this->v_root.v_parent = &v_this->v_nil;
@@ -72,4 +73,13 @@ static void	uf_rbtree_recursive_destroy(t_rbtree *v_this, t_rbcell *node)
 void		f_rbtree_destroy(t_rbtree *v_this)
 {
 	uf_rbtree_recursive_destroy(v_this, v_this->v_root.v_left);
+	v_this->f_cmp = NULL;
+	v_this->v_nil.v_data = NULL;
+	v_this->v_nil.v_left = NULL;
+	v_this->v_nil.v_right = NULL;
+	v_this->v_nil.v_parent = NULL;
+	v_this->v_root.v_data = NULL;
+	v_this->v_root.v_left = NULL;
+	v_this->v_root.v_right = NULL;
+	v_this->v_root.v_parent = NULL;
 }

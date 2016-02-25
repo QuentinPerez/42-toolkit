@@ -38,7 +38,9 @@ static void	uf_queue_funct_destroy(void *data)
 
 void		f_queue_init(t_queue *v_this, void (*uf_funct_destroy)(void *data))
 {
-	uf_memset(v_this, 0, sizeof(*v_this));
+	v_this->v_size = 0;
+	v_this->v_head = NULL;
+	v_this->v_tail = NULL;
 	v_this->f_destroy = uf_queue_funct_destroy;
 	if (uf_funct_destroy != NULL)
 		v_this->f_destroy = uf_funct_destroy;
@@ -63,5 +65,8 @@ void		f_queue_clear(t_queue *v_this)
 void		f_queue_destroy(t_queue *v_this)
 {
 	D_QUEUE(clear)(v_this);
+	v_this->v_size = 0;
+	v_this->v_head = NULL;
+	v_this->v_tail = NULL;
 	v_this->f_destroy = NULL;
 }

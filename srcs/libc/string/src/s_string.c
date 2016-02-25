@@ -72,5 +72,8 @@ void					f_string_clear(t_string *v_this)
 void					f_string_destroy(t_string *v_this)
 {
 	uf_free_s((void **)&v_this->v_str);
-	uf_memset(v_this, 0, sizeof(*v_this));
+	v_this->v_size = 0;
+	v_this->v_capacity = 0;
+	v_this->v_hex = NULL;
+	v_this->f_realloc = NULL;
 }

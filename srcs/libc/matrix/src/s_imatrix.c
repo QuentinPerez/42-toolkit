@@ -54,7 +54,6 @@ static bool	uf_imatrix_fillcoeff(t_imatrix *v_this, size_t col, size_t row)
 
 bool		f_imatrix_init(t_imatrix *v_this, size_t c, size_t r)
 {
-	uf_memset(v_this, 0, sizeof(*v_this));
 	if (c == 0 || r == 0)
 		return (M_ERROR(false, "Columns != 0 && Rows != 0"));
 	if ((v_this->v_coeff = uf_malloc_s(r + 1,
@@ -71,6 +70,7 @@ bool		f_imatrix_init(t_imatrix *v_this, size_t c, size_t r)
 void		f_imatrix_destroy(t_imatrix *v_this)
 {
 	uf_free_tab((void **)v_this->v_coeff);
+	v_this->v_coeff = NULL;
 	v_this->v_columns = 0;
 	v_this->v_rows = 0;
 }

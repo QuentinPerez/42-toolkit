@@ -83,5 +83,10 @@ void					f_array_destroy(t_array *v_this)
 {
 	D_ARRAY(clear)(v_this);
 	uf_free_s((void **)&v_this->v_data);
-	uf_memset(v_this, 0, sizeof(*v_this));
+	v_this->v_size = 0;
+	v_this->v_type_size = 0;
+	v_this->v_capacity = 0;
+	v_this->v_data = 0;
+	v_this->f_delete = NULL;
+	v_this->f_realloc = NULL;
 }

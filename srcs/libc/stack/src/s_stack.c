@@ -38,7 +38,8 @@ static void	uf_stack_funct_destroy(void *data)
 
 void		f_stack_init(t_stack *v_this, void (*uf_funct_destroy)(void *data))
 {
-	uf_memset(v_this, 0, sizeof(*v_this));
+	v_this->v_size = 0;
+	v_this->v_last = NULL;
 	v_this->f_destroy = uf_stack_funct_destroy;
 	if (uf_funct_destroy != NULL)
 		v_this->f_destroy = uf_funct_destroy;
@@ -61,5 +62,6 @@ void		f_stack_clear(t_stack *v_this)
 void		f_stack_destroy(t_stack *v_this)
 {
 	D_STACK(clear)(v_this);
-	uf_memset(v_this, 0, sizeof(*v_this));
+	v_this->v_size = 0;
+	v_this->v_last = NULL;
 }
