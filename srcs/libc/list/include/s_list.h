@@ -34,6 +34,14 @@
 # include <list/s_list_cell.h>
 # include <list/s_list_interval.h>
 
+#if defined __clang__
+	# define START_BLOCK(type, args) ^{
+	# define END_BLOCK };
+#elif defined __GNUC__
+	# define START_BLOCK(type, args) ({ type __fn__(args)
+	# define END_BLOCK __fn__; });
+#endif
+
 typedef struct	s_list
 {
 	t_list_cell	*v_begin;

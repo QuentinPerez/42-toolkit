@@ -45,7 +45,8 @@ static void		f_list_splice_empty(t_list *v_this, t_list_cell *start,
 	t_list_cell	*cur;
 
 	cur = start;
-	void (*uf_funct_destroy)(void *) = (void*)^{ return ; };
+	void (*uf_funct_destroy)(void *) = (void*)START_BLOCK(void, void *data)
+	{ return ; } END_BLOCK
 	v_this->f_destroy = uf_funct_destroy;
 	v_this->v_begin = start;
 	v_this->v_end = end;
