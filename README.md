@@ -8,7 +8,6 @@
 </p>
 
 # School
-===
 
 #### Demonstration:
 42's priority is P2P so I started a open source project for me and my colleagues.
@@ -49,20 +48,17 @@ $> docker run -it --rm -v $(pwd):/usr/root/42-toolkit 42-toolkit
 
 Just click on :star: button :kissing_heart:
 
-===
 
 ## Who's behind it?
 
 ### Owner
 * [Quentin Perez](https://github.com/QuentinPerez)
 
-===
 
 ## Lib42
 
 The library has been tested on Darwin, Linux system and Windows with cygwin.
 
-===
 
 ## License
 
